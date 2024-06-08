@@ -9,5 +9,7 @@ export default {
   date: "October 8",
   themes: "Topics",
   speakers: "Speakers",
-  topics: ["Web Development", "Mobile Development", "Cloud Computing"],
+  system: "System",
+  dark: "Dark",
+  light: "Light",
 };

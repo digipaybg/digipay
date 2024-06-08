@@ -92,7 +92,7 @@
               "
               class="capitalize"
             >
-              {{ theme }}
+              {{ $t(theme) }}
             </DropdownMenuItem>
           </div>
         </DropdownMenuContent>
