@@ -5,7 +5,6 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@vueuse/motion/nuxt",
     "@nuxtjs/tailwindcss",
-    "@nuxt/eslint",
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
     "@nuxtjs/google-fonts",

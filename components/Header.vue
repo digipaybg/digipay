@@ -6,12 +6,7 @@
     return locales.value;
   });
 
-  const colorMode = useColorMode();
-
-  let currentColorMode = ref("");
-  onMounted(() => {
-    currentColorMode.value = localStorage.getItem("nuxt-color-mode")!;
-  });
+  const themes = ["system", "dark", "light"];
 </script>
 
 <template>
@@ -25,11 +20,37 @@
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <NuxtLink v-for="locale in availableLocales" :to="switchLocalePath(locale.code)" class="text-lg">
-            <DropdownMenuItem>
-              {{ locale.name }}
-            </DropdownMenuItem>
-          </NuxtLink>
+          <div
+            v-for="(locale, index) in availableLocales"
+            :key="locale.code"
+            v-motion
+            :initial="{
+              opacity: 0,
+              scale: 0.7,
+              y: -20,
+              filter: 'blur(10px)',
+            }"
+            :enter="{
+              filter: 'blur(0px)',
+              scale: 1,
+
+              opacity: 1,
+              y: 0,
+              transition: {
+                delay: index * 100 + 100,
+              },
+            }"
+            :leave="{
+              opacity: 0,
+              y: -10,
+            }"
+          >
+            <NuxtLink :to="switchLocalePath(locale.code)" class="text-lg">
+              <DropdownMenuItem>
+                {{ locale.name }}
+              </DropdownMenuItem>
+            </NuxtLink>
+          </div>
         </DropdownMenuContent>
       </DropdownMenu>
       <DropdownMenu v-if="$colorMode.value !== 'system'">
@@ -39,30 +60,41 @@
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem
-            @click="
-              () => {
-                $colorMode.preference = 'system';
-              }
-            "
-            >System</DropdownMenuItem
+          <div
+            v-for="(theme, index) in themes"
+            :key="theme"
+            v-motion
+            :initial="{
+              opacity: 0,
+              scale: 0.7,
+              y: -20,
+              filter: 'blur(10px)',
+            }"
+            :enter="{
+              filter: 'blur(0px)',
+              scale: 1,
+              opacity: 1,
+              y: 0,
+              transition: {
+                delay: index * 100 + 100,
+              },
+            }"
+            :leave="{
+              opacity: 0,
+              y: -10,
+            }"
           >
-          <DropdownMenuItem
-            @click="
-              () => {
-                $colorMode.preference = 'dark';
-              }
-            "
-            >Dark</DropdownMenuItem
-          >
-          <DropdownMenuItem
-            @click="
-              () => {
-                $colorMode.preference = 'light';
-              }
-            "
-            >Light</DropdownMenuItem
-          >
+            <DropdownMenuItem
+              @click="
+                () => {
+                  $colorMode.preference = theme;
+                }
+              "
+              class="capitalize"
+            >
+              {{ theme }}
+            </DropdownMenuItem>
+          </div>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
