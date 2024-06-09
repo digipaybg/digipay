@@ -12,4 +12,5 @@ export default {
   system: "System",
   dark: "Dark",
   light: "Light",
+  partners: "Partners",
 };

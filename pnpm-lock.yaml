@@ -20,6 +20,9 @@ dependencies:
   '@nuxtjs/i18n':
     specifier: ^8.3.1
     version: 8.3.1(rollup@4.18.0)(vue@3.4.27)
+  '@vueuse/core':
+    specifier: ^10.10.0
+    version: 10.10.0(vue@3.4.27)
   '@vueuse/motion':
     specifier: ^2.2.3
     version: 2.2.3(rollup@4.18.0)(vue@3.4.27)

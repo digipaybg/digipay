@@ -2,22 +2,37 @@
   definePageMeta({
     layout: "default",
   });
+
+  const scrollContainer = useState<HTMLElement | null>("scrollContainer", () => null);
 </script>
 
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col overflow-x-hidden" ref="scrollContainer">
+    <HomeHero />
+
+    <HomePartners />
+
     <div
-      class="flex min-h-[80vh] flex-col items-center justify-center gap-3 bg-gradient-to-b from-violet-900/50 to-background to-70%"
-    >
-      <h3 class="text-xl">{{ $t("date") }}</h3>
-      <h1 class="text-5xl">
-        Digi<strong class="bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent">Pay</strong>
-      </h1>
-      <h2 class="text-3xl">{{ $t("conference") }} 2024</h2>
-      <div class="flex">
-        <HomeThemes />
-      </div>
-    </div>
+      v-for="index in 150"
+      class="my-5 h-20 w-20 self-center bg-slate-400"
+      v-motion
+      :initial="{
+        opacity: 0.8,
+        scale: 0,
+      }"
+      :visible="{
+        opacity: 1,
+        scale: [0, 1.25, 1], // [initial, mid, final
+        // rotate: [0, 360, 0],
+
+        transition: {
+          duration: 450,
+          type: 'spring',
+          stiffness: 100,
+          damping: 10,
+        },
+      }"
+    />
   </div>
 </template>
 

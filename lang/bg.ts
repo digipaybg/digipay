@@ -12,4 +12,5 @@ export default {
   system: "Системно",
   dark: "Тъмна",
   light: "Светла",
+  partners: "Партньори",
 };
