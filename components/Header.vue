@@ -2,7 +2,7 @@
 
 <template>
   <div class="absolute flex w-[99vw] justify-around py-3 transition-all duration-300">
-    <NuxtImg preload class="rounded-full" src="/logo.jpg" format="webp" quality="50" :height="50" />
+    <NuxtImg preload class="h-[50px] rounded-full" src="/logo.jpg" format="webp" quality="50" />
     <div class="space-x-2">
       <HeaderLanugageSelector />
       <HeaderDarkModeToogle />
