@@ -70,7 +70,12 @@
     <div
       class="relative flex h-[90vh] flex-1 justify-center overflow-hidden rounded-bl-2xl bg-gradient-to-br from-pink-600 to-purple-600"
     >
-      <NuxtImg src="/file.png" alt="Hero" class="absolute bottom-0 h-[90%] grayscale lg:left-32" format="webp" />
+      <NuxtImg
+        src="/file.png"
+        alt="Picture of a speaker"
+        class="absolute bottom-0 h-[90%] grayscale lg:left-32"
+        format="webp"
+      />
 
       <Motion
         :initial="{
