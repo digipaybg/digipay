@@ -58,7 +58,7 @@
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 0 0% 14.9%;
+    --accent: 0 0% 5.5%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -74,5 +74,24 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  *::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  /* Handle */
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-3xl bg-muted;
+  }
+
+  /* Handle on hover */
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
   }
 }

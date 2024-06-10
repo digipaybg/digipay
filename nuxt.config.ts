@@ -3,7 +3,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "@vueuse/nuxt",
-    "@vueuse/motion/nuxt",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
@@ -11,6 +10,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-icon",
     "shadcn-nuxt",
+    "@oku-ui/motion-nuxt",
   ],
 
   routeRules: {
@@ -39,5 +39,9 @@ export default defineNuxtConfig({
   },
   image: {
     dir: "public/",
+  },
+  motion: {
+    autoImportComponents: true,
+    autoImportMotion: true,
   },
 });

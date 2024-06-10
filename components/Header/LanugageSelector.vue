@@ -5,6 +5,8 @@
   const availableLocales = computed(() => {
     return locales.value;
   });
+
+  onMounted(() => {});
 </script>
 
 <template>
@@ -15,37 +17,42 @@
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent>
-      <div
-        v-for="(locale, index) in locales"
-        :key="locale.code"
-        v-motion
-        :initial="{
-          opacity: 0,
-          scale: 0.7,
-          y: -20,
-          filter: 'blur(10px)',
-        }"
-        :enter="{
-          filter: 'blur(0px)',
-          scale: 1,
-
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: index * 100 + 100,
-          },
-        }"
-        :leave="{
-          opacity: 0,
-          y: -10,
-        }"
-      >
-        <NuxtLink :to="switchLocalePath(locale.code)" class="text-lg">
-          <DropdownMenuItem>
-            {{ locale.name }}
-          </DropdownMenuItem>
-        </NuxtLink>
-      </div>
+      <PresenceGroup>
+        <Motion
+          v-for="(locale, index) in locales"
+          :key="locale.code"
+          :initial="{
+            opacity: 0,
+            scale: 0.7,
+            y: -20,
+            filter: 'blur(10px)',
+            // opacity: 0,
+          }"
+          :in-view="{
+            // opacity: 1,
+            filter: 'blur(0px)',
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: index * 0.05,
+              duration: 0.3,
+              easing: spring({
+                damping: 10,
+                stiffness: 100,
+                mass: 0.4,
+                velocity: 5,
+              }),
+            },
+          }"
+        >
+          <NuxtLink :to="switchLocalePath(locale.code)" class="text-lg">
+            <DropdownMenuItem>
+              {{ locale.name }}
+            </DropdownMenuItem>
+          </NuxtLink>
+        </Motion>
+      </PresenceGroup>
     </DropdownMenuContent>
   </DropdownMenu>
 </template>

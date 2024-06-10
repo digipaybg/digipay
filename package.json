@@ -15,15 +15,17 @@
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^8.3.1",
-    "@vueuse/motion": "^2.2.3",
-    "@vueuse/nuxt": "^10.10.0",
+    "@oku-ui/motion-nuxt": "^0.2.1",
     "@vueuse/core": "^10.10.0",
+    "@vueuse/nuxt": "^10.10.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.390.0",
+    "motion": "^10.18.0",
     "nuxt": "^3.11.2",
     "radix-vue": "^1.8.3",
     "shadcn-nuxt": "^0.10.4",
+    "split-type": "^0.3.4",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.4.27",
@@ -36,6 +38,7 @@
     "nuxt-icon": "^0.6.10",
     "prettier": "^3.3.1",
     "prettier-plugin-tailwindcss": "^0.6.2",
+    "sass": "^1.77.4",
     "typescript": "^5.4.5"
   }
 }

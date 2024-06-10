@@ -14,7 +14,7 @@
 </script>
 
 <template>
-  <div class="space-y-5 py-5">
+  <!-- <div class="space-y-5 py-5">
     <h1 class="text-center text-5xl">{{ $t("partners") }}</h1>
     <div class="flex justify-center gap-2">
       <a
@@ -28,7 +28,7 @@
         <NuxtImg :src="partner.logo" format="webp" quality="50" class="h-20" />
       </a>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style lang="scss"></style>
