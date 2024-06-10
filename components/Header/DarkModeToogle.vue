@@ -5,12 +5,41 @@
 <template>
   <DropdownMenu v-if="$colorMode.value !== 'system'">
     <DropdownMenuTrigger>
-      <Button size="icon" variant="ghost">
-        <Icon
-          :name="`${$colorMode.value !== 'system' && $colorMode.value === 'dark' ? 'carbon:moon' : 'carbon:sun'}`"
-          size="24"
-        />
-      </Button>
+      <Presence>
+        <Motion
+          :initial="{
+            opacity: 0,
+            scale: 0.7,
+            y: -20,
+            filter: 'blur(10px)',
+            width: 0,
+            // opacity: 0,
+          }"
+          :animate="{
+            filter: 'blur(0px)',
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            width: 'auto',
+            transition: {
+              duration: 0.3,
+              easing: spring({
+                damping: 10,
+                stiffness: 100,
+                mass: 0.4,
+                velocity: 5,
+              }),
+            },
+          }"
+        >
+          <Button size="icon" variant="ghost" v-if="$colorMode.value !== 'system'">
+            <Icon
+              :name="`${$colorMode.value !== 'system' && $colorMode.value === 'dark' ? 'carbon:moon' : 'carbon:sun'}`"
+              size="24"
+            />
+          </Button>
+        </Motion>
+      </Presence>
     </DropdownMenuTrigger>
     <DropdownMenuContent>
       <PresenceGroup>

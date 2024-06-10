@@ -9,6 +9,8 @@
   const buyTicketButton = ref<HTMLElement>();
   const learnMoreButton = ref<HTMLElement>();
 
+  const hide = ref(true);
+
   onMounted(() => {
     const upcomingTitleSplit = new SplitType(upcomingTitleRef.value);
     const heroTitleSplit = new SplitType(heroTitleRef.value);
@@ -16,6 +18,7 @@
 
     console.log(upcomingTitleSplit, heroTitleSplit, heroDescriptionSplit);
 
+    hide.value = false;
     const instance = animate(
       upcomingTitleSplit.chars!.concat(
         heroTitleSplit.lines!,
@@ -51,14 +54,18 @@
   </div> -->
   <div class="relative mt-52 flex min-h-screen flex-col justify-around bg-gradient-to-b lg:mt-0 lg:flex-row">
     <div class="flex flex-1 flex-col gap-3 self-center px-24">
-      <p class="text-2xl font-semibold uppercase text-purple-600 dark:text-purple-400" ref="upcomingTitleRef">
+      <p
+        :class="{ hidden: hide }"
+        class="text-2xl font-semibold uppercase text-purple-600 dark:text-purple-400"
+        ref="upcomingTitleRef"
+      >
         {{ $t("upcoming") }}
       </p>
-      <h1 class="text-6xl font-bold uppercase" ref="heroTitleRef">{{ $t("heroTitle") }}</h1>
-      <h2 class="text-xl" ref="heroDescriptionRef">
+      <h1 :class="{ hidden: hide }" class="text-6xl font-bold uppercase" ref="heroTitleRef">{{ $t("heroTitle") }}</h1>
+      <h2 :class="{ hidden: hide }" class="text-xl" ref="heroDescriptionRef">
         {{ $t("heroDescription") }}
       </h2>
-      <div class="mt-5 flex gap-5">
+      <div :class="{ hidden: hide }" class="mt-5 flex gap-5">
         <div ref="buyTicketButton">
           <Button variant="default">{{ $t("buyTicket") }}</Button>
         </div>
