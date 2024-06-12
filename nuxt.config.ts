@@ -46,4 +46,9 @@ export default defineNuxtConfig({
     autoImportComponents: true,
     autoImportMotion: true,
   },
+  content: {
+    defaultLocale: "bg",
+    locales: ["bg", "en"],
+    markdown: {},
+  },
 });
