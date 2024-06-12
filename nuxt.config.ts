@@ -11,6 +11,8 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "shadcn-nuxt",
     "@oku-ui/motion-nuxt",
+    "@nuxt/content",
+    "@nuxthq/studio",
   ],
 
   routeRules: {
