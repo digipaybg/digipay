@@ -20,4 +20,6 @@ export default {
   heroDescription:
     "The 2024 DigiPay Conference will set the trend and tease us with new technologies. Follow and register to explore more modern innovation",
   location: "Inter Expo Center, Sofia",
+  agenda: "Agenda",
+  contacts: "Contacts",
 };

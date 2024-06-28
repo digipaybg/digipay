@@ -15,6 +15,7 @@
     <HomeHero />
 
     <div v-for="i in 20" :key="i" class="h-96 bg-gradient-to-b from-violet-900/50 to-background"></div>
+    <div id="about"></div>
   </div>
 </template>
 

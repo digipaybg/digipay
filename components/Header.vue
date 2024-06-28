@@ -1,8 +1,39 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="absolute flex w-[99vw] justify-around py-3 transition-all duration-300">
-    <NuxtImg alt="DigiPay Logo" preload class="h-[50px] rounded-full" src="/logo.jpg" format="webp" quality="50" />
+  <div class="absolute flex w-[99vw] items-center justify-center gap-3 py-3 transition-all duration-300">
+    <!-- <NuxtImg alt="DigiPay Logo" preload class="" src="/logo.svg" quality="100" /> -->
+    <Logo class="h-[50px] rounded-full" />
+    <a href="/" as-child>
+      <Button variant="ghost" class="bg-transparent">
+        {{ $t("about") }}
+      </Button>
+    </a>
+    <a href="#about">
+      <Button variant="ghost" class="bg-transparent">
+        {{ $t("speakers") }}
+      </Button>
+    </a>
+    <a href="#speakers" as-child>
+      <Button variant="ghost" class="bg-transparent">
+        {{ $t("agenda") }}
+      </Button>
+    </a>
+    <a href="#schedule" as-child>
+      <Button variant="ghost" class="bg-transparent">
+        {{ $t("partners") }}
+      </Button>
+    </a>
+    <a href="#sponsors" as-child>
+      <Button variant="ghost" class="bg-transparent">
+        {{ $t("blog") }}
+      </Button>
+    </a>
+    <a href="#sponsors" as-child>
+      <Button variant="ghost" class="bg-transparent">
+        {{ $t("contacts") }}
+      </Button>
+    </a>
     <div class="space-x-2">
       <HeaderLanugageSelector />
       <HeaderDarkModeToogle />
