@@ -10,13 +10,10 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "shadcn-nuxt",
     "@oku-ui/motion-nuxt",
-    "@nuxt/content",
     "@nuxthq/studio",
   ],
-
   routeRules: {
-    "/": { prerender: true },
-    "/blog/*": { isr: 3600 },
+    "/": { prerender: false, ssr: true },
   },
 
   i18n: {
@@ -47,11 +44,11 @@ export default defineNuxtConfig({
     autoImportComponents: true,
     autoImportMotion: true,
   },
-  content: {
-    defaultLocale: "bg",
-    locales: ["bg", "en"],
-    markdown: {},
-  },
+  // content: {
+  //   defaultLocale: "bg",
+  //   locales: ["bg", "en"],
+  //   markdown: {},
+  // },
   shadcn: {
     prefix: "",
     componentDir: "./components/ui",

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   const { locale } = useI18n();
-  const { data: posts } = await useAsyncData("home", () => queryContent("/blog").locale(locale.value).find());
+  // const { data: posts } = await useAsyncData("home", () => queryContent("/blog").locale(locale.value).find());
 
   useSeoMeta({
     title: "Blog",
