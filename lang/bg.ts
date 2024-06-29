@@ -3,10 +3,9 @@ export default {
   about: "За нас",
   blog: "Блог",
   contact: "Контакти",
-  hello: "Здравей, свят!",
   day: "Ден",
   conference: "Конференция",
-  date: "8-ми октомври, 2024",
+
   themes: "Теми",
   speakers: "Лектори",
   system: "Системно",
@@ -22,4 +21,6 @@ export default {
   location: "Интер Експо Център, София",
   agenda: "Програма",
   contacts: "Контакти",
+  october: "Октомври",
+  liveOrOnline: "На живо или онлайн",
 };

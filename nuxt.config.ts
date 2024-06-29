@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   ],
 
   routeRules: {
-    "/": { ssr: false },
+    "/": { prerender: true },
     "/blog/*": { isr: 3600 },
   },
 
@@ -34,8 +34,10 @@ export default defineNuxtConfig({
     dataValue: "system",
   },
   googleFonts: {
+    download: true,
     families: {
       Inter: [400, 700, 800, 900],
+      "Bebas Neue": [400, 700, 800, 900],
     },
   },
   image: {
@@ -50,8 +52,8 @@ export default defineNuxtConfig({
     locales: ["bg", "en"],
     markdown: {},
   },
-  shadcn: { 
-    prefix: '',
-    componentDir: './components/ui',
-  }
+  shadcn: {
+    prefix: "",
+    componentDir: "./components/ui",
+  },
 });

@@ -22,4 +22,5 @@ export default {
   location: "Inter Expo Center, Sofia",
   agenda: "Agenda",
   contacts: "Contacts",
+  liveOrOnline: "Live or Online",
 };

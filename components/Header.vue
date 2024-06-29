@@ -1,7 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="absolute flex w-[99vw] items-center justify-center gap-3 py-3 transition-all duration-300">
+  <div
+    class="absolute flex w-[99vw] items-center justify-center gap-3 overflow-hidden py-3 transition-all duration-300"
+  >
     <!-- <NuxtImg alt="DigiPay Logo" preload class="" src="/logo.svg" quality="100" /> -->
     <Logo class="h-[50px] rounded-full" />
     <a href="/" as-child>
@@ -34,11 +36,9 @@
         {{ $t("contacts") }}
       </Button>
     </a>
-    <div class="space-x-2">
-      <HeaderLanugageSelector />
-      <HeaderDarkModeToogle />
-    </div>
-    <div class="absolute inset-0 -z-10 h-52 backdrop-blur-xl"></div>
+    <HeaderLanugageSelector />
+    <!-- <HeaderDarkModeToogle /> -->
+    <div class="absolute inset-0 bottom-0 -z-10 h-full backdrop-blur-2xl"></div>
   </div>
 </template>
 

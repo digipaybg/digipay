@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <svg width="60" height="61" viewBox="0 0 60 61" fill="#000" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 60 61" fill="#000" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_7397_940)">
       <path
         d="M21.212 55.543C21.586 55.543 21.8892 55.2168 21.8892 54.8145C21.8892 54.4121 21.586 54.0859 21.212 54.0859C20.8381 54.0859 20.5349 54.4121 20.5349 54.8145C20.5349 55.2168 20.8381 55.543 21.212 55.543Z"
