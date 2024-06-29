@@ -38,7 +38,7 @@
       <HeaderLanugageSelector />
       <HeaderDarkModeToogle />
     </div>
-    <div class="absolute inset-0 -z-10 h-32 backdrop-blur-xl"></div>
+    <div class="absolute inset-0 -z-10 h-52 backdrop-blur-xl"></div>
   </div>
 </template>
 

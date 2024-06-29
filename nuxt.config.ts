@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
@@ -16,7 +15,7 @@ export default defineNuxtConfig({
   ],
 
   routeRules: {
-    "/": { prerender: true },
+    "/": { ssr: false },
     "/blog/*": { isr: 3600 },
   },
 
@@ -51,4 +50,8 @@ export default defineNuxtConfig({
     locales: ["bg", "en"],
     markdown: {},
   },
+  shadcn: { 
+    prefix: '',
+    componentDir: './components/ui',
+  }
 });

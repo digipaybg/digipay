@@ -26,8 +26,6 @@
       },
     ],
   });
-
-  useFavicon("/logo.jpg");
 </script>
 
 <template>
