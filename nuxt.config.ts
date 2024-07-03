@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     "@nuxt/content",
   ],
   routeRules: {
-    "/": { prerender: false, ssr: true },
+    "/": { prerender: true },
   },
 
   i18n: {
