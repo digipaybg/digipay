@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@oku-ui/motion-nuxt",
     "@nuxthq/studio",
+    "@nuxt/content",
   ],
   routeRules: {
     "/": { prerender: false, ssr: true },
@@ -44,11 +45,11 @@ export default defineNuxtConfig({
     autoImportComponents: true,
     autoImportMotion: true,
   },
-  // content: {
-  //   defaultLocale: "bg",
-  //   locales: ["bg", "en"],
-  //   markdown: {},
-  // },
+  content: {
+    defaultLocale: "bg",
+    locales: ["bg", "en"],
+    markdown: {},
+  },
   shadcn: {
     prefix: "",
     componentDir: "./components/ui",

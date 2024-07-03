@@ -14,6 +14,8 @@
   <div class="flex flex-col overflow-x-hidden" ref="scrollContainer">
     <HomeHero />
 
+    <HomeAbout />
+
     <div v-for="i in 20" :key="i" class="h-96"></div>
     <div id="about"></div>
   </div>
