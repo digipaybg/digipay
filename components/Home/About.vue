@@ -92,7 +92,7 @@
 
 <template>
   <div class="relative flex h-screen flex-col items-center justify-center gap-24 overflow-visible py-20">
-    <h1 class="text-4xl">За какво е събитието?</h1>
+    <h1 class="py-10 text-center text-4xl">Защо DigiPay се отличава?</h1>
 
     <!-- <div class="circle-background overflow-visible" /> -->
     <circle class="absolute left-[-15%] top-[33%] aspect-square w-1/2 rounded-full bg-[#27E076]/25 blur-[200px]" />

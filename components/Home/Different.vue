@@ -10,7 +10,7 @@
 
 <template>
   <div class="relative">
-    <h1 class="pb-5 text-center text-4xl">Защо DigiPay се отличава?</h1>
+    <h1 class="py-10 text-center text-4xl">Защо DigiPay се отличава?</h1>
     <div class="flex items-center justify-around">
       <div class="flex flex-[0.5] flex-col gap-3">
         <div

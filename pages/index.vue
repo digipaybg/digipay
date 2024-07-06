@@ -14,9 +14,11 @@
   <div class="flex flex-col gap-3 overflow-x-hidden overflow-y-hidden" ref="scrollContainer">
     <HomeHero />
 
-    <HomeAbout />
+    <LazyHomeAbout />
 
-    <HomeDifferent />
+    <LazyHomeDifferent />
+
+    <LazyHomeInvest />
   </div>
 </template>
 
