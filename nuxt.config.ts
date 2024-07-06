@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     "@nuxt/content",
   ],
   routeRules: {
-    "/": { prerender: true },
+    "/": { prerender: true, static: true },
   },
 
   i18n: {
@@ -54,4 +54,5 @@ export default defineNuxtConfig({
     prefix: "",
     componentDir: "./components/ui",
   },
+  compatibilityDate: "2024-07-05",
 });

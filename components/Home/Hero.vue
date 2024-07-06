@@ -4,41 +4,14 @@
   const leftIcons = ["/planet.svg", "/money.svg", "/phone.svg"];
   const rightIcons = ["/ai.svg", "/security.svg", "/lock.svg"];
 
+  const headerRef = ref<HTMLElement | null>(null);
+
   onMounted(() => {
-    animate(
-      ".icon-cell",
-      {
-        y: [-800, 0],
-      },
-      {
-        easing: spring({
-          stiffness: 50,
-          damping: 15,
-          mass: 1,
-        }),
-        delay: stagger(0.2, {
-          from: "first",
-        }),
-      },
-    );
+    const headerText = document.querySelectorAll(".header-text")!;
 
-    animate(
-      ".icon-cell-alternate",
-
-      {
-        y: [-800, 0],
-      },
-      {
-        easing: spring({
-          stiffness: 50,
-          damping: 15,
-          mass: 1,
-        }),
-        delay: stagger(0.2, {
-          from: "first",
-        }),
-      },
-    );
+    headerText.forEach((text) => {
+      text.classList.remove("opacity-0");
+    });
 
     const split = new SplitType(".header-text");
 
@@ -98,11 +71,11 @@
             >
               <Logo class="h-[250px]" />
             </Motion>
-            <div class="flex items-center">
-              <h1 class="header-text text-[250px]">8</h1>
+            <div class="flex items-center" ref="header">
+              <h1 class="header-text text-[250px] opacity-0">8</h1>
               <div class="flex flex-col">
-                <h2 class="header-text h-16 text-[75px] font-bold">October</h2>
-                <h3 class="header-text text-[130px] text-primary">2024</h3>
+                <h2 class="header-text h-16 text-[75px] font-bold opacity-0">October</h2>
+                <h3 class="header-text text-[130px] text-primary opacity-0">2024</h3>
               </div>
             </div>
           </div>
@@ -155,7 +128,21 @@
           </Motion>
         </div>
         <div class="absolute left-[-26.5%] hidden flex-col gap-4 2xl:flex">
-          <div
+          <Motion
+            :initial="{
+              y: -800,
+            }"
+            :animate="{
+              y: 0,
+            }"
+            :transition="{
+              easing: spring({
+                stiffness: 50,
+                damping: 15,
+                mass: 1,
+              }),
+              delay: index * 0.2,
+            }"
             v-for="(icon, index) in leftIcons"
             class="icon-cell relative h-20 w-20 bg-center bg-no-repeat"
             :class="`left-[-${index * 150}%]`"
@@ -168,7 +155,21 @@
         </div>
 
         <div class="absolute right-[-70%] hidden flex-col gap-4 2xl:flex">
-          <div
+          <Motion
+            :initial="{
+              y: -800,
+            }"
+            :animate="{
+              y: 0,
+            }"
+            :transition="{
+              easing: spring({
+                stiffness: 50,
+                damping: 15,
+                mass: 1,
+              }),
+              delay: index * 0.2,
+            }"
             v-for="(icon, index) in rightIcons"
             class="icon-cell-alternate relative h-20 w-20 bg-center bg-no-repeat"
             :class="`left-[-${(2 - index) * 150}%]`"
