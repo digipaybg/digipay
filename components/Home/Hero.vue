@@ -40,6 +40,7 @@
   <div class="relative h-screen select-none">
     <NuxtImg
       preload
+      priority
       src="/background.png"
       alt="Hero"
       class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-50"
