@@ -26,6 +26,16 @@
       },
     ],
   });
+
+  const colorMode = useColorMode();
+
+  watch(colorMode, (value) => {
+    if (value.value === "light") {
+      useFavicon("/logo-dark.png");
+    } else {
+      useFavicon("/logo.png");
+    }
+  });
 </script>
 
 <template>

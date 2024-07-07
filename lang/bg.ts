@@ -23,4 +23,10 @@ export default {
   contacts: "Контакти",
   october: "Октомври",
   liveOrOnline: "На живо или онлайн",
+  instantPayments: "Незабавни плащания",
+  paymentScam: "Предотвратяване на измами при плащания",
+  cloudInnovationsForFinance: "Облачни технологии във финансовата индустрия",
+  antiMoneyLaunderingMeasures: "Регулации и практики срещу пране на пари",
+  userPaymentAI: "Потребителско преживяване и AI при разплащанията",
+  foreignQuotaEntry: "Промени при плащанията при влизането в еврозоната",
 };

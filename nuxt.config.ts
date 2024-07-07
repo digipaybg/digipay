@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
+    "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
@@ -11,6 +12,8 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@oku-ui/motion-nuxt",
     "@nuxthq/studio",
+    "@nuxt/content",
+    "@nuxt/icon",
   ],
   routeRules: {
     "/": { prerender: false, ssr: true },

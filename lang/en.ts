@@ -23,4 +23,10 @@ export default {
   agenda: "Agenda",
   contacts: "Contacts",
   liveOrOnline: "Live or Online",
+  instantPayments: "Instant Payments",
+  paymentScam: "Preventing Payment Scams",
+  cloudInnovationsForFinance: "Cloud Innovations for Finance",
+  antiMoneyLaunderingMeasures: "Anti-Money Laundering Measures",
+  userPaymentAI: "User Experience and AI in Payments",
+  foreignQuotaEntry: "Changes in Payments upon entering the Eurozone",
 };
