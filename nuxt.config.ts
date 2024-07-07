@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
   ],
   routeRules: {
-    "/": { prerender: false, ssr: true },
+    "/": { prerender: true, static: true },
   },
 
   i18n: {
@@ -47,13 +47,14 @@ export default defineNuxtConfig({
     autoImportComponents: true,
     autoImportMotion: true,
   },
-  // content: {
-  //   defaultLocale: "bg",
-  //   locales: ["bg", "en"],
-  //   markdown: {},
-  // },
+  content: {
+    defaultLocale: "bg",
+    locales: ["bg", "en"],
+    markdown: {},
+  },
   shadcn: {
     prefix: "",
     componentDir: "./components/ui",
   },
+  compatibilityDate: "2024-07-05",
 });

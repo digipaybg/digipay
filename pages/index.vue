@@ -11,13 +11,16 @@
 </script>
 
 <template>
-  <div class="flex flex-col overflow-x-hidden" ref="scrollContainer">
+  <div class="flex flex-col gap-3 overflow-x-hidden overflow-y-hidden" ref="scrollContainer">
     <HomeHero />
 
     <HomeThemes />
 
-    <div v-for="i in 20" :key="i" class="h-96"></div>
-    <div id="about"></div>
+    <LazyHomeAbout />
+
+    <LazyHomeDifferent />
+
+    <LazyHomeInvest />
   </div>
 </template>
 
