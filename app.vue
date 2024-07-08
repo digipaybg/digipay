@@ -29,12 +29,17 @@
 
   const colorMode = useColorMode();
 
-  watch(colorMode, (value) => {
-    if (value.value === "light") {
+  onMounted(() => {
+    if (!window.matchMedia("(prefers-color-scheme: dark)").matches) {
       useFavicon("/logo-dark.png");
     } else {
       useFavicon("/logo.png");
     }
+    colorMode.value = "dark";
+  });
+
+  definePageMeta({
+    colorMode: "dark",
   });
 </script>
 
