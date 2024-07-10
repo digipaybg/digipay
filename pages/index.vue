@@ -21,6 +21,7 @@
     <LazyHomeDifferent />
 
     <LazyHomeInvest />
+    <LazyHomeSpeakers />
   </div>
 </template>
 

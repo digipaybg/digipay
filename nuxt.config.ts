@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     "nuxt-lenis",
     "@nuxt/eslint",
     "@hypernym/nuxt-gsap",
+    "nuxt-swiper",
   ],
   routeRules: {
     "/": { prerender: true, static: true },
