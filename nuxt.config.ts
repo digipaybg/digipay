@@ -14,6 +14,9 @@ export default defineNuxtConfig({
     "@nuxthq/studio",
     "@nuxt/content",
     "@nuxt/icon",
+    "nuxt-lenis",
+    "@nuxt/eslint",
+    "@hypernym/nuxt-gsap",
   ],
   routeRules: {
     "/": { prerender: true, static: true },
@@ -30,8 +33,8 @@ export default defineNuxtConfig({
   colorMode: {
     classPrefix: "",
     classSuffix: "",
-    preference: "system",
-    dataValue: "system",
+    preference: "dark",
+    dataValue: "dark",
   },
   googleFonts: {
     download: true,
@@ -57,4 +60,7 @@ export default defineNuxtConfig({
     componentDir: "./components/ui",
   },
   compatibilityDate: "2024-07-05",
+  icon: {
+    dynamic: true,
+  },
 });

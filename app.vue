@@ -37,16 +37,18 @@
     }
     colorMode.value = "dark";
   });
-
-  definePageMeta({
-    colorMode: "dark",
-  });
 </script>
 
 <template>
   <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <lenis
+      :options="{
+        lerp: 0.1,
+      }"
+    >
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </lenis>
   </div>
 </template>
