@@ -1,4 +1,6 @@
-<script lang="ts" setup></script>
+<script setup lang="ts">
+  const localePath = useLocalePath();
+</script>
 
 <template>
   <div
@@ -6,12 +8,13 @@
   >
     <!-- <NuxtImg alt="DigiPay Logo" preload class="" src="/logo.svg" quality="100" /> -->
     <Logo class="h-[50px] rounded-full" />
+
     <a href="/" as-child>
       <Button variant="ghost" class="bg-transparent">
         {{ $t("about") }}
       </Button>
     </a>
-    <a href="#about">
+    <a href="#speakers">
       <Button variant="ghost" class="bg-transparent">
         {{ $t("speakers") }}
       </Button>
@@ -26,11 +29,11 @@
         {{ $t("partners") }}
       </Button>
     </a>
-    <a href="#sponsors" as-child>
+    <NuxtLink :href="localePath('/blog')" as-child>
       <Button variant="ghost" class="bg-transparent">
         {{ $t("blog") }}
       </Button>
-    </a>
+    </NuxtLink>
     <a href="#sponsors" as-child>
       <Button variant="ghost" class="bg-transparent">
         {{ $t("contacts") }}
@@ -38,7 +41,7 @@
     </a>
     <HeaderLanugageSelector />
     <!-- <HeaderDarkModeToogle /> -->
-    <div class="absolute inset-0 bottom-0 -z-10 h-full backdrop-blur-2xl"></div>
+    <div class="absolute inset-0 bottom-0 -z-10 h-full backdrop-blur-2xl" />
   </div>
 </template>
 

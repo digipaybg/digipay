@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxtjs/google-fonts",
     "@nuxt/image",
-    "nuxt-icon",
     "shadcn-nuxt",
     "@oku-ui/motion-nuxt",
     "@nuxthq/studio",
@@ -62,6 +61,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: "2024-07-05",
   icon: {
-    dynamic: true,
+    fallbackToApi: true,
+    provider: "iconify",
   },
 });

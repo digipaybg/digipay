@@ -1,10 +1,16 @@
 <script lang="ts" setup>
   const { locale } = useI18n();
+
+  const computedLocale = computed(() => {
+    return locale.value === "en" ? "en" : "";
+  });
+
   const speakersContent = await queryContent("speakers").locale(locale.value).find();
 </script>
 
 <template>
-  <div class="my-52">
+  <div id="speakers" class="my-52 pb-10">
+    <h1 class="py-10 text-center text-4xl">Speakers</h1>
     <Swiper
       :modules="[
         SwiperAutoplay,
@@ -14,47 +20,69 @@
         SwiperEffectCoverflow,
         SwiperKeyboard,
         SwiperFreeMode,
+        SwiperController,
       ]"
       :navigation="{
         enabled: true,
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.nextButton',
+        prevEl: '.prevButton',
       }"
       :keyboard="{
         enabled: true,
       }"
-      :slides-per-view="5"
+      :slides-per-view="4"
       :allow-slide-next="true"
       :allow-slide-prev="true"
       :loop="false"
       :centered-slides="true"
-      :grab-cursor="true"
-      :round-lengths="true"
-      :space-between="25"
+      :grab-cursor="false"
+      :round-lengths="false"
+      :space-between="40"
       :pagination="{
         enabled: true,
         type: 'bullets',
         clickable: true,
       }"
     >
-      <SwiperSlide v-for="(speaker, index) in speakersContent" :key="index" class="w-fit rounded-xl bg-blue-900">
-        <div class="flex flex-col items-center justify-center gap-3 p-10 text-center">
+      <SwiperSlide
+        v-for="(speaker, index) in speakersContent"
+        :key="index"
+        class="mb-10 w-fit rounded-xl border border-blue-900 bg-blue-900/[0.17] shadow-[0px_0px_20px_0px] shadow-blue-900"
+      >
+        <div class="flex h-[600px] flex-col items-center justify-between gap-3 p-10 text-center">
           <NuxtImg
-            :src="speaker.img"
+            :src="speaker.image"
             alt="speaker"
-            class="aspect-square h-52 rounded-full border border-white object-cover"
+            class="aspect-square h-52 rounded-full border border-white object-cover object-top"
             preload
           />
           <h1 class="text-2xl">{{ speaker.name }}</h1>
-          <h2 class="text-lg">{{ speaker.position }}</h2>
-          <NuxtLink as-child :to="speaker._path" class="m-10 mt-4 w-[75%]">
-            <Button class="w-full" variant="default">Bio</Button>
+          <h2 class="flex-1 text-lg">{{ speaker.position }}</h2>
+          <NuxtLink as-child :to="computedLocale + speaker._path" class="m-10 mt-4 w-[75%]">
+            <Button class="w-full" variant="default">{{ $t("bio") }}</Button>
           </NuxtLink>
         </div>
       </SwiperSlide>
-      <div class="swiper-navigation-controls pt-10">
-        <div class="swiper-button-prev" />
-        <div class="swiper-button-next" />
+      <div class="swiper-navigation-controls flex items-center justify-center py-2 pt-10" />
+      <div class="absolute bottom-0 flex w-full justify-around px-52">
+        <Button
+          id="prevButton"
+          size="icon"
+          class="prevButton z-10 rounded-full bg-green-700 p-8 hover:rounded-full hover:bg-green-700 active:rounded-full active:bg-green-700"
+        >
+          <div class="flex items-center justify-center">
+            <Icon name="i-material-symbols-arrow-left-alt" size="25" class="text-white" />
+          </div>
+        </Button>
+        <Button
+          id="nextButton"
+          size="icon"
+          class="nextButton z-10 rounded-full bg-green-700 p-8 hover:rounded-full hover:bg-green-700 active:rounded-full active:bg-green-700"
+        >
+          <div class="flex items-center justify-center">
+            <Icon name="i-material-symbols-arrow-right-alt" size="25" class="text-white" />
+          </div>
+        </Button>
       </div>
     </Swiper>
   </div>

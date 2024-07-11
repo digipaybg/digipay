@@ -8,7 +8,9 @@
 
     <slot />
 
-    <Footer />
+    <div class="relative bottom-0">
+      <Footer />
+    </div>
   </div>
 </template>
 

@@ -29,4 +29,36 @@ export default {
   antiMoneyLaunderingMeasures: "Anti-Money Laundering Measures",
   userPaymentAI: "User Experience and AI in Payments",
   foreignQuotaEntry: "Changes in Payments upon entering the Eurozone",
+  secureDigitalPayments: "For more secure and convenient digital payments",
+  newBusinessModelsInPayments: "New business models in payments",
+  identityManagement: "Identity and access management",
+  electronicSignatureSolutions: "Electronic signature solutions",
+  cloudTechnologies: "Cloud technologies",
+  paymentMobileApps: "Mobile applications for payments and banking services",
+  openBankingAndRealTimePayments: "Open banking and real-time payments",
+  europeanRegulations: "European and national regulations",
+  paymentInfrastructureModernization: "Payment infrastructure modernization",
+  machineLearning: "Machine learning and artificial intelligence",
+  newTechnologyTrends: "Innovations, Startup ecosystem, Sustainable investments",
+  fraudDetection: "Solutions for fraud detection and prevention in payments",
+  antiMoneyLaunderingSolutions: "Anti-money laundering solutions",
+  dataSecurity: "Data security: Digital identity; Digital inclusion",
+  blockchain: "Blockchain; Cryptocurrency; New digital money",
+  specializedEvent: "DIGI PAY is the specialized event for payments in the banking, financial, and investment sectors.",
+  platformDiscussion:
+    "DIGI PAY is the platform for discussing solutions for digital banking and payments, fraud detection and prevention in real-time payments.",
+  digitalPaymentsPlatform: "DIGI PAY is the platform for changing the world of money and digital payments.",
+  enhancedAwareness:
+    "DIGI PAY creates business for businesses, regulators to raise awareness in response to growing consumer expectations.",
+  paymentPlatform:
+    "DIGI PAY seeks strong partnerships for secure and convenient digital payments in Bulgaria and Central and Eastern European countries.",
+  showBetterClientSolutions: "Let's show together better solutions for clients and end users in the field of payments.",
+  convertToAdvantage: "Turn your cause into a competitive advantage.",
+  customerTrainingMission:
+    "Invest in the strategic mission of training clients in more secure practices in digital payments.",
+  eventSpecializedSecurePayments: "We are a specialized event with a cause for more convenient and secure payments",
+  bankingAndFinTechSectorNameGenerator:
+    "Let's establish together the name of the banking and fintech sector as generators of sustainable finance in Bulgaria.",
+  bio: "Bio",
+  eventAbout: "What's the event for?",
 };

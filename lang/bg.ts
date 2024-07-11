@@ -61,4 +61,6 @@ export default {
   eventSpecializedSecurePayments: "Ние сме специализирано събитие с кауза за по-удобни и сигурни плащания",
   bankingAndFinTechSectorNameGenerator:
     "Да утвърдим заедно името на банковия и финтех сектор като генератори на устойчиви финанси в България.",
+  bio: "Био",
+  eventAbout: "За какво е събитието?",
 };

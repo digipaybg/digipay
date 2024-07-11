@@ -38,21 +38,21 @@
     <div class="flex w-[75%] flex-col flex-wrap lg:gap-5">
       <div class="flex flex-col justify-center gap-5 lg:flex-row">
         <div v-for="(item, index) in firstRow" :key="index" class="cell">
-          <LazyIconCSS :name="item.icon" size="50" class="text-green-500" />
+          <Icon :name="item.icon" size="50" class="text-green-500" />
           <h1 class="">
             {{ $t(item.text) }}
           </h1>
         </div>
       </div>
       <div class="flex flex-col justify-center gap-5 lg:flex-row">
-        <div class="flex-[0.5]"></div>
+        <div class="flex-[0.5]" />
         <div v-for="(item, index) in secondRow" :key="index" class="cell mx-auto">
-          <LazyIconCSS :name="item.icon" size="50" class="text-green-500" />
+          <Icon :name="item.icon" size="50" class="text-green-500" />
           <h1 class="w-full">
             {{ $t(item.text) }}
           </h1>
         </div>
-        <div class="flex-[0.5]"></div>
+        <div class="flex-[0.5]" />
       </div>
     </div>
   </div>

@@ -18,10 +18,6 @@
       icon: "i-ph-device-mobile-bold",
       text: "electronicSignatureSolutions",
     },
-    {
-      icon: "i-material-symbols-cloud",
-      text: "cloudTechnologies",
-    },
   ];
 
   const secondCol = [
@@ -71,7 +67,7 @@
   ];
 
   onMounted(() => {
-    let el = document.querySelector("#scrollContainer") as HTMLElement;
+    const el = document.querySelector("#scrollContainer") as HTMLElement;
 
     scroll(
       animate(
@@ -91,25 +87,31 @@
 </script>
 
 <template>
-  <div class="relative flex h-screen flex-col items-center justify-center gap-24 overflow-visible py-20">
-    <h1 class="py-10 text-center text-4xl">Защо DigiPay се отличава?</h1>
+  <div class="relative flex min-h-screen items-center justify-center gap-24 overflow-visible py-20">
+    <h1 class="py-10 text-center text-4xl">{{ $t("eventAbout") }}</h1>
 
     <!-- <div class="circle-background overflow-visible" /> -->
-    <circle class="absolute left-[-15%] top-[33%] aspect-square w-1/2 rounded-full bg-[#27E076]/25 blur-[200px]" />
+    <circle class="absolute left-[-15%] top-[45%] aspect-square w-1/2 rounded-full bg-[#27E076]/25 blur-[200px]" />
     <!-- Radial gradient -->
 
-    <div class="flex w-[80%] items-center justify-evenly" id="scrollContainer">
+    <div id="scrollContainer" class="flex items-center justify-center place-self-center">
       <div
-        class="flex flex-1 flex-col"
-        :class="{ 'scale-105 px-5': index == 1 }"
         v-for="(col, index) in [firstCol, secondCol, thirdCol]"
+        :key="index"
+        class="flex flex-1 flex-col justify-center"
+        :class="{ 'scale-105': index === 1 }"
       >
-        <div class="row relative pb-10" v-for="topic in col">
+        <div v-for="(topic, jdex) in col" :key="jdex" class="row relative pb-10">
           <div class="absolute left-0 h-full w-[2px] bg-green-500/25" />
           <div class="absolute left-0 h-[30px] w-[2px] rounded-xl bg-green-500" />
 
-          <Icon :name="topic.icon" size="50" class="relative left-0 h-1/2 border-l-[0px] border-green-500 pl-5" />
-          <h4 class="h-full w-[90%] border-l-[0px] border-green-500/50 pl-5">{{ $t(topic.text) }}</h4>
+          <Icon
+            :name="topic.icon"
+            mode="svg"
+            size="50"
+            class="relative left-0 h-1/2 border-l-[0px] border-green-500 pl-5"
+          />
+          <h4 class="h-full w-[65%] border-l-[0px] border-green-500/50 pl-5">{{ $t(topic.text) }}</h4>
         </div>
       </div>
     </div>
