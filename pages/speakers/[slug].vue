@@ -121,10 +121,10 @@
       <Meta property="twitter:card" content="summary_large_image" />
     </Head>
 
-    <article class="flex min-h-screen w-2/3 justify-center gap-24 place-self-center pt-52">
+    <article class="flex min-h-screen w-2/3 flex-col justify-center gap-24 place-self-center pt-52 2xl:flex-row">
       <div class="flex flex-[1] flex-col gap-10">
         <div class="space-y-3">
-          <h1 id="speakerName" class="text-8xl tracking-wider opacity-0">{{ doc.name }}</h1>
+          <h1 id="speakerName" class="tracking-wider opacity-0 sm:text-4xl md:text-6xl 2xl:text-7xl">{{ doc.name }}</h1>
           <h2 id="speakerPosition" ref="descriptionRef" class="font-sans text-xl font-light tracking-tight opacity-0">
             {{ doc.position }}
           </h2>
@@ -139,7 +139,7 @@
         quality="80"
         preload
         priority
-        class="sticky top-20 aspect-square max-h-[500px] object-cover object-top opacity-0"
+        class="sticky top-20 aspect-square object-cover object-top opacity-0 2xl:max-h-[500px]"
       />
     </article>
   </ContentDoc>

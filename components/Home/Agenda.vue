@@ -1,9 +1,14 @@
-<script lang="ts" setup>
-  const agendaByDay = [];
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <div></div>
+  <div class="flex items-center justify-center text-center">
+    <div class="flex-1">
+      <h1>kfoasf</h1>
+    </div>
+    <div class="flex-1">
+      <h1>kfoasf</h1>
+    </div>
+  </div>
 </template>
 
 <style lang="scss"></style>

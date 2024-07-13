@@ -52,7 +52,7 @@
     >
       <div class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-2">
         <div class="flex flex-col items-center gap-1">
-          <div class="hero-text flex h-80 items-center justify-center gap-8">
+          <div class="hero-text flex flex-col items-center justify-center lg:h-80 lg:flex-row lg:gap-8">
             <Motion
               :initial="{
                 scale: 0.6,
@@ -72,11 +72,11 @@
             >
               <Logo class="h-[250px]" />
             </Motion>
-            <div class="flex items-center" ref="header">
-              <h1 class="header-text text-[250px] opacity-0">8</h1>
+            <div ref="header" class="flex items-center">
+              <h1 class="header-text text-[150px] opacity-0 lg:text-[250px]">8</h1>
               <div class="flex flex-col">
-                <h2 class="header-text h-16 text-[75px] font-bold opacity-0">October</h2>
-                <h3 class="header-text text-[130px] text-primary opacity-0">2024</h3>
+                <h2 class="header-text h-8 text-[45px] font-bold opacity-0 lg:h-16 lg:text-[75px]">October</h2>
+                <h3 class="header-text text-[100px] text-primary opacity-0 lg:text-[130px]">2024</h3>
               </div>
             </div>
           </div>
@@ -130,6 +130,7 @@
         </div>
         <div class="absolute left-[-26.5%] hidden flex-col gap-4 2xl:flex">
           <Motion
+            v-for="(icon, index) in leftIcons"
             :initial="{
               y: -800,
             }"
@@ -144,7 +145,6 @@
               }),
               delay: index * 0.2,
             }"
-            v-for="(icon, index) in leftIcons"
             class="icon-cell relative h-20 w-20 bg-center bg-no-repeat"
             :class="`left-[-${index * 150}%]`"
             :style="{
@@ -157,6 +157,7 @@
 
         <div class="absolute right-[-70%] hidden flex-col gap-4 2xl:flex">
           <Motion
+            v-for="(icon, index) in rightIcons"
             :initial="{
               y: -800,
             }"
@@ -171,7 +172,6 @@
               }),
               delay: index * 0.2,
             }"
-            v-for="(icon, index) in rightIcons"
             class="icon-cell-alternate relative h-20 w-20 bg-center bg-no-repeat"
             :class="`left-[-${(2 - index) * 150}%]`"
             :style="{
