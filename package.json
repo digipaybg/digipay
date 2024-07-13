@@ -18,6 +18,7 @@
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^8.3.1",
+    "@nuxtjs/seo": "^2.0.0-rc.12",
     "@oku-ui/motion-nuxt": "^0.2.1",
     "@vueuse/core": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",

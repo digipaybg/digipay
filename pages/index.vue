@@ -5,13 +5,16 @@
 
   useSeoMeta({
     title: "Home",
+    twitterTitle: "Home | DigiPay",
+    twitterCard: "summary_large_image",
+    ogSiteName: "DigiPay",
   });
 
   const scrollContainer = useState<HTMLElement | null>("scrollContainer", () => null);
 </script>
 
 <template>
-  <div class="flex flex-col gap-3 overflow-x-hidden overflow-y-hidden" ref="scrollContainer">
+  <div ref="scrollContainer" class="flex flex-col gap-3 overflow-x-hidden overflow-y-hidden">
     <HomeHero />
 
     <HomeThemes />

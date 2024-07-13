@@ -10,7 +10,7 @@
 
 <template>
   <div id="speakers" class="my-52 pb-10">
-    <h1 class="py-10 text-center text-4xl">Speakers</h1>
+    <h1 class="py-10 text-center text-4xl">{{ $t("speakers") }}</h1>
     <Swiper
       :modules="[
         SwiperAutoplay,
@@ -91,5 +91,9 @@
 <style lang="scss">
   .swiper {
     padding-bottom: 25px;
+  }
+
+  .swiper-pagination-bullet {
+    @apply bg-green-700;
   }
 </style>

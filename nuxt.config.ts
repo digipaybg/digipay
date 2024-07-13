@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   modules: [
     "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
@@ -17,6 +23,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@hypernym/nuxt-gsap",
     "nuxt-swiper",
+    "@nuxtjs/seo",
   ],
   routeRules: {
     "/": { prerender: true, static: true },
@@ -63,5 +70,8 @@ export default defineNuxtConfig({
   icon: {
     fallbackToApi: true,
     provider: "iconify",
+  },
+  ogImage: {
+    componentDirs: ["/components/OgImage"],
   },
 });
