@@ -53,7 +53,7 @@
       muted
       loop
       no-controls
-      class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-50"
+      class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-35"
     />
     <div
       class="relative bottom-0 flex h-screen flex-col bg-gradient-to-t from-background from-10% to-transparent to-70%"

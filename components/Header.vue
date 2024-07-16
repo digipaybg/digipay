@@ -7,7 +7,7 @@
     class="absolute flex w-[99vw] items-center justify-center gap-3 overflow-hidden py-3 transition-all duration-300"
   >
     <!-- <NuxtImg alt="DigiPay Logo" preload class="" src="/logo.svg" quality="100" /> -->
-    <Logo class="h-[50px] rounded-full" />
+    <Logo class="h-[50px] cursor-pointer rounded-full" @click="() => $router.push('/')" />
 
     <a href="/" as-child>
       <Button variant="ghost" class="bg-transparent">

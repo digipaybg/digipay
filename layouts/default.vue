@@ -8,7 +8,7 @@
 
     <slot />
 
-    <div class="relative bottom-0">
+    <div class="relative bottom-0 mt-24 h-full">
       <Footer />
     </div>
   </div>
