@@ -48,7 +48,7 @@
       format="webp"
     /> -->
     <video
-      src="/hero_video_noblur.mp4"
+      src="/hero_video.mp4"
       autoplay
       muted
       loop
