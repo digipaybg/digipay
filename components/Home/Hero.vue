@@ -38,7 +38,7 @@
 
 <template>
   <div class="relative h-screen select-none">
-    <NuxtImg
+    <!-- <NuxtImg
       preload
       priority
       src="/background.png"
@@ -46,6 +46,14 @@
       class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-50"
       quality="70"
       format="webp"
+    /> -->
+    <video
+      src="/hero_video.mp4"
+      autoplay
+      muted
+      loop
+      no-controls
+      class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-50"
     />
     <div
       class="relative bottom-0 flex h-screen flex-col bg-gradient-to-t from-background from-10% to-transparent to-70%"
