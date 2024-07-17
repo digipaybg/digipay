@@ -6,10 +6,22 @@
   });
 
   const speakersContent = await queryContent("speakers").locale(locale.value).find();
+
+  const { width } = useWindowSize();
+
+  const slidesPerViewComputed = computed(() => {
+    if (width.value < 800) return 1;
+
+    if (width.value < 1200) return 2;
+
+    if (width.value < 1500) return 3;
+
+    return 4;
+  });
 </script>
 
 <template>
-  <div id="speakers" class="my-52 pb-10">
+  <div id="speakers" class="my-52 pb-10" :class="{ 'mx-4': slidesPerViewComputed === 1 }">
     <h1 class="py-10 text-center text-4xl">{{ $t("speakers") }}</h1>
     <Swiper
       :modules="[
@@ -30,7 +42,7 @@
       :keyboard="{
         enabled: true,
       }"
-      :slides-per-view="4"
+      :slides-per-view="slidesPerViewComputed"
       :allow-slide-next="true"
       :allow-slide-prev="true"
       :loop="false"

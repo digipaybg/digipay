@@ -61,4 +61,8 @@ export default {
     "Let's establish together the name of the banking and fintech sector as generators of sustainable finance in Bulgaria.",
   bio: "Bio",
   eventAbout: "What's the event for?",
+  ourPartners: "Our Partners",
+  general: "General",
+  organizational: "Organizational",
+  content: "Content",
 };

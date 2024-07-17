@@ -28,6 +28,8 @@
     <LazyHomeSpeakers />
 
     <!-- <LazyHomeAgenda /> -->
+    <LazyHomePartners />
+    <div class="h-screen"></div>
   </div>
 </template>
 
