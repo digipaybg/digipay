@@ -1,67 +1,67 @@
 <script lang="ts" setup>
-const themes = [
-	{ theme: "instantPayments", icon: "mdi:credit-card-fast" },
-	{ theme: "paymentScam", icon: "i-material-symbols-lock" },
-	{
-		theme: "cloudInnovationsForFinance",
-		icon: "i-solar-server-square-cloud-bold",
-	},
-	{
-		theme: "antiMoneyLaunderingMeasures",
-		icon: "i-material-symbols-light-menu-book",
-	},
-	{ theme: "userPaymentAI", icon: "i-hugeicons-artificial-intelligence-01" },
-	{ theme: "foreignQuotaEntry", icon: "i-material-symbols-euro" },
-];
+  const themes = [
+    { theme: "instantPayments", icon: "mdi:credit-card-fast" },
+    { theme: "paymentScam", icon: "i-material-symbols-lock" },
+    {
+      theme: "cloudInnovationsForFinance",
+      icon: "i-solar-server-square-cloud-bold",
+    },
+    {
+      theme: "antiMoneyLaunderingMeasures",
+      icon: "i-material-symbols-light-menu-book",
+    },
+    { theme: "userPaymentAI", icon: "i-hugeicons-artificial-intelligence-01" },
+    { theme: "foreignQuotaEntry", icon: "i-material-symbols-euro" },
+  ];
 
-onMounted(() => {
-	// const target = document.querySelector(".card")!;
-	// const container = document.querySelector("#themes")!;
-	// scroll(
-	//   timeline(
-	//     [
-	//       [
-	//         ".card",
-	//         {
-	//           scale: [0.7, 1],
-	//           opacity: [0, 1],
-	//           y: [100, 0],
-	//         },
-	//         {},
-	//       ],
-	//       [
-	//         ".cell",
-	//         {
-	//           y: [100, 0],
-	//           opacity: [0, 1],
-	//           scale: [0.7, 1],
-	//         },
-	//         {
-	//           delay: stagger(0.1, {
-	//             from: "first",
-	//           }),
-	//           easing: spring({
-	//             stiffness: 100,
-	//             damping: 15,
-	//           }),
-	//         },
-	//       ],
-	//     ],
-	//     {},
-	//   ),
-	//   {
-	//     target: target,
-	//     axis: "y",
-	//     smooth: 0.5,
-	//     offset: ["end end", "500px 0px"],
-	//   },
-	// );
-});
+  onMounted(() => {
+    // const target = document.querySelector(".card")!;
+    // const container = document.querySelector("#themes")!;
+    // scroll(
+    //   timeline(
+    //     [
+    //       [
+    //         ".card",
+    //         {
+    //           scale: [0.7, 1],
+    //           opacity: [0, 1],
+    //           y: [100, 0],
+    //         },
+    //         {},
+    //       ],
+    //       [
+    //         ".cell",
+    //         {
+    //           y: [100, 0],
+    //           opacity: [0, 1],
+    //           scale: [0.7, 1],
+    //         },
+    //         {
+    //           delay: stagger(0.1, {
+    //             from: "first",
+    //           }),
+    //           easing: spring({
+    //             stiffness: 100,
+    //             damping: 15,
+    //           }),
+    //         },
+    //       ],
+    //     ],
+    //     {},
+    //   ),
+    //   {
+    //     target: target,
+    //     axis: "y",
+    //     smooth: 0.5,
+    //     offset: ["end end", "500px 0px"],
+    //   },
+    // );
+  });
 </script>
 
 <template>
   <div id="themes" class="flex h-[75vh] flex-col items-center justify-center">
-    <h1 class="font-sans text-4xl font-bold">Топ темите 2024</h1>
+    <h1 class="py-10 text-center text-4xl">Топ темите 2024</h1>
     <div
       :initial="{
         scale: 0.7,

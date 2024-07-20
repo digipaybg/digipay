@@ -79,6 +79,7 @@
     scroll-behavior: smooth;
     font-family: "Inter", sans-serif;
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 }
 

@@ -33,6 +33,10 @@
     <LazyHomeAdvisory />
 
     <LazyHomeLastYear />
+
+    <LazyHomeVideo />
+
+    <LazyHomePastYears />
     <div class="h-screen"></div>
   </div>
 </template>

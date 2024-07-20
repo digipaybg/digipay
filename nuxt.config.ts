@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@nuxtjs/seo",
   ],
+  plugins: [{ src: "~/plugins/number.ts", mode: "client" }],
   routeRules: {
     "/": { prerender: true, static: true },
   },
