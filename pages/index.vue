@@ -28,7 +28,9 @@
     <LazyHomeSpeakers />
 
     <!-- <LazyHomeAgenda /> -->
-    <LazyHomePartners />
+    <HomePartners />
+
+    <LazyHomeAdvisory />
     <div class="h-screen"></div>
   </div>
 </template>

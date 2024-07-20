@@ -1,14 +1,14 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  const { y } = useWindowScroll();
+</script>
 
 <template>
   <div class="">
-    <Header />
+    <Header :y="y" />
 
     <slot />
 
-    <!-- <div class="relative bottom-0 mt-24 h-full"> -->
     <Footer />
-    <!-- </div> -->
   </div>
 </template>
 
