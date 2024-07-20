@@ -32,7 +32,13 @@
     <div class="flex-1 space-y-4">
       <div class="">
         <!-- <h2 class="font-bold text-primary">{{ info.countInfo.attendees }}</h2> -->
-        <AnimatedNumber :from="0" :to="info.countInfo.attendees" :duration="1000" class="font-bold text-primary" />
+        <AnimatedNumber
+          ref="animatedNumber1"
+          :from="0"
+          :to="info.countInfo.attendees"
+          :duration="1000"
+          class="font-bold text-primary"
+        />
         <h3>{{ $t("attendees") }}</h3>
       </div>
       <div class="">

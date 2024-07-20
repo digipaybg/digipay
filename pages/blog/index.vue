@@ -6,6 +6,10 @@
     title: "Blog",
     description: "Blog posts",
   });
+
+  definePageMeta({
+    layout: "blog",
+  });
 </script>
 
 <template>

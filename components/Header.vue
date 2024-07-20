@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-const localePath = useLocalePath();
+  const localePath = useLocalePath();
 
-// defineProps({
-//   y: {
-//     type: Number,
-//     required: true,
-//   },
-// });
-const {y} = useWindowScroll({behavior: "smooth"});
+  // defineProps({
+  //   y: {
+  //     type: Number,
+  //     required: true,
+  //   },
+  // });
+  const { y } = useWindowScroll({ behavior: "smooth" });
 </script>
 <!-- :class="{
       'shadow-custom': y > 700,
@@ -16,16 +16,16 @@ const {y} = useWindowScroll({behavior: "smooth"});
 
 <template>
   <header
-      :style="{
-      backdropFilter: y > 250 ? 'blur(15px) saturate(180%)' : 'none',
-      backgroundColor: y > 250 ? 'rgb(12 4 39 / 0.5) ' : 'transparent',
-      boxShadow: y > 700 ? 'inset 0 -1px 0 0px rgba(255, 255, 255, 0.3)' : 'none',
+    :style="{
+      backdropFilter: y > 250 || $route.fullPath !== '/' ? 'blur(15px) saturate(180%)' : 'none',
+      backgroundColor: y > 250 || $route.fullPath !== '/' ? 'rgb(12 4 39 / 0.5) ' : 'transparent',
+      boxShadow: y > 700 || $route.fullPath !== '/' ? 'inset 0 -1px 0 0px rgba(255, 255, 255, 0.3)' : 'none',
     }"
-      class="fixed top-0 z-[1000] h-24 w-full py-3 transition-all duration-300"
+    class="fixed top-0 z-[1000] h-24 w-full py-3 transition-all duration-300"
   >
     <div class="flex h-full items-center justify-center gap-3">
       <!-- <NuxtImg alt="DigiPay Logo" preload class="" src="/logo.svg" quality="100" /> -->
-      <Logo class="h-[50px] cursor-pointer rounded-full" @click="() => $router.push('/')"/>
+      <Logo class="h-[50px] cursor-pointer rounded-full" @click="() => $router.push('/')" />
 
       <a as-child href="/">
         <Button class="bg-transparent" variant="ghost">
@@ -56,10 +56,8 @@ const {y} = useWindowScroll({behavior: "smooth"});
         <Button class="bg-transparent" variant="ghost">
           {{ $t("contacts") }}
         </Button>
-
-
       </a>
-      <HeaderLanugageSelector/>
+      <HeaderLanugageSelector />
     </div>
 
     <!-- <HeaderDarkModeToogle /> -->
@@ -68,11 +66,11 @@ const {y} = useWindowScroll({behavior: "smooth"});
 </template>
 
 <style lang="scss">
-div.absolute.inset-0.-z-10 {
-  mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-}
+  div.absolute.inset-0.-z-10 {
+    mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
 
-.shadow-custom {
-  box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
-}
+  .shadow-custom {
+    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+  }
 </style>
