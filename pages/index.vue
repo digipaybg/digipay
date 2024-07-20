@@ -31,6 +31,8 @@
     <HomePartners />
 
     <LazyHomeAdvisory />
+
+    <LazyHomeLastYear />
     <div class="h-screen"></div>
   </div>
 </template>

@@ -67,4 +67,5 @@ export default {
   general: "Генерални",
   organizational: "Организационни",
   content: "Съдържание",
+  lastYear: "Как премина DigiPay 2023?",
 };

@@ -65,4 +65,5 @@ export default {
   general: "General",
   organizational: "Organizational",
   content: "Content",
+  lastYear: "How did DigiPay 2023 go?",
 };
