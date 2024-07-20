@@ -56,22 +56,19 @@
         clickable: true,
       }"
     >
-      <SwiperSlide
-        v-for="(speaker, index) in speakersContent"
-        :key="index"
-        class="mb-10 w-fit rounded-xl border border-blue-900 bg-blue-900/[0.17] shadow-[0px_0px_20px_0px] shadow-blue-900"
-      >
+      <SwiperSlide v-for="(speaker, index) in speakersContent" :key="index" class="mb-10 w-fit rounded-xl">
         <div class="flex h-[600px] flex-col items-center justify-between gap-3 p-10 text-center">
           <NuxtImg
             :src="speaker.image"
             alt="speaker"
-            class="aspect-square h-52 rounded-full border border-white object-cover object-top"
-            preload
+            class="aspect-square h-52 rounded-full border border-primary object-cover object-top shadow-[0px_0px_10px_2px] shadow-primary"
           />
           <h1 class="text-2xl">{{ speaker.name }}</h1>
           <h2 class="flex-1 text-lg">{{ speaker.position }}</h2>
           <NuxtLink as-child :to="computedLocale + speaker._path" class="m-10 mt-4 w-[75%]">
-            <Button class="w-full" variant="default">{{ $t("bio") }}</Button>
+            <Button class="w-full border-primary hover:bg-primary hover:text-black" variant="outline">{{
+              $t("bio")
+            }}</Button>
           </NuxtLink>
         </div>
       </SwiperSlide>
