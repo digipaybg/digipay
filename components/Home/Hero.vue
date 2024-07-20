@@ -78,13 +78,15 @@
                 }),
               }"
             >
-              <Logo class="h-[250px]" />
+              <Logo class="h-[200px] lg:h-[250px]" />
             </Motion>
             <div ref="header" class="flex items-center">
-              <h1 class="header-text text-[150px] opacity-0 lg:text-[250px]">8</h1>
+              <h1 class="header-text text-[120px] opacity-0 lg:text-[150px] xl:text-[250px]">8</h1>
               <div class="flex flex-col">
-                <h2 class="header-text h-8 text-[45px] font-bold opacity-0 lg:h-16 lg:text-[75px]">October</h2>
-                <h3 class="header-text text-[100px] text-primary opacity-0 lg:text-[130px]">2024</h3>
+                <h2 class="header-text h-9 text-[50px] font-bold opacity-0 lg:text-[60px] xl:h-16 xl:text-[75px]">
+                  October
+                </h2>
+                <h3 class="header-text text-[70px] text-primary opacity-0 lg:text-[100px] xl:text-[130px]">2024</h3>
               </div>
             </div>
           </div>
@@ -108,7 +110,7 @@
               }),
             }"
           >
-            <h4 class="slogan text-3xl font-semibold uppercase">Your secure and convenient journey</h4>
+            <h4 class="slogan text-center text-3xl font-semibold uppercase">Your secure and convenient journey</h4>
           </Motion>
 
           <Motion
@@ -139,6 +141,7 @@
         <div class="absolute left-[-26.5%] hidden flex-col gap-4 2xl:flex">
           <Motion
             v-for="(icon, index) in leftIcons"
+            :key="index"
             :initial="{
               y: -800,
             }"
@@ -166,6 +169,7 @@
         <div class="absolute right-[-70%] hidden flex-col gap-4 2xl:flex">
           <Motion
             v-for="(icon, index) in rightIcons"
+            :key="index"
             :initial="{
               y: -800,
             }"
