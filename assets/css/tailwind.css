@@ -33,7 +33,7 @@
 
     --ring: 0 0% 3.9%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
   }
 
   .dark {
@@ -65,6 +65,9 @@
     --destructive-foreground: 0 0% 98%;
 
     --ring: 0 0% 83.1%;
+
+
+    --card-shadow-color: 0 0% 100% / 0.1;
   }
 }
 
