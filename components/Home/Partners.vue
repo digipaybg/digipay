@@ -84,7 +84,7 @@
                 <NuxtImg
                   :preload="{ fetchPriority: 'low' }"
                   format="webp"
-                  quality="80"
+                  quality="60"
                   class="h-40 w-full rounded-2xl bg-white object-scale-down p-5 text-2xl transition-all duration-300 group-hover:bg-white/75"
                   :alt="partner.name"
                   :src="partner.image"

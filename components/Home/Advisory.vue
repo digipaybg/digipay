@@ -49,7 +49,7 @@
             class="aspect-square h-60 rounded-full border-2 border-[#67CBDD] object-cover object-center"
             :class="`${index === 0 ? 'object-right' : ''} `"
             format="webp"
-            quality="80"
+            quality="30"
             :alt="member.name"
             loading="lazy"
           />
