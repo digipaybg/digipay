@@ -5,7 +5,15 @@
     return locale.value === "en" ? "en" : "";
   });
 
-  const speakersContent = await queryContent("speakers").locale(locale.value).find();
+  const speakersContent = useAsyncData("speakersInfo", () => queryContent("speakers").locale(locale.value).find(), {
+    lazy: true,
+  });
+
+  const speakersContentComputed = computed(() => {
+    if (!speakersContent.data.value) return [];
+
+    return speakersContent.data.value;
+  });
 
   const { width } = useWindowSize();
 
@@ -56,7 +64,7 @@
         clickable: true,
       }"
     >
-      <SwiperSlide v-for="(speaker, index) in speakersContent" :key="index" class="mb-10 w-fit rounded-xl">
+      <SwiperSlide v-for="(speaker, index) in speakersContentComputed" :key="index" class="mb-10 w-fit rounded-xl">
         <div class="flex h-[600px] flex-col items-center justify-between gap-3 p-10 text-center">
           <NuxtImg
             :src="speaker.image"

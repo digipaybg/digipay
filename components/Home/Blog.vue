@@ -7,10 +7,14 @@
     return locale.value === "en" ? "en" : "";
   });
 
-  const blogContent = await queryContent("blog").locale(locale.value).find();
+  // const blogContent = await queryContent("blog").locale(locale.value).find();
+
+  const blogContent = useAsyncData("blogPosts", () => queryContent("blog").locale(locale.value).find());
 
   const sortedBlogContent = computed(() => {
-    const arrCopy = blogContent;
+    if (!blogContent.data.value) return [];
+
+    const arrCopy = blogContent.data.value;
 
     const sorted = arrCopy
       .sort((a, b) => {

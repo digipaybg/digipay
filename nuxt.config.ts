@@ -81,4 +81,7 @@ export default defineNuxtConfig({
   delayHydration: {
     mode: "mount",
   },
+  site: {
+    url: "https://digipay-seven.vercel.app",
+  },
 });
