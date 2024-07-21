@@ -7,14 +7,6 @@
 
   const { locale } = useI18n();
 
-  watch(locale, () => {
-    useHead({
-      htmlAttrs: {
-        lang: locale.value,
-      },
-    });
-  });
-
   useHead({
     htmlAttrs: {
       lang: locale.value,
@@ -43,7 +35,7 @@
   <div>
     <lenis
       :options="{
-        lerp: 0.1,
+        lerp: 0.2,
       }"
     >
       <NuxtLayout>

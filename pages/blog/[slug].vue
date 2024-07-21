@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { formatDate } from "@vueuse/core";
+  import SplitType from "split-type";
 
   const { locale } = useI18n();
 
@@ -51,6 +52,104 @@
     return `/authors/${translatedName}.jpg`;
   }
 
+  onMounted(() => {
+    const postImg = document.querySelector("#post-img")!;
+    const split = new SplitType("#title");
+    const authorPfp = document.querySelector("#author-img")!;
+    const authorName = document.querySelector("#author-name")!;
+    const readingTime = document.querySelector("#read-time")!;
+    const postDate = document.querySelector("#post-date")!;
+
+    timeline([
+      [
+        postImg,
+        {
+          y: [-50, 0],
+          opacity: [0, 1],
+          scale: [0.7, 1],
+        },
+        {
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+        },
+      ],
+      [
+        split.chars!,
+        { y: [25, 0], opacity: [0, 1], scale: [0.7, 1] },
+        {
+          delay: stagger(0.02),
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+          at: 0.2,
+        },
+      ],
+      [
+        authorPfp,
+        {
+          opacity: [0, 1],
+          scale: [0.7, 1],
+        },
+        {
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+        },
+      ],
+      [
+        authorName,
+        {
+          opacity: [0, 1],
+          scale: [0.7, 1],
+        },
+        {
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+        },
+      ],
+      [
+        readingTime,
+        {
+          opacity: [0, 1],
+          scale: [0.7, 1],
+        },
+        {
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+          at: "<",
+        },
+      ],
+      [
+        postDate,
+        {
+          opacity: [0, 1],
+          scale: [0.7, 1],
+        },
+        {
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+          at: "<",
+        },
+      ],
+    ]);
+  });
+
   definePageMeta({
     layout: "blog",
   });
@@ -59,19 +158,28 @@
 <template>
   <ContentDoc v-slot="{ doc }" :locale="locale" :path="path" :head="true" class="">
     <article class="px-96 py-24">
-      <NuxtImg id="speakerImage" class="mx-auto my-10 w-full rounded-2xl" :src="doc.image" :alt="doc.title" />
+      <NuxtImg id="post-img" class="mx-auto my-10 w-full rounded-2xl" :src="doc.image" :alt="doc.title" />
       <div class="flex flex-col gap-5">
-        <h1 class="text-3xl font-bold">{{ doc.title }}</h1>
+        <h1 id="title" class="text-3xl font-bold">{{ doc.title }}</h1>
 
         <div class="flex items-center gap-3">
-          <NuxtImg class="rounded-full" :src="getImagePath(doc.author)" :alt="doc.author" width="50" height="50" />
+          <NuxtImg
+            id="author-img"
+            class="rounded-full"
+            :src="getImagePath(doc.author)"
+            :alt="doc.author"
+            width="50"
+            height="50"
+          />
           <div class="flex flex-col">
-            <h2 class="font-sans text-lg">{{ doc.author }}</h2>
+            <h2 id="author-name" class="font-sans text-lg">{{ doc.author }}</h2>
             <div class="flex gap-3">
-              <h3 class="font-sans text-sm">
+              <h3 id="read-time" class="font-sans text-sm">
                 {{ $t("readingTime", { minutes: Math.round(doc.readingTime.minutes) }) }}
               </h3>
-              <h3 class="font-sans text-sm">{{ formatDate(new Date(doc.date as EpochTimeStamp), "DD/MM/YYYY") }}</h3>
+              <h3 id="post-date" class="font-sans text-sm">
+                {{ formatDate(new Date(doc.date as EpochTimeStamp), "DD/MM/YYYY") }}
+              </h3>
             </div>
           </div>
         </div>
@@ -101,13 +209,14 @@
     }
 
     h2 {
-      font-size: 25px;
+      font-size: 28px;
       padding-top: 30px;
+      padding-bottom: 10px;
       color: #e1faff;
     }
 
     p {
-      font-size: 16px;
+      font-size: 20px;
       padding-block: 10px;
     }
 

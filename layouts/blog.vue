@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <Header :y="y" />
+    <Header />
 
     <div class="py-10">
       <slot />

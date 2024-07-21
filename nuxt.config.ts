@@ -26,7 +26,6 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     "nuxt-delay-hydration",
   ],
-  plugins: [{ src: "~/plugins/number.ts", mode: "client" }],
   routeRules: {
     "/": { prerender: true, ssr: true, static: false },
   },
