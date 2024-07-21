@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   ],
   plugins: [{ src: "~/plugins/number.ts", mode: "client" }],
   routeRules: {
-    "/": { prerender: true, static: true },
+    "/": { prerender: true },
   },
 
   i18n: {
@@ -61,7 +61,9 @@ export default defineNuxtConfig({
   content: {
     defaultLocale: "bg",
     locales: ["bg", "en"],
-    markdown: {},
+    markdown: {
+      remarkPlugins: ["remark-reading-time"],
+    },
   },
   shadcn: {
     prefix: "",

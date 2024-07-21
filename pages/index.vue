@@ -35,10 +35,9 @@
     <LazyHomeLastYear />
 
     <LazyHomeVideo />
-
     <HomePastYears />
+
     <LazyHomeBlog />
-    <div class="h-screen"></div>
   </div>
 </template>
 

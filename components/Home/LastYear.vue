@@ -27,9 +27,15 @@
       class="relative"
     >
       <SwiperSlide v-for="i in 5" :key="i">
-        <img
+        <!-- <img
           :src="`/lastYear/${i}.png`"
           alt="last year"
+          class="h-[500px] w-1/2 translate-x-1/2 rounded-lg object-cover"
+        /> -->
+        <NuxtImg
+          :src="`/lastYear/${i}.png`"
+          alt="last year"
+          format="webp"
           class="h-[500px] w-1/2 translate-x-1/2 rounded-lg object-cover"
         />
       </SwiperSlide>

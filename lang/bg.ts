@@ -81,4 +81,6 @@ export default {
   pastYears: "Какво се случи в миналите години?",
   allVideos: "Всички видеа",
   video: "Видео от събитието",
+  readingTime: ({ named }: { named: (key: string) => number }) =>
+    named("minutes") === 1 ? "1 минута четене" : `${named("minutes")} минути четене`,
 };

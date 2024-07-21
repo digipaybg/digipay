@@ -30,6 +30,7 @@
     "nuxt-lenis": "^1.2.3",
     "nuxt-swiper": "^1.2.2",
     "radix-vue": "^1.8.5",
+    "remark-reading-time": "^2.0.1",
     "shadcn-nuxt": "^0.10.4",
     "split-type": "^0.3.4",
     "tailwind-merge": "^2.3.0",

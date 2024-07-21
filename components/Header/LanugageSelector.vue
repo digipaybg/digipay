@@ -1,12 +1,6 @@
 <script lang="ts" setup>
-  const { locale, locales } = useI18n();
+  const { locales } = useI18n();
   const switchLocalePath = useSwitchLocalePath();
-
-  const availableLocales = computed(() => {
-    return locales.value;
-  });
-
-  onMounted(() => {});
 </script>
 
 <template>

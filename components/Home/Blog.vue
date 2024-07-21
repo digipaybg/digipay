@@ -9,6 +9,18 @@
 
   const blogContent = await queryContent("blog").locale(locale.value).find();
 
+  const sortedBlogContent = computed(() => {
+    const arrCopy = blogContent;
+
+    const sorted = arrCopy
+      .sort((a, b) => {
+        return new Date(b.date as EpochTimeStamp).getDate() - new Date(a.date as EpochTimeStamp).getDate();
+      })
+      .slice(0, 5);
+    console.log(sorted);
+    return sorted;
+  });
+
   const { width } = useWindowSize();
 
   const slidesPerViewComputed = computed(() => {
@@ -23,7 +35,7 @@
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative h-fit overflow-visible">
     <h1 class="py-10 text-center text-4xl">Blog</h1>
     <Swiper
       :modules="[
@@ -57,7 +69,7 @@
         clickable: true,
       }"
     >
-      <SwiperSlide v-for="(blog, index) in blogContent.slice(0, 5)" :key="index" class="mb-10 w-fit rounded-xl px-10">
+      <SwiperSlide v-for="(blog, index) in sortedBlogContent" :key="index" class="mb-10 w-fit rounded-xl px-10">
         <NuxtLink as-child :to="computedLocale + blog._path">
           <div
             class="flex w-full flex-col justify-between gap-3 rounded-2xl border border-white pb-10 text-center backdrop-blur-sm backdrop-saturate-150"
