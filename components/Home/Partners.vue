@@ -82,7 +82,6 @@
                 class="relative mx-auto mt-4 inline-flex flex-shrink-0 items-center justify-center rounded-full text-2xl"
               >
                 <NuxtImg
-                  :preload="{ fetchPriority: 'low' }"
                   format="webp"
                   quality="60"
                   class="h-40 w-full rounded-2xl bg-white object-scale-down p-5 text-2xl transition-all duration-300 group-hover:bg-white/75"

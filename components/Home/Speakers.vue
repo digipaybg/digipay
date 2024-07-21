@@ -70,7 +70,6 @@
             :src="speaker.image"
             alt="speaker"
             class="aspect-square h-52 rounded-full border border-primary object-cover object-top shadow-[0px_0px_10px_2px] shadow-primary"
-            :preload="{ fetchPriority: 'low' }"
           />
           <h1 class="text-2xl">{{ speaker.name }}</h1>
           <h2 class="flex-1 text-lg">{{ speaker.position }}</h2>

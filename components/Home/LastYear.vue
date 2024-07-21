@@ -71,7 +71,6 @@
     >
       <SwiperSlide v-for="i in 5" :key="i" class="w-full translate-x-1/2">
         <NuxtImg
-          :preload="{ fetchPriority: 'low' }"
           format="webp"
           :src="`/lastYear/${i}.png`"
           alt="last year"

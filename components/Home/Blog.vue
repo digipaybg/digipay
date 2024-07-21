@@ -80,14 +80,7 @@
           <div
             class="flex w-full flex-col justify-between gap-3 rounded-2xl border border-white pb-10 text-center backdrop-blur-sm backdrop-saturate-150"
           >
-            <NuxtImg
-              :src="blog.image"
-              alt="speaker"
-              class="rounded-2xl rounded-b-none"
-              :preload="{ fetchPriority: 'low' }"
-              format="webp"
-              quality="60"
-            />
+            <NuxtImg :src="blog.image" alt="speaker" class="rounded-2xl rounded-b-none" format="webp" quality="60" />
 
             <h1 class="line-clamp-3 px-5 pt-5 text-left text-lg">{{ blog.title }}</h1>
             <h2 class="flex items-center px-5 text-left text-gray-300">

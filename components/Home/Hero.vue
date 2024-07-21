@@ -7,7 +7,17 @@
   const backgroundVideo = ref<HTMLVideoElement | null>(null);
 
   onMounted(() => {
-    backgroundVideo.value?.play();
+    if (backgroundVideo.value) {
+      backgroundVideo.value
+        .play()
+        .then(() => {
+          console.log("Video is playing");
+        })
+        .catch((error) => {
+          console.error("Error attempting to play the video:", error);
+          console.log("Video state:", backgroundVideo.value?.readyState);
+        });
+    }
 
     const headerText = document.querySelectorAll(".header-text")!;
 
@@ -52,12 +62,15 @@
     <ClientOnly>
       <video
         ref="backgroundVideo"
-        :src="'/hero_video.webm'"
         muted
+        autoplay
+        playsinline
         loop
-        preload="auto"
+        preload="metadata"
         class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-35"
-      />
+      >
+        <source src="/hero_video.webm" type="video/webm" />
+      </video>
     </ClientOnly>
 
     <div

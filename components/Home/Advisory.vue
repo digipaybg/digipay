@@ -44,7 +44,6 @@
           class="col-span-1 flex flex-col items-center justify-center gap-4 rounded-2xl p-8"
         >
           <NuxtImg
-            preload
             :src="member.image"
             class="aspect-square h-60 rounded-full border-2 border-[#67CBDD] object-cover object-center"
             :class="`${index === 0 ? 'object-right' : ''} `"
