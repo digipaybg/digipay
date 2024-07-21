@@ -4,9 +4,11 @@
   const leftIcons = ["/planet.svg", "/money.svg", "/phone.svg"];
   const rightIcons = ["/ai.svg", "/security.svg", "/lock.svg"];
 
-  const headerRef = ref<HTMLElement | null>(null);
+  const backgroundVideo = ref<HTMLVideoElement | null>(null);
 
   onMounted(() => {
+    backgroundVideo.value?.play();
+
     const headerText = document.querySelectorAll(".header-text")!;
 
     headerText.forEach((text) => {
@@ -47,14 +49,17 @@
       quality="70"
       format="webp"
     /> -->
-    <video
-      src="/hero_video.mp4"
-      autoplay
-      muted
-      loop
-      no-controls
-      class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-35"
-    />
+    <ClientOnly>
+      <video
+        ref="backgroundVideo"
+        :src="'/hero_video.webm'"
+        muted
+        loop
+        preload="auto"
+        class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-35"
+      />
+    </ClientOnly>
+
     <div
       class="relative bottom-0 flex h-screen flex-col bg-gradient-to-t from-background from-10% to-transparent to-70%"
     >

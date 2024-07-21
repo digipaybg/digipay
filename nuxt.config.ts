@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   ],
   plugins: [{ src: "~/plugins/number.ts", mode: "client" }],
   routeRules: {
-    "/": { prerender: true },
+    "/": { prerender: true, ssr: true, static: false },
   },
 
   i18n: {
@@ -79,6 +79,6 @@ export default defineNuxtConfig({
     componentDirs: ["/components/OgImage"],
   },
   delayHydration: {
-    mode: "init",
+    mode: "mount",
   },
 });

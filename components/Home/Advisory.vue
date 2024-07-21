@@ -46,11 +46,12 @@
           <NuxtImg
             preload
             :src="member.image"
-            class="aspect-square h-60 w-60 rounded-full border-2 border-[#67CBDD] object-cover object-center"
+            class="aspect-square h-60 rounded-full border-2 border-[#67CBDD] object-cover object-center"
             :class="`${index === 0 ? 'object-right' : ''} `"
             format="webp"
             quality="80"
             :alt="member.name"
+            loading="lazy"
           />
           <h3 class="text-xl font-bold">{{ member.name }}</h3>
           <p class="text-center text-gray-700 dark:text-gray-300">{{ member.position }}</p>
