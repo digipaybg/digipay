@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     "@hypernym/nuxt-gsap",
     "nuxt-swiper",
     "@nuxtjs/seo",
+    "nuxt-delay-hydration",
   ],
   plugins: [{ src: "~/plugins/number.ts", mode: "client" }],
   routeRules: {
@@ -76,5 +77,8 @@ export default defineNuxtConfig({
   },
   ogImage: {
     componentDirs: ["/components/OgImage"],
+  },
+  delayHydration: {
+    mode: "init",
   },
 });
