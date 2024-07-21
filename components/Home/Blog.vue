@@ -9,7 +9,9 @@
 
   // const blogContent = await queryContent("blog").locale(locale.value).find();
 
-  const blogContent = useAsyncData("blogPosts", () => queryContent("blog").locale(locale.value).find());
+  const blogContent = useAsyncData("blogPosts", () => queryContent("blog").locale(locale.value).find(), {
+    lazy: true,
+  });
 
   const sortedBlogContent = computed(() => {
     if (!blogContent.data.value) return [];
