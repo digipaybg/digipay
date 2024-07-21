@@ -80,4 +80,6 @@ export default {
   video: "Event Video",
   readingTime: ({ named }: { named: (key: string) => number }) =>
     named("minutes") === 1 ? "1 minute read" : `${named("minutes")} minutes read`,
+  morePosts: "More Posts",
+  toc: "Table of Contents",
 };

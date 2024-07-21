@@ -49,6 +49,7 @@ export default defineNuxtConfig({
     families: {
       Inter: [400, 700, 800, 900],
       "Bebas Neue": [400, 700, 800, 900],
+      "IBM Plex Mono": [400, 700, 800, 900],
     },
   },
   image: {

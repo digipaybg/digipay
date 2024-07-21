@@ -83,4 +83,7 @@ export default {
   video: "Видео от събитието",
   readingTime: ({ named }: { named: (key: string) => number }) =>
     named("minutes") === 1 ? "1 минута четене" : `${named("minutes")} минути четене`,
+  blogTitle: "DigiPay Блог",
+  morePosts: "Още публикации",
+  toc: "Съдържание",
 };
