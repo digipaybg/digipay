@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  // TODO: Translate component, name and position
   const advisoryBoard = [
     {
       name: "Stoilka Arsova",
@@ -25,6 +26,11 @@
       shadow: "gray",
     },
     {
+      name: "Miglen Evlogiev",
+      position: "Founder, Bulgarian CyberSecurity Foundation VP, Cybersecurity, Payhawk",
+      image: "/advisory/miglen_evlogiev.JPG",
+    },
+    {
       name: "Pavel Kaminsky",
       position: "Founder, 7Security",
       image: "/advisory/pavel_kaminsky.jpg",
@@ -46,7 +52,7 @@
           <NuxtImg
             :src="member.image"
             class="aspect-square h-60 rounded-full border-2 border-[#67CBDD] object-cover object-center"
-            :class="`${index === 0 ? 'object-right' : ''} `"
+            :class="`${index === 0 || index === 4 ? 'object-right' : ''} `"
             format="webp"
             quality="30"
             :alt="member.name"
