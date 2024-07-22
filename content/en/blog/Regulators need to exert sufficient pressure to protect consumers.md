@@ -15,8 +15,6 @@ It is characteristic that nowadays the weakest link is the consumer, and fraudst
 
 ## The Most Current Threats for 2023:
 
-![Untitled image.jpeg](/blog/Untitled%20image.jpeg)
-
 **Remote support scam:** This technique combines with social engineering to deceive customers into calling fake phone numbers displayed in search results as bank customer support numbers. When the customer calls this number, a fake representative answers as a support engineer and convinces the customer to install a remote support tool or enter a code on a specially created phishing site.
 
 **New forms of smishing:** Criminals use web tools to send mass SMS, Viber messages, or other communication platforms. The texts include the bank's name in the SMS text or as the CallerID of the initiator when possible, making spoofing the initiator/authentic bank CallerID number less necessary. Phishing through SMS has also been observed, where the real name of the client appears in the SMS text to gain trust.
