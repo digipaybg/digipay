@@ -2,7 +2,7 @@
 image: /blog/1.jpg
 title: Regulators Should Exert Enough Pressure to Protect Consumers
 author: Raya Lecheva
-date: 2024-07-20
+date: 2024-07-20T00:00:00.000Z
 ---
 
 Key trends in fraud follow the money. Fraudsters focus on areas where they can make the highest profits with the least effort. The digitization of payments naturally directs fraudsters towards schemes targeting weak points in processes, with the most common and painful being Account-Take-Over (ATO), Authorized-Push-Payments (APP or known as pig butchering), and cyber frauds often resulting from malware infecting the end device.
@@ -14,6 +14,8 @@ The European Payment Council compiles statistics on prevalent threats every year
 It is characteristic that nowadays the weakest link is the consumer, and fraudsters often resort to social engineering as part of their scam scheme.
 
 ## The Most Current Threats for 2023:
+
+![Untitled image.jpeg](/blog/Untitled%20image.jpeg)
 
 **Remote support scam:** This technique combines with social engineering to deceive customers into calling fake phone numbers displayed in search results as bank customer support numbers. When the customer calls this number, a fake representative answers as a support engineer and convinces the customer to install a remote support tool or enter a code on a specially created phishing site.
 
