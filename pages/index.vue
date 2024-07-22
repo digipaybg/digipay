@@ -18,7 +18,7 @@
     <HomeHero />
 
     <DelayHydration>
-      <HomeThemes />
+      <LazyHomeThemes />
 
       <LazyHomeAbout />
 
@@ -36,6 +36,7 @@
       <LazyHomeLastYear />
 
       <LazyHomeVideo />
+
       <LazyHomePastYears />
 
       <LazyHomeBlog />

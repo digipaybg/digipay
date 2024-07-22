@@ -99,4 +99,5 @@ export default {
   miglenPosition: "Основател, Българска фондация за киберсигурност Вицепрезидент, Киберсигурност, Payhawk",
   pavel: "Павел Камински",
   pavelPosition: "Основател, 7Security",
+  readAllPosts: "Прочети всички публикации",
 };

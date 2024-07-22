@@ -38,7 +38,7 @@
 
 <template>
   <div class="relative overflow-visible">
-    <h1 class="py-10 text-center text-4xl">Blog</h1>
+    <h1 class="py-10 text-center text-4xl">{{ $t("blog") }}</h1>
     <Swiper
       :modules="[
         SwiperAutoplay,
@@ -93,7 +93,7 @@
 
     <div class="flex items-center justify-center py-10">
       <NuxtLink as-child :href="localePath('/blog')">
-        <Button size="lg" class="text-lg">Read All Posts</Button>
+        <Button size="lg" class="text-lg">{{ $t("readAllPosts") }}</Button>
       </NuxtLink>
     </div>
     <circle class="absolute left-[-10%] top-[75%] z-[-100] h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]" />
