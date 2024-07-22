@@ -297,6 +297,10 @@
       font-family: "Arial", sans-serif;
     }
 
+    img {
+      @apply rounded-2xl;
+    }
+
     h1,
     h2,
     h3 {

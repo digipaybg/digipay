@@ -45,7 +45,9 @@ export default defineNuxtConfig({
     dataValue: "dark",
   },
   googleFonts: {
-    download: true,
+    preload: true,
+    prefetch: true,
+    inject: true,
     families: {
       Inter: [400, 700, 800, 900],
       "Bebas Neue": [400, 700, 800, 900],
