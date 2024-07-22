@@ -18,13 +18,15 @@
   >
     <div class="flex h-full items-center justify-center gap-3">
       <!-- <NuxtImg alt="DigiPay Logo" preload class="" src="/logo.svg" quality="100" /> -->
-      <Logo class="h-[50px] cursor-pointer rounded-full" @click="() => $router.push(localePath('/'))" />
+      <NuxtLink as-child :href="localePath('/')">
+        <Logo class="h-[50px] rounded-full" />
+      </NuxtLink>
 
-      <a as-child href="/">
+      <NuxtLink as-child :href="localePath('/')">
         <Button class="bg-transparent" variant="ghost">
           {{ $t("about") }}
         </Button>
-      </a>
+      </NuxtLink>
       <a href="#speakers">
         <Button class="bg-transparent" variant="ghost">
           {{ $t("speakers") }}

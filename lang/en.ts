@@ -96,4 +96,5 @@ export default {
   pavel: "Pavel Kaminsky",
   pavelPosition: "Founder, 7Security",
   backPosts: "All Posts",
+  blogTitle: "DigiPay Blog",
 };
