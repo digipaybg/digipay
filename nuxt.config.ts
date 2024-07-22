@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
-    "@nuxtjs/google-fonts",
     "@nuxt/image",
     "shadcn-nuxt",
     "@oku-ui/motion-nuxt",
@@ -25,6 +24,7 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@nuxtjs/seo",
     "nuxt-delay-hydration",
+    "@nuxt/fonts",
   ],
   routeRules: {
     "/": { prerender: true, ssr: true, static: false },
@@ -44,19 +44,21 @@ export default defineNuxtConfig({
     preference: "dark",
     dataValue: "dark",
   },
-  googleFonts: {
-    preload: true,
-    prefetch: true,
-    inject: true,
-    families: {
-      Inter: [400, 700, 800, 900],
-      "Bebas Neue": [400, 700, 800, 900],
-      "IBM Plex Mono": [400, 700, 800, 900],
-    },
-  },
+
+  // googleFonts: {
+  //   preload: true,
+  //   prefetch: true,
+  //   inject: true,
+  //   families: {
+  //     Inter: [400, 700, 800, 900],
+  //     "Bebas Neue": [400, 700, 800, 900],
+  //     "IBM Plex Mono": [400, 700, 800, 900],
+  //   },
+  // },
   image: {
     dir: "public/",
   },
+
   motion: {
     autoImportComponents: true,
     autoImportMotion: true,
@@ -81,7 +83,7 @@ export default defineNuxtConfig({
     componentDirs: ["/components/OgImage"],
   },
   delayHydration: {
-    mode: "mount",
+    mode: "init",
   },
   site: {
     url: "https://digipay-seven.vercel.app",

@@ -71,6 +71,8 @@
           <NuxtImg
             :src="speaker.image"
             alt="speaker"
+            format="webp"
+            quality="50"
             class="aspect-square h-52 rounded-full border border-primary object-cover object-top shadow-[0px_0px_10px_2px] shadow-primary"
           />
           <h1 class="text-2xl">{{ speaker.name }}</h1>
