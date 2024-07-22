@@ -100,4 +100,5 @@ export default {
   pavel: "Павел Камински",
   pavelPosition: "Основател, 7Security",
   readAllPosts: "Прочети всички публикации",
+  backPosts: "Всички публикации",
 };

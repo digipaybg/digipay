@@ -95,4 +95,5 @@ export default {
   miglenPosition: "Founder, Bulgarian CyberSecurity Foundation VP, Cybersecurity, Payhawk",
   pavel: "Pavel Kaminsky",
   pavelPosition: "Founder, 7Security",
+  backPosts: "All Posts",
 };
