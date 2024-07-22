@@ -28,6 +28,8 @@
   });
 </script>
 
+<!-- TODO: Make speaker card be like blog card -->
+
 <template>
   <div id="speakers" class="my-52 pb-10" :class="{ 'mx-4': slidesPerViewComputed === 1 }">
     <h1 class="py-10 text-center text-4xl">{{ $t("speakers") }}</h1>
