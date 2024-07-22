@@ -1,11 +1,5 @@
 <script lang="ts" setup>
-  import { formatDate } from "@vueuse/core";
-
   const { locale } = useI18n();
-
-  const computedLocale = computed(() => {
-    return locale.value === "en" ? "en" : "";
-  });
 
   // const blogContent = await queryContent("blog").locale(locale.value).find();
 
@@ -38,10 +32,12 @@
 
     return 4;
   });
+
+  const localePath = useLocalePath();
 </script>
 
 <template>
-  <div class="relative h-fit overflow-visible">
+  <div class="relative overflow-visible">
     <h1 class="py-10 text-center text-4xl">Blog</h1>
     <Swiper
       :modules="[
@@ -74,9 +70,11 @@
         type: 'bullets',
         clickable: true,
       }"
+      :space-between="10"
+      class="h-full"
     >
-      <SwiperSlide v-for="(blog, index) in sortedBlogContent" :key="index" class="mb-10 w-fit rounded-xl px-10">
-        <NuxtLink as-child :to="computedLocale + blog._path">
+      <SwiperSlide v-for="(blog, index) in sortedBlogContent" :key="index" class="mx-10">
+        <!-- <NuxtLink as-child :to="computedLocale + blog._path">
           <div
             class="flex w-full flex-col justify-between gap-3 rounded-2xl border border-white pb-10 text-center backdrop-blur-sm backdrop-saturate-150"
           >
@@ -88,24 +86,16 @@
               {{ formatDate(new Date(blog.date as EpochTimeStamp), "DD/MM/YYYY") }}
             </h2>
           </div>
-        </NuxtLink>
-      </SwiperSlide>
-      <SwiperSlide v-for="i in 10" :key="i" class="mb-10 w-fit rounded-xl px-10">
-        <div
-          class="flex h-[473px] w-full flex-col items-center justify-between gap-3 rounded-2xl border border-white py-10 text-center backdrop-blur-sm backdrop-saturate-150"
-        >
-          <h1 class="text-2xl">Want to Read More Posts?</h1>
-          <NuxtLink to="/blog" class="mt-4 w-[75%]">
-            <Button
-              class="w-full border-primary backdrop-saturate-150 hover:bg-primary hover:text-black"
-              variant="outline"
-              >{{ $t("readMore") }}
-            </Button>
-          </NuxtLink>
-        </div>
+        </NuxtLink> -->
+        <BlogCard :post="blog" />
       </SwiperSlide>
     </Swiper>
 
+    <div class="flex items-center justify-center py-10">
+      <NuxtLink as-child :href="localePath('/blog')">
+        <Button size="lg" class="text-lg">Read All Posts</Button>
+      </NuxtLink>
+    </div>
     <circle class="absolute left-[-10%] top-[75%] z-[-100] h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]" />
     <circle class="absolute right-[-10%] top-[75%] z-[-100] h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]" />
   </div>

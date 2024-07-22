@@ -121,60 +121,80 @@
 </script>
 
 <template>
-  <ContentDoc v-slot="{ doc }" :locale="locale" :path="path" :head="true" class="scroll-container">
-    <div class="relative flex justify-center gap-10 px-64 py-32">
-      <article class="w-full max-w-full flex-[1] space-y-10">
-        <NuxtImg id="post-img" class="mx-auto w-full rounded-2xl" :src="doc.image" :alt="doc.title" />
-        <div class="flex flex-col gap-5">
-          <h1 id="title" class="text-3xl font-bold">{{ doc.title }}</h1>
+  <div class="relative">
+    <ContentDoc v-slot="{ doc }" :locale="locale" :path="path" :head="true" class="scroll-container relative">
+      <div class="relative flex justify-center gap-10 px-64 py-32">
+        <article class="w-full max-w-full flex-[1] space-y-10">
+          <NuxtImg id="post-img" class="mx-auto w-full rounded-2xl" :src="doc.image" :alt="doc.title" />
+          <div class="flex flex-col gap-5">
+            <h1 id="title" class="text-3xl font-bold">{{ doc.title }}</h1>
 
-          <div class="space-y-3">
-            <div class="flex gap-2">
-              <p class="text-lg capitalize text-gray-400">
-                {{
-                  formatDate(new Date(doc.date as EpochTimeStamp), "DD MMMM YYYY", {
-                    locales: locale,
-                  })
-                }}
-              </p>
-              <p class="text-lg text-gray-400">•</p>
-              <p class="text-lg text-gray-400">
-                {{ $t("readingTime", { minutes: Math.round(doc.readingTime.minutes) }) }}
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <NuxtImg class="rounded-full" :src="getImagePath(doc.author)" :alt="doc.author" width="50" height="50" />
-              <h3 class="author-name text-lg">{{ doc.author }}</h3>
+            <div class="space-y-3">
+              <div class="flex gap-2">
+                <p class="text-lg capitalize text-gray-400">
+                  {{
+                    formatDate(new Date(doc.date as EpochTimeStamp), "DD MMMM YYYY", {
+                      locales: locale,
+                    })
+                  }}
+                </p>
+                <p class="text-lg text-gray-400">•</p>
+                <p class="text-lg text-gray-400">
+                  {{ $t("readingTime", { minutes: Math.round(doc.readingTime.minutes) }) }}
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <NuxtImg
+                  class="rounded-full"
+                  :src="getImagePath(doc.author)"
+                  :alt="doc.author"
+                  width="50"
+                  height="50"
+                />
+                <h3 class="author-name text-lg">{{ doc.author }}</h3>
+              </div>
             </div>
           </div>
-        </div>
 
-        <hr />
-        <ContentRenderer id="bodyText" class="tracking-lg font-sans text-lg" :value="doc" />
-      </article>
-      <div
-        class="sticky right-0 top-32 h-fit flex-[0.3] space-y-4 overflow-hidden rounded-2xl border border-white/15 p-4 backdrop-blur-lg backdrop-saturate-150"
-        :style="{
-          backdropFilter: 'blur(15px) saturate(180%)',
-          backgroundColor: 'rgb(12 4 39 / 0.5) ',
-          boxShadow: 'inset 0 -1px 0 0px rgba(255, 255, 255, 0.3)',
-        }"
-      >
-        <h1 class="flex items-center gap-2 text-xl font-bold">
-          <Icon name="fluent:content-view-24-regular" size="25" class="mr-2" />
-          {{ $t("toc") }}
-        </h1>
-        <a
-          v-for="(link, index) in doc.body?.toc?.links"
-          :key="index"
-          :href="'#' + link.id"
-          class="block cursor-pointer text-blue-500"
+          <hr />
+          <ContentRenderer id="bodyText" class="tracking-lg font-sans text-lg" :value="doc" />
+        </article>
+        <div
+          class="sticky right-0 top-32 h-fit flex-[0.3] space-y-4 overflow-hidden rounded-2xl border border-white/15 p-4 backdrop-blur-lg backdrop-saturate-150"
+          :style="{
+            backdropFilter: 'blur(15px) saturate(180%)',
+            backgroundColor: 'rgb(12 4 39 / 0.5) ',
+            boxShadow: 'inset 0 -1px 0 0px rgba(255, 255, 255, 0.3)',
+          }"
         >
-          {{ removeSpecialCharacters(link.text) }}
-        </a>
+          <h1 class="flex items-center gap-2 text-xl font-bold">
+            <Icon name="fluent:content-view-24-regular" size="25" class="mr-2" />
+            {{ $t("toc") }}
+          </h1>
+          <a
+            v-for="(link, index) in doc.body?.toc?.links"
+            :key="index"
+            :href="'#' + link.id"
+            class="block cursor-pointer text-blue-500"
+          >
+            {{ removeSpecialCharacters(link.text) }}
+          </a>
+        </div>
       </div>
-    </div>
-  </ContentDoc>
+    </ContentDoc>
+    <circle
+      class="absolute left-[-30%] top-[75%] z-[-100] aspect-square w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]"
+    />
+    <circle
+      class="absolute right-[-10%] top-[30%] z-[-100] aspect-square w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]"
+    />
+    <circle
+      class="absolute left-[5%] top-[0%] z-[-100] aspect-square w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]"
+    />
+    <circle
+      class="absolute left-[25%] top-[50%] z-[-100] aspect-square w-1/2 rounded-full bg-[#68CBDE]/20 blur-[200px]"
+    />
+  </div>
 </template>
 
 <style lang="scss">

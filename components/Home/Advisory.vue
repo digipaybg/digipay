@@ -2,37 +2,37 @@
   // TODO: Translate component, name and position
   const advisoryBoard = [
     {
-      name: "Stoilka Arsova",
-      position: "Director of National card and payment scheme, part of Borica AD",
+      name: "stoilka",
+      position: "stoilkaPosition",
       image: "/advisory/stoilka_arsova.jpg",
       shadow: "primary",
     },
     {
-      name: "Svetlin Lazarov",
-      position: "Head of Cyber Intelligence and Digital Forensics Unit at GDCOC",
+      name: "svetlin",
+      position: "svetlinPosition",
       image: "/advisory/svetlin_lazarov.jpg",
       shadow: "white",
     },
     {
-      name: "Goran Angelov",
-      position: "Founder and CEO, IBS Bulgaria",
+      name: "goran",
+      position: "goranPosition",
       image: "/advisory/goran_angelov.jpg",
       shadow: "green-900",
     },
     {
-      name: "Boris Goncharov",
-      position: "Chief Visionary Officer, AMATAS",
+      name: "boris",
+      position: "borisPosition",
       image: "/advisory/boris_goncharov.jpg",
       shadow: "gray",
     },
     {
-      name: "Miglen Evlogiev",
-      position: "Founder, Bulgarian CyberSecurity Foundation VP, Cybersecurity, Payhawk",
+      name: "miglen",
+      position: "miglenPosition",
       image: "/advisory/miglen_evlogiev.JPG",
     },
     {
-      name: "Pavel Kaminsky",
-      position: "Founder, 7Security",
+      name: "pavel",
+      position: "pavelPosition",
       image: "/advisory/pavel_kaminsky.jpg",
       shadow: "blue",
     },
@@ -41,7 +41,7 @@
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <h1 class="text-center text-4xl font-bold">Advisory Board</h1>
+    <h1 class="text-center text-4xl font-bold">{{ $t("advisory") }}</h1>
     <div class="mt-8 flex w-2/3 flex-col gap-8">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <div
@@ -55,11 +55,11 @@
             :class="`${index === 0 || index === 4 ? 'object-right' : ''} `"
             format="webp"
             quality="30"
-            :alt="member.name"
+            :alt="$t(member.name)"
             loading="lazy"
           />
-          <h3 class="text-xl font-bold">{{ member.name }}</h3>
-          <p class="text-center text-gray-700 dark:text-gray-300">{{ member.position }}</p>
+          <h3 class="text-xl font-bold">{{ $t(member.name) }}</h3>
+          <p class="text-center text-gray-700 dark:text-gray-300">{{ $t(member.position) }}</p>
         </div>
       </div>
     </div>
