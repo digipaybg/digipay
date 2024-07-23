@@ -26,30 +26,36 @@
 </script>
 
 <template>
-  <div class="relative flex flex-col space-y-8 p-24 px-36">
-    <h1 class="font-mono text-5xl">{{ $t("blogTitle") }}</h1>
+  <div class="relative flex flex-col space-y-8 p-8 md:p-24 md:px-36">
+    <h1 class="font-mono text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1>
 
     <div v-if="posts" class="body-text space-y-10 tracking-wide">
       <NuxtLink :href="localePath(posts[0]._path!)">
-        <div class="flex gap-4 rounded-xl p-4 transition-all hover:bg-white/25">
-          <NuxtImg class="max-h-[500px] flex-[1] rounded-lg" :src="posts[0].image" :alt="posts[0].title" />
+        <div class="flex flex-col gap-4 rounded-xl p-4 transition-all hover:bg-white/25 lg:flex-row">
+          <div class="flex-[1]">
+            <NuxtImg
+              class="h-auto max-h-[500px] w-full rounded-lg object-cover"
+              :src="posts[0].image"
+              :alt="posts[0].title"
+            />
+          </div>
 
           <div class="flex flex-[1.3] flex-col">
             <div class="space-y-2">
-              <h2 class="text-2xl font-bold">{{ posts[0].title }}</h2>
-              <p class="line-clamp-2 text-lg text-gray-400">{{ posts[0].description }}</p>
+              <h2 class="text-xl font-bold md:text-2xl">{{ posts[0].title }}</h2>
+              <p class="line-clamp-2 text-base text-gray-400 md:text-lg">{{ posts[0].description }}</p>
             </div>
-            <div class="space-y-3 pt-6">
+            <div class="space-y-3 pt-4 md:pt-6">
               <div class="flex gap-2">
-                <p class="text-lg capitalize text-gray-400">
+                <p class="text-base capitalize text-gray-400 md:text-lg">
                   {{
                     formatDate(new Date(posts[0].date as EpochTimeStamp), "DD MMMM YYYY", {
                       locales: locale,
                     })
                   }}
                 </p>
-                <p class="text-lg text-gray-400">•</p>
-                <p class="text-lg text-gray-400">
+                <p class="text-base text-gray-400 md:text-lg">•</p>
+                <p class="text-base text-gray-400 md:text-lg">
                   {{ $t("readingTime", { minutes: Math.round(posts[0].readingTime.minutes) }) }}
                 </p>
               </div>
@@ -58,18 +64,18 @@
                   class="rounded-full"
                   :src="getImagePath(posts[0].author)"
                   :alt="posts[0].author"
-                  width="50"
-                  height="50"
+                  width="40"
+                  height="40"
                 />
-                <h3 class="author-name text-xl">{{ posts[0].author }}</h3>
+                <h3 class="author-name text-base md:text-xl">{{ posts[0].author }}</h3>
               </div>
             </div>
           </div>
         </div>
       </NuxtLink>
       <div v-if="posts.length > 1" class="">
-        <h1 class="pb-10 font-mono text-3xl tracking-wider">{{ $t("morePosts") }}</h1>
-        <div class="grid w-full grid-flow-row grid-cols-3 gap-6">
+        <h1 class="pb-6 font-mono text-2xl tracking-wider md:pb-10 md:text-3xl">{{ $t("morePosts") }}</h1>
+        <div class="grid w-full grid-flow-row grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <BlogCard v-for="post in posts.slice(1)" :key="post._id" :post="post" />
         </div>
       </div>
@@ -91,5 +97,26 @@
 
   .body-text {
     font-family: "Arial", sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    .font-mono {
+      font-size: 1.5rem;
+    }
+
+    .author-name {
+      font-size: 1rem;
+    }
+
+    .body-text {
+      font-size: 1rem;
+    }
+
+    .line-clamp-2 {
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
 </style>
