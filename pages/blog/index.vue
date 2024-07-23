@@ -32,7 +32,7 @@
     <div v-if="posts" class="body-text space-y-10 tracking-wide">
       <NuxtLink :href="localePath(posts[0]._path!)">
         <div class="flex gap-4 rounded-xl p-4 transition-all hover:bg-white/25">
-          <NuxtImg class="flex-[1] rounded-lg" :src="posts[0].image" :alt="posts[0].title" />
+          <NuxtImg class="max-h-[500px] flex-[1] rounded-lg" :src="posts[0].image" :alt="posts[0].title" />
 
           <div class="flex flex-[1.3] flex-col">
             <div class="space-y-2">
