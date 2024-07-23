@@ -20,6 +20,7 @@
     const authorPfp = document.querySelector("#author-img")!;
     const authorName = document.querySelector("#author-name")!;
     const readingTime = document.querySelector("#read-time")!;
+    const dotSplitter = document.querySelector("#dot-splitter")!;
     const postDate = document.querySelector("#post-date")!;
 
     const tocCard = document.querySelector(".toc-card")!;
@@ -56,6 +57,52 @@
         },
       ],
       [
+        postDate,
+        {
+          opacity: [0, 1],
+          scale: [0.7, 1],
+        },
+        {
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+        },
+      ],
+
+      [
+        dotSplitter,
+        {
+          opacity: [0, 1],
+          scale: [0, 1],
+        },
+        {
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+          at: "<",
+        },
+      ],
+      [
+        readingTime,
+        {
+          opacity: [0, 1],
+          scale: [0.7, 1],
+        },
+        {
+          easing: spring({
+            stiffness: 100,
+            damping: 15,
+            mass: 1,
+          }),
+          at: "<",
+        },
+      ],
+
+      [
         authorPfp,
         {
           opacity: [0, 1],
@@ -81,38 +128,10 @@
             damping: 15,
             mass: 1,
           }),
-        },
-      ],
-      [
-        readingTime,
-        {
-          opacity: [0, 1],
-          scale: [0.7, 1],
-        },
-        {
-          easing: spring({
-            stiffness: 100,
-            damping: 15,
-            mass: 1,
-          }),
           at: "<",
         },
       ],
-      [
-        postDate,
-        {
-          opacity: [0, 1],
-          scale: [0.7, 1],
-        },
-        {
-          easing: spring({
-            stiffness: 100,
-            damping: 15,
-            mass: 1,
-          }),
-          at: "<",
-        },
-      ],
+
       [
         backButton,
         {
@@ -212,27 +231,28 @@
 
             <div class="space-y-3">
               <div class="flex gap-2">
-                <p class="text-lg capitalize text-gray-400">
+                <p id="post-date" class="text-lg capitalize text-gray-400">
                   {{
                     formatDate(new Date(doc.date as EpochTimeStamp), "DD MMMM YYYY", {
                       locales: locale,
                     })
                   }}
                 </p>
-                <p class="text-lg text-gray-400">•</p>
-                <p class="text-lg text-gray-400">
+                <p id="dot-splitter" class="text-lg text-gray-400">•</p>
+                <p id="read-time" class="text-lg text-gray-400">
                   {{ $t("readingTime", { minutes: Math.round(doc.readingTime.minutes) }) }}
                 </p>
               </div>
               <div class="flex items-center gap-2">
                 <NuxtImg
-                  class="rounded-full"
+                  id="author-img"
+                  class="author-img rounded-full"
                   :src="getImagePath(doc.author)"
                   :alt="doc.author"
                   width="50"
                   height="50"
                 />
-                <h3 class="author-name text-lg">{{ doc.author }}</h3>
+                <h3 id="author-name" class="author-name text-lg">{{ doc.author }}</h3>
               </div>
             </div>
           </div>
