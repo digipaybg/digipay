@@ -68,7 +68,7 @@
         </div>
       </NuxtLink>
       <div v-if="posts.length > 1" class="">
-        <h1 class="font-mono text-3xl tracking-wider">{{ $t("morePosts") }}</h1>
+        <h1 class="pb-10 font-mono text-3xl tracking-wider">{{ $t("morePosts") }}</h1>
         <div class="grid w-full grid-flow-row grid-cols-3 gap-6">
           <BlogCard v-for="post in posts.slice(1)" :key="post._id" :post="post" />
         </div>
