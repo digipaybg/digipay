@@ -104,7 +104,11 @@
                 <h2 class="header-text h-9 text-[50px] font-bold opacity-0 lg:text-[60px] xl:h-16 xl:text-[75px]">
                   October
                 </h2>
-                <h3 class="header-text text-[70px] text-primary opacity-0 lg:text-[100px] xl:text-[130px]">2024</h3>
+                <h3
+                  class="header-text font-['Bebas Neue'] text-[70px] text-primary opacity-0 lg:text-[100px] xl:text-[130px]"
+                >
+                  2024
+                </h3>
               </div>
             </div>
           </div>

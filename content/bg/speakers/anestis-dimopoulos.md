@@ -3,6 +3,7 @@ name: Анестис Димопулос
 position: Директор, Дигитални консултантски услуги и риск, Baker Tilly Southeast Europe
 image: /speakers/Anestis.png
 topic: Използване на машинно обучение и AI за AML контроли
+order: 3
 ---
 
 Г-н Димопулос ръководи дигитални и рискови консултантски услуги в Baker Tilly South

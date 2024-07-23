@@ -60,7 +60,7 @@
 </script>
 
 <template>
-  <div id="themes" class="flex h-[75vh] flex-col items-center justify-center">
+  <div id="themes" class="relative flex h-[75vh] flex-col items-center justify-center overflow-visible">
     <h1 class="py-10 text-center text-4xl">Топ темите 2024</h1>
     <div
       :initial="{
@@ -71,7 +71,7 @@
         scale: 1,
         opacity: 1,
       }"
-      class="card my-20 flex h-fit w-2/3 items-center justify-center rounded-xl bg-card/25 p-8"
+      class="card my-20 flex h-fit w-2/3 items-center justify-center rounded-xl p-8 backdrop-blur-2xl backdrop-saturate-200"
     >
       <div class="inline-grid grid-cols-3 grid-rows-2">
         <div
@@ -85,7 +85,7 @@
             'border-r-0': true,
           }"
         >
-          <div class="flex items-center justify-center rounded-full border border-white bg-card/50 p-4">
+          <div class="flex items-center justify-center rounded-full border border-white p-4 backdrop-saturate-200">
             <Icon :name="theme.icon" class="h-10 w-10" />
           </div>
           <h1 class="text-md">{{ $t(theme.theme) }}</h1>
@@ -93,6 +93,8 @@
       </div>
     </div>
 
-    <h2 class="text-4xl text-[#27DBE0]">400+ Участника</h2>
+    <circle
+      class="absolute left-[50%] top-[30%] -z-50 aspect-square w-1/2 -translate-x-1/2 rounded-full bg-[#27E076]/20 blur-[200px]"
+    />
   </div>
 </template>

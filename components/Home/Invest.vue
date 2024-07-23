@@ -32,8 +32,8 @@
 </script>
 
 <template>
-  <div class="flex h-full flex-col items-center justify-center">
-    <h1 class="py-10 text-center text-4xl">Защо да инвестирате в DIGI PAY?</h1>
+  <div id="invest" class="flex h-full flex-col items-center justify-center">
+    <h1 class="py-10 text-center text-4xl">{{ $t("invest") }}</h1>
 
     <div class="flex w-[75%] flex-col flex-wrap lg:gap-5">
       <div class="flex flex-col justify-center gap-5 lg:flex-row">
@@ -62,5 +62,9 @@
   .cell {
     // box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     @apply flex w-full flex-1 flex-col items-start gap-2 rounded-xl border border-green-500/50 bg-green-500/15 p-6 shadow-[0_0px_13px_0px_rgba(0,0,0,0.3)] shadow-green-500/50 backdrop-blur-lg;
+  }
+
+  #invest {
+    scroll-margin-top: 125px;
   }
 </style>

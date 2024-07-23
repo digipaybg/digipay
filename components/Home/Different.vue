@@ -9,8 +9,8 @@
 </script>
 
 <template>
-  <div class="relative">
-    <h1 class="py-10 text-center text-4xl">Защо DigiPay се отличава?</h1>
+  <div id="different" class="relative">
+    <h1 class="py-10 text-center text-4xl">{{ $t("different") }}</h1>
     <div class="flex items-center justify-around">
       <div class="flex flex-[0.5] flex-col gap-3">
         <div
@@ -34,4 +34,8 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  #different {
+    scroll-margin-top: 125px;
+  }
+</style>

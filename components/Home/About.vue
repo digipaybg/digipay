@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { scroll } from "#imports";
+  import { breakpointsTailwind } from "@vueuse/core";
 
   const firstCol = [
     {
@@ -84,22 +85,25 @@
       },
     );
   });
+
+  const breakpoints = useBreakpoints(breakpointsTailwind);
 </script>
 
 <template>
-  <div class="relative flex min-h-screen items-center justify-center gap-24 overflow-visible py-20">
+  <div id="about" class="relative flex min-h-screen flex-col items-center justify-center gap-24 overflow-visible py-20">
     <h1 class="py-10 text-center text-4xl">{{ $t("eventAbout") }}</h1>
 
     <!-- <div class="circle-background overflow-visible" /> -->
     <circle class="absolute left-[-15%] top-[45%] aspect-square w-1/2 rounded-full bg-[#27E076]/25 blur-[200px]" />
-    <!-- Radial gradient -->
 
-    <div id="scrollContainer" class="flex items-center justify-center place-self-center">
+    <div id="scrollContainer" class="grid h-full w-full translate-x-24 grid-cols-1 lg:grid-cols-3 lg:gap-20">
       <div
         v-for="(col, index) in [firstCol, secondCol, thirdCol]"
         :key="index"
-        class="flex flex-1 flex-col justify-center"
-        :class="{ 'scale-105': index === 1 }"
+        class="flex flex-col justify-center"
+        :class="{
+          'scale-105': index === 1 && breakpoints.greaterOrEqual('lg').value,
+        }"
       >
         <div v-for="(topic, jdex) in col" :key="jdex" class="row relative pb-10">
           <div class="absolute left-0 h-full w-[2px] bg-green-500/25" />

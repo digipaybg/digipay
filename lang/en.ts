@@ -97,4 +97,7 @@ export default {
   pavelPosition: "Founder, 7Security",
   backPosts: "All Posts",
   blogTitle: "DigiPay Blog",
+  different: "Why DigiPay is different?",
+  invest: "Why invest in DIGI PAY?",
+  readAllPosts: "Read All Posts",
 };

@@ -54,7 +54,7 @@
 </script>
 
 <template>
-  <div class="relative flex flex-col items-center justify-center">
+  <div id="pastYears" class="relative flex flex-col items-center justify-center">
     <h1 class="mb-12 text-center text-4xl">{{ $t("pastYears") }}</h1>
     <div class="flex w-1/2 flex-col gap-10">
       <PastYearCard v-for="year in yearsInfo" :key="year.year" :info="year" />

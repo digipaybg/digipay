@@ -22,36 +22,48 @@
         <Logo class="h-[50px] rounded-full" />
       </NuxtLink>
 
-      <NuxtLink as-child :href="localePath('/')">
+      <NuxtLink :href="localePath('/#about')">
         <Button class="bg-transparent" variant="ghost">
           {{ $t("about") }}
         </Button>
       </NuxtLink>
-      <a href="#speakers">
+
+      <NuxtLink :href="localePath('/#different')">
         <Button class="bg-transparent" variant="ghost">
-          {{ $t("speakers") }}
+          {{ $t("different") }}
         </Button>
-      </a>
-      <a as-child href="#speakers">
+      </NuxtLink>
+
+      <NuxtLink :href="localePath('/#invest')">
         <Button class="bg-transparent" variant="ghost">
-          {{ $t("agenda") }}
+          {{ $t("invest") }}
         </Button>
-      </a>
-      <a as-child href="#schedule">
+      </NuxtLink>
+
+      <NuxtLink :href="localePath('/#partners')">
         <Button class="bg-transparent" variant="ghost">
           {{ $t("partners") }}
         </Button>
-      </a>
-      <NuxtLink :href="localePath('/blog')" as-child>
+      </NuxtLink>
+
+      <NuxtLink :href="localePath('/#advisory')">
+        <Button class="bg-transparent" variant="ghost">
+          {{ $t("advisory") }}
+        </Button>
+      </NuxtLink>
+
+      <NuxtLink :href="localePath('/speakers')">
+        <Button class="bg-transparent" variant="ghost">
+          {{ $t("speakers") }}
+        </Button>
+      </NuxtLink>
+
+      <NuxtLink :href="localePath('/blog')">
         <Button class="bg-transparent" variant="ghost">
           {{ $t("blog") }}
         </Button>
       </NuxtLink>
-      <a as-child href="#sponsors">
-        <Button class="bg-transparent" variant="ghost">
-          {{ $t("contacts") }}
-        </Button>
-      </a>
+
       <HeaderLanugageSelector />
     </div>
 

@@ -121,7 +121,7 @@
       <Meta property="twitter:card" content="summary_large_image" />
     </Head>
 
-    <article class="flex min-h-screen w-2/3 flex-col justify-center gap-24 place-self-center pt-52 2xl:flex-row">
+    <article class="flex w-full flex-col justify-center gap-24 place-self-center px-52 py-52 2xl:flex-row">
       <div class="flex flex-[1] flex-col gap-10">
         <div class="space-y-3">
           <h1 id="speakerName" class="tracking-wider opacity-0 sm:text-4xl md:text-6xl 2xl:text-7xl">{{ doc.name }}</h1>
@@ -139,13 +139,17 @@
         quality="80"
         preload
         priority
-        class="sticky top-20 aspect-square object-cover object-top opacity-0 2xl:max-h-[500px]"
+        class="sticky top-32 aspect-square flex-[0.6] object-cover object-top opacity-0 2xl:max-h-[500px]"
       />
     </article>
   </ContentDoc>
 </template>
 
 <style lang="scss">
+  * {
+    font-family: "Arial", sans-serif;
+  }
+
   hr {
     border: 0;
     height: 1px;

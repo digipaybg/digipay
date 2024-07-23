@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
+  <div id="video">
     <h1 class="py-10 text-center text-4xl capitalize">{{ $t("video") }}</h1>
 
     <iframe

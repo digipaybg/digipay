@@ -40,7 +40,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center">
+  <div id="advisory" class="relative flex flex-col items-center justify-center overflow-visible">
     <h1 class="text-center text-4xl font-bold">{{ $t("advisory") }}</h1>
     <div class="mt-8 flex w-2/3 flex-col gap-8">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
@@ -63,7 +63,14 @@
         </div>
       </div>
     </div>
+    <circle
+      class="absolute left-[50%] top-[45%] -z-[50] aspect-square w-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#68CBDE]/25 blur-[200px]"
+    />
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  #advisory {
+    scroll-margin-top: 125px;
+  }
+</style>

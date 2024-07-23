@@ -59,7 +59,7 @@
 </script>
 
 <template>
-  <div class="">
+  <div id="partners" class="">
     <h1 class="text-center text-4xl font-bold text-gray-900 dark:text-white">{{ $t("ourPartners") }}</h1>
     <div class="mt-8 divide-y divide-gray-200 px-24 dark:divide-green-500">
       <div v-for="(type, index) in partnerTypes" :key="index" class="relative grid gap-8 py-24 lg:grid-cols-5">
@@ -103,4 +103,8 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  #partners {
+    scroll-margin-top: 125px;
+  }
+</style>

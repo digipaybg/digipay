@@ -83,7 +83,7 @@ export default defineNuxtConfig({
     componentDirs: ["/components/OgImage"],
   },
   delayHydration: {
-    mode: "init",
+    mode: false,
   },
   site: {
     url: "https://digipay-seven.vercel.app",

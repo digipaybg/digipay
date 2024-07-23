@@ -3,6 +3,7 @@ name: Svetlin Lazarov
 position: Head of Department „Digital Analysis and Cyber Intelligence”, GDCOC, Ministry of Interior Affairs of Bulgaria
 image: /speakers/svetlin-l.jpg
 topic: Seven years back and forward in payments fraud
+order: 2
 ---
 
 Svetlin Lazarov is a Head of “Digital Analysis and Cyber Intelligence” in the Cybercrime Department at

@@ -101,4 +101,6 @@ export default {
   pavelPosition: "Основател, 7Security",
   readAllPosts: "Прочети всички публикации",
   backPosts: "Всички публикации",
+  different: "Защо DigiPay се отличава?",
+  invest: "Защо да инвестирате в DIGI PAY?",
 };
