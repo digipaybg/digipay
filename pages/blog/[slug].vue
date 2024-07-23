@@ -212,7 +212,7 @@
 <template>
   <div class="relative overflow-x-clip">
     <ContentDoc v-slot="{ doc }" :locale="locale" :path="path" :head="true" class="scroll-container relative">
-      <div class="relative flex justify-center gap-10 px-64 py-32">
+      <div class="relative flex justify-center gap-10 px-4 py-16 md:px-16 md:py-24 lg:px-32">
         <article class="w-full max-w-full flex-[1] space-y-6">
           <NuxtLink id="" :href="localePath('/blog')" as-child>
             <Button
@@ -227,19 +227,19 @@
           </NuxtLink>
           <NuxtImg id="post-img" class="mx-auto w-full rounded-2xl" :src="doc.image" :alt="doc.title" />
           <div class="flex flex-col gap-5">
-            <h1 id="title" class="text-3xl font-bold">{{ doc.title }}</h1>
+            <h1 id="title" class="text-2xl font-bold md:text-3xl">{{ doc.title }}</h1>
 
             <div class="space-y-3">
               <div class="flex gap-2">
-                <p id="post-date" class="text-lg capitalize text-gray-400">
+                <p id="post-date" class="text-base capitalize text-gray-400 md:text-lg">
                   {{
                     formatDate(new Date(doc.date as EpochTimeStamp), "DD MMMM YYYY", {
                       locales: locale,
                     })
                   }}
                 </p>
-                <p id="dot-splitter" class="text-lg text-gray-400">•</p>
-                <p id="read-time" class="text-lg text-gray-400">
+                <p id="dot-splitter" class="text-base text-gray-400 md:text-lg">•</p>
+                <p id="read-time" class="text-base text-gray-400 md:text-lg">
                   {{ $t("readingTime", { minutes: Math.round(doc.readingTime.minutes) }) }}
                 </p>
               </div>
@@ -249,27 +249,27 @@
                   class="author-img rounded-full"
                   :src="getImagePath(doc.author)"
                   :alt="doc.author"
-                  width="50"
-                  height="50"
+                  width="40"
+                  height="40"
                 />
-                <h3 id="author-name" class="author-name text-lg">{{ doc.author }}</h3>
+                <h3 id="author-name" class="author-name text-base md:text-lg">{{ doc.author }}</h3>
               </div>
             </div>
           </div>
 
           <hr />
-          <ContentRenderer id="bodyText" class="tracking-lg font-sans text-lg" :value="doc" />
+          <ContentRenderer id="bodyText" class="font-sans text-base tracking-normal md:text-lg" :value="doc" />
         </article>
         <div
-          class="toc-card sticky right-0 top-32 mt-24 h-fit flex-[0.3] space-y-4 overflow-hidden rounded-2xl border border-white/15 p-4 backdrop-blur-lg backdrop-saturate-150"
+          class="toc-card sticky right-0 top-32 mt-24 hidden h-fit flex-[0.3] space-y-4 overflow-hidden rounded-2xl border border-white/15 p-4 backdrop-blur-lg backdrop-saturate-150 lg:block"
           :style="{
             backdropFilter: 'blur(15px) saturate(180%)',
             backgroundColor: 'rgb(12 4 39 / 0.5) ',
             boxShadow: 'inset 0 -1px 0 0px rgba(255, 255, 255, 0.3)',
           }"
         >
-          <h1 class="toc-text flex items-center gap-2 text-xl font-bold">
-            <Icon name="fluent:content-view-24-regular" size="25" class="mr-2" />
+          <h1 class="toc-text flex items-center gap-2 text-lg font-bold md:text-xl">
+            <Icon name="fluent:content-view-24-regular" size="25" class="mr-2 hidden lg:block" />
             {{ $t("toc") }}
           </h1>
           <a
@@ -325,19 +325,40 @@
     h2,
     h3 {
       scroll-margin-top: 140px;
-      font-size: 28px;
+      font-size: 24px;
       padding-top: 30px;
       padding-bottom: 10px;
       color: #b0edf9;
     }
 
     p {
-      font-size: 20px;
+      font-size: 18px;
       padding-block: 10px;
     }
 
     h3 {
-      font-size: 23px;
+      font-size: 21px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #title {
+      font-size: 2xl;
+    }
+
+    #post-date,
+    #dot-splitter,
+    #read-time,
+    #author-name {
+      font-size: base;
+    }
+
+    .toc-text {
+      font-size: lg;
+    }
+
+    .toc-card {
+      flex-basis: 100%;
     }
   }
 </style>
