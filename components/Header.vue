@@ -109,7 +109,7 @@
           }"
         >
           <NuxtLink :href="localePath(link)" @click="showMenu = false">
-            <Button class="bg-transparent" variant="ghost">
+            <Button class="bg-transparent shadow-none" variant="ghost">
               {{ $t(link.replaceAll("#", "").replaceAll("/", "")) }}
             </Button>
           </NuxtLink>

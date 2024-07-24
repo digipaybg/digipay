@@ -59,17 +59,17 @@
 </script>
 
 <template>
-  <div id="partners" class="">
-    <h1 class="text-center text-4xl font-bold text-gray-900 dark:text-white">{{ $t("ourPartners") }}</h1>
-    <div class="mt-8 divide-y divide-gray-200 px-24 dark:divide-green-500">
-      <div v-for="(type, index) in partnerTypes" :key="index" class="relative grid gap-8 py-24 lg:grid-cols-5">
+  <div id="partners" class="px-4 py-8 lg:px-24 lg:py-16">
+    <h1 class="text-center text-2xl font-bold text-gray-900 dark:text-white lg:text-4xl">{{ $t("ourPartners") }}</h1>
+    <div class="mt-8 divide-y divide-gray-200 dark:divide-green-500">
+      <div v-for="(type, index) in partnerTypes" :key="index" class="relative grid gap-8 py-12 lg:grid-cols-5 lg:py-24">
         <div
           class="flex items-center justify-between lg:sticky lg:top-0 lg:-mt-24 lg:flex-col lg:items-start lg:self-start lg:pt-24"
         >
-          <h2 class="text-2xl font-bold capitalize text-gray-900 dark:text-white">{{ $t(type.type) }}</h2>
+          <h2 class="text-xl font-bold capitalize text-gray-900 dark:text-white lg:text-2xl">{{ $t(type.type) }}</h2>
         </div>
         <div class="lg:col-span-4">
-          <div class="-mt-4 grid grid-cols-2 gap-8 gap-x-4 sm:grid-cols-3 md:grid-cols-4">
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <a
               v-for="(partner, jIndex) in type.partners"
               :key="jIndex"
@@ -84,14 +84,14 @@
                 <NuxtImg
                   format="webp"
                   quality="60"
-                  class="h-40 w-full rounded-2xl bg-white object-scale-down p-5 text-2xl transition-all duration-300 group-hover:bg-white/75"
+                  class="aspect-video h-24 rounded-2xl bg-white object-scale-down p-5 text-2xl transition-all duration-300 group-hover:bg-white/75 lg:h-40 lg:w-full"
                   :alt="partner.name"
                   :src="partner.image"
                   loading="lazy"
                 />
               </span>
               <h3
-                class="mb-2 mt-6 h-20 text-center font-semibold capitalize leading-7 tracking-tight text-gray-900 dark:text-white"
+                class="mb-2 mt-6 h-12 text-center font-semibold capitalize leading-7 tracking-tight text-gray-900 dark:text-white lg:h-20"
               >
                 {{ partner.name }}
               </h3>

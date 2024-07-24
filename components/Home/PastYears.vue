@@ -54,12 +54,11 @@
 </script>
 
 <template>
-  <div id="pastYears" class="relative flex flex-col items-center justify-center">
-    <h1 class="mb-12 text-center text-4xl">{{ $t("pastYears") }}</h1>
-    <div class="flex w-1/2 flex-col gap-10">
+  <div id="pastYears" class="relative flex flex-col items-center justify-center px-4 py-8 md:px-8 lg:px-14">
+    <h1 class="mb-6 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("pastYears") }}</h1>
+    <div class="flex w-full flex-col gap-6 sm:gap-8 md:w-3/4 md:gap-10 xl:w-1/2">
       <PastYearCard v-for="year in yearsInfo" :key="year.year" :info="year" />
     </div>
-
     <circle class="absolute left-[5%] top-[10%] h-full w-1/2 rounded-full bg-[#27E076]/30 blur-[200px]" />
   </div>
 </template>
