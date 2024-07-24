@@ -40,6 +40,8 @@
       },
     );
   });
+
+  const { locale } = useI18n();
 </script>
 
 <template>
@@ -150,7 +152,9 @@
             }"
             class="mt-20 flex flex-col items-center justify-center gap-2"
           >
-            <Button variant="default" class="w-64 text-lg"> {{ $t("buyTicket") }} </Button>
+            <NuxtLink :href="`https://tickets.paysera.com/${locale}/event/digi-pay-0091`">
+              <Button variant="default" class="w-64 text-lg"> {{ $t("buyTicket") }} </Button>
+            </NuxtLink>
             <h4>{{ $t("liveOrOnline") }}</h4>
           </Motion>
         </div>

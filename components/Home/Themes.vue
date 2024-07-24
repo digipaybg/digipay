@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+  import { scroll } from "#imports";
+  import SplitType from "split-type";
+
   const themes = [
     { theme: "instantPayments", icon: "mdi:credit-card-fast" },
     { theme: "paymentScam", icon: "i-material-symbols-lock" },
@@ -15,53 +18,73 @@
   ];
 
   onMounted(() => {
-    // const target = document.querySelector(".card")!;
-    // const container = document.querySelector("#themes")!;
-    // scroll(
-    //   timeline(
-    //     [
-    //       [
-    //         ".card",
-    //         {
-    //           scale: [0.7, 1],
-    //           opacity: [0, 1],
-    //           y: [100, 0],
-    //         },
-    //         {},
-    //       ],
-    //       [
-    //         ".cell",
-    //         {
-    //           y: [100, 0],
-    //           opacity: [0, 1],
-    //           scale: [0.7, 1],
-    //         },
-    //         {
-    //           delay: stagger(0.1, {
-    //             from: "first",
-    //           }),
-    //           easing: spring({
-    //             stiffness: 100,
-    //             damping: 15,
-    //           }),
-    //         },
-    //       ],
-    //     ],
-    //     {},
-    //   ),
-    //   {
-    //     target: target,
-    //     axis: "y",
-    //     smooth: 0.5,
-    //     offset: ["end end", "500px 0px"],
-    //   },
-    // );
+    const target = document.querySelector(".card")!;
+    const splitTitle = new SplitType("#themeTitle");
+
+    scroll(
+      timeline(
+        [
+          [
+            splitTitle.chars!,
+            {
+              y: [10, 0],
+              opacity: [0, 1],
+              scale: [0.7, 1],
+            },
+            {
+              delay: stagger(0.05),
+              easing: spring({
+                stiffness: 100,
+                damping: 10,
+                mass: 0.5,
+              }),
+            },
+          ],
+          [
+            ".card",
+            {
+              scale: [0.7, 1],
+              opacity: [0, 1],
+              y: [100, 0],
+              zIndex: [9999, 9999],
+            },
+            {},
+          ],
+          [
+            ".cell",
+            {
+              y: [25, 0],
+              opacity: [0, 1],
+              scale: [0.7, 1],
+              filter: ["blur(10px)", "blur(0px)"],
+            },
+            {
+              delay: stagger(0.1, {
+                from: "first",
+              }),
+              easing: spring({
+                stiffness: 100,
+                damping: 15,
+              }),
+              at: "<",
+            },
+          ],
+        ],
+        {},
+      ),
+      {
+        target: target,
+        axis: "y",
+        smooth: 0.5,
+        offset: ["start end", "100px 0px"],
+      },
+    );
   });
 </script>
 
 <template>
   <div id="themes" class="relative flex h-[75vh] flex-col items-center justify-center overflow-visible">
-    <h1 class="py-4 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("themes2024") }}</h1>
+    <h1 id="themeTitle" class="py-4 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("themes2024") }}</h1>
     <div
       :initial="{
         scale: 0.7,

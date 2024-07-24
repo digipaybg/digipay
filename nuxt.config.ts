@@ -28,6 +28,8 @@ export default defineNuxtConfig({
   ],
   routeRules: {
     "/": { prerender: true, ssr: true, static: false },
+    "/blog": { isr: 3600, prerender: true },
+    "/speakers": { isr: 3600, prerender: true },
   },
   plugins: [],
 

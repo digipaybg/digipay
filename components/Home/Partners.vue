@@ -70,7 +70,7 @@
         </div>
         <div class="lg:col-span-4">
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <a
+            <NuxtLink
               v-for="(partner, jIndex) in type.partners"
               :key="jIndex"
               class="focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 group inline-flex flex-1 flex-shrink-0 flex-col items-center justify-center gap-x-2.5 rounded-xl px-3.5 py-2.5 text-base font-medium text-gray-900 transition-all duration-300 hover:bg-white focus:outline-none focus-visible:outline-0 focus-visible:ring-2 focus-visible:ring-inset disabled:cursor-not-allowed disabled:opacity-75 dark:text-white dark:hover:bg-blue-950"
@@ -95,7 +95,7 @@
               >
                 {{ partner.name }}
               </h3>
-            </a>
+            </NuxtLink>
           </div>
         </div>
       </div>

@@ -14,7 +14,12 @@
       class="mx-auto aspect-video w-[90%] rounded-2xl xl:w-2/3"
     ></iframe>
 
-    <NuxtLink href="/videos" class="mt-10 flex justify-center">
+    <NuxtLink
+      href="https://www.youtube.com/@digipay8873"
+      rel="noopener noreferrer"
+      target="_blank"
+      class="mt-10 flex justify-center"
+    >
       <Button size="lg" class="px-12 py-8 text-2xl">
         {{ $t("allVideos") }}
       </Button>

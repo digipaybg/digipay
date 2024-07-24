@@ -119,6 +119,8 @@
       <Meta property="twitter:description" :content="doc.position" />
       <Meta property="twitter:image" :content="doc.image" />
       <Meta property="twitter:card" content="summary_large_image" />
+      <Meta property="og:image" :content="doc.image" />
+      <!-- Og image thing -->
     </Head>
 
     <article class="sm:px-18 flex w-full flex-col justify-center gap-12 px-4 py-32 md:px-48 lg:py-64 2xl:flex-row">
