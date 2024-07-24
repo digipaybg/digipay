@@ -26,7 +26,7 @@
 </script>
 
 <template>
-  <div class="relative flex flex-col space-y-8 overflow-x-hidden p-4 sm:p-8 md:p-24 md:px-36">
+  <div class="relative flex h-fit flex-col space-y-8 overflow-x-hidden overflow-y-hidden p-4 sm:p-8 md:p-24 md:px-36">
     <h1 class="font-mono text-2xl sm:text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1>
 
     <div v-if="posts" class="body-text space-y-10 tracking-wide">
@@ -75,7 +75,7 @@
       </NuxtLink>
       <div v-if="posts.length > 1" class="">
         <h1 class="pb-6 font-mono text-xl tracking-wider sm:text-2xl md:pb-10 md:text-3xl">{{ $t("morePosts") }}</h1>
-        <div class="grid w-full grid-flow-row grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid w-full grid-flow-row grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           <BlogCard v-for="post in posts.slice(1)" :key="post._id" :post="post" />
         </div>
       </div>
@@ -84,7 +84,9 @@
     <circle
       class="absolute left-[-10%] top-[75%] z-[-100] hidden h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px] lg:block"
     />
-    <circle class="absolute right-[-25%] top-[-60%] z-[-100] h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]" />
+    <circle
+      class="absolute right-[-25%] top-[-60%] z-[-100] hidden h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px] lg:block"
+    />
   </div>
 </template>
 
