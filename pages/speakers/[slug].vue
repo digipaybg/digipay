@@ -114,22 +114,28 @@
       <Title ref="titleRef">{{ doc.name }} | DigiPay</Title>
       <Meta property="og:title" :content="doc.name" />
       <Meta property="og:description" :content="doc.position" />
-      <Meta property="og:url" :content="`https://digipay.bg${doc._path}`" />
+      <Meta property="og:url" :content="$route.fullPath" />
       <Meta property="twitter:title" :content="doc.name" />
       <Meta property="twitter:description" :content="doc.position" />
       <Meta property="twitter:image" :content="doc.image" />
       <Meta property="twitter:card" content="summary_large_image" />
     </Head>
 
-    <article class="flex w-full flex-col justify-center gap-24 place-self-center px-52 py-52 2xl:flex-row">
-      <div class="flex flex-[1] flex-col gap-10">
-        <div class="space-y-3">
-          <h1 id="speakerName" class="tracking-wider opacity-0 sm:text-4xl md:text-6xl 2xl:text-7xl">{{ doc.name }}</h1>
-          <h2 id="speakerPosition" ref="descriptionRef" class="font-sans text-xl font-light tracking-tight opacity-0">
+    <article class="sm:px-18 flex w-full flex-col justify-center gap-12 px-4 py-32 md:px-48 lg:py-64 2xl:flex-row">
+      <div class="flex flex-[1] flex-col gap-6 md:gap-10">
+        <div class="space-y-2 md:space-y-3">
+          <h1 id="speakerName" class="text-2xl font-bold tracking-wider opacity-0 sm:text-4xl md:text-6xl 2xl:text-7xl">
+            {{ doc.name }}
+          </h1>
+          <h2
+            id="speakerPosition"
+            ref="descriptionRef"
+            class="font-sans text-lg font-light tracking-tight opacity-0 sm:text-xl"
+          >
             {{ doc.position }}
           </h2>
         </div>
-        <ContentRenderer id="bodyText" class="tracking-lg font-sans text-lg opacity-0" :value="doc" />
+        <ContentRenderer id="bodyText" class="tracking-lg font-sans text-base opacity-0 sm:text-lg" :value="doc" />
       </div>
       <NuxtImg
         id="speakerImage"
@@ -139,7 +145,7 @@
         quality="80"
         preload
         priority
-        class="sticky top-32 aspect-square flex-[0.6] object-cover object-top opacity-0 2xl:max-h-[500px]"
+        class="sticky top-32 aspect-square w-full flex-[0.5] object-cover object-top opacity-0 sm:w-3/4 md:w-1/2 2xl:max-h-[500px] 2xl:w-auto"
       />
     </article>
   </ContentDoc>

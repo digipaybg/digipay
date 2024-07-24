@@ -18,8 +18,8 @@
 </script>
 
 <template>
-  <div class="relative flex flex-col space-y-8 p-24 px-36">
-    <h1 class="font-mono text-5xl">{{ $t("speakers") }}</h1>
+  <div class="relative flex flex-col space-y-8 p-4 sm:p-8 md:p-24 md:px-36">
+    <h1 class="font-mono text-3xl sm:text-4xl md:text-5xl">{{ $t("speakers") }}</h1>
 
     <div v-if="speakersContent.data">
       <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -29,4 +29,8 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .font-mono {
+    font-family: "IBM Plex Mono", Courier, monospace;
+  }
+</style>
