@@ -61,7 +61,7 @@
 
 <template>
   <div id="themes" class="relative flex h-[75vh] flex-col items-center justify-center overflow-visible">
-    <h1 class="py-10 text-center text-4xl">Топ темите 2024</h1>
+    <h1 class="py-4 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("themes2024") }}</h1>
     <div
       :initial="{
         scale: 0.7,
@@ -71,30 +71,67 @@
         scale: 1,
         opacity: 1,
       }"
-      class="card my-20 flex h-fit w-2/3 items-center justify-center rounded-xl p-8 backdrop-blur-2xl backdrop-saturate-200"
+      class="card my-8 flex h-fit w-full items-center justify-center rounded-xl p-4 backdrop-blur-2xl backdrop-saturate-200 sm:my-12 sm:w-3/4 sm:p-8 md:my-20 md:w-2/3"
     >
-      <div class="inline-grid grid-cols-3 grid-rows-2">
+      <div class="inline-grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         <div
           v-for="(theme, index) in themes"
           :key="index"
-          class="cell flex h-full flex-col items-start justify-between gap-4 border border-gray-300 p-4"
-          :class="{
-            'border-t-0': index < 3 || index >= 3,
-            'border-b-0': index >= 3,
-            'border-l-0': index === 0 || index === 3,
-            'border-r-0': true,
-          }"
+          class="cell flex h-full flex-col items-start justify-between gap-2 p-2 sm:gap-4 sm:p-4"
         >
-          <div class="flex items-center justify-center rounded-full border border-white p-4 backdrop-saturate-200">
-            <Icon :name="theme.icon" class="h-10 w-10" />
+          <div
+            class="flex items-center justify-center rounded-full border border-white p-2 backdrop-saturate-200 sm:p-4"
+          >
+            <Icon :name="theme.icon" class="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" />
           </div>
-          <h1 class="text-md">{{ $t(theme.theme) }}</h1>
+          <h1 class="sm:text-md text-sm">{{ $t(theme.theme) }}</h1>
         </div>
       </div>
     </div>
 
     <circle
-      class="absolute left-[50%] top-[30%] -z-50 aspect-square w-1/2 -translate-x-1/2 rounded-full bg-[#27E076]/20 blur-[200px]"
+      class="absolute left-[50%] top-[70%] -z-50 aspect-square w-3/4 -translate-x-1/2 rounded-full bg-[#27E076]/20 blur-[200px] sm:w-1/2 lg:top-[30%]"
     />
   </div>
 </template>
+
+<style scoped>
+  /* Adjustments for text and layout on smaller screens */
+  .text-center {
+    text-align: center;
+  }
+
+  .inline-grid {
+    display: inline-grid;
+    gap: 1rem;
+  }
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .rounded-xl {
+    border-radius: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      padding: 1rem;
+    }
+
+    .cell {
+      padding: 0.5rem;
+    }
+
+    .text-center {
+      font-size: 1.5rem;
+    }
+
+    .cell h1 {
+      font-size: 1rem;
+    }
+  }
+</style>

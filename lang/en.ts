@@ -100,4 +100,6 @@ export default {
   different: "Why DigiPay is different?",
   invest: "Why invest in DIGI PAY?",
   readAllPosts: "Read All Posts",
+  // themes2024: "Топ темите 2024",
+  themes2024: "Top Themes 2024",
 };

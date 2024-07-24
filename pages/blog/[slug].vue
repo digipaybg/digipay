@@ -114,6 +114,7 @@
             damping: 15,
             mass: 1,
           }),
+          at: "<",
         },
       ],
       [
@@ -145,6 +146,7 @@
             damping: 15,
             mass: 1,
           }),
+          at: "<",
         },
       ],
       [
@@ -295,6 +297,7 @@
     <circle
       class="absolute left-[25%] top-[50%] z-[-100] aspect-square w-1/2 rounded-full bg-[#68CBDE]/20 blur-[200px]"
     />
+    <LazyHomeBlog :exclude-post="route.path.split('/').at(-1)" />
   </div>
 </template>
 

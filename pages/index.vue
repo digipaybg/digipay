@@ -14,7 +14,7 @@
 </script>
 
 <template>
-  <div ref="scrollContainer" class="flex flex-col gap-20 overflow-x-hidden overflow-y-hidden">
+  <div ref="scrollContainer" class="flex flex-col gap-20 overflow-hidden">
     <HomeHero />
 
     <LazyHomeThemes />

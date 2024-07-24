@@ -1,4 +1,11 @@
 <script lang="ts" setup>
+  const props = defineProps({
+    excludePost: {
+      type: String,
+      default: "",
+    },
+  });
+
   const { locale } = useI18n();
 
   // const blogContent = await queryContent("blog").locale(locale.value).find();
@@ -16,6 +23,7 @@
       .sort((a, b) => {
         return new Date(b.date as EpochTimeStamp).getDate() - new Date(a.date as EpochTimeStamp).getDate();
       })
+      .filter((post) => post._path?.split("/").at(-1) !== props.excludePost)
       .slice(0, 4);
     console.log(sorted);
     return sorted;

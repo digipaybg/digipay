@@ -29,6 +29,7 @@ export default defineNuxtConfig({
   routeRules: {
     "/": { prerender: true, ssr: true, static: false },
   },
+  plugins: [],
 
   i18n: {
     locales: [

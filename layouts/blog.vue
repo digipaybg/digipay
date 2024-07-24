@@ -4,7 +4,7 @@
   <div>
     <Header />
 
-    <div class="py-10">
+    <div class="py-24 lg:py-10">
       <slot />
     </div>
 

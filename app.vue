@@ -22,11 +22,6 @@
   const colorMode = useColorMode();
 
   onMounted(() => {
-    if (!window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      useFavicon("/logo-dark.png");
-    } else {
-      useFavicon("/logo.png");
-    }
     colorMode.value = "dark";
   });
 </script>

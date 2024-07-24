@@ -103,4 +103,5 @@ export default {
   backPosts: "Всички публикации",
   different: "Защо DigiPay се отличава?",
   invest: "Защо да инвестирате в DIGI PAY?",
+  themes2024: "Топ темите 2024",
 };

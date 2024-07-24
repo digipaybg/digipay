@@ -26,15 +26,15 @@
 </script>
 
 <template>
-  <div class="relative flex flex-col space-y-8 p-8 md:p-24 md:px-36">
-    <h1 class="font-mono text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1>
+  <div class="relative flex flex-col space-y-8 overflow-x-hidden p-4 sm:p-8 md:p-24 md:px-36">
+    <h1 class="font-mono text-2xl sm:text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1>
 
     <div v-if="posts" class="body-text space-y-10 tracking-wide">
       <NuxtLink :href="localePath(posts[0]._path!)">
         <div class="flex flex-col gap-4 rounded-xl p-4 transition-all hover:bg-white/25 lg:flex-row">
           <div class="flex-[1]">
             <NuxtImg
-              class="h-auto max-h-[500px] w-full rounded-lg object-cover"
+              class="h-auto max-h-[300px] w-full rounded-lg object-cover sm:max-h-[400px] md:max-h-[500px]"
               :src="posts[0].image"
               :alt="posts[0].title"
             />
@@ -42,20 +42,20 @@
 
           <div class="flex flex-[1.3] flex-col">
             <div class="space-y-2">
-              <h2 class="text-xl font-bold md:text-2xl">{{ posts[0].title }}</h2>
-              <p class="line-clamp-2 text-base text-gray-400 md:text-lg">{{ posts[0].description }}</p>
+              <h2 class="text-lg font-bold sm:text-xl md:text-2xl">{{ posts[0].title }}</h2>
+              <p class="line-clamp-2 text-sm text-gray-400 sm:text-base md:text-lg">{{ posts[0].description }}</p>
             </div>
             <div class="space-y-3 pt-4 md:pt-6">
               <div class="flex gap-2">
-                <p class="text-base capitalize text-gray-400 md:text-lg">
+                <p class="text-sm capitalize text-gray-400 sm:text-base md:text-lg">
                   {{
                     formatDate(new Date(posts[0].date as EpochTimeStamp), "DD MMMM YYYY", {
                       locales: locale,
                     })
                   }}
                 </p>
-                <p class="text-base text-gray-400 md:text-lg">•</p>
-                <p class="text-base text-gray-400 md:text-lg">
+                <p class="text-sm text-gray-400 sm:text-base md:text-lg">•</p>
+                <p class="text-sm text-gray-400 sm:text-base md:text-lg">
                   {{ $t("readingTime", { minutes: Math.round(posts[0].readingTime.minutes) }) }}
                 </p>
               </div>
@@ -74,14 +74,16 @@
         </div>
       </NuxtLink>
       <div v-if="posts.length > 1" class="">
-        <h1 class="pb-6 font-mono text-2xl tracking-wider md:pb-10 md:text-3xl">{{ $t("morePosts") }}</h1>
+        <h1 class="pb-6 font-mono text-xl tracking-wider sm:text-2xl md:pb-10 md:text-3xl">{{ $t("morePosts") }}</h1>
         <div class="grid w-full grid-flow-row grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <BlogCard v-for="post in posts.slice(1)" :key="post._id" :post="post" />
         </div>
       </div>
     </div>
 
-    <circle class="absolute left-[-10%] top-[75%] z-[-100] h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]" />
+    <circle
+      class="absolute left-[-10%] top-[75%] z-[-100] hidden h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px] lg:block"
+    />
     <circle class="absolute right-[-25%] top-[-60%] z-[-100] h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]" />
   </div>
 </template>

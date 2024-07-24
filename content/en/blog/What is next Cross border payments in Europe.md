@@ -1,7 +1,7 @@
 ---
 image: /blog/app-overview.png
 title: "What is next: Cross border payments in Europe?"
-author: Рая Лечева
+author: Raya Lecheva
 date: 2024-07-23
 ---
 

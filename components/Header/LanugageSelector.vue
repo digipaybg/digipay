@@ -6,9 +6,34 @@
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger>
-      <Button size="icon" variant="ghost">
-        <Icon name="carbon:language" size="24" />
-      </Button>
+      <Motion
+        :initial="{
+          opacity: 0,
+          scale: 0.7,
+          y: -20,
+          filter: 'blur(10px)',
+        }"
+        :animate="{
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+          transition: {
+            delay: 0.2,
+            duration: 0.4,
+            easing: spring({
+              damping: 10,
+              stiffness: 100,
+              mass: 0.7,
+              velocity: 5,
+            }),
+          },
+        }"
+      >
+        <Button size="icon" variant="ghost">
+          <Icon name="carbon:language" size="24" />
+        </Button>
+      </Motion>
     </DropdownMenuTrigger>
     <DropdownMenuContent>
       <PresenceGroup>
