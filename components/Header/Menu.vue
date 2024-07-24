@@ -3,7 +3,6 @@
   const { lenis } = useLenis();
 
   watch(showMenu, (value) => {
-    console.log(lenis);
     if (value) {
       lenis.value.stop();
     } else {

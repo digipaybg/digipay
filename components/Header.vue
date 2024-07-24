@@ -16,6 +16,15 @@
   const links = ["/#about", "/#different", "/#invest", "/#partners", "/#advisory", "/speakers", "/blog"];
 
   const breakpoints = useBreakpoints(breakpointsTailwind);
+
+  const { lenis } = useLenis();
+
+  watch(breakpoints.smaller("lg"), (value) => {
+    if (!value) {
+      showMenu.value = false;
+      lenis.value.start();
+    }
+  });
 </script>
 
 <template>

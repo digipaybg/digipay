@@ -25,7 +25,6 @@
       })
       .filter((post) => post._path?.split("/").at(-1) !== props.excludePost)
       .slice(0, 4);
-    console.log(sorted);
     return sorted;
   });
 

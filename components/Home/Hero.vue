@@ -8,15 +8,9 @@
 
   onMounted(() => {
     if (backgroundVideo.value) {
-      backgroundVideo.value
-        .play()
-        .then(() => {
-          console.log("Video is playing");
-        })
-        .catch((error) => {
-          console.error("Error attempting to play the video:", error);
-          console.log("Video state:", backgroundVideo.value?.readyState);
-        });
+      backgroundVideo.value.play().catch((error) => {
+        console.error("Error attempting to play the video:", error);
+      });
     }
 
     const headerText = document.querySelectorAll(".header-text")!;

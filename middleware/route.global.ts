@@ -4,6 +4,5 @@ export default defineNuxtRouteMiddleware((to, from) => {
       top: 0,
       behavior: "instant",
     });
-    console.log("Scroll to top");
   }
 });

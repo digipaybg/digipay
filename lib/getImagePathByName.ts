@@ -33,7 +33,5 @@ export default function getImagePath(authorName: string) {
     .replaceAll("я", "ya")
     .replaceAll(" ", "-");
 
-  console.log(translatedName);
-
   return `/authors/${translatedName}.jpg`;
 }

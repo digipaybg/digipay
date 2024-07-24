@@ -2,7 +2,6 @@
   const thumbsSwiper = ref(null);
 
   const onSwiper = (swiper) => {
-    console.log(swiper);
     thumbsSwiper.value = swiper;
   };
 </script>
