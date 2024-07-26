@@ -24,10 +24,16 @@ jobs:
     - name: Generate site
       run: bun nuxi generate
 
-    - name: Upload to FTP
-      uses: sebastianpopp/ftp-action@v2.0.0
+    - name: FTP Upload
+      uses: priradev/ftp-interactions@v0.2.9-beta
       with:
-        host: ${{ secrets.FTP_HOST }}
-        user: ${{ secrets.FTP_USERNAME }}
+        # required
+        host: ${{ secrets.FTP_HOST  }}
+        username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        localDir: .output/public
+        ftpAction: Copy
+        # optional
+        port: 0
+        localDir: ./output/public
+        ignoreCertificateErrors: false
+
