@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+  import SplitType from "split-type";
+
+  import { scroll } from "#imports";
+
   const partnerTypes = [
     {
       type: "general",
@@ -14,20 +18,25 @@
       type: "content",
       partners: [
         {
-          name: "baker tilly",
-          image: "/partners/bakertilly.png",
-          link: "https://www.bakertilly.com/",
-        },
-        {
           name: "IBS Bulgaria",
           image: "/partners/ibs.png",
           link: "https://ibs.bg/wps/portal/ibs/home",
+        },
+        {
+          name: "baker tilly",
+          image: "/partners/bakertilly.png",
+          link: "https://www.bakertilly.com/",
         },
       ],
     },
     {
       type: "organizational",
       partners: [
+        {
+          name: "Association of Certified Fraud Examiners",
+          image: "/partners/acfe.png",
+          link: "https://www.acfe.bg/",
+        },
         {
           name: "fintech bulgaria",
           image: "/partners/fintech.png",
@@ -39,28 +48,78 @@
           link: "https://www.basscom.org/",
         },
         {
-          name: "safenet",
-          image: "/partners/safenet.png",
-          link: "https://www.safenet.bg/",
-        },
-        {
-          name: "Association of Certified Fraud Examiners",
-          image: "/partners/acfe.png",
-          link: "https://www.acfe.bg/",
-        },
-        {
           name: "Bulgarian E-commerce Association",
           image: "/partners/bea.png",
           link: "https://beabg.com/",
         },
+        {
+          name: "safenet",
+          image: "/partners/safenet.png",
+          link: "https://www.safenet.bg/",
+        },
       ],
     },
   ];
+
+  onMounted(() => {
+    const target = document.querySelector("#partners")!;
+
+    const splitTitle = new SplitType("#partnersTitle")!;
+    const targets = document.querySelectorAll(".group")!;
+
+    scroll(
+      timeline([
+        [
+          splitTitle.chars!,
+          {
+            y: [10, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+          },
+          {
+            delay: stagger(0.05),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+        [
+          targets,
+          {
+            y: [20, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+            filter: ["blur(10px)", "blur(0px)"],
+          },
+          {
+            delay: stagger(0.25, {
+              from: "first",
+            }),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+      ]),
+      {
+        target,
+        smooth: 1,
+        axis: "y",
+        offset: ["start end", "end 750px"],
+      },
+    );
+  });
 </script>
 
 <template>
   <div id="partners" class="px-4 py-8 lg:px-24 lg:py-16">
-    <h1 class="text-center text-2xl font-bold text-gray-900 dark:text-white lg:text-4xl">{{ $t("ourPartners") }}</h1>
+    <h1 id="partnersTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
+      {{ $t("partners") }}
+    </h1>
     <div class="mt-8 divide-y divide-gray-200 dark:divide-green-500">
       <div v-for="(type, index) in partnerTypes" :key="index" class="relative grid gap-8 py-12 lg:grid-cols-5 lg:py-24">
         <div
@@ -73,28 +132,26 @@
             <NuxtLink
               v-for="(partner, jIndex) in type.partners"
               :key="jIndex"
-              class="focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 group inline-flex flex-1 flex-shrink-0 flex-col items-center justify-center gap-x-2.5 rounded-xl px-3.5 py-2.5 text-base font-medium text-gray-900 transition-all duration-300 hover:bg-white focus:outline-none focus-visible:outline-0 focus-visible:ring-2 focus-visible:ring-inset disabled:cursor-not-allowed disabled:opacity-75 dark:text-white dark:hover:bg-blue-950"
+              class="focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 group inline-flex flex-1 flex-shrink-0 flex-col items-center justify-center gap-x-2.5 rounded-xl bg-transparent p-3.5 text-base font-medium text-gray-900 transition-all duration-300 hover:bg-white focus:outline-none focus-visible:outline-0 focus-visible:ring-2 focus-visible:ring-inset disabled:cursor-not-allowed disabled:opacity-75 dark:text-white dark:hover:bg-blue-950"
               :href="partner.link"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span
-                class="relative mx-auto mt-4 inline-flex flex-shrink-0 items-center justify-center rounded-full text-2xl"
-              >
+              <span class="relative inline-flex flex-shrink-0 items-center justify-center rounded-full text-2xl">
                 <NuxtImg
                   format="webp"
                   quality="60"
-                  class="aspect-video h-24 rounded-2xl bg-white object-scale-down p-5 text-2xl transition-all duration-300 group-hover:bg-white/75 lg:h-40 lg:w-full"
+                  class="aspect-video h-24 rounded-2xl bg-white object-scale-down p-5 text-2xl transition-all duration-300 group-hover:bg-white/85 lg:h-40 lg:w-full"
                   :alt="partner.name"
                   :src="partner.image"
                   loading="lazy"
                 />
               </span>
-              <h3
+              <!-- <h3
                 class="mb-2 mt-6 h-12 text-center font-semibold capitalize leading-7 tracking-tight text-gray-900 dark:text-white lg:h-20"
               >
                 {{ partner.name }}
-              </h3>
+              </h3> -->
             </NuxtLink>
           </div>
         </div>

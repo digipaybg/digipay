@@ -11,7 +11,7 @@
   ];
 
   onMounted(() => {
-    const target = document.querySelector("#differentScrollContainer")!;
+    const target = document.querySelector("#different")!;
 
     const splitTitle = new SplitType("#differentTitle");
 
@@ -43,7 +43,7 @@
               filter: ["blur(10px)", "blur(0px)"],
             },
             {
-              delay: stagger(0.2, {
+              delay: stagger(0.05, {
                 from: "first",
               }),
               easing: spring({
@@ -67,7 +67,7 @@
                 damping: 10,
                 mass: 0.5,
               }),
-              at: 2,
+              at: 1.5,
             },
           ],
         ],
@@ -77,7 +77,7 @@
         target: target,
         axis: "y",
         smooth: 0.5,
-        offset: ["start end", "0px 0px"],
+        offset: ["start end", "25px 0px"],
       },
     );
   });
@@ -85,7 +85,7 @@
 
 <template>
   <div id="different" class="relative">
-    <h1 id="differentTitle" class="py-10 text-center text-4xl">{{ $t("different") }}</h1>
+    <h1 id="differentTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("different") }}</h1>
     <div id="differentScrollContainer" class="flex flex-col items-center justify-around lg:flex-row">
       <div class="flex w-full flex-col gap-6 lg:flex-[0.5] lg:gap-4">
         <div
@@ -113,10 +113,6 @@
 </template>
 
 <style lang="scss">
-  #different {
-    scroll-margin-top: 125px;
-  }
-
   // @media (max-width: 768px) {
   //   #different h1 {
   //     font-size: 2rem;

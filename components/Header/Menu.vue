@@ -10,7 +10,9 @@
     }
   });
 
-  const links = ["/#about", "/#different", "/#invest", "/#partners", "/#advisory", "/speakers", "/blog"];
+  defineProps({
+    links: Array,
+  });
 </script>
 
 <template>
@@ -114,6 +116,39 @@
               {{ $t(link.replaceAll("#", "").replaceAll("/", "")) }}
             </Button>
           </NuxtLink>
+        </Motion>
+
+        <Motion
+          :initial="{
+            opacity: 0,
+            scale: 0.7,
+            y: -20,
+            filter: 'blur(10px)',
+          }"
+          :in-view="{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            filter: 'blur(0px)',
+            transition: {
+              delay: links.length * 0.05 + 0.2,
+              duration: 0.4,
+              easing: spring({
+                damping: 10,
+                stiffness: 100,
+                mass: 0.4,
+                velocity: 5,
+              }),
+            },
+          }"
+          :exit="{
+            opacity: 0,
+            y: -20,
+            filter: 'blur(10px)',
+          }"
+          class="w-96"
+        >
+          <HeaderPreviousEditions html-classes="w-full bg-transparent p-8 text-2xl shadow-none" />
         </Motion>
       </Motion>
     </Presence>

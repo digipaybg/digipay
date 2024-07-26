@@ -7,7 +7,7 @@ date: 2024-07-20T00:00:00.000Z
 
 Key trends in fraud follow the money. Fraudsters focus on areas where they can make the highest profits with the least effort. The digitization of payments naturally directs fraudsters towards schemes targeting weak points in processes, with the most common and painful being Account-Take-Over (ATO), Authorized-Push-Payments (APP or known as pig butchering), and cyber frauds often resulting from malware infecting the end device.
 
-These are the current topics discussed by Goran Angelov, founder and CEO of IBS Bulgaria and member of the Advisory Board, on DIGI PAY's blog.
+These are the current topics discussed by Goran Angelov, founder and CEO of IBS Bulgaria and member of the Advisory Board, on DIGIPAY's blog.
 
 The European Payment Council compiles statistics on prevalent threats every year. In our region, there are no significant differences, and fraudsters exploit identical processes and system weaknesses.
 

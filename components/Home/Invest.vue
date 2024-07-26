@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+  import { scroll } from "#imports";
+  import SplitType from "split-type";
+
   const reasons = [
     {
       icon: "i-ph-handshake-bold",
@@ -29,11 +32,64 @@
   const secondRow = computed(() => {
     return reasons.slice(3);
   });
+
+  onMounted(() => {
+    const target = document.querySelector("#invest")!;
+
+    const splitTitle = new SplitType("#investTitle")!;
+    const targets = document.querySelectorAll(".cell")!;
+
+    scroll(
+      timeline([
+        [
+          splitTitle.chars!,
+          {
+            y: [10, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+          },
+          {
+            delay: stagger(0.05),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+        [
+          targets,
+          {
+            y: [20, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+            filter: ["blur(10px)", "blur(0px)"],
+          },
+          {
+            delay: stagger(0.1, {
+              from: "first",
+            }),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+      ]),
+      {
+        target,
+        smooth: 0.5,
+        axis: "y",
+        offset: ["start end", "-100px 0px"],
+      },
+    );
+  });
 </script>
 
 <template>
   <div id="invest" class="flex h-full flex-col items-center justify-center">
-    <h1 class="py-10 text-center text-4xl">{{ $t("invest") }}</h1>
+    <h1 id="investTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("invest") }}</h1>
 
     <div class="flex w-[75%] flex-col flex-wrap lg:gap-5">
       <div class="flex flex-col justify-center gap-5 lg:flex-row">
@@ -62,9 +118,5 @@
   .cell {
     // box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     @apply flex w-full flex-1 flex-col items-start gap-2 rounded-xl border border-green-500/50 bg-green-500/15 p-6 shadow-[0_0px_13px_0px_rgba(0,0,0,0.3)] shadow-green-500/50 backdrop-blur-lg;
-  }
-
-  #invest {
-    scroll-margin-top: 125px;
   }
 </style>

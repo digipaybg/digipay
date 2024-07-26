@@ -111,7 +111,7 @@
 <template>
   <ContentDoc v-slot="{ doc }" :locale="locale" :path="path" :head="true" class="">
     <Head>
-      <Title ref="titleRef">{{ doc.name }} | DigiPay</Title>
+      <Title ref="titleRef">{{ doc.name }} | DIGIPAY</Title>
       <Meta property="og:title" :content="doc.name" />
       <Meta property="og:description" :content="doc.position" />
       <Meta property="og:url" :content="$route.fullPath" />

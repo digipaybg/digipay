@@ -51,7 +51,7 @@
             {},
           ],
           [
-            ".cell",
+            ".topic-cell",
             {
               y: [25, 0],
               opacity: [0, 1],
@@ -100,7 +100,7 @@
         <div
           v-for="(theme, index) in themes"
           :key="index"
-          class="cell flex h-full flex-col items-start justify-between gap-2 p-2 sm:gap-4 sm:p-4"
+          class="topic-cell flex h-full flex-col items-start justify-between gap-2 p-2 sm:gap-4 sm:p-4"
         >
           <div
             class="flex items-center justify-center rounded-full border border-white p-2 backdrop-saturate-200 sm:p-4"

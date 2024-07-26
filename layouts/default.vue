@@ -1,14 +1,14 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="">
+  <div>
     <Header />
 
-    <slot />
-
-    <div class="pt-10">
-      <Footer />
+    <div class="min-h-screen pb-24 lg:pb-10">
+      <slot />
     </div>
+
+    <Footer />
   </div>
 </template>
 

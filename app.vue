@@ -1,8 +1,8 @@
 <script setup lang="ts">
   useSeoMeta({
-    titleTemplate: "%s | DigiPay",
+    titleTemplate: "%s | DIGIPAY",
     description:
-      "DigiPay is a conference for fintech companies and solutions for the future of paying. We bring together the best speakers and companies to discuss the future of payments. ",
+      "DIGIPAY is a conference for fintech companies and solutions for the future of paying. We bring together the best speakers and companies to discuss the future of payments. ",
   });
 
   const { locale } = useI18n();

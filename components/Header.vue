@@ -13,7 +13,7 @@
     return y.value > 250 || (route.path !== "/" && route.path !== "/en");
   });
 
-  const links = ["/#about", "/#different", "/#invest", "/#partners", "/#advisory", "/speakers", "/blog"];
+  const links = ["/#about", "/#partners", "/#advisory", "/speakers", "/blog"];
 
   const breakpoints = useBreakpoints(breakpointsTailwind);
 
@@ -38,7 +38,7 @@
           ? 'inset 0 -1px 0 0px rgba(255, 255, 255, 0.3)'
           : 'none',
     }"
-    class="fixed top-0 z-[100] h-24 w-full overflow-visible py-3 transition-all"
+    class="fixed top-0 z-[10000] h-24 w-full overflow-visible py-3 transition-all"
     :class="{ 'duration-300': !showMenu, 'duration-100': showMenu }"
   >
     <NuxtLink class="absolute left-0 top-0 h-10 w-10" as-child :href="'https://www.youtube.com/watch?v=uHgt8giw1LY'">
@@ -46,7 +46,7 @@
     <div
       class="flex h-full w-screen items-center justify-between gap-3 overflow-visible px-10 lg:justify-center lg:px-0"
     >
-      <!-- <NuxtImg alt="DigiPay Logo" preload class="" src="/logo.svg" quality="100" /> -->
+      <!-- <NuxtImg alt="DIGIPAY Logo" preload class="" src="/logo.svg" quality="100" /> -->
       <Motion
         :initial="{
           opacity: 0,
@@ -83,7 +83,7 @@
           :initial="{
             opacity: 0,
             scale: 0.7,
-            y: -20,
+            y: -50,
             filter: 'blur(10px)',
           }"
           :in-view="{
@@ -104,21 +104,48 @@
           }"
           :exit="{
             opacity: 0,
-            y: -20,
+            y: -50,
             filter: 'blur(10px)',
           }"
         >
           <NuxtLink :href="localePath(link)" @click="showMenu = false">
-            <Button class="bg-transparent shadow-none" variant="ghost">
+            <Button class="bg-transparent font-semibold uppercase shadow-none" variant="ghost">
               {{ $t(link.replaceAll("#", "").replaceAll("/", "")) }}
             </Button>
           </NuxtLink>
+        </Motion>
+
+        <Motion
+          :initial="{
+            opacity: 0,
+            scale: 0.7,
+            y: -50,
+            filter: 'blur(10px)',
+          }"
+          :in-view="{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            filter: 'blur(0px)',
+            transition: {
+              delay: links.length * 0.1 + 0.2,
+              duration: 0.4,
+              easing: spring({
+                damping: 10,
+                stiffness: 100,
+                mass: 0.4,
+                velocity: 5,
+              }),
+            },
+          }"
+        >
+          <HeaderPreviousEditions />
         </Motion>
       </div>
       <div class="flex gap-2 overflow-visible">
         <HeaderLanugageSelector />
         <div v-if="breakpoints.smaller('lg').value" class="overflow-visible">
-          <HeaderMenu />
+          <HeaderMenu :links="links" />
         </div>
       </div>
     </div>

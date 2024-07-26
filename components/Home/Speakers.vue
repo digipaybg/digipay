@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+  import { scroll } from "#imports";
+  import SplitType from "split-type";
+
   const { locale } = useI18n();
 
   const speakersContent = useAsyncData("speakersInfo", () => queryContent("speakers").locale(locale.value).find(), {
@@ -19,17 +22,68 @@
 
     if (width.value < 1200) return 2;
 
-    if (width.value < 1500) return 3;
+    if (width.value < 1300) return 3;
 
     return 4;
+  });
+
+  onMounted(() => {
+    const target = document.querySelector("#speakers")!;
+    const splitTitle = new SplitType(speakersTitle);
+
+    scroll(
+      timeline([
+        [
+          splitTitle.chars!,
+          {
+            y: [10, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+          },
+          {
+            delay: stagger(0.05),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+        [
+          ".swiper-slide",
+          {
+            y: [20, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+            filter: ["blur(10px)", "blur(0px)"],
+          },
+          {
+            delay: stagger(0.1, {
+              from: "first",
+            }),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+      ]),
+      {
+        target,
+        smooth: 1,
+        axis: "y",
+        offset: ["start end", "150px 0px"],
+      },
+    );
   });
 </script>
 
 <!-- TODO: Make speaker card be like blog card -->
 
 <template>
-  <div id="speakers" class="relative my-52 pb-10" :class="{ 'mx-4': slidesPerViewComputed === 1 }">
-    <h1 class="py-10 text-center text-4xl">{{ $t("speakers") }}</h1>
+  <div id="speakers" class="relative pb-10" :class="{ 'mx-4': slidesPerViewComputed === 1 }">
+    <h1 id="speakersTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("speakers") }}</h1>
     <Swiper
       :modules="[
         SwiperAutoplay,

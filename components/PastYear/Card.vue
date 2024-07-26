@@ -20,26 +20,46 @@
   <div
     class="flex w-full items-center justify-between rounded-2xl border border-white p-8 backdrop-blur-lg backdrop-saturate-[1.4]"
   >
-    <div class="mr-10 flex flex-[1.2] flex-col justify-between">
-      <h1 class="year-text text-[70px] font-bold tracking-wide text-primary">{{ info.year }}</h1>
+    <div class="mr-10 flex flex-[2] flex-col justify-between">
+      <PastYearAnimatedNumber
+        :key="info.year"
+        :number="info.year"
+        class="year-text text-[70px] font-bold tracking-wide text-primary"
+      />
+      <!-- <h1 class="year-text text-[70px] font-bold tracking-wide text-primary">{{ info.year }}</h1> -->
       <h2 class="text-lg">{{ info.name }}</h2>
     </div>
-    <div class="flex-1 space-y-4">
-      <div class="">
-        <h2 class="font-bold text-primary">{{ info.countInfo.attendees }}</h2>
+    <div class="flex flex-[1.5] flex-col items-center justify-between gap-4 md:flex-row">
+      <div class="flex flex-col justify-center text-xl">
+        <!-- <h2 class="font-bold text-primary">{{ info.countInfo.attendees }}</h2> -->
+        <PastYearAnimatedNumber
+          :key="info.countInfo.attendees"
+          :number="info.countInfo.attendees"
+          class="font-bold text-primary"
+        />
         <h3>{{ $t("attendees") }}</h3>
       </div>
-      <div class="">
-        <h2 class="font-bold text-primary">{{ info.countInfo.speakers }}</h2>
+      <div class="flex flex-col justify-center text-xl">
+        <PastYearAnimatedNumber
+          :key="info.countInfo.speakers"
+          :number="info.countInfo.speakers"
+          class="font-bold text-primary"
+        />
+        <!-- <h2 class="font-bold text-primary">{{ info.countInfo.speakers }}</h2> -->
         <h3>{{ $t("speakers") }}</h3>
       </div>
-      <div class="">
-        <h2 class="font-bold text-primary">{{ info.countInfo.investors }}</h2>
+      <div class="flex flex-col justify-center text-xl">
+        <PastYearAnimatedNumber
+          :key="info.countInfo.investors"
+          :number="info.countInfo.investors"
+          class="font-bold text-primary"
+        />
+        <!-- <h2 class="font-bold text-primary">{{ info.countInfo.investors }}</h2> -->
 
         <h3>{{ $t("investors") }}</h3>
       </div>
     </div>
-    <div class="flex-[1.5] gap-2">
+    <!-- <div class="flex-[1.5] gap-2">
       <h1>{{ $t("partners") }}</h1>
 
       <div class="flex h-max flex-col gap-[4px] text-center">
@@ -47,7 +67,7 @@
           {{ $t(partner) }}
         </h5>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

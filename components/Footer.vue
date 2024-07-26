@@ -11,7 +11,7 @@
             <h2 class="text-xs font-bold sm:text-sm md:text-base">Founder and General Manager</h2>
           </div>
           <h3 class="text-xs sm:text-sm md:text-base">+359 878 160 610</h3>
-          <h3 class="text-xs sm:text-sm md:text-base">raya.lecheva@digipay.bg</h3>
+          <h3 class="text-xs sm:text-sm md:text-base">raya.lecheva@DIGIPAY.bg</h3>
         </div>
         <div class="flex flex-col gap-1 sm:gap-2">
           <div>
@@ -19,7 +19,7 @@
             <h2 class="text-xs font-bold sm:text-sm md:text-base">CEO</h2>
           </div>
           <h3 class="text-xs sm:text-sm md:text-base">+359 889 527 212</h3>
-          <h3 class="text-xs sm:text-sm md:text-base">petya.veleva@digipay.bg</h3>
+          <h3 class="text-xs sm:text-sm md:text-base">petya.veleva@DIGIPAY.bg</h3>
         </div>
       </div>
       <div class="flex flex-1 flex-col items-center sm:items-start">
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="flex justify-center py-4 sm:py-10">
-      <h1 class="text-xs sm:text-sm md:text-base">DigiPay 2024 All rights reserved</h1>
+      <h1 class="text-xs sm:text-sm md:text-base">DIGIPAY 2024 All rights reserved</h1>
     </div>
   </div>
 </template>

@@ -5,9 +5,9 @@
 
   useSeoMeta({
     title: "Home",
-    twitterTitle: "Home | DigiPay",
+    twitterTitle: "Home | DIGIPAY",
     twitterCard: "summary_large_image",
-    ogSiteName: "DigiPay",
+    ogSiteName: "DIGIPAY",
   });
 
   const scrollContainer = useState<HTMLElement | null>("scrollContainer", () => null);
@@ -17,29 +17,43 @@
   <div ref="scrollContainer" class="flex flex-col gap-20 overflow-hidden">
     <HomeHero />
 
-    <LazyHomeThemes />
+    <div id="about" class="flex flex-col gap-20">
+      <LazyHomeThemes />
 
-    <LazyHomeAbout />
+      <LazyHomeAbout />
 
-    <LazyHomeDifferent />
+      <div class="pb-20">
+        <LazyHomeDifferent />
+      </div>
 
-    <LazyHomeInvest />
+      <LazyHomeInvest />
+
+      <LazyHomeLastYear />
+
+      <LazyHomeVideo />
+
+      <LazyHomePastYears />
+    </div>
 
     <LazyHomeSpeakers />
-
     <!-- <LazyHomeAgenda /> -->
     <LazyHomePartners />
 
-    <LazyHomeAdvisory />
-
-    <LazyHomeLastYear />
-
-    <LazyHomeVideo />
-
-    <LazyHomePastYears />
+    <div id="advisory">
+      <LazyHomeAdvisory />
+    </div>
 
     <LazyHomeBlog />
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  #about {
+    scroll-snap-type: y mandatory;
+    scroll-margin-top: 125px;
+  }
+
+  * {
+    user-select: none;
+  }
+</style>

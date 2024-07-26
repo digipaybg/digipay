@@ -1,5 +1,7 @@
 <script lang="ts" setup>
   // TODO: Translate component, name and position
+  import { scroll } from "#imports";
+  import SplitType from "split-type";
   const advisoryBoard = [
     {
       name: "stoilka",
@@ -37,17 +39,71 @@
       shadow: "blue",
     },
   ];
+
+  onMounted(() => {
+    const target = document.querySelector("#advisory")!;
+    const splitTitle = new SplitType("#advisoryTitle")!;
+    const targets = document.querySelectorAll(".advisory-member")!;
+
+    scroll(
+      timeline([
+        [
+          splitTitle.chars!,
+          {
+            y: [10, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+          },
+          {
+            delay: stagger(0.05),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+        [
+          targets,
+          {
+            y: [20, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+            filter: ["blur(10px)", "blur(0px)"],
+          },
+          {
+            delay: stagger(0.25, {
+              from: "first",
+            }),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+      ]),
+      {
+        smooth: 1,
+        target,
+        axis: "y",
+        offset: ["start end", "70px 0px"],
+      },
+    );
+  });
 </script>
 
 <template>
   <div id="advisory" class="relative flex flex-col items-center justify-center overflow-visible">
-    <h1 class="text-center text-4xl font-bold">{{ $t("advisory") }}</h1>
+    <h1 id="advisoryTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
+      {{ $t("advisory") }}
+    </h1>
     <div class="mt-8 flex w-2/3 flex-col gap-8">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <div
           v-for="(member, index) in advisoryBoard"
           :key="index"
-          class="col-span-1 flex flex-col items-center justify-center gap-4 rounded-2xl p-8"
+          class="advisory-member col-span-1 flex flex-col items-center justify-center gap-4 rounded-2xl p-8"
         >
           <NuxtImg
             :src="member.image"

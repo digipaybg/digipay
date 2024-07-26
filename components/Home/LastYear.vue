@@ -1,14 +1,88 @@
 <script setup>
+  import { scroll } from "#imports";
+  import SplitType from "split-type";
+
   const thumbsSwiper = ref(null);
 
   const onSwiper = (swiper) => {
     thumbsSwiper.value = swiper;
   };
+
+  onMounted(() => {
+    const target = document.querySelector("#lastYear");
+
+    const splitTitle = new SplitType("#lastYearTitle");
+
+    scroll(
+      timeline([
+        [
+          splitTitle.chars,
+          {
+            y: [10, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+          },
+          {
+            delay: stagger(0.05),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+        [
+          ".swiper-last-year",
+          {
+            y: [20, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+            filter: ["blur(10px)", "blur(0px)"],
+          },
+          {
+            delay: stagger(0.25, {
+              from: "first",
+            }),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+        [
+          ".swiper-last-year-thumbs",
+          {
+            y: [20, 0],
+            opacity: [0, 1],
+            scale: [0.7, 1],
+            filter: ["blur(10px)", "blur(0px)"],
+          },
+          {
+            delay: stagger(0.25, {
+              from: "first",
+            }),
+            easing: spring({
+              stiffness: 100,
+              damping: 10,
+              mass: 0.5,
+            }),
+          },
+        ],
+      ]),
+      {
+        target,
+        smooth: 1,
+        axis: "y",
+        offset: ["start end", "70px 0px"],
+      },
+    );
+  });
 </script>
 
 <template>
-  <div id="lastYear" class="px-4 py-8 sm:px-8 md:px-16 lg:px-24">
-    <h1 class="py-4 text-center text-2xl capitalize sm:text-3xl md:text-4xl">{{ $t("lastYear") }}</h1>
+  <div id="lastYear" class="py-8">
+    <h1 id="lastYearTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("lastYear") }}</h1>
 
     <Swiper
       :modules="[SwiperThumbs, SwiperNavigation]"
@@ -23,14 +97,14 @@
         nextEl: '#nextEl',
         prevEl: '#prevEl',
       }"
-      class="relative"
+      class="swiper-last-year relative"
     >
-      <SwiperSlide v-for="i in 5" :key="i">
+      <SwiperSlide v-for="i in 5" :key="i" class="">
         <NuxtImg
           :src="`/lastYear/${i}.png`"
-          alt="last year"
+          alt="last year DIGIPAY digipay"
           format="webp"
-          class="mx-auto h-[300px] w-full max-w-md rounded-lg object-cover sm:h-[400px] sm:max-w-lg md:h-[450px] md:max-w-xl lg:h-[500px] lg:max-w-4xl"
+          class="last-year-image mx-auto h-[300px] w-full max-w-md rounded-lg object-cover sm:h-[400px] sm:max-w-lg md:h-[450px] md:max-w-xl lg:h-[500px] lg:max-w-4xl"
         />
       </SwiperSlide>
       <div class="absolute top-1/2 z-[9999] flex w-full -translate-y-1/2 transform justify-between px-4 sm:px-10">
@@ -57,9 +131,9 @@
         enabled: true,
       }"
       :space-between="10"
-      :slides-per-view="3"
+      :slides-per-view="5"
       :centered-slides="true"
-      class="swiper-thumbs mt-5 w-[90%] sm:w-[80%]"
+      class="swiper-thumbs swiper-last-year-thumbs mt-10 w-full"
       watch-slides-progress
       @swiper="onSwiper"
     >
@@ -68,7 +142,7 @@
           format="webp"
           :src="`/lastYear/${i}.png`"
           alt="last year"
-          class="h-[100px] w-full rounded-lg object-cover sm:h-[120px] md:h-[140px] lg:h-[250px]"
+          class="aspect-video h-[70px] w-full rounded-lg object-cover sm:h-[120px] md:h-[140px] lg:h-[250px]"
         />
       </SwiperSlide>
       <div class="swiper-slide-thumb-active"></div>

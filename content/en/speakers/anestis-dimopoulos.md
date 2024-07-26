@@ -31,7 +31,7 @@ models.
 
 ---
 
-Аt DIGI PAY we would cover hot topics like:
+Аt DIGIPAY we would cover hot topics like:
 
 Regulatory frameworks and future expectations; Use of Machine Learning and AI for AML
 controls; Optimising the use of technology for compliance functions; Collaboration between

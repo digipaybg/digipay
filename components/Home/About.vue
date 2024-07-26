@@ -138,8 +138,8 @@
 </script>
 
 <template>
-  <div id="about" class="relative flex min-h-screen flex-col items-center justify-center gap-24 overflow-visible py-20">
-    <h1 id="aboutTitle" class="py-10 text-center text-4xl">{{ $t("eventAbout") }}</h1>
+  <div id="" class="relative flex min-h-screen flex-col items-center justify-center gap-24 overflow-visible py-20">
+    <h1 id="aboutTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("eventAbout") }}</h1>
 
     <!-- <div class="circle-background overflow-visible" /> -->
     <circle class="absolute left-[-15%] top-[45%] aspect-square w-1/2 rounded-full bg-[#27E076]/25 blur-[200px]" />
