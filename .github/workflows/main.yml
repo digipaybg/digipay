@@ -37,6 +37,6 @@ jobs:
         ftpAction: Copy
         # optional
         port: 0
-        localDir: output/public
+        localDir: .output/public
         ignoreCertificateErrors: false
 
