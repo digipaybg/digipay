@@ -38,7 +38,7 @@
           ? 'inset 0 -1px 0 0px rgba(255, 255, 255, 0.3)'
           : 'none',
     }"
-    class="fixed top-0 z-[10000] h-24 w-full overflow-visible py-3 transition-all"
+    class="fixed top-0 z-50 h-24 w-full overflow-visible py-3 transition-all"
     :class="{ 'duration-300': !showMenu, 'duration-100': showMenu }"
   >
     <NuxtLink class="absolute left-0 top-0 h-10 w-10" as-child :href="'https://www.youtube.com/watch?v=uHgt8giw1LY'">

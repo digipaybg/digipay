@@ -64,6 +64,7 @@
               }),
             },
           }"
+          class="cursor-pointer"
         >
           <NuxtLink :to="switchLocalePath(locale.code)" class="text-lg">
             <DropdownMenuItem>
