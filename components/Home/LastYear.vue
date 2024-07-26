@@ -86,6 +86,7 @@
             :src="`/lastYear/${i}.png`"
             alt="last year DIGIPAY digipay"
             format="webp"
+            quality="80"
             class="last-year-image mx-auto h-[300px] w-full max-w-md rounded-lg object-cover sm:h-[400px] sm:max-w-lg md:h-[450px] md:max-w-xl lg:h-[500px] lg:max-w-4xl"
           />
         </SwiperSlide>
@@ -125,6 +126,7 @@
             format="webp"
             :src="`/lastYear/${i}.png`"
             alt="last year"
+            quality="80"
             class="aspect-video h-[70px] w-full rounded-lg object-cover sm:h-[120px] md:h-[140px] lg:h-[250px]"
           />
         </SwiperSlide>
