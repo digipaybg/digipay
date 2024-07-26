@@ -13,7 +13,7 @@
     return y.value > 250 || (route.path !== "/" && route.path !== "/en");
   });
 
-  const links = ["/#about", "/#partners", "/#advisory", "/speakers", "/blog"];
+  const links = ["/#about", "/speakers", "/#partners", "/blog", "/#advisory"];
 
   const breakpoints = useBreakpoints(breakpointsTailwind);
 
