@@ -1,15 +1,16 @@
 <script lang="ts" setup>
   import type { ParsedContent } from "@nuxt/content";
-  import { formatDate } from "@vueuse/core";
-  import getImagePath from "~/lib/getImagePathByName";
+import { formatDate } from "@vueuse/core";
+import getImagePath from "~/lib/getImagePathByName";
 
   defineProps<{ post: ParsedContent }>();
 
   const { locale } = useI18n();
+  const localePath = useLocalePath();
 </script>
 
 <template>
-  <NuxtLink :href="post._path" class="flex flex-col rounded-xl p-4 transition-all hover:bg-white/25">
+  <NuxtLink :href="localePath(post._path!)" class="flex flex-col rounded-xl p-4 transition-all hover:bg-white/25">
     <NuxtImg class="flex-[1] rounded-lg" :src="post.image" :alt="post.title" />
     <div class="space-y-2 pt-5">
       <h1 class="text-xl font-bold">{{ post.title }}</h1>
