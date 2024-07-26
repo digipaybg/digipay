@@ -1,0 +1,36 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Bun
+      run: |
+        curl -fsSL https://bun.sh/install | bash
+        echo 'export BUN_INSTALL="$HOME/.bun"' >> $GITHUB_ENV
+        echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> $GITHUB_ENV
+        source $GITHUB_ENV
+
+    - name: Install dependencies
+      run: bun install
+
+    - name: Generate site
+      run: bun nuxi generate
+
+    - name: Upload to FTP
+      uses: sebastianpopp/ftp-action@v2.0.0
+      with:
+        host: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        localDir: /output/public
+        remoteDir: /path/to/remote/directory
