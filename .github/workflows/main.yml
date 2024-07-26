@@ -24,6 +24,9 @@ jobs:
     - name: Generate site
       run: bun nuxi generate
 
+    - name: Show files
+      run: ls
+
     - name: FTP Upload
       uses: priradev/ftp-interactions@v0.2.9-beta
       with:
@@ -34,6 +37,6 @@ jobs:
         ftpAction: Copy
         # optional
         port: 0
-        localDir: ./output/public
+        localDir: output/public
         ignoreCertificateErrors: false
 
