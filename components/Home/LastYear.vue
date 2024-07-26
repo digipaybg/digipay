@@ -83,7 +83,7 @@
       >
         <SwiperSlide v-for="i in 5" :key="i" class="">
           <NuxtImg
-            :src="`/lastYear/${i}.png`"
+            :src="`/lastyear/${i}.png`"
             alt="last year DIGIPAY digipay"
             format="webp"
             quality="80"
@@ -124,7 +124,7 @@
         <SwiperSlide v-for="i in 5" :key="i" class="w-full">
           <NuxtImg
             format="webp"
-            :src="`/lastYear/${i}.png`"
+            :src="`/lastyear/${i}.png`"
             alt="last year"
             quality="80"
             class="aspect-video h-[70px] w-full rounded-lg object-cover sm:h-[120px] md:h-[140px] lg:h-[250px]"
