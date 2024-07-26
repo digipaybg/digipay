@@ -56,3 +56,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: .output/public/
           exclude: .gitignore
+          protocol: ftp
