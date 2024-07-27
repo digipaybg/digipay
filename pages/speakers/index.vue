@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  definePageMeta({
-    layout: "blog",
-  });
-
   const { locale } = useI18n();
   const speakersContent = useAsyncData("speakersInfo", () => queryContent("speakers").locale(locale.value).find(), {
     lazy: true,
+  });
+
+  definePageMeta({
+    layout: "default",
   });
 
   const speakersComputed = computed(() => {
@@ -18,7 +18,7 @@
 </script>
 
 <template>
-  <div class="relative flex flex-col space-y-8 p-4 sm:p-8 md:p-24 md:px-36">
+  <div class="relative flex flex-col space-y-8 p-4 sm:p-8 md:p-24 md:px-36 md:pt-32">
     <h1 class="font-mono text-3xl uppercase sm:text-4xl md:text-5xl">{{ $t("speakers") }}</h1>
 
     <div v-if="speakersContent.data">

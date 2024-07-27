@@ -84,7 +84,7 @@
         class="relative"
       >
         <SwiperSlide v-for="i in names" :key="i" class="">
-          <NuxtImg
+          <img
             :src="`/year/${i}.png`"
             alt="last year DIGIPAY digipay"
             format="webp"
@@ -124,7 +124,7 @@
         @swiper="onSwiper"
       >
         <SwiperSlide v-for="i in names" :key="i" class="w-full">
-          <NuxtImg
+          <img
             format="webp"
             :src="`/year/${i}.png`"
             alt="last year"

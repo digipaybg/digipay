@@ -2,6 +2,10 @@
   import { formatDate } from "@vueuse/core";
   import getImagePath from "~/lib/getImagePathByName";
 
+  definePageMeta({
+    layout: "default",
+  });
+
   const { locale } = useI18n();
   const { data: posts } = await useAsyncData("blogPosts", () =>
     queryContent("/blog")
@@ -18,15 +22,11 @@
     description: "Blog posts",
   });
 
-  definePageMeta({
-    layout: "blog",
-  });
-
   const localePath = useLocalePath();
 </script>
 
 <template>
-  <div class="relative flex h-fit flex-col space-y-8 overflow-x-hidden overflow-y-hidden p-4 sm:p-8 md:p-24 md:px-36">
+  <div class="relative flex h-fit flex-col space-y-8 overflow-x-hidden overflow-y-hidden p-4 sm:p-8 md:px-36 md:pt-32">
     <!-- <h1 class="font-mono text-2xl sm:text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1> -->
 
     <div v-if="posts" class="body-text space-y-10 tracking-wide">

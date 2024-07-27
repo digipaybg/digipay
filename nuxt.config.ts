@@ -26,6 +26,12 @@ export default defineNuxtConfig({
     "nuxt-delay-hydration",
     "@nuxt/fonts",
   ],
+  app: {
+    pageTransition: {
+      name: "page",
+      mode: "out-in",
+    },
+  },
   routeRules: {
     "/": { prerender: true, ssr: true, static: false },
     "/blog/**": { static: true },
@@ -58,9 +64,6 @@ export default defineNuxtConfig({
   //     "IBM Plex Mono": [400, 700, 800, 900],
   //   },
   // },
-  image: {
-    dir: "public/",
-  },
 
   motion: {
     autoImportComponents: true,
@@ -90,5 +93,13 @@ export default defineNuxtConfig({
   },
   site: {
     url: "https://DIGIPAY-seven.vercel.app",
+  },
+  fonts: {
+    families: [
+      // only resolve this font with the `google` provider
+      { name: "Inter", provider: "google" },
+      { name: "Bebas Neue", provider: "google", preload: true },
+      { name: "IBM Plex Mono", provider: "google" },
+    ],
   },
 });

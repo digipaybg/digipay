@@ -201,13 +201,13 @@
     ]);
   });
 
+  definePageMeta({
+    layout: "default",
+  });
   const removeSpecialCharacters = (text: string) => {
     return text.replace(/[^\p{L}\p{N}\s!?.-]/gu, " ");
   };
 
-  definePageMeta({
-    layout: "blog",
-  });
   const localePath = useLocalePath();
 </script>
 

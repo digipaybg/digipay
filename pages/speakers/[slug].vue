@@ -19,6 +19,10 @@
     position: descriptionRef.value?.textContent,
   });
 
+  definePageMeta({
+    layout: "default",
+  });
+
   onMounted(() => {
     window.scrollTo({ top: 0 });
 
@@ -109,53 +113,56 @@
 </script>
 
 <template>
-  <ContentDoc v-slot="{ doc }" :locale="locale" :path="path" :head="true" class="">
-    <Head>
-      <Title ref="titleRef">{{ doc.name }} | DIGIPAY</Title>
-      <Meta property="og:title" :content="doc.name" />
-      <Meta property="og:description" :content="doc.position" />
-      <Meta property="og:url" :content="$route.fullPath" />
-      <Meta property="twitter:title" :content="doc.name" />
-      <Meta property="twitter:description" :content="doc.position" />
-      <Meta property="twitter:image" :content="doc.image" />
-      <Meta property="twitter:card" content="summary_large_image" />
-      <Meta property="og:image" :content="doc.image" />
-      <!-- Og image thing -->
-    </Head>
-
-    <article class="sm:px-18 flex w-full flex-col justify-center gap-12 px-4 py-32 md:px-48 lg:py-64 2xl:flex-row">
-      <div class="flex flex-[1] flex-col gap-6 md:gap-10">
-        <div class="space-y-2 md:space-y-3">
-          <h1 id="speakerName" class="text-2xl font-bold tracking-wider opacity-0 sm:text-4xl md:text-6xl 2xl:text-7xl">
-            {{ doc.name }}
-          </h1>
-          <h2
-            id="speakerPosition"
-            ref="descriptionRef"
-            class="font-sans text-lg font-light tracking-tight opacity-0 sm:text-xl"
-          >
-            {{ doc.position }}
-          </h2>
+  <div>
+    <ContentDoc v-slot="{ doc }" :key="$route.fullPath" :locale="locale" :path="path" class="">
+      <Head>
+        <Title ref="titleRef">{{ doc.name }} | DIGIPAY</Title>
+        <Meta property="og:title" :content="doc.name" />
+        <Meta property="og:description" :content="doc.position" />
+        <Meta property="og:url" :content="$route.fullPath" />
+        <Meta property="twitter:title" :content="doc.name" />
+        <Meta property="twitter:description" :content="doc.position" />
+        <Meta property="twitter:image" :content="doc.image" />
+        <Meta property="twitter:card" content="summary_large_image" />
+        <Meta property="og:image" :content="doc.image" />
+      </Head>
+      <article class="sm:px-18 flex w-full flex-col justify-center gap-12 px-4 py-32 md:px-48 lg:py-64 2xl:flex-row">
+        <div class="flex flex-[1] flex-col gap-6 md:gap-10">
+          <div class="space-y-2 md:space-y-3">
+            <h1
+              id="speakerName"
+              class="text-2xl font-bold tracking-wider opacity-0 sm:text-4xl md:text-6xl 2xl:text-7xl"
+            >
+              {{ doc.name }}
+            </h1>
+            <h2
+              id="speakerPosition"
+              ref="descriptionRef"
+              class="font-sans text-lg font-light tracking-tight opacity-0 sm:text-xl"
+            >
+              {{ doc.position }}
+            </h2>
+          </div>
+          <ContentRenderer id="bodyText" class="tracking-lg font-sans text-base opacity-0 sm:text-lg" :value="doc" />
         </div>
-        <ContentRenderer id="bodyText" class="tracking-lg font-sans text-base opacity-0 sm:text-lg" :value="doc" />
-      </div>
-      <NuxtImg
-        id="speakerImage"
-        :src="doc.image"
-        alt="speaker"
-        format="webp"
-        quality="80"
-        preload
-        priority
-        class="sticky top-32 aspect-square w-full flex-[0.5] object-cover object-top opacity-0 sm:w-3/4 md:w-1/2 2xl:max-h-[500px] 2xl:w-auto"
-      />
-    </article>
-  </ContentDoc>
+        <NuxtImg
+          id="speakerImage"
+          :src="doc.image"
+          alt="speaker"
+          format="webp"
+          quality="80"
+          preload
+          priority
+          class="sticky top-32 aspect-square w-full flex-[0.5] object-cover object-top opacity-0 sm:w-3/4 md:w-1/2 2xl:max-h-[500px] 2xl:w-auto"
+        />
+      </article>
+    </ContentDoc>
+  </div>
 </template>
 
 <style lang="scss">
   * {
-    font-family: "Arial", sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
   }
 
   hr {

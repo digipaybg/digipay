@@ -40,9 +40,6 @@
     );
 
     observer.observe(targetRef.value!);
-
-    console.log(targetRef.value);
-    console.log(observer);
   });
 </script>
 

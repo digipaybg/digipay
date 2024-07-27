@@ -39,3 +39,16 @@
     </lenis>
   </div>
 </template>
+
+<style lang="scss">
+  .page-enter-active,
+  .page-leave-active {
+    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 0;
+    filter: blur(1rem);
+  }
+</style>
