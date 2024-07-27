@@ -81,10 +81,26 @@
   }
 
   body {
-    font-family: "Inter", sans-serif;
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground  antialiased;
     overflow-x: hidden;
+    font-family: "Inter";
+
+    
   }
+
+  .font-mono { 
+    font-family: "JetBrains Mono";
+  }
+
+  .font-sans {
+    font-family: "Inter";
+
+  }
+
+  .font-serif {
+    font-family: "Merriweather";
+  }
+
 }
 
 /* Firefox (uncomment to work in Firefox, although other properties will not work!)  */

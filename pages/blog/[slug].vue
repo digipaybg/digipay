@@ -318,10 +318,6 @@
   }
 
   #bodyText {
-    * {
-      font-family: "Arial", sans-serif;
-    }
-
     img {
       @apply rounded-2xl;
     }

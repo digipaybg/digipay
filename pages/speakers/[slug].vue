@@ -161,10 +161,6 @@
 </template>
 
 <style lang="scss">
-  * {
-    font-family: "IBM Plex Sans", sans-serif;
-  }
-
   hr {
     border: 0;
     height: 1px;

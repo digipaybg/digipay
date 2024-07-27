@@ -28,9 +28,3 @@
     </div>
   </div>
 </template>
-
-<style lang="scss">
-  .font-mono {
-    font-family: "IBM Plex Mono", Courier, monospace;
-  }
-</style>

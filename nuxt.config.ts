@@ -97,9 +97,10 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       // only resolve this font with the `google` provider
-      { name: "Inter", provider: "google" },
-      { name: "Bebas Neue", provider: "google", preload: true },
-      { name: "IBM Plex Mono", provider: "google" },
+      { name: "Inter", provider: "google", preload: true, weights: [400, 700, 800, 900] },
+      { name: "Bebas Neue", provider: "google", preload: true, weights: [400, 700, 800, 900] },
+      { name: "IBM Plex Sans", provider: "google" },
+      { name: "Jetbrains Mono", provider: "google", weights: [400, 700, 800, 900] },
     ],
   },
 });

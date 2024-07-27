@@ -86,16 +86,7 @@
   >
     <h1 id="speakersTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("speakers") }}</h1>
     <Swiper
-      :modules="[
-        SwiperAutoplay,
-        SwiperNavigation,
-        SwiperThumbs,
-        SwiperPagination,
-        SwiperEffectCoverflow,
-        SwiperKeyboard,
-        SwiperFreeMode,
-        SwiperController,
-      ]"
+      :modules="[SwiperNavigation, SwiperPagination, SwiperKeyboard]"
       :navigation="{
         enabled: true,
         nextEl: '#nextElm',
