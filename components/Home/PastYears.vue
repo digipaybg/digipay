@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { scroll } from "#imports";
   import SplitType from "split-type";
 
   const yearsInfo = [
@@ -59,50 +58,54 @@
 
     const splitTitle = new SplitType("#pastYearsTitle")!;
     const targets = document.querySelectorAll(".year-card")!;
-
-    scroll(
-      timeline([
-        [
-          splitTitle.chars!,
-          {
-            y: [10, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-          },
-          {
-            delay: stagger(0.05),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-        [
-          targets,
-          {
-            y: [20, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-            filter: ["blur(10px)", "blur(0px)"],
-          },
-          {
-            delay: stagger(0.1, {
-              from: "first",
-            }),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-      ]),
+    target.classList.add("opacity-0");
+    inView(
+      target,
+      (entry) => {
+        if (entry.isIntersecting) {
+          target.classList.remove("opacity-0");
+          timeline([
+            [
+              splitTitle.chars!,
+              {
+                y: [10, 0],
+                opacity: [0, 1],
+                scale: [0.7, 1],
+              },
+              {
+                delay: stagger(0.035),
+                easing: spring({
+                  stiffness: 100,
+                  damping: 10,
+                  mass: 0.5,
+                }),
+              },
+            ],
+            [
+              targets,
+              {
+                y: [150, 0],
+                opacity: [0, 1],
+                scale: [0.7, 1],
+                filter: ["blur(10px)", "blur(0px)"],
+              },
+              {
+                delay: stagger(0.1, {
+                  from: "first",
+                }),
+                easing: spring({
+                  stiffness: 100,
+                  damping: 10,
+                  mass: 0.5,
+                }),
+              },
+            ],
+          ]);
+        }
+      },
       {
-        target,
-        smooth: 1,
-        axis: "y",
-        offset: ["start end", "0px 0px"],
+        amount: "any",
+        margin: "-10%",
       },
     );
   });

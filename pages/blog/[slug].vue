@@ -194,7 +194,7 @@
             damping: 15,
             mass: 1,
           }),
-          delay: stagger(0.05),
+          delay: stagger(0.035),
           at: "<",
         },
       ],
@@ -212,7 +212,7 @@
 </script>
 
 <template>
-  <div class="relative overflow-x-clip">
+  <div class="relative overflow-x-clip pt-10">
     <ContentDoc v-slot="{ doc }" :locale="locale" :path="path" :head="true" class="scroll-container relative">
       <div class="relative flex justify-center gap-10 px-4 py-16 md:px-16 md:py-24 lg:px-32">
         <article class="w-full max-w-full flex-[1] space-y-6">
@@ -227,7 +227,14 @@
               {{ $t("backPosts") }}
             </Button>
           </NuxtLink>
-          <NuxtImg id="post-img" class="mx-auto w-full rounded-2xl" :src="doc.image" :alt="doc.title" />
+          <NuxtImg
+            id="post-img"
+            class="mx-auto aspect-video w-full rounded-2xl object-cover"
+            :src="doc.image"
+            :alt="doc.title"
+            format="webp"
+            quality="80"
+          />
           <div class="flex flex-col gap-5">
             <h1 id="title" class="text-2xl font-bold md:text-3xl">{{ doc.title }}</h1>
 
@@ -263,12 +270,7 @@
           <ContentRenderer id="bodyText" class="font-sans text-base tracking-normal md:text-lg" :value="doc" />
         </article>
         <div
-          class="toc-card sticky right-0 top-32 mt-24 hidden h-fit flex-[0.3] space-y-4 overflow-hidden rounded-2xl border border-white/15 p-4 backdrop-blur-lg backdrop-saturate-150 lg:block"
-          :style="{
-            backdropFilter: 'blur(15px) saturate(180%)',
-            backgroundColor: 'rgb(12 4 39 / 0.5) ',
-            boxShadow: 'inset 0 -1px 0 0px rgba(255, 255, 255, 0.3)',
-          }"
+          class="toc-card sticky right-0 top-32 z-20 mt-24 hidden h-fit flex-[0.4] space-y-4 overflow-hidden rounded-2xl border border-white/15 bg-[#0c0427]/30 p-4 shadow-[0px_0px_10px_0px] shadow-white/10 backdrop-blur-lg backdrop-saturate-150 lg:block"
         >
           <h1 class="toc-text flex items-center gap-2 text-lg font-bold md:text-xl">
             <Icon name="fluent:content-view-24-regular" size="25" class="mr-2 hidden lg:block" />

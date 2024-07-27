@@ -1,5 +1,4 @@
 <script setup>
-  import { scroll } from "#imports";
   import SplitType from "split-type";
 
   const thumbsSwiper = ref(null);
@@ -9,54 +8,54 @@
   };
 
   onMounted(() => {
-    const target = document.querySelector("#lastYear");
-
     const splitTitle = new SplitType("#lastYearTitle");
-
-    scroll(
-      timeline([
-        [
-          splitTitle.chars,
-          {
-            y: [10, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-          },
-          {
-            delay: stagger(0.05),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-        [
-          ".swiper-last-year",
-          {
-            y: [20, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-            filter: ["blur(10px)", "blur(0px)"],
-          },
-          {
-            delay: stagger(0.25, {
-              from: "first",
-            }),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-      ]),
-      {
-        target,
-        smooth: 1,
-        axis: "y",
-        offset: ["start end", "70px 0px"],
+    const wrapper = document.querySelector("#lastYear");
+    wrapper.classList.add("opacity-0");
+    inView(
+      wrapper,
+      (entry) => {
+        if (entry.isIntersecting) {
+          wrapper.classList.remove("opacity-0");
+          timeline([
+            [
+              splitTitle.chars,
+              {
+                y: [10, 0],
+                opacity: [0, 1],
+                scale: [0.7, 1],
+              },
+              {
+                delay: stagger(0.035),
+                easing: spring({
+                  stiffness: 100,
+                  damping: 10,
+                  mass: 0.5,
+                }),
+              },
+            ],
+            [
+              ".swiper",
+              {
+                y: [20, 0],
+                opacity: [0, 1],
+                scale: [0.7, 1],
+                filter: ["blur(10px)", "blur(0px)"],
+              },
+              {
+                delay: stagger(0.15, {
+                  from: "first",
+                }),
+                easing: spring({
+                  stiffness: 100,
+                  damping: 10,
+                  mass: 0.5,
+                }),
+              },
+            ],
+          ]);
+        }
       },
+      { amount: "any", margin: "-10%" },
     );
   });
 
@@ -85,7 +84,7 @@
       >
         <SwiperSlide v-for="i in names" :key="i" class="">
           <img
-            :src="`/year/${i}.png`"
+            :src="`/pictures/${i}.png`"
             alt="last year DIGIPAY digipay"
             format="webp"
             quality="80"
@@ -126,7 +125,7 @@
         <SwiperSlide v-for="i in names" :key="i" class="w-full">
           <img
             format="webp"
-            :src="`/year/${i}.png`"
+            :src="`/pictures/${i}.png`"
             alt="last year"
             quality="80"
             class="aspect-video h-[70px] w-full rounded-lg object-cover sm:h-[120px] md:h-[140px] lg:h-[250px]"

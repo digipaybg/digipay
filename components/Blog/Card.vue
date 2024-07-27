@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import type { ParsedContent } from "@nuxt/content";
-import { formatDate } from "@vueuse/core";
-import getImagePath from "~/lib/getImagePathByName";
+  import { formatDate } from "@vueuse/core";
+  import getImagePath from "~/lib/getImagePathByName";
 
   defineProps<{ post: ParsedContent }>();
 
@@ -11,9 +11,15 @@ import getImagePath from "~/lib/getImagePathByName";
 
 <template>
   <NuxtLink :href="localePath(post._path!)" class="flex flex-col rounded-xl p-4 transition-all hover:bg-white/25">
-    <NuxtImg class="flex-[1] rounded-lg" :src="post.image" :alt="post.title" />
-    <div class="space-y-2 pt-5">
-      <h1 class="text-xl font-bold">{{ post.title }}</h1>
+    <NuxtImg
+      class="aspect-video flex-[1] rounded-lg object-cover"
+      format="webp"
+      quality="80"
+      :src="post.image"
+      :alt="post.title"
+    />
+    <div class="flex-1 space-y-2 pt-5">
+      <h1 class="line-clamp-2 text-xl font-bold">{{ post.title }}</h1>
       <h2 class="line-clamp-2 text-xl text-gray-400">{{ post.description }}</h2>
     </div>
 

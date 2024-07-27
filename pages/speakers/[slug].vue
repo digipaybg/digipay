@@ -71,7 +71,7 @@
             stiffness: 100,
             damping: 10,
           }),
-          delay: stagger(0.05),
+          delay: stagger(0.035),
           at: 0,
         },
       ],
@@ -105,7 +105,7 @@
             damping: 10,
           }),
           at: 1,
-          delay: stagger(0.05),
+          delay: stagger(0.035),
         },
       ],
     ]);

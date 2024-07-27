@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { scroll } from "#imports";
+  import { inView } from "#imports";
   import SplitType from "split-type";
 
   const themes = [
@@ -18,95 +18,106 @@
   ];
 
   onMounted(() => {
-    const target = document.querySelector(".card")!;
     const splitTitle = new SplitType("#themeTitle");
+    const wrapper = document.querySelector("#themesWrapper")!;
 
-    scroll(
-      timeline(
-        [
-          [
-            splitTitle.chars!,
-            {
-              y: [10, 0],
-              opacity: [0, 1],
-              scale: [0.7, 1],
-            },
-            {
-              delay: stagger(0.05),
-              easing: spring({
-                stiffness: 100,
-                damping: 10,
-                mass: 0.5,
-              }),
-            },
-          ],
-          [
-            ".card",
-            {
-              scale: [0.7, 1],
-              opacity: [0, 1],
-              y: [100, 0],
-            },
+    inView(
+      ".topic-card",
+      (entry) => {
+        if (entry.isIntersecting) {
+          wrapper.classList.remove("opacity-0");
+          timeline(
+            [
+              [
+                splitTitle.chars!,
+                {
+                  y: [10, 0],
+                  opacity: [0, 1],
+                  scale: [0.7, 1],
+                },
+                {
+                  delay: stagger(0.035),
+                  easing: spring({
+                    stiffness: 100,
+                    damping: 10,
+                    mass: 0.5,
+                  }),
+                },
+              ],
+              [
+                ".topic-card",
+                {
+                  scale: [0.7, 1],
+                  opacity: [0, 1],
+                  y: [100, 0],
+                },
+                {
+                  easing: spring({
+                    stiffness: 100,
+                    damping: 15,
+                  }),
+                  at: 0.5,
+                },
+              ],
+              [
+                ".topic-cell",
+                {
+                  y: [25, 0],
+                  opacity: [0, 1],
+                  scale: [0.7, 1],
+                  filter: ["blur(10px)", "blur(0px)"],
+                },
+                {
+                  delay: stagger(0.15, {
+                    from: "first",
+                  }),
+                  easing: spring({
+                    stiffness: 100,
+                    damping: 15,
+                  }),
+                  at: 0.85,
+                },
+              ],
+            ],
             {},
-          ],
-          [
-            ".topic-cell",
-            {
-              y: [25, 0],
-              opacity: [0, 1],
-              scale: [0.7, 1],
-              filter: ["blur(10px)", "blur(0px)"],
-            },
-            {
-              delay: stagger(0.1, {
-                from: "first",
-              }),
-              easing: spring({
-                stiffness: 100,
-                damping: 15,
-              }),
-              at: "<",
-            },
-          ],
-        ],
-        {},
-      ),
+          );
+        }
+      },
       {
-        target: target,
-        axis: "y",
-        smooth: 0.5,
-        offset: ["start end", "100px 0px"],
+        amount: "all",
       },
     );
   });
 </script>
 
 <template>
-  <div id="themes" class="relative flex h-[75vh] flex-col items-center justify-center overflow-visible">
-    <h1 id="themeTitle" class="py-4 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("themes2024") }}</h1>
-    <div
-      :initial="{
-        scale: 0.7,
-        opacity: 0,
-      }"
-      :in-view="{
-        scale: 1,
-        opacity: 1,
-      }"
-      class="card my-8 flex h-fit w-full items-center justify-center rounded-xl p-4 backdrop-blur-2xl backdrop-saturate-200 sm:my-12 sm:w-3/4 sm:p-8 md:my-20 md:w-2/3"
-    >
-      <div class="inline-grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-        <div
-          v-for="(theme, index) in themes"
-          :key="index"
-          class="topic-cell flex h-full flex-col items-start justify-between gap-2 p-2 sm:gap-4 sm:p-4"
-        >
+  <div id="themes" class="relative">
+    <div id="themesWrapper" class="flex h-[75vh] flex-col items-center justify-center overflow-visible opacity-0">
+      <h1 id="themeTitle" class="py-4 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("themes2024") }}</h1>
+      <div
+        :initial="{
+          scale: 0.7,
+          opacity: 0,
+        }"
+        :in-view="{
+          scale: 1,
+          opacity: 1,
+        }"
+        class="topic-card my-8 flex h-fit w-full items-center justify-center rounded-xl p-4 backdrop-blur-2xl backdrop-saturate-200 sm:my-12 sm:w-3/4 sm:p-8 md:my-20 md:w-2/3"
+      >
+        <div class="inline-grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           <div
-            class="flex items-center justify-center rounded-full border border-white p-2 backdrop-saturate-200 sm:p-4"
+            v-for="(theme, index) in themes"
+            :key="index"
+            class="topic-cell flex h-full flex-col items-start justify-between gap-2 p-2 sm:gap-4 sm:p-4"
           >
-            <Icon :name="theme.icon" class="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" />
+            <div
+              class="flex items-center justify-center rounded-full border border-white p-2 backdrop-saturate-200 sm:p-4"
+            >
+              <Icon :name="theme.icon" class="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" />
+            </div>
+            <h1 class="sm:text-md text-sm">{{ $t(theme.theme) }}</h1>
           </div>
-          <h1 class="sm:text-md text-sm">{{ $t(theme.theme) }}</h1>
         </div>
       </div>
     </div>

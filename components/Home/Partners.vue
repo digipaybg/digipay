@@ -77,7 +77,7 @@
             scale: [0.7, 1],
           },
           {
-            delay: stagger(0.05),
+            delay: stagger(0.035),
             easing: spring({
               stiffness: 100,
               damping: 10,

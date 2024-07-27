@@ -5,9 +5,9 @@
 
   useSeoMeta({
     title: "Home",
-    twitterTitle: "Home | DIGIPAY",
-    twitterCard: "summary_large_image",
-    ogSiteName: "DIGIPAY",
+    ogTitle: "Home | DIGIPAY",
+    twitterTitle: "DIGIPAY",
+    description: "DIGIPAY",
   });
 
   const scrollContainer = useState<HTMLElement | null>("scrollContainer", () => null);

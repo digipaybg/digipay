@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { scroll } from "#imports";
   import SplitType from "split-type";
 
   const reasons = [
@@ -34,61 +33,66 @@
   });
 
   onMounted(() => {
-    const target = document.querySelector("#invest")!;
-
     const splitTitle = new SplitType("#investTitle")!;
     const targets = document.querySelectorAll(".cell")!;
+    const wrapper = document.querySelector("#invest")!;
+    wrapper.classList.add("opacity-0");
 
-    scroll(
-      timeline([
-        [
-          splitTitle.chars!,
-          {
-            y: [10, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-          },
-          {
-            delay: stagger(0.05),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-        [
-          targets,
-          {
-            y: [20, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-            filter: ["blur(10px)", "blur(0px)"],
-          },
-          {
-            delay: stagger(0.1, {
-              from: "first",
-            }),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-      ]),
+    inView(
+      wrapper,
+      (entry) => {
+        if (entry.isIntersecting) {
+          wrapper.classList.remove("opacity-0");
+
+          timeline([
+            [
+              splitTitle.chars!,
+              {
+                y: [10, 0],
+                opacity: [0, 1],
+                scale: [0.7, 1],
+              },
+              {
+                delay: stagger(0.035),
+                easing: spring({
+                  stiffness: 100,
+                  damping: 10,
+                  mass: 0.5,
+                }),
+              },
+            ],
+            [
+              targets,
+              {
+                y: [20, 0],
+                opacity: [0, 1],
+                scale: [0.7, 1],
+                filter: ["blur(10px)", "blur(0px)"],
+              },
+              {
+                delay: stagger(0.1, {
+                  from: "first",
+                }),
+                easing: spring({
+                  stiffness: 100,
+                  damping: 10,
+                  mass: 0.5,
+                }),
+              },
+            ],
+          ]);
+        }
+      },
       {
-        target,
-        smooth: 0.5,
-        axis: "y",
-        offset: ["start end", "-100px 0px"],
+        amount: "any",
+        margin: "-10%",
       },
     );
   });
 </script>
 
 <template>
-  <div id="invest" class="flex h-full flex-col items-center justify-center">
+  <div id="invest" class="flex h-[95vh] flex-col items-center justify-center">
     <h1 id="investTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("invest") }}</h1>
 
     <div class="flex w-[75%] flex-col flex-wrap lg:gap-5">

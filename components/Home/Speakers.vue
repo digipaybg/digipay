@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { scroll } from "#imports";
   import SplitType from "split-type";
 
   const { locale } = useI18n();
@@ -29,60 +28,62 @@
 
   onMounted(() => {
     const target = document.querySelector("#speakers")!;
-    const splitTitle = new SplitType(speakersTitle);
+    const splitTitle = new SplitType("#speakersTitle");
+    target.classList.add("opacity-0");
+    inView(target, (entry) => {
+      if (entry.isIntersecting) {
+        target.classList.remove("opacity-0");
 
-    scroll(
-      timeline([
-        [
-          splitTitle.chars!,
-          {
-            y: [10, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-          },
-          {
-            delay: stagger(0.05),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-        [
-          ".swiper-slide",
-          {
-            y: [20, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-            filter: ["blur(10px)", "blur(0px)"],
-          },
-          {
-            delay: stagger(0.1, {
-              from: "first",
-            }),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-      ]),
-      {
-        target,
-        smooth: 1,
-        axis: "y",
-        offset: ["start end", "150px 0px"],
-      },
-    );
+        timeline([
+          [
+            splitTitle.chars!,
+            {
+              y: [10, 0],
+              opacity: [0, 1],
+              scale: [0.7, 1],
+            },
+            {
+              delay: stagger(0.035),
+              easing: spring({
+                stiffness: 100,
+                damping: 10,
+                mass: 0.5,
+              }),
+            },
+          ],
+          [
+            ".swiper-slide",
+            {
+              y: [20, 0],
+              opacity: [0, 1],
+              scale: [0.7, 1],
+              filter: ["blur(10px)", "blur(0px)"],
+            },
+            {
+              delay: stagger(0.1, {
+                from: "first",
+              }),
+              easing: spring({
+                stiffness: 100,
+                damping: 10,
+                mass: 0.5,
+              }),
+            },
+          ],
+        ]);
+      }
+    });
   });
 </script>
 
 <!-- TODO: Make speaker card be like blog card -->
 
 <template>
-  <div id="speakers" class="relative pb-10" :class="{ 'mx-4': slidesPerViewComputed === 1 }">
+  <div
+    id="speakers"
+    class="relative flex h-screen flex-col items-center justify-center pb-10"
+    :class="{ 'mx-4': slidesPerViewComputed === 1 }"
+  >
     <h1 id="speakersTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("speakers") }}</h1>
     <Swiper
       :modules="[
@@ -116,7 +117,7 @@
         type: 'bullets',
         clickable: true,
       }"
-      class="relative"
+      class="relative w-full"
     >
       <SwiperSlide v-for="(speaker, index) in speakersContentComputed" :key="index" class="mb-10 w-fit rounded-xl">
         <SpeakerCard :speaker="speaker" />

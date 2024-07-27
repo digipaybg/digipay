@@ -26,7 +26,9 @@
 </script>
 
 <template>
-  <div class="relative flex h-fit flex-col space-y-8 overflow-x-hidden overflow-y-hidden p-4 sm:p-8 md:px-36 md:pt-32">
+  <div
+    class="relative flex h-fit max-h-full flex-col space-y-8 overflow-x-hidden overflow-y-hidden p-4 transition-all duration-300 sm:p-8 md:px-36 md:pt-32"
+  >
     <!-- <h1 class="font-mono text-2xl sm:text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1> -->
 
     <div v-if="posts" class="body-text space-y-10 tracking-wide">
@@ -74,7 +76,7 @@
         </div>
       </NuxtLink>
       <div v-if="posts.length > 1" class="">
-        <h1 class="pb-6 text-xl tracking-wider sm:text-2xl md:pb-10 md:text-3xl">{{ $t("morePosts") }}</h1>
+        <!-- <h1 class="pb-6 text-xl tracking-wider sm:text-2xl md:pb-10 md:text-3xl">{{ $t("morePosts") }}</h1> -->
         <div class="grid w-full grid-flow-row grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           <BlogCard v-for="post in posts.slice(1)" :key="post._id" :post="post" />
         </div>

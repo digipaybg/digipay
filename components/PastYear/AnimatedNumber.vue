@@ -33,6 +33,15 @@
                 animatedNumber.value = Math.round(animatedNumber.value);
               },
             });
+          } else {
+            gsap.to(animatedNumber, {
+              value: 0,
+              duration: 1,
+              ease: "power2.out",
+              onUpdate: () => {
+                animatedNumber.value = Math.round(animatedNumber.value);
+              },
+            });
           }
         });
       },

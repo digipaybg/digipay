@@ -1,8 +1,6 @@
 <script lang="ts" setup>
   import SplitType from "split-type";
 
-  import { scroll } from "#imports";
-
   const props = defineProps({
     excludePost: {
       type: String,
@@ -50,71 +48,53 @@
     const target = document.querySelector("#blog")!;
     const splitTitle = new SplitType("#blogTitle");
 
-    scroll(
-      timeline([
-        [
-          splitTitle.chars!,
-          {
-            y: [10, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-          },
-          {
-            delay: stagger(0.05),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-        [
-          ".blog-slide",
-          {
-            y: [20, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-            filter: ["blur(10px)", "blur(0px)"],
-          },
-          {
-            delay: stagger(0.1, {
-              from: "first",
-            }),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-        [
-          "#morePosts-Button",
-          {
-            y: [20, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-          },
-          {
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
-      ]),
-      {
-        target,
-        smooth: 1,
-        axis: "y",
-        offset: ["50px end", "0px 0px"],
-      },
-    );
+    target.classList.add("opacity-0");
+    inView(target, (entry) => {
+      if (entry.isIntersecting) {
+        target.classList.remove("opacity-0");
+
+        timeline([
+          [
+            splitTitle.chars!,
+            {
+              y: [10, 0],
+              opacity: [0, 1],
+              scale: [0.7, 1],
+            },
+            {
+              delay: stagger(0.035),
+              easing: spring({
+                stiffness: 100,
+                damping: 10,
+                mass: 0.5,
+              }),
+            },
+          ],
+          [
+            ".blog-slide",
+            {
+              y: [20, 0],
+              opacity: [0, 1],
+              scale: [0.7, 1],
+              filter: ["blur(10px)", "blur(0px)"],
+            },
+            {
+              delay: stagger(0.035),
+              easing: spring({
+                stiffness: 100,
+                damping: 10,
+                mass: 0.5,
+              }),
+            },
+          ],
+        ]);
+      }
+    });
   });
 </script>
 
 <template>
-  <div id="blog" class="relative mx-14 overflow-visible">
+  <div id="blog" class="relative mx-14 overflow-visible pt-24">
     <h1 v-if="excludePost === ''" id="blogTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
       {{ $t("blog") }}
     </h1>
