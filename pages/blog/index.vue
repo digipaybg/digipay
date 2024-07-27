@@ -7,12 +7,9 @@
   });
 
   const { locale } = useI18n();
-  const { data: posts } = await useAsyncData("blogPosts", () =>
-    queryContent("/blog")
-      .locale(locale.value)
-
-      .find(),
-  );
+  const { data: posts } = await useAsyncData("blogPosts", () => queryContent("/blog").locale(locale.value).find(), {
+    lazy: true,
+  });
 
   const postsSorted = computed(() => {
     if (!posts) return [];
@@ -35,7 +32,7 @@
 
 <template>
   <div
-    class="relative flex h-fit max-h-full flex-col space-y-8 overflow-x-hidden overflow-y-hidden p-4 transition-all duration-300 sm:p-8 md:px-36 md:pt-32"
+    class="relative flex h-fit max-h-full flex-col space-y-8 overflow-x-hidden overflow-y-hidden p-4 pt-32 transition-all duration-300 sm:p-8 md:px-36 md:pt-32"
   >
     <!-- <h1 class="font-mono text-2xl sm:text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1> -->
 

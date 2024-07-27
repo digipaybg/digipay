@@ -7,7 +7,7 @@
 
   const route = useRoute();
   const path = computed(() => {
-    return route.path
+    return route.fullPath
       .split("/")
       .filter((x) => !x.endsWith(locale.value))
       .join("/");

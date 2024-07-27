@@ -12,7 +12,7 @@
 
   // const blogContent = await queryContent("blog").locale(locale.value).find();
 
-  const blogContent = useAsyncData("blogPosts", () => queryContent("blog").locale(locale.value).find(), {
+  const blogContent = await useAsyncData("blogPosts", () => queryContent("blog").locale(locale.value).find(), {
     lazy: true,
   });
 
@@ -22,9 +22,7 @@
     const arrCopy = blogContent.data.value;
 
     const sorted = arrCopy
-      .sort((a, b) => {
-        return new Date(b.date as EpochTimeStamp).getDate() - new Date(a.date as EpochTimeStamp).getDate();
-      })
+      .sort((a, b) => new Date(b.date as EpochTimeStamp).getTime() - new Date(a.date as EpochTimeStamp).getTime())
       .filter((post) => post._path?.split("/").at(-1) !== props.excludePost)
       .slice(0, 4);
     return sorted;
