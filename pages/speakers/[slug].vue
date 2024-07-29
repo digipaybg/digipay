@@ -11,14 +11,6 @@
       .join("/");
   });
 
-  const titleRef = ref<HTMLElement | null>(null);
-  const descriptionRef = ref<HTMLElement | null>(null);
-
-  defineOgImageComponent("SpeakerImage", {
-    title: titleRef.value?.textContent?.split("|")[0],
-    position: descriptionRef.value?.textContent,
-  });
-
   definePageMeta({
     layout: "default",
   });
@@ -120,11 +112,15 @@
         <Meta property="og:title" :content="doc.name" />
         <Meta property="og:description" :content="doc.position" />
         <Meta property="og:url" :content="$route.fullPath" />
+        <Meta property="og:image" :content="doc.image" />
         <Meta property="twitter:title" :content="doc.name" />
         <Meta property="twitter:description" :content="doc.position" />
         <Meta property="twitter:image" :content="doc.image" />
-        <Meta property="twitter:card" content="summary_large_image" />
-        <Meta property="og:image" :content="doc.image" />
+        <Meta property="twitter:card" content="summary_card" />
+        <Meta name="description" :content="doc.description" />
+        <Meta name="keywords" :content="doc.keywords" />
+        <Meta name="author" content="DIGIPAY" />
+        <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <article class="sm:px-18 flex w-full flex-col justify-center gap-12 px-4 py-32 md:px-48 lg:py-64 2xl:flex-row">
         <div class="flex flex-[1] flex-col gap-6 md:gap-10">

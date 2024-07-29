@@ -5,7 +5,7 @@ author: Raya Lecheva
 date: 2024-03-19T13:00:00.000Z
 ---
 
-The new old in 2024 in the world of cyber security is the extremely fast developing artificial intelligence, expert and teacher Yasen Tanev reported to the DIGI PAY Blog. Its use, apart from protection, will be to abuse it and create even better and personalized letters, messages (SMS), photos, videos and sound that will look even more real. And unfortunately, the abuse of artificial intelligence will succeed in automating the process of sending it perfectly (time and emotional state) and taking control of the process.
+The new old in 2024 in the world of cyber security is the extremely fast developing artificial intelligence, expert and teacher Yasen Tanev reported to the DIGIPAY Blog. Its use, apart from protection, will be to abuse it and create even better and personalized letters, messages (SMS), photos, videos and sound that will look even more real. And unfortunately, the abuse of artificial intelligence will succeed in automating the process of sending it perfectly (time and emotional state) and taking control of the process.
 
 Geopolitics also determines strategic goals. It probably won't surprise you, geopolitical interests are influential in setting trends. In the context of the world political map, the countries China, Russia, North Korea and Iran will continue to protect their strategic interests and carry out missions through their specialized groups. Bulgaria is part of the world and we are of interest to them at the business and state level. So, well-prepared and perfectly executed operations will be a cyber security risk and strongly influence the forecast for 2024.
 

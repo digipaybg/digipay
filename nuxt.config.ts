@@ -7,6 +7,11 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
   modules: [
     "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
@@ -31,14 +36,28 @@ export default defineNuxtConfig({
       name: "page",
       mode: "out-in",
     },
+    head: {
+      meta: [
+        {
+          name: "description",
+          value:
+            "DIGIPAY е конференцията за сигурни и достъпни дигитални плащания в    България.Всяка година B2B конференцията привлича все повече партньори ипосетители като на последното шесто издание достигнаха над 330 душипрофесионалисти на живо и 150 онлайн.Конференцията се фокусира върху темите за отворено банкиране, незабавниплaщания, нови решения в сферата на плащанията, защита на данните,мониторинг и предотвратяване на измами, мерки срещу пране на пари ивсички теми, свързани със сигурните и достъпни дигитални плащания вБългария. Акцент на конференцията са новите цифрови решения исигурността на плащанията във всички сфери на икономиката, в коитоцентър е клиента.",
+        },
+      ],
+    },
   },
   routeRules: {
-    "/": { prerender: true, ssr: true, static: false },
-    "/blog/**": { static: true },
-    "/speakers/**": { static: true },
+    "/": { prerender: true, ssr: true, static: false, sitemap: { priority: 1 } },
+    "/blog/**": { static: true, prerender: true, sitemap: { priority: 0.9 } },
+    "/speakers/**": { static: true, prerender: true, sitemap: { priority: 0.7 } },
   },
   plugins: [],
 
+  sitemap: {
+    strictNuxtContentPaths: true,
+    discoverImages: true,
+    discoverVideos: true,
+  },
   i18n: {
     locales: [
       { code: "bg", file: "lang/bg.ts", name: "Български" },
@@ -92,7 +111,12 @@ export default defineNuxtConfig({
     mode: false,
   },
   site: {
-    url: "https://DIGIPAY-seven.vercel.app",
+    url: "https://new.digipay.bg",
+    name: "DIGIPAY",
+    description:
+      "DIGIPAY е конференцията за сигурни и достъпни дигитални плащания в    България.Всяка година B2B конференцията привлича все повече партньори ипосетители като на последното шесто издание достигнаха над 330 душипрофесионалисти на живо и 150 онлайн.Конференцията се фокусира върху темите за отворено банкиране, незабавниплaщания, нови решения в сферата на плащанията, защита на данните,мониторинг и предотвратяване на измами, мерки срещу пране на пари ивсички теми, свързани със сигурните и достъпни дигитални плащания вБългария. Акцент на конференцията са новите цифрови решения исигурността на плащанията във всички сфери на икономиката, в коитоцентър е клиента.",
+    indexable: true,
+    _priority: 0.8,
   },
   fonts: {
     families: [
@@ -102,5 +126,9 @@ export default defineNuxtConfig({
       { name: "IBM Plex Sans", provider: "google" },
       { name: "Jetbrains Mono", provider: "google", weights: [400, 700, 800, 900] },
     ],
+  },
+  seo: {
+    redirectToCanonicalSiteUrl: true,
+    fallbackTitle: true,
   },
 });

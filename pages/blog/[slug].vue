@@ -214,6 +214,30 @@
 <template>
   <div class="relative overflow-x-clip pt-10">
     <ContentDoc v-slot="{ doc }" :locale="locale" :path="path" :head="true" class="scroll-container relative">
+      <Head>
+        <Meta name="og:image" :content="doc.image" />
+        <Meta name="twitter:image" :content="doc.image" />
+        <Meta name="twitter:card" content="summary_large_image" />
+        <Meta name="twitter:site" :content="doc.author" />
+        <Meta name="twitter:creator" :content="doc.author" />
+        <Meta name="twitter:label1" content="Reading time" />
+        <Meta name="twitter:data1" :content="doc.readingTime.minutes + ' min read'" />
+        <Meta name="twitter:label2" content="Published" />
+        <Meta
+          name="twitter:data2"
+          :content="formatDate(new Date(doc.date as EpochTimeStamp), 'DD MMMM YYYY', { locales: locale })"
+        />
+        <Meta name="twitter:label3" content="Author" />
+        <Meta name="twitter:data3" :content="doc.author" />
+        <Meta name="twitter:title" :content="doc.title" />
+        <Meta name="twitter:description" :content="doc.description" />
+        <Meta name="og:title" :content="doc.title" />
+        <Meta name="og:description" :content="doc.description" />
+        <Meta name="og:url" :content="$route.fullPath" />
+        <Meta name="og:type" content="article" />
+        <Meta name="og:article:published_time" :content="doc.date" />
+        <Meta name="og:article:author" :content="doc.author" />
+      </Head>
       <div class="relative flex justify-center gap-10 px-4 py-16 md:px-16 md:py-24 lg:px-32">
         <article class="w-full max-w-full flex-[1] space-y-6">
           <NuxtLink id="" :href="localePath('/blog')" as-child>
@@ -230,8 +254,8 @@
           <NuxtImg
             id="post-img"
             class="mx-auto aspect-video w-full rounded-2xl object-cover"
-            :src="doc.image"
             :alt="doc.title"
+            :src="doc.image"
             format="webp"
             quality="80"
           />

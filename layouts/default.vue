@@ -4,9 +4,9 @@
   <div>
     <Header />
 
-    <div class="min-h-screen pb-24 transition-all duration-300 lg:pb-10">
+    <main class="min-h-screen pb-24 transition-all duration-300 lg:pb-10">
       <slot />
-    </div>
+    </main>
 
     <Footer />
   </div>

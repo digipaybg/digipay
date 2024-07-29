@@ -5,7 +5,7 @@ author: Raya Lecheva
 date: 2024-04-11
 ---
 
-Instant payments are changing the market of financial services in Bulgaria a little more than a year after their launch, Stoilka Arsova, director of the National Card and Payment Scheme, part of BORICA AD, commented on the DIGI PAY 2024 Blog.
+Instant payments are changing the market of financial services in Bulgaria a little more than a year after their launch, Stoilka Arsova, director of the National Card and Payment Scheme, part of BORICA AD, commented on the DIGIPAY 2024 Blog.
 
 All banks and payment institutions in the country now provide their customers with the possibility of receiving an instant transfer. 20 DPUs are in the role of both originators and recipients, and 27 DPUs are only recipients of immediate payments.
 
