@@ -1,6 +1,6 @@
 export default {
   home: "Home",
-  about: "About Us",
+  aboutus: "About Us",
   blog: "Blog",
   contact: "Contacts",
   day: "Day",
@@ -82,7 +82,7 @@ export default {
     named("minutes") === 1 ? "1 minute read" : `${named("minutes")} minutes read`,
   morePosts: "More Posts",
   toc: "Table of Contents",
-  advisory: "Advisory Board",
+  advisoryboard: "Advisory Board",
   stoilka: "Stoilka Arsova",
   stoilkaPosition: "Director of National card and payment scheme, part of Borica AD",
   svetlin: "Svetlin Lazarov",

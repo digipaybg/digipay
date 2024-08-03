@@ -13,7 +13,7 @@
     return y.value > 250 || (route.path !== "/" && route.path !== "/en");
   });
 
-  const links = ["/#about", "/speakers", "/#partners", "/blog", "/#advisory"];
+  const links = ["/", "/speakers", "/#partners", "/blog", "/advisory-board", "/about-us"];
 
   const breakpoints = useBreakpoints(breakpointsTailwind);
 
@@ -108,11 +108,7 @@
             filter: 'blur(10px)',
           }"
         >
-          <NuxtLink :href="localePath(link)" @click="showMenu = false">
-            <Button class="bg-transparent font-semibold uppercase shadow-none" variant="ghost">
-              {{ $t(link.replaceAll("#", "").replaceAll("/", "")) }}
-            </Button>
-          </NuxtLink>
+          <HeaderLink :link :showMenu />
         </Motion>
 
         <Motion

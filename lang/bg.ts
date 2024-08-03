@@ -1,6 +1,6 @@
 export default {
   home: "Начало",
-  about: "За нас",
+  aboutus: "За нас",
   blog: "Блог",
   contact: "Контакти",
   day: "Ден",
@@ -85,7 +85,7 @@ export default {
   blogTitle: "DIGIPAY Блог",
   morePosts: "Още публикации",
   toc: "Съдържание",
-  advisory: "Консултативен съвет",
+  advisoryboard: "Консултативен съвет",
   stoilka: "Стоилка Арсова",
   stoilkaPosition: "Директор на Националната карта и платежна схема, част от Борика АД",
   svetlin: "Светлин Лазаров",

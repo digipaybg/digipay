@@ -31,7 +31,7 @@
 </script>
 
 <template>
-  <div ref="scrollContainer" class="flex flex-col gap-20 overflow-hidden">
+  <div ref="scrollContainer" class="flex flex-col gap-20 overflow-hidden pb-32">
     <HomeHero />
 
     <div id="about" class="flex flex-col gap-20">
@@ -52,7 +52,7 @@
       <LazyHomePastYears />
     </div>
 
-    <LazyHomeSpeakers />
+    <!-- <LazyHomeSpeakers /> -->
     <!-- <LazyHomeAgenda /> -->
     <LazyHomePartners />
 
@@ -60,7 +60,7 @@
       <LazyHomeAdvisory />
     </div>
 
-    <LazyHomeBlog />
+    <!-- <LazyHomeBlog /> -->
   </div>
 </template>
 

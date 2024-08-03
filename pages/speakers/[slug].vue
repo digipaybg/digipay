@@ -119,7 +119,7 @@
         <Meta property="twitter:card" content="summary_card" />
         <Meta name="description" :content="doc.description" />
         <Meta name="keywords" :content="doc.keywords" />
-        <Meta name="author" content="DIGIPAY" />
+        <Meta name="author" :content="doc.name" />
         <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <article class="sm:px-18 flex w-full flex-col justify-center gap-12 px-4 py-32 md:px-48 lg:py-64 2xl:flex-row">

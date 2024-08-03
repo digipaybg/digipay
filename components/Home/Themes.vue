@@ -84,7 +84,7 @@
         }
       },
       {
-        amount: "all",
+        amount: "any",
       },
     );
   });
