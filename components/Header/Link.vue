@@ -18,8 +18,8 @@
   <NuxtLink :href="localePath(link)" @click="showMenu = false">
     <Button
       :class="{
-        'bg-[#1b2243]': $route.path === link,
-        'bg-transparent': $route.path !== link,
+        'scale-105 bg-[#1b2243] hover:scale-110': $route.path === localePath(link),
+        'bg-transparent': $route.path !== localePath(link),
         'w-full p-8 text-2xl': breakPoints.smaller('lg').value,
       }"
       class="font-semibold uppercase shadow-none"

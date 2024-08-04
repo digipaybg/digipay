@@ -7,8 +7,8 @@
   });
 
   const { locale } = useI18n();
-  const { data: posts } = await useAsyncData("blogPosts", () => queryContent("/blog").locale(locale.value).find(), {
-    lazy: true,
+  const { data: posts } = useAsyncData("blogPosts", () => queryContent("/blog").locale(locale.value).find(), {
+    lazy: false,
   });
 
   const postsSorted = computed(() => {
@@ -36,7 +36,7 @@
   >
     <!-- <h1 class="font-mono text-2xl sm:text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1> -->
 
-    <div v-if="postsSorted" class="body-text space-y-10 tracking-wide">
+    <div v-if="postsSorted.length >= 1" class="body-text space-y-10 tracking-wide">
       <NuxtLink :href="localePath(postsSorted[0]._path!)">
         <div class="flex flex-col gap-4 rounded-xl p-4 transition-all hover:bg-white/25 lg:flex-row">
           <div class="flex-[1]">

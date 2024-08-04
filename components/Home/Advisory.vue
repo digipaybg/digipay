@@ -41,7 +41,6 @@
 
   onMounted(() => {
     const target = document.querySelector("#advisory")!;
-    const splitTitle = new SplitType("#advisoryTitle")!;
     const targets = document.querySelectorAll(".advisory-member")!;
 
     target.classList.add("opacity-0");
@@ -52,22 +51,6 @@
           target.classList.remove("opacity-0");
 
           timeline([
-            [
-              splitTitle.chars!,
-              {
-                y: [10, 0],
-                opacity: [0, 1],
-                scale: [0.7, 1],
-              },
-              {
-                delay: stagger(0.05),
-                easing: spring({
-                  stiffness: 100,
-                  damping: 10,
-                  mass: 0.5,
-                }),
-              },
-            ],
             [
               targets,
               {
@@ -95,9 +78,9 @@
 <template>
   <div class="relative h-screen max-h-screen">
     <div id="advisory" class="flex flex-col items-center justify-center overflow-visible">
-      <h1 id="advisoryTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
+      <!-- <h1 id="advisoryTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
         {{ $t("advisoryboard") }}
-      </h1>
+      </h1> -->
       <div class="mt-8 flex w-2/3 flex-col gap-8">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           <div

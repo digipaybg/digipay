@@ -28,14 +28,18 @@ export default defineNuxtConfig({
     "@hypernym/nuxt-gsap",
     "nuxt-swiper",
     "@nuxtjs/seo",
+    // "@zadigetvoltaire/nuxt-gtm",
     "nuxt-delay-hydration",
     "@nuxt/fonts",
+    "nuxt-gtag",
+    "@nuxt/scripts",
   ],
   app: {
     pageTransition: {
       name: "page",
       mode: "out-in",
     },
+
     head: {
       meta: [
         {
@@ -84,6 +88,12 @@ export default defineNuxtConfig({
   //   },
   // },
 
+  // gtm: {
+  //   enableRouterSync: true,
+  // },
+  gtag: {
+    id: "UA-174673900-1",
+  },
   motion: {
     autoImportComponents: true,
     autoImportMotion: true,
@@ -130,5 +140,21 @@ export default defineNuxtConfig({
   seo: {
     redirectToCanonicalSiteUrl: true,
     fallbackTitle: true,
+  },
+  scripts: {
+    registry: {
+      // googleTagManager: {
+      //   id: "UA-174673900-1",
+      // },
+      googleTagManager: {
+        id: "GTM-P4HL4QC2",
+      },
+      googleAnalytics: {
+        id: "UA-174673900-1",
+      },
+      metaPixel: {
+        id: "1394237280749251",
+      },
+    },
   },
 });

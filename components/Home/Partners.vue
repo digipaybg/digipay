@@ -64,27 +64,10 @@
   onMounted(() => {
     const target = document.querySelector("#partners")!;
 
-    const splitTitle = new SplitType("#partnersTitle")!;
     const targets = document.querySelectorAll(".group")!;
 
     scroll(
       timeline([
-        [
-          splitTitle.chars!,
-          {
-            y: [10, 0],
-            opacity: [0, 1],
-            scale: [0.7, 1],
-          },
-          {
-            delay: stagger(0.035),
-            easing: spring({
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-            }),
-          },
-        ],
         [
           targets,
           {
@@ -117,13 +100,13 @@
 
 <template>
   <div id="partners" class="px-4 py-8 lg:px-24 lg:py-16">
-    <h1 id="partnersTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
+    <!-- <h1 id="partnersTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
       {{ $t("partners") }}
-    </h1>
+    </h1> -->
     <div class="mt-8 divide-y divide-gray-200 dark:divide-green-500">
       <div v-for="(type, index) in partnerTypes" :key="index" class="relative grid gap-8 py-12 lg:grid-cols-5 lg:py-24">
         <div
-          class="flex items-center justify-between lg:sticky lg:top-0 lg:-mt-24 lg:flex-col lg:items-start lg:self-start lg:pt-24"
+          class="flex items-center justify-between lg:sticky lg:top-5 lg:-mt-24 lg:flex-col lg:items-start lg:self-start lg:pt-24"
         >
           <h2 class="text-xl font-bold capitalize text-gray-900 dark:text-white lg:text-2xl">{{ $t(type.type) }}</h2>
         </div>

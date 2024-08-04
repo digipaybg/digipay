@@ -10,7 +10,9 @@
     return route.fullPath
       .split("/")
       .filter((x) => !x.endsWith(locale.value))
-      .join("/");
+      .join("/")
+      .split("#")
+      .at(0);
   });
 
   onMounted(() => {
