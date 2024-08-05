@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
+    preset: "static",
     prerender: {
       crawlLinks: true,
     },

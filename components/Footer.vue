@@ -1,26 +1,43 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  const people = [
+    {
+      name: "raya_lecheva",
+      position: "founderAndGeneralManager",
+      image: "/authors/raya-lecheva.jpg",
+      phone: "+359 878 160 610",
+      email: "raya.lecheva@digipay.bg",
+    },
+    {
+      name: "petya_veleva",
+      position: "ceo",
+      image: "/authors/petya-veleva.jpg",
+      phone: "+359 889 527 212",
+      email: "petya.valeva@digipay.bg",
+    },
+  ];
+</script>
 
 <template>
   <div class="flex h-auto flex-col space-y-10 divide-y divide-white px-4 sm:px-10 md:px-20">
     <div class="flex w-full flex-col items-center justify-around space-y-6 sm:flex-row sm:space-y-0">
       <Logo class="h-[60px] w-[60px] justify-self-start text-white sm:h-[80px] sm:w-[80px] md:h-[100px] md:w-[100px]" />
       <div class="flex flex-1 flex-col gap-4 px-4 sm:flex-row sm:gap-10 sm:px-10 md:px-20">
-        <div class="flex flex-col gap-1 sm:gap-2">
+        <div class="flex flex-col gap-1 sm:gap-2" v-for="person in people" :key="person.name">
           <div>
-            <h1 class="text-sm font-bold sm:text-base md:text-lg">Raya Lecheva</h1>
-            <h2 class="text-xs font-bold sm:text-sm md:text-base">Founder and General Manager</h2>
+            <h1 class="text-sm font-bold sm:text-base md:text-lg">{{ $t(person.name) }}</h1>
+            <h2 class="text-xs font-bold sm:text-sm md:text-base">{{ $t(person.position) }}</h2>
           </div>
-          <h3 class="text-xs sm:text-sm md:text-base">+359 878 160 610</h3>
-          <h3 class="text-xs sm:text-sm md:text-base">raya.lecheva@DIGIPAY.bg</h3>
+          <h3 class="text-xs sm:text-sm md:text-base">{{ $t(person.phone) }}</h3>
+          <h3 class="text-xs sm:text-sm md:text-base">{{ $t(person.email) }}</h3>
         </div>
-        <div class="flex flex-col gap-1 sm:gap-2">
+        <!-- <div class="flex flex-col gap-1 sm:gap-2">
           <div>
             <h1 class="text-sm font-bold sm:text-base md:text-lg">Petya Veleva</h1>
             <h2 class="text-xs font-bold sm:text-sm md:text-base">CEO</h2>
           </div>
           <h3 class="text-xs sm:text-sm md:text-base">+359 889 527 212</h3>
-          <h3 class="text-xs sm:text-sm md:text-base">petya.veleva@DIGIPAY.bg</h3>
-        </div>
+          <h3 class="text-xs sm:text-sm md:text-base">petya.veleva@digipay.bg</h3>
+        </div> -->
       </div>
       <div class="flex flex-1 flex-col items-center sm:items-start">
         <iframe
