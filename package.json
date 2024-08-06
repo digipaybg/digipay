@@ -23,12 +23,14 @@
     "@nuxtjs/seo": "^2.0.0-rc.12",
     "@oku-ui/motion-nuxt": "^0.2.1",
     "@types/nodemailer": "^6.4.15",
+    "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "emailjs": "^4.0.3",
+    "firebase": "^10.12.5",
     "lucide-vue-next": "^0.390.0",
     "motion": "^10.18.0",
     "nodemailer": "^6.9.14",
@@ -44,10 +46,12 @@
     "split-type": "^0.3.4",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.13.2",
     "vue": "^3.4.31",
     "vue-3-animated-number": "^0.0.7",
     "vue-number-animation": "^2.0.2",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@hypernym/nuxt-gsap": "^2.4.2",

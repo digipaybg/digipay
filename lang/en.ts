@@ -116,4 +116,6 @@ export default {
   yourName: "Your Name",
   yourEmail: "Your Email",
   yourMessage: "Your Message",
+  mailSent: "Mail sent successfully",
+  mailError: "An error occurred while sending the message",
 };
