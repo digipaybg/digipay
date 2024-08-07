@@ -13,7 +13,7 @@
     return y.value > 250 || (route.path !== "/" && route.path !== "/en");
   });
 
-  const links = ["/", "/speakers", "/partners", "/blog", "/advisory-board", "/about-us"];
+  const links = ["/", "/speakers", "/partners", "/blog", "/advisory-board", "/contact-us"];
 
   const breakpoints = useBreakpoints(breakpointsTailwind);
 
@@ -44,7 +44,7 @@
     <NuxtLink class="absolute left-0 top-0 h-10 w-10" as-child :href="'https://www.youtube.com/watch?v=uHgt8giw1LY'">
     </NuxtLink>
     <div
-      class="flex h-full w-screen items-center justify-between gap-3 overflow-visible px-10 lg:justify-center lg:px-0"
+      class="flex h-full w-screen items-center justify-between gap-3 overflow-visible px-10 xl:justify-center xl:px-0"
     >
       <!-- <NuxtImg alt="DIGIPAY Logo" preload class="" src="/logo.svg" quality="100" /> -->
       <Motion
@@ -76,7 +76,7 @@
         </NuxtLink>
       </Motion>
 
-      <div class="hidden gap-3 lg:flex">
+      <div class="hidden gap-3 xl:flex">
         <Motion
           v-for="(link, index) in links"
           :key="index"
@@ -140,7 +140,7 @@
       </div>
       <div class="flex gap-2 overflow-visible">
         <HeaderLanugageSelector />
-        <div v-if="breakpoints.smaller('lg').value" class="overflow-visible">
+        <div v-if="breakpoints.smaller('xl').value" class="overflow-visible">
           <HeaderMenu :links="links" />
         </div>
       </div>

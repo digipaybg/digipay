@@ -109,6 +109,7 @@ export default {
   ceo: "Изпълнителен директор",
   founderAndGeneralManager: "Основател и генерален мениджър",
   contactUs: "Свържете се с нас",
+  contactus: "Свържете се с нас",
   name: "Име",
   email: "Имейл",
   message: "Съобщение",

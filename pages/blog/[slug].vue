@@ -19,8 +19,6 @@
     const backButton = document.querySelector("#backButton")!;
     const postImg = document.querySelector("#post-img")!;
     const split = new SplitType("#title");
-    const authorPfp = document.querySelector("#author-img")!;
-    const authorName = document.querySelector("#author-name")!;
     const readingTime = document.querySelector("#read-time")!;
     const dotSplitter = document.querySelector("#dot-splitter")!;
     const postDate = document.querySelector("#post-date")!;
@@ -90,37 +88,6 @@
       ],
       [
         readingTime,
-        {
-          opacity: [0, 1],
-          scale: [0.7, 1],
-        },
-        {
-          easing: spring({
-            stiffness: 100,
-            damping: 15,
-            mass: 1,
-          }),
-          at: "<",
-        },
-      ],
-
-      [
-        authorPfp,
-        {
-          opacity: [0, 1],
-          scale: [0.7, 1],
-        },
-        {
-          easing: spring({
-            stiffness: 100,
-            damping: 15,
-            mass: 1,
-          }),
-          at: "<",
-        },
-      ],
-      [
-        authorName,
         {
           opacity: [0, 1],
           scale: [0.7, 1],
@@ -277,17 +244,6 @@
                 <p id="read-time" class="text-base text-gray-400 md:text-lg">
                   {{ $t("readingTime", { minutes: Math.round(doc.readingTime.minutes) }) }}
                 </p>
-              </div>
-              <div class="flex items-center gap-2">
-                <NuxtImg
-                  id="author-img"
-                  class="author-img rounded-full"
-                  :src="getImagePath(doc.author)"
-                  :alt="doc.author"
-                  width="40"
-                  height="40"
-                />
-                <h3 id="author-name" class="author-name text-base md:text-lg">{{ doc.author }}</h3>
               </div>
             </div>
           </div>
