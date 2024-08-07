@@ -68,16 +68,6 @@
                   {{ $t("readingTime", { minutes: Math.round(postsSorted[0].readingTime.minutes) }) }}
                 </p>
               </div>
-              <div class="flex items-center gap-2">
-                <NuxtImg
-                  class="rounded-full"
-                  :src="getImagePath(postsSorted[0].author)"
-                  :alt="postsSorted[0].author"
-                  width="40"
-                  height="40"
-                />
-                <h3 class="author-name text-base md:text-xl">{{ postsSorted[0].author }}</h3>
-              </div>
             </div>
           </div>
         </div>

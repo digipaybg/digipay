@@ -37,10 +37,6 @@
           {{ $t("readingTime", { minutes: Math.round(post.readingTime.minutes) }) }}
         </p>
       </div>
-      <div class="flex items-center gap-2">
-        <NuxtImg class="rounded-full" :src="getImagePath(post.author)" :alt="post.author" width="50" height="50" />
-        <h3 class="author-name text-lg">{{ post.author }}</h3>
-      </div>
     </div>
   </NuxtLink>
 </template>

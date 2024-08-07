@@ -68,12 +68,16 @@
 
     <ClientOnly class="swiper-last-year">
       <Swiper
-        :modules="[SwiperThumbs, SwiperNavigation]"
+        :modules="[SwiperThumbs, SwiperNavigation, SwiperAutoplay]"
         :thumbs="{
           swiper: thumbsSwiper,
         }"
+        :autoplay="{
+          delay: 5000,
+          disableOnInteraction: false,
+        }"
         :space-between="10"
-        :slides-per-view="1"
+        :slides-per-view="3"
         :centered-slides="true"
         :navigation="{
           enabled: true,
@@ -88,7 +92,7 @@
             alt="last year DIGIPAY digipay"
             format="webp"
             quality="80"
-            class="last-year-image mx-auto h-[300px] w-full max-w-md rounded-lg object-cover sm:h-[400px] sm:max-w-lg md:h-[450px] md:max-w-xl lg:h-[500px] lg:max-w-4xl"
+            class="last-year-image mx-auto h-[250px] w-full max-w-md rounded-lg object-cover sm:h-[400px] sm:max-w-lg md:h-[450px] md:max-w-xl lg:h-[300px]"
           />
         </SwiperSlide>
         <div class="absolute top-1/2 z-[9999] flex w-full -translate-y-1/2 transform justify-between px-4 sm:px-10">
@@ -107,30 +111,6 @@
             <Icon name="i-material-symbols-arrow-right-alt" size="20" sm:size="25" class="" />
           </Button>
         </div>
-        <div class="swiper-slide-thumb-active"></div>
-      </Swiper>
-
-      <Swiper
-        :modules="[SwiperThumbs, SwiperFreeMode]"
-        :free-mode="{
-          enabled: true,
-        }"
-        :space-between="10"
-        :slides-per-view="5"
-        :centered-slides="true"
-        class="swiper-thumbs swiper-last-year-thumbs mt-10 w-full"
-        watch-slides-progress
-        @swiper="onSwiper"
-      >
-        <SwiperSlide v-for="i in names" :key="i" class="w-full">
-          <img
-            format="webp"
-            :src="`/pictures/${i}.png`"
-            alt="last year"
-            quality="80"
-            class="aspect-video h-[70px] w-full rounded-lg object-cover sm:h-[120px] md:h-[140px] lg:h-[250px]"
-          />
-        </SwiperSlide>
         <div class="swiper-slide-thumb-active"></div>
       </Swiper>
     </ClientOnly>

@@ -18,16 +18,6 @@
       position: "founderAndGeneralManager",
       image: "/authors/raya-lecheva-new.png",
     },
-    {
-      name: "miglen",
-      position: "miglenPosition",
-      image: "/advisory/miglen_evlogiev.JPG",
-    },
-    {
-      name: "pavel",
-      position: "pavelPosition",
-      image: "/advisory/pavel_kaminsky.jpg",
-    },
   ];
 
   const disableInputs = ref(false);
