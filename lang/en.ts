@@ -107,6 +107,7 @@ export default {
   ceo: "CEO",
   founderAndGeneralManager: "Founder and General Manager",
   contactUs: "Contact Us",
+  contactus: "Contact Us",
   name: "Name",
   email: "Email",
   message: "Message",

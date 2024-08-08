@@ -20,11 +20,13 @@
 
     const speakerName = document.getElementById("speakerName")!;
     const speakerPosition = document.getElementById("speakerPosition")!;
+    const speakerTopic = document.getElementById("speakerTopic")!;
     const bodyText = document.querySelector("#bodyText")!;
     const speakerImage = document.querySelector("#speakerImage")!;
 
     const nameSplit = new SplitType(speakerName);
     const positionSplit = new SplitType(speakerPosition);
+    const topicSplit = new SplitType(speakerTopic);
     const bodySplit = new SplitType(bodyText as HTMLElement);
 
     speakerName.classList.remove("opacity-0");
@@ -84,6 +86,24 @@
         },
       ],
       [
+        topicSplit.lines!,
+        {
+          y: [20, 0],
+          opacity: [0, 1],
+          scale: [0.8, 1],
+        },
+        {
+          duration: 1,
+          easing: spring({
+            stiffness: 100,
+            damping: 10,
+          }),
+          at: 1,
+          delay: stagger(0.035),
+        },
+      ],
+
+      [
         bodySplit.lines!,
         {
           y: [20, 0],
@@ -138,6 +158,10 @@
             >
               {{ doc.position }}
             </h2>
+
+            <h3 id="speakerTopic" class="py-10 font-sans text-lg font-semibold tracking-tight sm:text-xl">
+              Topic: {{ doc.topic }}
+            </h3>
           </div>
           <ContentRenderer id="bodyText" class="tracking-lg font-sans text-base opacity-0 sm:text-lg" :value="doc" />
         </div>
@@ -160,7 +184,7 @@
   hr {
     border: 0;
     height: 1px;
-    // background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #22c55e, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #22c55e, rgba(0, 0, 0, 0));
     margin: 1rem 0;
   }
 </style>

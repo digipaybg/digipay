@@ -99,7 +99,7 @@
 </script>
 
 <template>
-  <div id="partners" class="px-4 py-8 lg:px-24 lg:py-16">
+  <div id="partners" class="relative px-4 py-8 lg:px-24 lg:py-16">
     <!-- <h1 id="partnersTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
       {{ $t("partners") }}
     </h1> -->
@@ -140,6 +140,7 @@
         </div>
       </div>
     </div>
+    <circle class="absolute right-[2%] top-[0%] -z-10 aspect-square w-1/2 rounded-full bg-[#27E076]/30 blur-[200px]" />
   </div>
 </template>
 

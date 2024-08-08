@@ -57,7 +57,7 @@
       class="absolute -top-40 left-1/2 -z-10 aspect-square w-[30rem] -translate-x-1/2 rounded-full bg-[#27E076]/50 blur-[200px]"
     />
 
-    <div class="relative flex flex-[1] flex-col justify-center space-y-4 lg:flex-[0.4]">
+    <div class="relative flex min-h-0 flex-[1] flex-col justify-center space-y-4 transition-all lg:flex-[0.4]">
       <div class="space-y-2">
         <h1 class="text-4xl font-bold">{{ $t("contactUs") }}</h1>
       </div>
@@ -107,7 +107,7 @@
               mass: 0.5,
             }),
           }"
-          class="absolute -bottom-52 left-1/2 w-32 min-w-fit -translate-x-1/2 rounded-lg border border-green-500 bg-green-500/25 p-4 text-center text-white shadow-[0px_0px_20px_5px] shadow-green-500/50"
+          class="fixed bottom-10 right-10 rounded-lg border border-green-500 bg-green-500/25 p-4 text-center text-white shadow-[0px_0px_20px_5px] shadow-green-500/50 backdrop-blur-lg"
         >
           <p class="text-lg font-bold">{{ $t("mailSent") }}</p>
         </Motion>
@@ -120,7 +120,7 @@
           }"
           :animate="{
             opacity: 1,
-            x: 350,
+            x: 0,
             scale: 1,
           }"
           :exit="{
@@ -135,7 +135,7 @@
               mass: 0.5,
             }),
           }"
-          class="absolute -bottom-52 left-1/2 -translate-x-1/2 rounded-lg border border-red-500 bg-red-500/25 p-4 text-center text-white shadow-[0px_0px_20px_5px] shadow-red-500/50"
+          class="fixed bottom-10 right-10 rounded-lg border border-red-500 bg-red-500/35 p-4 text-center text-white shadow-[0px_0px_20px_5px] shadow-red-500/50 backdrop-blur-lg"
         >
           <p class="text-lg font-bold">{{ $t("mailError") }}</p>
         </Motion>

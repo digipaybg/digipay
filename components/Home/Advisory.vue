@@ -90,7 +90,7 @@
           >
             <NuxtImg
               :src="member.image"
-              class="aspect-square h-60 rounded-full border-2 border-[#67CBDD] object-cover object-center"
+              class="aspect-square h-60 rounded-full border-2 border-[#67CBDD] object-cover object-center shadow-[0px_0px_10px_0px] shadow-[#67CBDD]"
               :class="`${index === 0 || index === 4 ? 'object-right' : ''} `"
               format="webp"
               quality="30"
