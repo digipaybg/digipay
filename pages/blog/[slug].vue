@@ -206,6 +206,7 @@
         <Meta name="og:type" content="article" />
         <Meta name="og:article:published_time" :content="doc.date" />
         <Meta name="og:article:author" :content="doc.author" />
+        <Meta name="keywords" :content="doc.keywords" />
       </Head>
       <div class="relative flex justify-center gap-10 px-4 py-16 md:px-16 md:py-24 lg:px-32">
         <article class="w-full max-w-full flex-[1] space-y-6">

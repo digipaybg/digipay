@@ -3,6 +3,7 @@ image: /blog/app-overview.png
 title: "What is next: Cross border payments in Europe?"
 author: Raya Lecheva
 date: 2024-07-23
+keywords: Wero, EPI, payment systems, payments, payment schemes, account-to-account payments, Blik, Swish, iDEAL, operational compatibility, Poland, Sweden, Netherlands, cross-border payments, Europe, secure payments, seamless payments, simple payments, European Payments Initiative, EPI
 ---
 
 Instant account-to-account payments have been around in Europe for more than a decade now, with several schemes operating very successfully at national level, like Blik in Poland, Swish in Sweden and iDEAL in the Netherlands. They are extremely popular, often with market shares of over 70%. **But while these systems have been a success, they cater only to their specific markets and don’t often work across national borders.**

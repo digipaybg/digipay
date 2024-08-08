@@ -3,6 +3,7 @@ image: /blog/BLOG-2.webp
 title: Payments Top Trends 2024
 author: Raya Lecheva
 date: 2024-03-11
+keywords: payments, trends, real-time treasury, card alternatives, cloud-native composable platforms, digitalization, local and regional payments initiatives, regulatory initiatives, instant payments, CBDC, tokenization, AI, Capgemini, Payments Top Trends 2024
 ---
 
 Non cash transactions volumes are expected to reach about 2.3 trillion by 2027, doubling since 2022, shows Capgemini’s report “Payments Top Trends for 2024”. This exponential growth is driven by the expansion of instant payment infrastructure in major markets, ongoing adoption of open banking framework, and more: evolving customer expectations, regulations, and industry initiatives are catalyzing the fast adoption of new instruments and instant payments.

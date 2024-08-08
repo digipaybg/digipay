@@ -3,6 +3,7 @@ image: /blog/digipay-3.png
 title: 2024 will be the year of developing embedded payments
 author: Raya Lecheva
 date: 2024-03-13
+keywords: 2024, embedded payments, MPoC, Mobile Payments on COTS, PCI standard, security requirements, card data, PIN, mobile device, DIGIPAY blog, Pavel Kaminski, 7Security, DIGIPAY 2023, technology providers, payment experience, merchants, consumers, MPoC certified solutions, SDK integration, mobile applications, loyalty programs, rewards, embedded finance, development
 ---
 
 MPoC (Mobile Payments on COTS) is a relatively new PCI standard that establishes security requirements for accepting card data and PINs on the same mobile device, comments especially for DIGIPAY Blog Pavel Kaminsky, Founder and CEO, 7Security and Member of the Advisory Board of DIGIPAY 2023. It enables technology providers to optimize and significantly improve the payment experience for merchants and consumers.

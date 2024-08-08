@@ -3,6 +3,7 @@ image: /blog/Незабавни-плащания.jpg
 title: "With instant payments, we are entering markets outside of standard payment methods"
 author: Raya Lecheva
 date: 2024-04-11
+keywords: instant payments, National Card and Payment Scheme, BORICA AD, Stoilka Arsova, DIGIPAY 2024 Blog, DPUs, originators, recipients, mobile number, blink P2P, value added services, zone parking services, bcard e-vouchers, Corporate Income Tax Act, food vouchers, electronic vouchers, Ministry of Finance, licensed operators, employers, employees, social costs, embedded payments, local services, payment instruments, digitalization, local scheme, competitive solutions, traders, bcard e-vouchers card, benefits, resource commitment, technical commitment, mobile banking, mobile application, parking packages, private parking lots, counter, blink parking service, hourly parking, settlements, private parking lots, fraud detection, fraud prevention, anti-money laundering measures, due diligence, sanctions, restrictive measures, criminal activities
 ---
 
 Instant payments are changing the market of financial services in Bulgaria a little more than a year after their launch, Stoilka Arsova, director of the National Card and Payment Scheme, part of BORICA AD, commented on the DIGIPAY 2024 Blog.

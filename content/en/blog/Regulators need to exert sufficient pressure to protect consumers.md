@@ -3,6 +3,7 @@ image: /blog/1.jpg
 title: Regulators Should Exert Enough Pressure to Protect Consumers
 author: Raya Lecheva
 date: 2024-07-20T00:00:00.000Z
+keywords: fraud, cyber fraud, Account-Take-Over, Authorized-Push-Payments, ATO, APP, pig butchering, malware, remote support scam, smishing, safe account scam, fake auctions, e-commerce sites, banking trojans, RAT, SMS managers, credit card renewal letters, B2B correspondence, account substitution, wallet applications, ATM withdrawals, crypto assets, end-device monitoring tools, malware checks, PSD2 directive, consumer protection, financial institutions, intelligent system capabilities, interactive communication, chat-bot, Generative AI, security, customer trust, call center, DIGIPAY blog, Goran Angelov, IBS Bulgaria, Advisory Board
 ---
 
 Key trends in fraud follow the money. Fraudsters focus on areas where they can make the highest profits with the least effort. The digitization of payments naturally directs fraudsters towards schemes targeting weak points in processes, with the most common and painful being Account-Take-Over (ATO), Authorized-Push-Payments (APP or known as pig butchering), and cyber frauds often resulting from malware infecting the end device.

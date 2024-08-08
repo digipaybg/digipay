@@ -3,6 +3,7 @@ image: /blog/banner-m-cyber-security.jpeg
 title: Bulgaria with more recommendations for money laundering against the background of payments around the world
 author: Raya Lecheva
 date: 2024-03-19T12:00:00.000Z
+keywords: Bulgaria, money laundering, recommendations, payments, global payments, 2023, record year, ransoms, fraud, FATF, terrorist financing, weapons proliferation financing, foreign investors, investments, BNB, Financial Action Task Force, non-cash transactions, 2027, instant payment infrastructure, open banking framework, customer expectations, regulations, industry initiatives, instant payments, banks, payment firms, retail payments, commercial payments, enterprise clients, cash management, macroeconomic headwinds, uncertain growth, Europe
 ---
 
 The world is changing. 2023 was e record year of terms of paid ransoms, which exceeded $1.1 billion. The fraud is rising.
