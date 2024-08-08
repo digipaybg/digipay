@@ -113,7 +113,7 @@
 <template>
   <div
     id="pastYears"
-    class="relative flex h-fit min-h-screen flex-col items-center justify-center px-4 py-8 pt-52 lg:px-14 xl:px-8 xl:pt-0"
+    class="relative flex h-auto min-h-screen flex-col items-center justify-center px-4 py-8 pt-52 lg:px-14 xl:px-8 xl:pt-0"
   >
     <h1 id="pastYearsTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("pastYears") }}</h1>
     <div class="flex w-full flex-col gap-6 sm:gap-8 md:gap-10 lg:w-3/4 xl:w-1/2">

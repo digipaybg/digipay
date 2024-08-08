@@ -76,7 +76,7 @@
 </script>
 
 <template>
-  <div class="relative h-screen max-h-screen">
+  <div class="relative h-auto min-h-screen">
     <div id="advisory" class="flex flex-col items-center justify-center overflow-visible">
       <!-- <h1 id="advisoryTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
         {{ $t("advisoryboard") }}

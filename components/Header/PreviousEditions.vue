@@ -64,7 +64,7 @@
             }"
             class="cursor-pointer"
           >
-            <NuxtLink class="cursor-pointer" :href="`https://digipay.bg/digipay-${year}`">
+            <NuxtLink class="cursor-pointer" :href="`https://old.digipay.bg/digipay-${year}`">
               <Button variant="link">DIGIPAY {{ year }}</Button>
             </NuxtLink>
           </Motion>

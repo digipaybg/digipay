@@ -63,7 +63,7 @@
 </script>
 
 <template>
-  <div id="lastYear" class="py-8">
+  <div id="lastYear" class="h-auto min-h-screen py-8">
     <h1 id="lastYearTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("lastYear") }}</h1>
 
     <ClientOnly class="swiper-last-year">

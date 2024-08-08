@@ -41,8 +41,6 @@
     class="fixed top-0 z-50 h-24 w-full overflow-visible py-3 transition-all"
     :class="{ 'duration-300': !showMenu, 'duration-100': showMenu }"
   >
-    <NuxtLink class="absolute left-0 top-0 h-10 w-10" as-child :href="'https://www.youtube.com/watch?v=uHgt8giw1LY'">
-    </NuxtLink>
     <div
       class="flex h-full w-screen items-center justify-between gap-3 overflow-visible px-10 xl:justify-center xl:px-0"
     >
