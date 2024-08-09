@@ -91,8 +91,8 @@
 </script>
 
 <template>
-  <div id="themes" class="relative">
-    <div id="themesWrapper" class="flex h-[75vh] flex-col items-center justify-center overflow-visible opacity-0">
+  <div id="themes" class="relative min-h-screen pt-52 xl:pt-0">
+    <div id="themesWrapper" class="flex h-full flex-col items-center justify-center overflow-visible opacity-0">
       <h1 id="themeTitle" class="py-4 text-center text-2xl sm:text-3xl md:text-4xl">{{ $t("themes2024") }}</h1>
       <div
         :initial="{

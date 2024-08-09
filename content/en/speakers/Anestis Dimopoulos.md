@@ -3,7 +3,9 @@ name: Anestis Dimopoulos
 position: Director, Head of Digital, Risk Advisory, Baker  Southeast Europe
 image: /speakers/Anestis.png
 topic: Use of Machine Learning and AI for AML controls
-order: 3
+order: 4
+linkedin: https://www.linkedin.com/in/demopan/
+keywords: Anestis Dimopoulos, Director, Head of Digital, Risk Advisory, Baker Southeast Europe, Machine Learning, AI, AML controls, digital advisory services, risk advisory services, Baker Tilly South East Europe, Cyprus, Greece, Bulgaria, Romania, Moldova, Athens office, Senior Manager, audit advisory firm, insurance industry, managing risks, technology intensive projects, advisory services, South East Europe, Middle East, University of Piraeus, Athens University of Economics Business, LSE, MBA Essentials, Said Business School, Blockchain Strategy Programme, professional certifications, CISA, CISSP, CGEIT, CRISC, CIA, ISACA, IIA, ISACA Athens Chapter
 ---
 
 Mr. Dimopoulos leads digital and risk advisory services in Baker Tilly South East Europe

@@ -1,24 +1,10 @@
 <script lang="ts" setup>
   import { addDoc, collection } from "firebase/firestore";
-  import { z } from "zod";
   import { db } from "~/lib/firebase";
 
   const name = ref("");
   const email = ref("");
   const message = ref("");
-
-  const people = [
-    {
-      name: "petya_veleva",
-      position: "ceo",
-      image: "/authors/petya-veleva.png",
-    },
-    {
-      name: "raya_lecheva",
-      position: "founderAndGeneralManager",
-      image: "/authors/raya-lecheva-new.png",
-    },
-  ];
 
   const disableInputs = ref(false);
   const sentMail = ref(false);
@@ -37,7 +23,7 @@
 
     disableInputs.value = true;
     await addDoc(collection(db, "mail"), {
-      to: ["kaloyangfx@gmail.com"],
+      to: ["raya.lecheva@digipay.bg"],
       message: {
         subject: `New message from the website: ${name.value}`,
         text: `Email: ${email.value}\nMessage: ${message.value}`,
@@ -66,38 +52,24 @@
 </script>
 
 <template>
-  <div class="relative flex min-h-screen items-center justify-center gap-20 p-24">
+  <div class="relative flex min-h-screen items-center justify-center gap-20 p-8 lg:p-24">
     <circle
       class="absolute -top-40 left-1/2 -z-10 aspect-square w-[30rem] -translate-x-1/2 rounded-full bg-[#27E076]/50 blur-[200px]"
     />
-    <div class="grid flex-1 grid-flow-row grid-cols-2 gap-6">
-      <div class="" v-for="person in people" :key="person.name">
-        <div class="flex flex-col items-center justify-center gap-6 text-center">
-          <NuxtImg
-            format="webp"
-            :quality="80"
-            :src="person.image"
-            alt="author"
-            class="h-40 w-40 rounded-full object-cover object-center"
-          />
-          <div>
-            <h2 class="text-2xl font-bold">{{ $t(person.name) }}</h2>
-            <p class="text-sm text-gray-400">{{ $t(person.position) }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="relative flex-1 space-y-4">
+
+    <div class="relative flex min-h-0 flex-[1] flex-col justify-center space-y-4 transition-all lg:flex-[0.4]">
       <div class="space-y-2">
         <h1 class="text-4xl font-bold">{{ $t("contactUs") }}</h1>
       </div>
-      <div class="space-y-2">
-        <Label for="name">{{ $t("name") }}</Label>
-        <Input v-model="name" label="name" :placeholder="$t('yourName')" :disabled="disableInputs" />
-      </div>
-      <div class="space-y-2">
-        <Label for="name">{{ $t("email") }}</Label>
-        <Input v-model="email" label="email" :placeholder="$t('yourEmail')" type="email" :disabled="disableInputs" />
+      <div class="flex flex-col gap-4 lg:flex-row">
+        <div class="space-y-2">
+          <Label for="name">{{ $t("name") }}</Label>
+          <Input v-model="name" label="name" :placeholder="$t('yourName')" :disabled="disableInputs" />
+        </div>
+        <div class="space-y-2">
+          <Label for="name">{{ $t("email") }}</Label>
+          <Input v-model="email" label="email" :placeholder="$t('yourEmail')" type="email" :disabled="disableInputs" />
+        </div>
       </div>
       <div class="space-y-2">
         <Label for="name">{{ $t("message") }}</Label>
@@ -135,7 +107,7 @@
               mass: 0.5,
             }),
           }"
-          class="absolute -bottom-52 left-1/2 w-32 min-w-fit -translate-x-1/2 rounded-lg border border-green-500 bg-green-500/25 p-4 text-center text-white shadow-[0px_0px_20px_5px] shadow-green-500/50"
+          class="fixed bottom-10 right-10 rounded-lg border border-green-500 bg-green-500/25 p-4 text-center text-white shadow-[0px_0px_20px_5px] shadow-green-500/50 backdrop-blur-lg"
         >
           <p class="text-lg font-bold">{{ $t("mailSent") }}</p>
         </Motion>
@@ -163,7 +135,7 @@
               mass: 0.5,
             }),
           }"
-          class="absolute -bottom-52 left-1/2 -translate-x-1/2 rounded-lg border border-red-500 bg-red-500/25 p-4 text-center text-white shadow-[0px_0px_20px_5px] shadow-red-500/50"
+          class="fixed bottom-10 right-10 rounded-lg border border-red-500 bg-red-500/35 p-4 text-center text-white shadow-[0px_0px_20px_5px] shadow-red-500/50 backdrop-blur-lg"
         >
           <p class="text-lg font-bold">{{ $t("mailError") }}</p>
         </Motion>

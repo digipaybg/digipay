@@ -76,7 +76,7 @@
 </script>
 
 <template>
-  <div class="relative h-screen max-h-screen">
+  <div class="relative h-auto min-h-screen">
     <div id="advisory" class="flex flex-col items-center justify-center overflow-visible">
       <!-- <h1 id="advisoryTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
         {{ $t("advisoryboard") }}
@@ -90,7 +90,7 @@
           >
             <NuxtImg
               :src="member.image"
-              class="aspect-square h-60 rounded-full border-2 border-[#67CBDD] object-cover object-center"
+              class="aspect-square h-60 rounded-full border-2 border-[#67CBDD] object-cover object-center shadow-[0px_0px_10px_0px] shadow-[#67CBDD]"
               :class="`${index === 0 || index === 4 ? 'object-right' : ''} `"
               format="webp"
               quality="30"

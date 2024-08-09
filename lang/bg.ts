@@ -109,6 +109,7 @@ export default {
   ceo: "Изпълнителен директор",
   founderAndGeneralManager: "Основател и генерален мениджър",
   contactUs: "Свържете се с нас",
+  contactus: "Свържете се с нас",
   name: "Име",
   email: "Имейл",
   message: "Съобщение",
@@ -120,4 +121,5 @@ export default {
   yourMessage: "Твоето Съобщение",
   mailSent: "Вашето съобщение беше изпратено успешно",
   mailError: "Възникна грешка при изпращането на съобщението",
+  topic: "Тема",
 };

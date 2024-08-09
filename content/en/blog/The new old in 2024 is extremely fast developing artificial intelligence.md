@@ -3,6 +3,7 @@ image: /blog/DSC01705.jpg
 title: The new old in 2024 is extremely fast developing artificial intelligence
 author: Raya Lecheva
 date: 2024-03-19T13:00:00.000Z
+keywords: artificial intelligence, cyber security, Yasen Tanev, DIGIPAY Blog, AI abuse, personalized messages, geopolitics, China, Russia, North Korea, Iran, cyber attacks, zero-day vulnerabilities, hacker groups, smart devices, mobile phones, network devices, cloud centers, cloud services, data encryption, software supply chains, hardware supply chains, open source, commercial libraries, secure development, business risks, reputation loss, ransomware
 ---
 
 The new old in 2024 in the world of cyber security is the extremely fast developing artificial intelligence, expert and teacher Yasen Tanev reported to the DIGIPAY Blog. Its use, apart from protection, will be to abuse it and create even better and personalized letters, messages (SMS), photos, videos and sound that will look even more real. And unfortunately, the abuse of artificial intelligence will succeed in automating the process of sending it perfectly (time and emotional state) and taking control of the process.

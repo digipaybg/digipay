@@ -20,17 +20,22 @@
 
     const speakerName = document.getElementById("speakerName")!;
     const speakerPosition = document.getElementById("speakerPosition")!;
+    const speakerTopic = document.getElementById("speakerTopic")!;
     const bodyText = document.querySelector("#bodyText")!;
     const speakerImage = document.querySelector("#speakerImage")!;
+    const socialMedias = document.querySelector("#socialMedias")!;
 
     const nameSplit = new SplitType(speakerName);
     const positionSplit = new SplitType(speakerPosition);
+    const topicSplit = new SplitType(speakerTopic);
     const bodySplit = new SplitType(bodyText as HTMLElement);
 
     speakerName.classList.remove("opacity-0");
     speakerPosition.classList.remove("opacity-0");
+    speakerTopic.classList.remove("opacity-0");
     bodyText.classList.remove("opacity-0");
     speakerImage.classList.remove("opacity-0");
+    socialMedias.classList.remove("opacity-0");
 
     timeline([
       [
@@ -84,6 +89,24 @@
         },
       ],
       [
+        topicSplit.lines!,
+        {
+          y: [20, 0],
+          opacity: [0, 1],
+          scale: [0.8, 1],
+        },
+        {
+          duration: 1,
+          easing: spring({
+            stiffness: 100,
+            damping: 10,
+          }),
+          at: 1,
+          delay: stagger(0.035),
+        },
+      ],
+
+      [
         bodySplit.lines!,
         {
           y: [20, 0],
@@ -98,6 +121,22 @@
           }),
           at: 1,
           delay: stagger(0.035),
+        },
+      ],
+      [
+        socialMedias,
+        {
+          y: [20, 0],
+          opacity: [0, 1],
+          scale: [0.8, 1],
+        },
+        {
+          duration: 1,
+          easing: spring({
+            stiffness: 100,
+            damping: 10,
+          }),
+          at: 1.1,
         },
       ],
     ]);
@@ -138,8 +177,17 @@
             >
               {{ doc.position }}
             </h2>
+
+            <h3 id="speakerTopic" class="py-10 font-sans text-lg font-semibold tracking-tight opacity-0 sm:text-xl">
+              {{ $t("topic") }}: {{ doc.topic }}
+            </h3>
           </div>
           <ContentRenderer id="bodyText" class="tracking-lg font-sans text-base opacity-0 sm:text-lg" :value="doc" />
+          <div class="flex w-full opacity-0" id="socialMedias">
+            <NuxtLink :href="doc.linkedin" target="_blank" rel="noopener noreferrer">
+              <Icon name="i-mdi-linkedin" class="h-8 w-8 text-white transition-all hover:text-green-500" />
+            </NuxtLink>
+          </div>
         </div>
         <NuxtImg
           id="speakerImage"
@@ -160,7 +208,7 @@
   hr {
     border: 0;
     height: 1px;
-    // background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #22c55e, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #22c55e, rgba(0, 0, 0, 0));
     margin: 1rem 0;
   }
 </style>

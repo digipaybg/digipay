@@ -62,6 +62,16 @@
           image: "/partners/safenet.png",
           link: "https://www.safenet.bg/",
         },
+        {
+          name: "fram creative solutions",
+          image: "/partners/fram.png",
+          link: "https://framcreativesolutions.com/",
+        },
+        {
+          name: "Black Sea Golds",
+          image: "/partners/blackseagold.webp",
+          link: "https://bsgold.bg/",
+        },
       ],
     },
   ];
@@ -104,7 +114,7 @@
 </script>
 
 <template>
-  <div id="partners" class="px-4 py-8 lg:px-24 lg:py-16">
+  <div id="partners" class="relative px-4 py-8 lg:px-24 lg:py-16">
     <!-- <h1 id="partnersTitle" class="mb-6 py-10 text-center text-2xl sm:text-3xl md:text-4xl">
       {{ $t("partners") }}
     </h1> -->
@@ -129,7 +139,7 @@
                 <NuxtImg
                   format="webp"
                   quality="60"
-                  class="aspect-video h-24 rounded-2xl bg-white object-scale-down p-5 text-2xl transition-all duration-300 group-hover:bg-white/85 lg:h-40 lg:w-full"
+                  class="-z-10 aspect-video h-24 rounded-2xl bg-white object-scale-down p-5 text-2xl transition-all duration-300 group-hover:bg-white/85 lg:h-40 lg:w-full"
                   :alt="partner.name"
                   :src="partner.image"
                   loading="lazy"
@@ -145,6 +155,7 @@
         </div>
       </div>
     </div>
+    <circle class="absolute right-[2%] top-[0%] -z-10 aspect-square w-1/2 rounded-full bg-[#27E076]/30 blur-[200px]" />
   </div>
 </template>
 

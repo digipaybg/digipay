@@ -107,6 +107,7 @@ export default {
   ceo: "CEO",
   founderAndGeneralManager: "Founder and General Manager",
   contactUs: "Contact Us",
+  contactus: "Contact Us",
   name: "Name",
   email: "Email",
   message: "Message",
@@ -118,4 +119,5 @@ export default {
   yourMessage: "Your Message",
   mailSent: "Mail sent successfully",
   mailError: "An error occurred while sending the message",
+  topic: "Topic",
 };

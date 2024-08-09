@@ -3,6 +3,7 @@ image: /blog/DSC_9335.jpg
 title: DORA and Аrtificial Intelligence on the horizon in Bulgaria
 author: Raya Lecheva
 date: 2024-04-03
+keywords: 2024, DORA, Digital Operational Resilience Act, cybersecurity, financial sector, European regulation, artificial intelligence, AI, cyber threats, Boris Goncharov, AMATAS, DIGIPAY conference, financial institutions, financial stability, network security, information systems, banks, insurers, fintech companies, crypto companies, risk management, incident reporting, security tests, threat intelligence, third-party risks, ICT providers, operational resilience, European Union, financial data protection, cybercrime prevention,
 ---
 
 Globally in 2024 the focus on cybersecurity in the financial sector continues to grow. As the number, value and complexity of attacks increase, so do the needs of the industry. If we had to point out the two main highlights for the year, they would be: on the one hand, the introduction of the new European DORA regulation, and on the other hand, artificial intelligence with all the opportunities and threats it reveals on the cyber horizon. This is what Boris Goncharov, Chief Visionary Officer of the cybersecurity company AMATAS and part of the Advisory Board of the DIGIPAY conference in 2024, commented on the DIGIPAY blog.
