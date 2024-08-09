@@ -27,6 +27,11 @@
           image: "/partners/bakertilly.png",
           link: "https://www.bakertilly.com/",
         },
+        {
+          name: "DAIS",
+          image: "/partners/dais.png",
+          link: "https://dais-software.com/",
+        },
       ],
     },
     {
