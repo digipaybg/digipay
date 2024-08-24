@@ -7,10 +7,12 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+
   nitro: {
     preset: "static",
     prerender: {
       crawlLinks: true,
+      routes: ["/", "/blog", "/speakers"],
     },
   },
   modules: [
@@ -53,7 +55,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/": { prerender: true, ssr: true, static: false, sitemap: { priority: 1 } },
-    "/blog/**": { static: true, prerender: true, sitemap: { priority: 0.9 } },
+    "/blog/**": { static: true, sitemap: { priority: 0.9 } },
     "/speakers/**": { static: true, prerender: true, sitemap: { priority: 0.7 } },
   },
   plugins: [],

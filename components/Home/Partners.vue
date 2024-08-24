@@ -32,6 +32,11 @@
           image: "/partners/dais.png",
           link: "https://dais-software.com/",
         },
+        {
+          name: "KOIOS",
+          image: "/partners/koios.png",
+          link: "https://koios.hr/",
+        },
       ],
     },
     {
@@ -71,6 +76,21 @@
           name: "Black Sea Golds",
           image: "/partners/blackseagold.webp",
           link: "https://bsgold.bg/",
+        },
+      ],
+    },
+    {
+      type: "media",
+      partners: [
+        {
+          name: "3eNews",
+          image: "/partners/3enews.png",
+          link: "https://3enews.bg/",
+        },
+        {
+          name: "Lider.bg",
+          image: "/partners/lider.png",
+          link: "https://lider.bg/",
         },
       ],
     },

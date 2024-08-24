@@ -3,7 +3,7 @@ name: Goran Angelov
 position: CEO and Founder, IBS Bulgaria
 image: "/speakers/Goran Angelov.jpg"
 topic: What are the elements that give us a holistic solution for protection and compliance
-order: 4
+order: 5
 ---
 
 Goran Angelov has over 25 years of experience in information and communication

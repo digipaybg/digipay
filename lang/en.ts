@@ -120,4 +120,5 @@ export default {
   mailSent: "Mail sent successfully",
   mailError: "An error occurred while sending the message",
   topic: "Topic",
+  media: "Media",
 };

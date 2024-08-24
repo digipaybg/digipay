@@ -46,6 +46,8 @@
 
       <LazyHomeInvest />
 
+      <LazyHomeAgenda />
+
       <LazyHomeLastYear />
 
       <LazyHomeVideo />

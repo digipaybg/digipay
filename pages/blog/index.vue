@@ -7,19 +7,18 @@
   });
 
   const { locale } = useI18n();
-  const { data: posts } = useAsyncData("blogPosts", () => queryContent("/blog").locale(locale.value).find(), {
-    lazy: false,
-  });
+  const { data: posts } = useAsyncData("blogPosts", () => queryContent("/blog").locale(locale.value).find());
 
   const postsSorted = computed(() => {
-    if (!posts) return [];
+    console.log(posts.value);
+    if (!posts.value) return [];
 
-    const arrCopy = posts.value;
-    if (!arrCopy) return [];
-
-    return arrCopy.sort(
+    const arrCopy = posts.value.sort(
       (a, b) => new Date(b.date as EpochTimeStamp).getTime() - new Date(a.date as EpochTimeStamp).getTime(),
     );
+
+    console.log(arrCopy, "arrCopy");
+    return arrCopy;
   });
 
   useSeoMeta({
@@ -78,6 +77,9 @@
           <BlogCard v-for="post in postsSorted.slice(1)" :key="post._id" :post="post" />
         </div>
       </div>
+    </div>
+    <div v-else class="flex h-full items-center justify-center">
+      <p class="font-mono text-2xl">{{ $t("noPosts") }}</p>
     </div>
 
     <circle

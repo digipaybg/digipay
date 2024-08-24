@@ -20,19 +20,22 @@
 
     const speakerName = document.getElementById("speakerName")!;
     const speakerPosition = document.getElementById("speakerPosition")!;
-    const speakerTopic = document.getElementById("speakerTopic")!;
+    const speakerTopic = document.getElementById("speakerTopic");
     const bodyText = document.querySelector("#bodyText")!;
     const speakerImage = document.querySelector("#speakerImage")!;
     const socialMedias = document.querySelector("#socialMedias")!;
 
     const nameSplit = new SplitType(speakerName);
     const positionSplit = new SplitType(speakerPosition);
-    const topicSplit = new SplitType(speakerTopic);
+    let topicSplit: HTMLElement[] = [];
+    if (speakerTopic) {
+      topicSplit = new SplitType(speakerTopic).words!;
+      speakerTopic.classList.remove("opacity-0");
+    }
     const bodySplit = new SplitType(bodyText as HTMLElement);
 
     speakerName.classList.remove("opacity-0");
     speakerPosition.classList.remove("opacity-0");
-    speakerTopic.classList.remove("opacity-0");
     bodyText.classList.remove("opacity-0");
     speakerImage.classList.remove("opacity-0");
     socialMedias.classList.remove("opacity-0");
@@ -56,7 +59,7 @@
         },
       ],
       [
-        nameSplit.chars!,
+        nameSplit.chars ?? [],
         {
           y: [100, 0],
           opacity: [0, 1],
@@ -73,7 +76,7 @@
         },
       ],
       [
-        positionSplit.lines!,
+        positionSplit.lines ?? [],
         {
           y: [20, 0],
           opacity: [0, 1],
@@ -89,7 +92,7 @@
         },
       ],
       [
-        topicSplit.lines!,
+        topicSplit ?? [],
         {
           y: [20, 0],
           opacity: [0, 1],
@@ -107,7 +110,7 @@
       ],
 
       [
-        bodySplit.lines!,
+        bodySplit.lines ?? [],
         {
           y: [20, 0],
           opacity: [0, 1],
@@ -145,12 +148,12 @@
 
 <template>
   <div>
-    <ContentDoc v-slot="{ doc }" :key="$route.fullPath" :locale="locale" :path="path" class="">
+    <ContentDoc v-slot="{ doc }" :key="route.fullPath" :locale="locale" :path="path" class="">
       <Head>
         <Title ref="titleRef">{{ doc.name }} | DIGIPAY</Title>
         <Meta property="og:title" :content="doc.name" />
         <Meta property="og:description" :content="doc.position" />
-        <Meta property="og:url" :content="$route.fullPath" />
+        <Meta property="og:url" :content="route.fullPath" />
         <Meta property="og:image" :content="doc.image" />
         <Meta property="twitter:title" :content="doc.name" />
         <Meta property="twitter:description" :content="doc.position" />
@@ -178,13 +181,17 @@
               {{ doc.position }}
             </h2>
 
-            <h3 id="speakerTopic" class="py-10 font-sans text-lg font-semibold tracking-tight opacity-0 sm:text-xl">
+            <h3
+              v-if="doc.topic"
+              id="speakerTopic"
+              class="py-10 font-sans text-lg font-semibold tracking-tight opacity-0 sm:text-xl"
+            >
               {{ $t("topic") }}: {{ doc.topic }}
             </h3>
           </div>
           <ContentRenderer id="bodyText" class="tracking-lg font-sans text-base opacity-0 sm:text-lg" :value="doc" />
           <div class="flex w-full opacity-0" id="socialMedias">
-            <NuxtLink :href="doc.linkedin" target="_blank" rel="noopener noreferrer">
+            <NuxtLink :href="doc.linkedin" v-show="doc.linkedIn" target="_blank" rel="noopener noreferrer">
               <Icon name="i-mdi-linkedin" class="h-8 w-8 text-white transition-all hover:text-green-500" />
             </NuxtLink>
           </div>
