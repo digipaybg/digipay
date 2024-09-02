@@ -12,6 +12,11 @@
           image: "/partners/borica.webp",
           link: "https://www.borica.bg/products-and-services/b-trust",
         },
+        {
+          name: "infopulse",
+          image: "/partners/infopulse.png",
+          link: "https://www.infopulse.com/",
+        },
       ],
     },
     {
@@ -91,6 +96,21 @@
           name: "Lider.bg",
           image: "/partners/lider.png",
           link: "https://lider.bg/",
+        },
+      ],
+    },
+    {
+      type: "partners",
+      partners: [
+        {
+          name: "paysera",
+          image: "/partners/paysera.png",
+          link: "https://www.paysera.bg/",
+        },
+        {
+          name: "sirma",
+          image: "/partners/sirma.png",
+          link: "https://www.sirma.com/",
         },
       ],
     },

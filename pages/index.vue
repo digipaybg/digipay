@@ -46,7 +46,7 @@
 
       <LazyHomeInvest />
 
-      <LazyHomeAgenda />
+      <!-- <LazyHomeAgenda /> -->
 
       <LazyHomeLastYear />
 
