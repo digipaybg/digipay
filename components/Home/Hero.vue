@@ -152,9 +152,35 @@
             }"
             class="mt-20 flex flex-col items-center justify-center gap-2"
           >
-            <NuxtLink :href="`https://tickets.paysera.com/${locale}/event/digi-pay-0091`">
-              <Button variant="default" class="w-64 text-lg"> {{ $t("buyTicket") }} </Button>
-            </NuxtLink>
+            <!-- <NuxtLink :href="`https://tickets.paysera.com/${locale}/event/digi-pay-0091`"> -->
+            <Dialog>
+              <DialogTrigger>
+                <Button variant="default" class="w-64 text-lg"> {{ $t("buyTicket") }} </Button>
+              </DialogTrigger>
+              <DialogContent class="">
+                <iframe
+                  class="rounded-2xl p-2"
+                  width="100%"
+                  height="100%"
+                  frameborder="0"
+                  onload="(function () {
+         var s = document.createElement('script');
+         s.type = 'text/javascript';
+         s.onload = function() {
+             iFrameResize({ heightCalculationMethod: 'grow' });
+         };
+         s.src =
+'https://tickets.paysera.com/compiled/2e97c63552e367ceb1b56ab27e4c2f7c.js';
+         document.body.appendChild(s);
+     })()"
+                  src="https://tickets.paysera.com/bg/event-widget/141766a9-f129-11ee-8e30-0050562fceaa?"
+                  allowtransparency="true"
+                  scrolling="no"
+                >
+                </iframe>
+              </DialogContent>
+            </Dialog>
+            <!-- </NuxtLink> -->
             <h4>{{ $t("liveOrOnline") }}</h4>
           </Motion>
         </div>

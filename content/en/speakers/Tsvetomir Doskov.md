@@ -2,7 +2,7 @@
 name: Tsvetomir Doskov
 position: Senior Vice President, Sirma Financial Industry
 image: "/speakers/Tsvetomir Doskov.jpg"
-order: 7
+order: 9
 keywords: Tsvetomir Doskov, Senior Vice President, Sirma Financial Industry, corporate culture, financial fraud, banking, corporate services, technology, corporate governance, internal audit, corporate ethics, fraud prevention, investigations, human resources, Cyprus, Association of Certified Fraud Examiners, ACFE, ISACA, IIA, CISA, CISSP, CGEIT, CRISC, CIA, regulatory frameworks, compliance, collaboration, banks, payment providers, public sector, Sirma Group, Sirma Business Consulting AD, advanced technologies, Bulgarian banking industry
 ---
 

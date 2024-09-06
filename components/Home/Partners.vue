@@ -13,6 +13,11 @@
           link: "https://www.borica.bg/products-and-services/b-trust",
         },
         {
+          name: "IBS Bulgaria",
+          image: "/partners/ibs.png",
+          link: "https://ibs.bg/wps/portal/ibs/home",
+        },
+        {
           name: "infopulse",
           image: "/partners/infopulse.png",
           link: "https://www.infopulse.com/",
@@ -22,11 +27,6 @@
     {
       type: "content",
       partners: [
-        {
-          name: "IBS Bulgaria",
-          image: "/partners/ibs.png",
-          link: "https://ibs.bg/wps/portal/ibs/home",
-        },
         {
           name: "baker tilly",
           image: "/partners/bakertilly.png",
@@ -56,6 +56,16 @@
           name: "sirma",
           image: "/partners/sirma.png",
           link: "https://www.sirma.com/",
+        },
+        {
+          name: "devin",
+          image: "/partners/devin.png",
+          link: "https://devin-bg.com/",
+        },
+        {
+          name: "Black Sea Golds",
+          image: "/partners/blackseagold.webp",
+          link: "https://bsgold.bg/",
         },
       ],
     },
@@ -91,11 +101,6 @@
           name: "fram creative solutions",
           image: "/partners/fram.png",
           link: "https://framcreativesolutions.com/",
-        },
-        {
-          name: "Black Sea Golds",
-          image: "/partners/blackseagold.webp",
-          link: "https://bsgold.bg/",
         },
       ],
     },

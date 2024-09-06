@@ -35,38 +35,23 @@
   <div ref="scrollContainer" class="flex flex-col gap-20 overflow-hidden pb-32">
     <HomeHero />
 
-    <div id="about" class="flex flex-col gap-20">
-      <LazyHomeThemes />
+    <LazyHomeAgenda />
 
-      <LazyHomeAbout />
+    <LazyHomeThemes />
 
-      <div class="pb-20">
-        <LazyHomeDifferent />
-      </div>
+    <LazyHomeAbout />
 
-      <LazyHomeInvest />
-
-      <!-- <LazyHomeAgenda /> -->
-
-      <LazyHomeLastYear />
-
-      <LazyHomeVideo />
-
-      <LazyHomePastYears />
+    <div class="pb-20">
+      <LazyHomeDifferent />
     </div>
 
-    <!-- <LazyHomeSpeakers /> -->
-    <!-- <LazyHomeAgenda /> -->
+    <LazyHomeInvest />
 
-    <!--TODO: MAKE IT TO A NEW PAGE-->
-    <!--<LazyHomePartners />-->
+    <LazyHomeLastYear />
 
-    <!--TODO: MAKE IT TO A NEW PAGE-->
-    <!-- <div id="advisory"> -->
-    <!-- <LazyHomeAdvisory /> -->
-    <!-- </div> -->
+    <LazyHomeVideo />
 
-    <!-- <LazyHomeBlog /> -->
+    <LazyHomePastYears />
   </div>
 </template>
 

@@ -277,7 +277,7 @@
         <h1>Document not found</h1>
       </template>
     </ContentDoc>
-    <!-- <circle
+    <circle
       class="absolute left-[-30%] top-[75%] z-[-100] aspect-square w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px]"
     />
     <circle
@@ -289,7 +289,7 @@
     <circle
       class="absolute left-[25%] top-[50%] z-[-100] aspect-square w-1/2 rounded-full bg-[#68CBDE]/20 blur-[200px]"
     />
-    <LazyHomeBlog :exclude-post="route.path.split('/').at(-1)" /> -->
+    <!-- <LazyHomeBlog :exclude-post="route.path.split('/').at(-1)" /> -->
   </div>
 </template>
 
@@ -315,11 +315,26 @@
     h1,
     h2,
     h3 {
-      scroll-margin-top: 140px;
       font-size: 24px;
       padding-top: 30px;
       padding-bottom: 10px;
       color: #b0edf9;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      scroll-margin-top: 250px;
+      flex-direction: row;
+
+      img {
+        border-radius: 500px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        object-position: top;
+        box-shadow: 0 0 15px 0 #b0edf9;
+      }
     }
 
     p {
@@ -335,6 +350,12 @@
   @media (max-width: 768px) {
     #title {
       font-size: 2xl;
+    }
+
+    #bodyText {
+      a {
+        flex-direction: column;
+      }
     }
 
     #post-date,

@@ -164,7 +164,10 @@
         <Meta name="author" :content="doc.name" />
         <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <article class="sm:px-18 flex w-full flex-col justify-center gap-12 px-4 py-32 md:px-48 lg:py-64 2xl:flex-row">
+      <article
+        class="sm:px-18 flex w-full flex-col justify-center gap-12 px-4 py-32 md:px-48 lg:py-64 2xl:flex-row"
+        id="layout"
+      >
         <div class="flex flex-[1] flex-col gap-6 md:gap-10">
           <div class="space-y-2 md:space-y-3">
             <h1
@@ -218,4 +221,13 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #22c55e, rgba(0, 0, 0, 0));
     margin: 1rem 0;
   }
+
+  p {
+    font-size: 18px;
+    padding-block: 20px;
+  }
+
+  // h3 {
+  //   font-size: 21px;
+  // }
 </style>

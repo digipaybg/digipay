@@ -3,7 +3,7 @@ name: Chrystalla Kazara
 position: Vice-President and Training Director, ACFE Cyprus
 image: "/speakers/Chrystalla Kazara.jpg"
 topic: Building a corporate culture - an important criteriа for dealing with financial fraud
-order: 3
+order: 2
 keywords: corporate culture, financial fraud, banking, corporate services, technology, corporate governance, internal audit, corporate ethics, fraud prevention, investigations, human resources, Cyprus, Association of Certified Fraud Examiners, ACFE, ISACA, IIA, CISA, CISSP, CGEIT, CRISC, CIA, regulatory frameworks, compliance, collaboration, banks, payment providers, public sector
 ---
 

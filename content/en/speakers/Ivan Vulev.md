@@ -3,7 +3,7 @@ name: Ivan Vulev
 position: Chief Technology Officer, Technical Sales Leader, IBM Central Eastern Europe Territory
 image: "/speakers/Ivan Vulev.jpg"
 topic: Quantum Computing and its Impact on Digital Security in the Financial Industry
-order: 6
+order: 8
 ---
 
 Ivan is a technology Thought Leader with 18 years of IT experience in an international
