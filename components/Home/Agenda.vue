@@ -13,6 +13,7 @@
   interface Moderator {
     name: string;
     position: string;
+    image?: string;
   }
 
   interface AgendaItem {
@@ -28,240 +29,273 @@
 
   const agenda: AgendaItem[] = [
     {
-      title: "Registration",
+      title: "registration",
       hours: "08:15 - 09:15",
       type: "special",
       class: "bg-green-700/40 hover:bg-green-700/50",
       icon: "i-tabler-edit",
+      description: "poweredByIbs",
     },
     {
       type: "keynote",
-      title: "OPENING KEYNOTES",
+      title: "openingKeynotes",
       hours: "09:15 - 10:15",
       speakers: [
         {
           hours: "09:20 - 09:45",
-          name: "Eric Ducoulombier",
-          position: "DG Financial Stability, Financial Services and Capital Markets Union, European Commission",
+          name: "ericDucoulombier",
+          position: "dgFinancialStability",
+          topic: "topicImmediatePayments",
           image: "/speakers/eric_d.jpg",
-          topic:
-            "Immediate payments, security of payment services, innovations and after the entry into force of PSD3, future challenges in front of open finance.",
         },
         {
           hours: "09:45 - 10:00",
-          name: "Dimitar Radev",
-          position: "Governer, Bulgarian National Bank, tbc",
+          name: "dimitarRadev",
+          position: "governorBNB",
+          image: "/speakers/Dimitar Radev.png",
           topic: "",
         },
       ],
     },
     {
       type: "discussion",
-      title: "INSTANT PAYMENTS AND PROSPECTS FOR INNOVATION",
+      title: "instantPaymentsAndInnovation",
       hours: "10:15 - 10:45",
       moderator: {
-        name: "Merdihan Ismailov",
-        position: "FinTech Applications & Solutions, Sirma Group Holding",
+        name: "merdihanIsmailov",
+        position: "fintechApplications",
+        image: "/speakers/Merdihan Ismailov.png",
       },
       speakers: [
         {
-          name: "Stoilka Arsova",
-          position: "Director National Card and Payment Scheme, Borica AD",
+          name: "stoilkaArsova",
+          position: "directorNationalCard",
+          image: "/speakers/Stoilka Arsova.jpg",
         },
         {
-          name: "Hristiyan Prashkov",
-          position: "Senior Manager Digital Banking, UniCredit Bulbank",
+          name: "tatyanaIvanova",
+          position: "countryInnovationLeader",
+          image: "/speakers/Tatyana Ivanova.jpg",
         },
         {
-          name: "Tatyana Ivanova",
-          position: "Country Innovation Leader, KBC Bulgaria",
+          name: "hristiyanPrashkov",
+          position: "seniorManagerDigitalBanking",
+          image: "/speakers/Hristian Prashkov.jfif",
         },
       ],
     },
     {
       type: "special",
-      title: "Coffee Break",
-      description: "Powered By BORICA",
+      title: "coffeeBreak",
+      description: "poweredByBorica",
       hours: "10:50 - 11:10",
       icon: "i-tabler-coffee",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
     {
       type: "keynote",
-      title: "KEYNOTE SESSION",
+      title: "keynoteSession",
       hours: "11:10 - 12:30",
       speakers: [
         {
-          name: "Svetlin Lazarov",
-          position:
-            "Head of Cyber Intelligence and Digital Forensics Unit at General Directorate Combating Organized Crime (GDCOC)",
-          topic: "Seven years back and forward in financial fraud",
+          name: "svetlinLazarov",
+          position: "headCyberIntelligence",
+          topic: "topicFinancialFraud",
           hours: "11:10 - 11:25",
+          image: "/speakers/svetlin-l.jpg",
         },
         {
-          name: "Radoslav Dimitrov",
-          position: `Senior Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
-          topic: "Financial Crime Prevention as a service- Fraud Monitoring and Sanction Screening",
+          name: "radoslavDimitrov",
+          position: "seniorDirectorCardBusiness",
+          topic: "topicFinancialCrimePrevention",
           hours: "11:25 - 11:40",
+          image: "/speakers/Radoslav Dimitrov.jpg",
         },
         {
-          name: "Goran Angelov",
-          position: "Founder and CEO, IBS Bulgaria",
-          topic:
-            "What are the elements that give us a holistic solution for protection and, what are the main challenges and how to meet them if we are a bank or fintech",
-          hours: "11:25 - 11:40",
+          name: "goranAngelov",
+          position: "founderCEO",
+          topic: "topicHolisticSolution",
+          hours: "11:40 - 11:55",
+          image: "/speakers/Goran Angelov.jpg",
         },
       ],
     },
     {
       type: "discussion",
-      title: "PANEL DISCUSSION",
+      title: "practicalAspectsFinancialFraud",
       hours: "11:55 - 12:30",
-      description: "Practical aspects of preventing and dealing with financial fraud",
       speakers: [
         {
-          name: "Radoslav Dimitrov",
-          position: `Senior Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
+          name: "svetlinLazarov",
+          position: "headCyberIntelligence",
+          image: "/speakers/svetlin-l.jpg",
         },
         {
-          name: "Goran Angelov",
-          position: "Founder and CEO, IBS Bulgaria",
+          name: "radoslavDimitrov",
+          position: "seniorDirectorCardBusiness",
+          image: "/speakers/Radoslav Dimitrov.jpg",
         },
         {
-          name: "Pavel Georgiev",
-          position: "Founder of Cyber Security Talks Bulgaria",
+          name: "goranAngelov",
+          position: "founderCEO",
+          image: "/speakers/Goran Angelov.jpg",
+        },
+        {
+          name: "pavelGeorgiev",
+          position: "founderCyberSecurityTalks",
+          image: "/speakers/Pavel Georgiev.jpg",
         },
       ],
       moderator: {
-        name: "Boris Goncharov",
-        position: "Chief Visionary Officer, AMATAS",
+        name: "borisGoncharov",
+        position: "chiefVisionaryOfficer",
+        image: "/speakers/Boris Goncharov.jpg",
       },
     },
     {
       type: "keynote",
-      title: "KEYNOTE SPEECH",
+      title: "keynoteSpeech",
       hours: "12:30 - 12:40",
       speakers: [
         {
-          name: "Ivan Vulev",
-          position: "Chief Technology Officer & Technical Sales Leader, IBM Central Eastern Europe Territory",
-          topic: "Quantum Computing and its Impact on Digital Security in the Financial Industry",
+          name: "ivanVulev",
+          position: "chiefTechnologyOfficer",
+          topic: "topicQuantumComputing",
+          image: "/speakers/Ivan Vulev.jpg",
         },
       ],
     },
     {
       type: "special",
-      title: "LUNCH TIME",
+      title: "lunchTime",
       hours: "12:40 - 13:40",
       icon: "i-tabler-apple",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
     {
       type: "keynote",
-      title: "KEYNOTE SPEECH",
+      title: "keynoteSpeech",
       hours: "13:40 - 14:05",
       speakers: [
         {
-          name: "Anastasiia Zhdanova",
-          position: "Head of AI practice, Infopulse Bulgaria",
-          topic: "AI in banking and financial sector",
+          name: "anastasiiaZhdanova",
+          position: "headAIPractice",
+          topic: "topicAIBanking",
           hours: "13:40 - 14:05",
+          image: "/speakers/anastasiia-zhdanova.jpg",
         },
       ],
       moderator: {
-        name: "Alexander Krastev",
-        position: "Co-Founder, Bookmark",
+        name: "alexanderKrastev",
+        position: "coFounder",
+        image: "/speakers/Alexander Krastev.jpg",
       },
     },
     {
       type: "discussion",
-      title: "DISCUSSION",
+      title: "discussionCroatiaEuro",
       hours: "14:05 - 14:45",
-      description:
-        "Croatia's successful strategies in navigating the banking and financial sector in the changeover to the euro",
       speakers: [
         {
-          name: "Ivana Rosančić",
-          position: "Business Intelligence Consultant, KOIOS Croatia",
-        },
-        {
-          name: "Deyan Radev",
-          position: "PhD, European University Institute,  Founder and Director of CEE Centre for Digital Finance",
+          name: "ivanaRosancic",
+          position: "businessIntelligenceConsultant",
+          topic: "topicCroatiaEuro",
+          image: "/speakers/IvanaRosancic.jpg",
         },
       ],
+      moderator: {
+        name: "deyanRadev",
+        position: "phdFounderDirector",
+        image: "/speakers/Deyan Radev.jpg",
+      },
     },
     {
       type: "special",
-      title: "COFFEE BREAK",
+      title: "coffeeBreak",
+      description: "poweredByBorica",
       hours: "14:45 - 15:00",
       icon: "i-tabler-coffee",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
     {
       type: "keynote",
-      title: "KEYNOTE SPEECH",
+      title: "keynoteSpeech",
       hours: "15:00 - 16:00",
-      description: "Solutions against financial crime and anti-money laundering on focus",
+      description: "solutionsAgainstFinancialCrime",
       speakers: [
         {
-          name: "Chrystalla Kazara",
-          position: "Vice-President, Association of Certified Fraud Examiners (ACFE), Cyprus",
+          name: "chrystallaKazara",
+          position: "vicePresidentACFE",
           hours: "15:00 - 15:25",
+          topic: "topicBuildingCorporateCulture",
+          image: "/speakers/Chrystalla Kazara.jpg",
         },
         {
-          name: "Anestis Dimopoulos",
-          position: "Director, Head of Regional Digital and Risk Advisory Services",
-          topic: "Use of Machine Learning and AI for AML controls",
+          name: "anestisDimopoulos",
+          position: "directorHeadRegionalDigital",
+          topic: "topicMachineLearningAML",
           hours: "15:25 - 15:35",
+          image: "/speakers/Anestis.png",
         },
       ],
     },
     {
       type: "discussion",
-      title: "PANEL DISCUSSION",
+      title: "solutionsAgainstFinancialCrime",
       hours: "15:35 - 16:10",
-      description: "Solutions against financial crime and anti-money laundering on focus",
       speakers: [
         {
-          name: "Chrystalla Kazara",
-          position: "Vice-President, Association of Certified Fraud Examiners (ACFE), Cyprus",
+          name: "chrystallaKazara",
+          position: "vicePresidentACFE",
+          image: "/speakers/Chrystalla Kazara.jpg",
         },
         {
-          name: "Anestis Dimopoulos",
-          position: "Director, Head of Regional Digital and Risk Advisory Services",
+          name: "anestisDimopoulos",
+          position: "directorHeadRegionalDigital",
+          image: "/speakers/Anestis.png",
         },
         {
-          name: "Stoyan Lozanov",
-          position: "Founder, CEO, Omnio",
+          name: "stoyanLozanov",
+          position: "founderCEO",
+          image: "/speakers/Stoyan Lozanov.jfif",
         },
       ],
       moderator: {
-        name: "Miglen Evlogiev",
-        position: "Senior Vice President of Information Security, Payhawk",
+        name: "miglenEvlogiev",
+        position: "seniorVicePresidentSirma",
+        image: "/speakers/Miglen Evlogiev.jpg",
       },
     },
     {
-      type: "keynote",
-      title: "FIRECHAT SESSION",
+      type: "discussion",
+      title: "firechatSession",
       hours: "16:10 - 16:30",
-      description: "Convenient or secure digital payments",
+      description: "convenientOrSecurePayments",
       speakers: [
         {
-          name: "Marina Shideroff",
-          position: "Founder and CEO, FRAM CREATIVE SOLUTIONS",
-          topic: "Thesis: Protects convenient payments",
+          name: "marinaShideroff",
+          position: "founderCEOFram",
+          topic: "topicConvenientPayments",
+          image: "/speakers/Marina Shideroff.png",
         },
         {
-          name: "Tsvetomir Doskov",
-          position: "Senior Vice President, Sirma Financial Industry",
-          topic: "Thesis: Protects secure payments",
+          name: "tsvetomirDoskov",
+          position: "seniorVicePresidentSirma",
+          topic: "topicSecurePayments",
+          image: "/speakers/Tsvetomir Doskov.jpg",
         },
       ],
+      moderator: {
+        name: "pavelKaminsky",
+        position: "founderCEO7Security",
+        image: "/advisory/pavel_kaminsky.jpg",
+      },
     },
     {
       type: "special",
-      title: "CLOSING COCKTAIL",
+      title: "closingCocktail",
       hours: "16:30 - 18:30",
+      description: "poweredByIbs",
       icon: "i-tabler-glass-cocktail",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
@@ -269,51 +303,53 @@
 </script>
 
 <template>
-  <div class="w-full py-10">
+  <div class="w-full py-5 sm:py-10">
     <li
       v-for="item in agenda"
-      :class="cn('flex min-h-[13vh] items-center p-4 transition-all duration-200 hover:bg-card/20', item.class)"
+      :class="cn('flex min-h-[13vh] items-center p-2 transition-all duration-200 hover:bg-card/20 sm:p-4', item.class)"
     >
       <template v-if="item.type === 'special'">
-        <div class="flex w-full items-center gap-10 px-10">
-          <div class="flex flex-col items-center">
-            <span class="text-xl font-semibold text-primary">{{ item.hours }}</span>
+        <div class="flex w-full items-center gap-2 px-2 sm:gap-10 sm:px-10">
+          <div class="w-24 flex-shrink-0 sm:w-32">
+            <span class="whitespace-nowrap text-sm font-semibold text-primary sm:text-xl">{{ item.hours }}</span>
           </div>
           <div class="flex flex-col items-start justify-center">
-            <span class="font-mono text-2xl font-bold">{{ item.title }}</span>
-            <span class="text-sm text-muted-foreground">{{ item.description }}</span>
+            <span class="font-mono text-lg font-bold sm:text-2xl">{{ $t(item.title) }}</span>
+            <span v-if="item.description" class="text-xs text-muted-foreground sm:text-sm">{{
+              $t(item.description)
+            }}</span>
           </div>
           <div v-if="item.icon" class="flex flex-1 justify-end">
             <span
-              class="flex aspect-square h-16 w-16 items-center justify-center rounded-full p-4 text-xl font-semibold"
+              class="flex aspect-square h-10 w-10 items-center justify-center rounded-full p-2 text-xl font-semibold sm:h-16 sm:w-16 sm:p-4"
             >
-              <Icon :name="item.icon" class="aspect-square h-14 w-14 text-primary" />
+              <Icon :name="item.icon" class="aspect-square h-8 w-8 text-primary sm:h-14 sm:w-14" />
             </span>
           </div>
         </div>
       </template>
 
       <template v-else-if="item.type === 'keynote'">
-        <div class="flex w-full gap-10 px-10">
-          <div class="flex flex-col items-center">
-            <span class="text-xl font-semibold text-primary">{{ item.hours }}</span>
+        <div class="flex w-full flex-col gap-2 px-2 sm:flex-row sm:gap-10 sm:px-10">
+          <div class="w-24 flex-shrink-0 sm:w-32">
+            <span class="whitespace-nowrap text-sm font-semibold text-primary sm:text-xl">{{ item.hours }}</span>
           </div>
-          <div class="flex flex-col gap-4">
-            <h3 class="font-mono text-2xl font-bold capitalize">{{ item.title }}</h3>
-            <div v-for="speaker in item.speakers" class="flex gap-4">
+          <div class="flex flex-col gap-2 sm:gap-4">
+            <h3 class="font-mono text-lg font-bold capitalize sm:text-2xl">{{ $t(item.title) }}</h3>
+            <div v-for="speaker in item.speakers" class="flex gap-2 sm:gap-4">
               <NuxtImg
                 format="webp"
                 v-if="speaker.image"
                 :src="speaker.image"
-                :alt="speaker.name"
-                class="aspect-square h-16 w-16 rounded-full object-cover"
+                :alt="$t(speaker.name)"
+                class="aspect-square h-12 w-12 flex-shrink-0 rounded-full object-cover object-top sm:h-16 sm:w-16"
               />
-              <div v-else class="aspect-square h-16 w-16 rounded-full"></div>
+              <div v-else class="aspect-square h-12 w-12 flex-shrink-0 rounded-full sm:h-16 sm:w-16"></div>
               <div class="flex flex-col">
-                <span class="text-lg text-primary">{{ speaker.hours }}</span>
-                <span class="text-lg font-semibold">{{ speaker.name }}</span>
-                <span class="text-sm text-muted-foreground">{{ speaker.position }}</span>
-                <p v-if="speaker.topic" class="mt-1 text-lg">{{ speaker.topic }}</p>
+                <span class="text-sm text-primary sm:text-lg">{{ speaker.hours }}</span>
+                <span class="text-sm font-semibold sm:text-lg">{{ $t(speaker.name) }}</span>
+                <span class="text-xs text-muted-foreground sm:text-sm">{{ $t(speaker.position) }}</span>
+                <p v-if="speaker.topic" class="mt-1 text-sm sm:text-lg">{{ $t(speaker.topic) }}</p>
               </div>
             </div>
           </div>
@@ -321,27 +357,52 @@
       </template>
 
       <template v-else-if="item.type === 'discussion'">
-        <div class="flex w-full gap-10 px-10">
-          <div class="flex flex-col items-center">
-            <span class="text-xl font-semibold text-primary">{{ item.hours }}</span>
+        <div class="flex w-full flex-col gap-2 px-2 sm:flex-row sm:gap-10 sm:px-10">
+          <div class="w-24 flex-shrink-0 sm:w-32">
+            <span class="whitespace-nowrap text-sm font-semibold text-primary sm:text-xl">{{ item.hours }}</span>
           </div>
-          <div class="flex flex-col gap-4">
-            <h3 class="font-mono text-2xl font-bold uppercase">{{ item.title }}</h3>
+          <div class="flex flex-col gap-2 sm:gap-4">
+            <h1 class="font-mono text-lg font-bold uppercase sm:text-2xl">{{ $t(item.type) }}</h1>
+            <h3 class="font-mono text-lg font-bold uppercase sm:text-2xl">{{ $t(item.title) }}</h3>
+            <p v-if="item.description" class="text-sm sm:text-lg">{{ $t(item.description) }}</p>
             <div class="flex flex-col gap-2">
               <div>
-                <span class="text-lg font-semibold text-primary">Speakers:</span>
-                <ul class="ml-4 mt-1 space-y-2">
-                  <li v-for="speaker in item.speakers" class="flex flex-col">
-                    <span class="text-lg font-semibold">{{ speaker.name }}</span>
-                    <span class="text-sm text-muted-foreground">{{ speaker.position }}</span>
+                <span class="text-sm font-semibold text-primary sm:text-lg">{{ $t("speakers") }}:</span>
+                <ul class="ml-4 mt-1 space-y-2 sm:space-y-4">
+                  <li v-for="speaker in item.speakers" class="flex items-center gap-2 sm:gap-4">
+                    <NuxtImg
+                      format="webp"
+                      v-if="speaker.image"
+                      :src="speaker.image"
+                      :alt="$t(speaker.name)"
+                      class="aspect-square h-12 w-12 flex-shrink-0 rounded-full object-cover object-top sm:h-16 sm:w-16"
+                    />
+                    <div v-else class="aspect-square h-12 w-12 flex-shrink-0 rounded-full sm:h-16 sm:w-16"></div>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-semibold sm:text-lg">{{ $t(speaker.name) }}</span>
+                      <span class="text-xs text-muted-foreground sm:text-sm">{{ $t(speaker.position) }}</span>
+                      <p v-if="speaker.topic" class="mt-1 text-sm sm:text-lg">{{ $t(speaker.topic) }}</p>
+                    </div>
                   </li>
                 </ul>
               </div>
-              <div v-if="item.moderator" class="mb-2">
-                <span class="text-lg font-semibold text-primary">Moderator:</span>
-                <div class="ml-4">
-                  <span class="text-lg font-semibold">{{ item.moderator.name }}</span>
-                  <span class="block text-sm text-muted-foreground">{{ item.moderator.position }}</span>
+              <div v-if="item.moderator" class="mb-1 sm:mb-2">
+                <span class="text-sm font-semibold text-primary sm:text-lg">{{ $t("moderator") }}:</span>
+                <div class="ml-4 flex gap-2 sm:gap-4">
+                  <NuxtImg
+                    format="webp"
+                    v-if="item.moderator.image"
+                    :src="item.moderator.image"
+                    :alt="$t(item.moderator.name)"
+                    class="aspect-square h-12 w-12 flex-shrink-0 rounded-full object-cover object-top sm:h-16 sm:w-16"
+                  />
+                  <div v-else class="aspect-square h-12 w-12 flex-shrink-0 rounded-full sm:h-16 sm:w-16"></div>
+                  <div class="flex flex-col justify-center">
+                    <span class="text-sm font-semibold sm:text-lg">{{ $t(item.moderator.name) }}</span>
+                    <span class="block text-xs text-muted-foreground sm:text-sm">{{
+                      $t(item.moderator.position)
+                    }}</span>
+                  </div>
                 </div>
               </div>
             </div>
