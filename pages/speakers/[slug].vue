@@ -24,6 +24,7 @@
     const bodyText = document.querySelector("#bodyText")!;
     const speakerImage = document.querySelector("#speakerImage")!;
     const socialMedias = document.querySelector("#socialMedias")!;
+    const moderator = document.querySelector("#moderator");
 
     const nameSplit = new SplitType(speakerName);
     const positionSplit = new SplitType(speakerPosition);
@@ -39,6 +40,9 @@
     bodyText.classList.remove("opacity-0");
     speakerImage.classList.remove("opacity-0");
     socialMedias.classList.remove("opacity-0");
+    if (moderator) {
+      moderator.classList.remove("opacity-0");
+    }
 
     timeline([
       [
@@ -108,7 +112,22 @@
           delay: stagger(0.035),
         },
       ],
-
+      [
+        moderator ?? [],
+        {
+          y: [20, 0],
+          opacity: [0, 1],
+          scale: [0.8, 1],
+        },
+        {
+          duration: 1,
+          easing: spring({
+            stiffness: 100,
+            damping: 10,
+          }),
+          at: 1,
+        },
+      ],
       [
         bodySplit.lines ?? [],
         {
@@ -191,6 +210,14 @@
             >
               {{ $t("topic") }}: {{ doc.topic }}
             </h3>
+
+            <h4
+              v-if="doc.moderator"
+              id="moderator"
+              class="font-mono text-lg font-semibold tracking-tight opacity-0 sm:text-xl"
+            >
+              {{ $t("moderator") }}
+            </h4>
           </div>
           <ContentRenderer id="bodyText" class="tracking-lg font-sans text-base opacity-0 sm:text-lg" :value="doc" />
           <div class="flex w-full opacity-0" id="socialMedias">

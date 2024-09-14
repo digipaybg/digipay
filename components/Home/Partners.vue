@@ -67,6 +67,11 @@
           image: "/partners/blackseagold.webp",
           link: "https://bsgold.bg/",
         },
+        {
+          name: "Omnio",
+          image: "/partners/omnio.svg",
+          link: "https://omniocompliance.com/",
+        },
       ],
     },
     {

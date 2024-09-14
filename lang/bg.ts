@@ -153,7 +153,7 @@ export default {
   countryInnovationLeader: "Лидер по иновации за страната, КВС България",
   headCyberIntelligence:
     "Ръководител на отдел 'Кибер разузнаване и цифрова форензика' в Главна дирекция за борба с организираната престъпност (ГДБОП)",
-  seniorDirectorCardBusiness: `Старши директор на дирекция „Картов бизнес" в БОРИКА+Гост Общинска банка`,
+  seniorDirectorCardBusiness: `Главен Директор на дирекция „Картов бизнес" в БОРИКА+Гост Общинска банка`,
   founderCEO: "Основател и Главен изпълнителен директор, IBS България",
   founderCyberSecurityTalks: "Основател на Cyber Security Talks Bulgaria",
   chiefVisionaryOfficer: "Главен визионер, AMATAS",
@@ -167,8 +167,9 @@ export default {
   directorHeadRegionalDigital: "Директор, Ръководител на регионални дигитални и консултантски услуги по риска",
   seniorVicePresident: "Старши вицепрезидент",
   founderCEOFram: "Основател и Главен изпълнителен директор, FRAM CREATIVE SOLUTIONS",
-  seniorVicePresidentSirma: "Старши вицепрезидент, Сирма Финансова Индустрия",
+  seniorVicePresidentSirma: "Старши вицепрезидент, Sirma Financial Industry",
   founderCEO7Security: "Основател и Главен изпълнителен директор, 7Security",
+  fintechAssociationChairman: "Председател на Българска Финтех Асоциация",
 
   // Specific topics
   topicImmediatePayments:
@@ -185,12 +186,15 @@ export default {
   topicConvenientPayments: "Теза: Защитава удобните плащания",
   topicSecurePayments: "Теза: Защитава сигурните плащания",
   moderator: "Модератор",
-  poweredByBorica: "Подкрепена от Борика",
-  poweredByIbs: "Подкрепена от IBS България",
-  poweredByDais: "Подкрепена от DAIS Software",
+  moderators: "Модератори",
+  poweredByBorica: "Подкрепенa от БОРИКА",
+  poweredByIbs: "От IBS България",
+  poweredByIbs2: "Подкрепенa от IBS България",
+  poweredByDais: "Подкрепенa от DAIS Software",
   topicBuildingCorporateCulture:
     "Изграждането на корпоративна култура - важен критерий за справяне с финансовите измами",
   topicCroatiaEuro: "Навигиране при смяна на еврото: вътрешни стратегии и резултати от Хърватия",
+  topicMoneyLaundering: "Как да разпознаваме 'прането на пари' в реалния живот: ключови сигнали и примери.",
   // phd,
 
   // Names
@@ -217,4 +221,5 @@ export default {
   marinaShideroff: "Марина Шидероф",
   tsvetomirDoskov: "Цветомир Досков",
   pavelKaminsky: "Павел Камински",
+  valeryVulchev: "Валери Вълчев",
 };

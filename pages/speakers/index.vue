@@ -9,11 +9,15 @@
   });
 
   const speakersComputed = computed(() => {
-    if (!speakersContent.data) return [];
+    if (!speakersContent.data.value) return [];
 
-    const arrCopy = speakersContent.data.value;
+    return speakersContent.data.value.sort((a, b) => a.order - b.order).filter((speaker) => !speaker.moderator);
+  });
 
-    return arrCopy?.sort((a, b) => a.order - b.order);
+  const moderators = computed(() => {
+    if (!speakersContent.data.value) return [];
+
+    return speakersContent.data.value.filter((speaker) => speaker.moderator).sort((a, b) => a.order - b.order);
   });
 </script>
 
@@ -22,6 +26,10 @@
     <div v-if="speakersContent.data">
       <div class="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <SpeakerCard v-for="speaker in speakersComputed" :key="speaker._id" :speaker="speaker" />
+      </div>
+      <h1 class="py-10 font-mono text-3xl font-bold">{{ $t("moderators") }}</h1>
+      <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <SpeakerCard v-for="speaker in moderators" :key="speaker._id" :speaker="speaker" />
       </div>
     </div>
   </div>

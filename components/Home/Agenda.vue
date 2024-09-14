@@ -30,7 +30,7 @@
   const agenda: AgendaItem[] = [
     {
       title: "registration",
-      hours: "08:15 - 09:15",
+      hours: "08:15 - 09:00",
       type: "special",
       class: "bg-green-700/40 hover:bg-green-700/50",
       icon: "i-tabler-edit",
@@ -39,28 +39,34 @@
     {
       type: "keynote",
       title: "openingKeynotes",
-      hours: "09:15 - 10:15",
+      hours: "09:00 - 10:00",
       speakers: [
         {
-          hours: "09:20 - 09:45",
+          hours: "09:00 - 09:25",
           name: "ericDucoulombier",
           position: "dgFinancialStability",
           topic: "topicImmediatePayments",
           image: "/speakers/eric_d.jpg",
         },
         {
-          hours: "09:45 - 10:00",
+          hours: "09:25 - 9:40",
           name: "dimitarRadev",
           position: "governorBNB",
           image: "/speakers/Dimitar Radev.png",
           topic: "",
+        },
+        {
+          hours: "09:40 - 09:50",
+          name: "valeryVulchev",
+          position: "fintechAssociationChairman",
+          image: "/speakers/Valery Vulchev.jpeg",
         },
       ],
     },
     {
       type: "discussion",
       title: "instantPaymentsAndInnovation",
-      hours: "10:15 - 10:45",
+      hours: "10:00 - 10:40",
       moderator: {
         name: "merdihanIsmailov",
         position: "fintechApplications",
@@ -88,34 +94,34 @@
       type: "special",
       title: "coffeeBreak",
       description: "poweredByBorica",
-      hours: "10:50 - 11:10",
+      hours: "10:40 - 11:00",
       icon: "i-tabler-coffee",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
     {
       type: "keynote",
       title: "keynoteSession",
-      hours: "11:10 - 12:30",
+      hours: "11:00 - 12:20",
       speakers: [
         {
           name: "svetlinLazarov",
           position: "headCyberIntelligence",
           topic: "topicFinancialFraud",
-          hours: "11:10 - 11:25",
+          hours: "11:00 - 11:15",
           image: "/speakers/svetlin-l.jpg",
         },
         {
           name: "radoslavDimitrov",
           position: "seniorDirectorCardBusiness",
           topic: "topicFinancialCrimePrevention",
-          hours: "11:25 - 11:40",
+          hours: "11:15 - 11:30",
           image: "/speakers/Radoslav Dimitrov.jpg",
         },
         {
           name: "goranAngelov",
           position: "founderCEO",
           topic: "topicHolisticSolution",
-          hours: "11:40 - 11:55",
+          hours: "11:30 - 11:45",
           image: "/speakers/Goran Angelov.jpg",
         },
       ],
@@ -123,7 +129,7 @@
     {
       type: "discussion",
       title: "practicalAspectsFinancialFraud",
-      hours: "11:55 - 12:30",
+      hours: "11:45 - 12:20",
       speakers: [
         {
           name: "svetlinLazarov",
@@ -155,7 +161,7 @@
     {
       type: "keynote",
       title: "keynoteSpeech",
-      hours: "12:30 - 12:40",
+      hours: "12:20 - 12:30",
       speakers: [
         {
           name: "ivanVulev",
@@ -168,20 +174,20 @@
     {
       type: "special",
       title: "lunchTime",
-      hours: "12:40 - 13:40",
+      hours: "12:30 - 13:30",
       icon: "i-tabler-apple",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
     {
       type: "keynote",
       title: "keynoteSpeech",
-      hours: "13:40 - 14:05",
+      hours: "13:30 - 14:00",
       speakers: [
         {
           name: "anastasiiaZhdanova",
           position: "headAIPractice",
           topic: "topicAIBanking",
-          hours: "13:40 - 14:05",
+          hours: "13:30 - 14:00",
           image: "/speakers/anastasiia-zhdanova.jpg",
         },
       ],
@@ -194,7 +200,7 @@
     {
       type: "discussion",
       title: "discussionCroatiaEuro",
-      hours: "14:05 - 14:45",
+      hours: "14:00 - 14:45",
       speakers: [
         {
           name: "ivanaRosancic",
@@ -212,7 +218,7 @@
     {
       type: "special",
       title: "coffeeBreak",
-      description: "poweredByBorica",
+      description: "poweredByDais",
       hours: "14:45 - 15:00",
       icon: "i-tabler-coffee",
       class: "bg-green-700/40 hover:bg-green-700/50",
@@ -226,7 +232,7 @@
         {
           name: "chrystallaKazara",
           position: "vicePresidentACFE",
-          hours: "15:00 - 15:25",
+          hours: "15:00 - 15:20",
           topic: "topicBuildingCorporateCulture",
           image: "/speakers/Chrystalla Kazara.jpg",
         },
@@ -234,7 +240,7 @@
           name: "anestisDimopoulos",
           position: "directorHeadRegionalDigital",
           topic: "topicMachineLearningAML",
-          hours: "15:25 - 15:35",
+          hours: "15:20 - 15:30",
           image: "/speakers/Anestis.png",
         },
       ],
@@ -242,7 +248,7 @@
     {
       type: "discussion",
       title: "solutionsAgainstFinancialCrime",
-      hours: "15:35 - 16:10",
+      hours: "15:50 - 16:00",
       speakers: [
         {
           name: "chrystallaKazara",
@@ -257,6 +263,7 @@
         {
           name: "stoyanLozanov",
           position: "founderCEO",
+          topic: "topicMoneyLaundering",
           image: "/speakers/Stoyan Lozanov.jfif",
         },
       ],
@@ -269,7 +276,7 @@
     {
       type: "discussion",
       title: "firechatSession",
-      hours: "16:10 - 16:30",
+      hours: "16:00 - 16:25",
       description: "convenientOrSecurePayments",
       speakers: [
         {
@@ -294,8 +301,8 @@
     {
       type: "special",
       title: "closingCocktail",
-      hours: "16:30 - 18:30",
-      description: "poweredByIbs",
+      hours: "16:45 - 18:30",
+      description: "poweredByIbs2",
       icon: "i-tabler-glass-cocktail",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
@@ -369,7 +376,7 @@
               <div>
                 <span class="text-sm font-semibold text-primary sm:text-lg">{{ $t("speakers") }}:</span>
                 <ul class="ml-4 mt-1 space-y-2 sm:space-y-4">
-                  <li v-for="speaker in item.speakers" class="flex items-center gap-2 sm:gap-4">
+                  <li v-for="speaker in item.speakers" class="flex items-start gap-2 sm:gap-4">
                     <NuxtImg
                       format="webp"
                       v-if="speaker.image"
@@ -381,7 +388,7 @@
                     <div class="flex flex-col">
                       <span class="text-sm font-semibold sm:text-lg">{{ $t(speaker.name) }}</span>
                       <span class="text-xs text-muted-foreground sm:text-sm">{{ $t(speaker.position) }}</span>
-                      <p v-if="speaker.topic" class="mt-1 text-sm sm:text-lg">{{ $t(speaker.topic) }}</p>
+                      <p v-if="speaker.topic" class="text-sm sm:text-lg">{{ $t(speaker.topic) }}</p>
                     </div>
                   </li>
                 </ul>

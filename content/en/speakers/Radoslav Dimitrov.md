@@ -1,6 +1,6 @@
 ---
-name: Радослав Димитров
-position: Главен директор, дирекция „Картов бзинес”, БОРИКА
+name: Radoslav Dimitrov
+position: Chief Director of the „Card Business" Directorate at BORICA
 image: "/speakers/Radoslav Dimitrov.jpg"
 order: 6
 keywords: Radoslav Dimitrov, Chief Director, Card Business Directorate, BORICA, system operator, real-time system, financial service, card system administration, card payment system, card products and services development, cards and terminals, innovative payment solutions, telecommunications management, New Bulgarian University, card payments specializations, financial crime prevention, fraud monitoring, sanctions screening, conference

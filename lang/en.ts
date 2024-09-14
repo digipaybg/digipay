@@ -146,12 +146,12 @@ export default {
     "General Direction 'Financial Stability, Financial Services and Capital Markets Union', European Commission",
   governorBNB: "Governor, Bulgarian National Bank, Invited",
   fintechApplications: "FinTech Applications & Solutions, Sirma Group Holding",
-  directorNationalCard: "Director National Card and Payment Scheme, Borica AD",
+  directorNationalCard: "Director National Card and Payment Scheme, BORICA AD",
   seniorManagerDigitalBanking: "Senior Manager Digital Banking, UniCredit Bulbank",
   countryInnovationLeader: "Country Innovation Leader, KBC Bulgaria",
   headCyberIntelligence:
     "Head of Cyber Intelligence and Digital Forensics Unit at General Directorate Combating Organized Crime (GDCOC)",
-  seniorDirectorCardBusiness: `Senior Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
+  seniorDirectorCardBusiness: `Chief Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
   founderCEO: "Founder and CEO, IBS Bulgaria",
   founderCyberSecurityTalks: "Founder of Cyber Security Talks Bulgaria",
   chiefVisionaryOfficer: "Chief Visionary Officer",
@@ -166,6 +166,7 @@ export default {
   founderCEOFram: "Founder and CEO, FRAM CREATIVE SOLUTIONS",
   seniorVicePresidentSirma: "Senior Vice President, Sirma Financial Industry",
   founderCEO7Security: "Founder and CEO, 7Security",
+  fintechAssociationChairman: "Chairman of the Bulgarian Fintech Association",
 
   // Specific topics
   topicImmediatePayments:
@@ -180,12 +181,15 @@ export default {
   topicConvenientPayments: "Thesis: Protects convenient payments",
   topicSecurePayments: "Thesis: Protects secure payments",
   moderator: "Moderator",
+  moderators: "Moderators",
   poweredByBorica: "Powered by Borica",
   poweredByIbs: "Powered by IBS Bulgaria",
+  poweredByIbs2: "Powered by IBS Bulgaria",
   poweredByDais: "Powered by DAIS Software",
   topicBuildingCorporateCulture:
     "Building a corporate culture - an important criteriа for dealing with financial fraud",
   topicCroatiaEuro: "Navigating the Euro Changeover: Insider Strategies and Outcomes from Croatia",
+  topicMoneyLaundering: "How to recognize 'money laundering' in real life: key signals and examples.",
 
   // Names
   ericDucoulombier: "Eric Ducoulombier",
@@ -211,4 +215,5 @@ export default {
   marinaShideroff: "Marina Shideroff",
   tsvetomirDoskov: "Tsvetomir Doskov",
   pavelKaminsky: "Pavel Kaminsky",
+  valeryVulchev: "Valery Vulchev",
 };
