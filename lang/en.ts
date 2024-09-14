@@ -173,8 +173,7 @@ export default {
     "Immediate payments, security of payment services, innovations and after the entry into force of PSD3, future challenges in front of open finance.",
   topicFinancialFraud: "Seven years back and forward in financial fraud",
   topicFinancialCrimePrevention: "Financial Crime Prevention as a service- Fraud Monitoring and Sanction Screening",
-  topicHolisticSolution:
-    "What are the elements that give us a holistic solution for protection and, what are the main challenges and how to meet them if we are a bank or fintech",
+  topicHolisticSolution: "What are the elements that give us a holistic solution for protection",
   topicQuantumComputing: "Quantum Computing and its Impact on Digital Security in the Financial Industry",
   topicAIBanking: "“No Pain, No Gain” - Real-World Examples of AI and RPA in Finance",
   topicMachineLearningAML: "Use of Machine Learning and AI for AML controls",
