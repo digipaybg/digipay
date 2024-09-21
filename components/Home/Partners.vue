@@ -58,6 +58,16 @@
           link: "https://www.sirma.com/",
         },
         {
+          name: "Omnio",
+          image: "/partners/omnio.svg",
+          link: "https://omniocompliance.com/",
+        },
+        {
+          name: "Amatas",
+          image: "/partners/amatas.svg",
+          link: "https://amatas.com/",
+        },
+        {
           name: "devin",
           image: "/partners/devin.png",
           link: "https://devin-bg.com/",
@@ -66,11 +76,6 @@
           name: "Black Sea Golds",
           image: "/partners/blackseagold.webp",
           link: "https://bsgold.bg/",
-        },
-        {
-          name: "Omnio",
-          image: "/partners/omnio.svg",
-          link: "https://omniocompliance.com/",
         },
       ],
     },

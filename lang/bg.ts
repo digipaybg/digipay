@@ -155,6 +155,7 @@ export default {
     "Ръководител на отдел 'Кибер разузнаване и цифрова форензика' в Главна дирекция за борба с организираната престъпност (ГДБОП)",
   seniorDirectorCardBusiness: `Главен Директор на дирекция „Картов бизнес" в БОРИКА+Гост Общинска банка`,
   founderCEO: "Основател и Главен изпълнителен директор, IBS България",
+  founderCEOOmnio: "Основател и Главен изпълнителен директор, Omnio",
   founderCyberSecurityTalks: "Основател на Cyber Security Talks Bulgaria",
   chiefVisionaryOfficer: "Главен визионер, AMATAS",
   chiefTechnologyOfficer: "Главен технологичен директор и лидер по технически продажби, IBM Централна и Източна Европа",
@@ -221,4 +222,6 @@ export default {
   tsvetomirDoskov: "Цветомир Досков",
   pavelKaminsky: "Павел Камински",
   valeryVulchev: "Валери Вълчев",
+  tsankaTaneva: "Цанка Танева",
+  filipoMartini: "Филипо Мартини",
 };

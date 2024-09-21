@@ -153,6 +153,7 @@ export default {
     "Head of Cyber Intelligence and Digital Forensics Unit at General Directorate Combating Organized Crime (GDCOC)",
   seniorDirectorCardBusiness: `Chief Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
   founderCEO: "Founder and CEO, IBS Bulgaria",
+  founderCEOOmnio: "Founder and CEO, Omnio",
   founderCyberSecurityTalks: "Founder of Cyber Security Talks Bulgaria",
   chiefVisionaryOfficer: "Chief Visionary Officer",
   chiefTechnologyOfficer: "Chief Technology Officer & Technical Sales Leader, IBM Central Eastern Europe Territory",
@@ -215,4 +216,6 @@ export default {
   tsvetomirDoskov: "Tsvetomir Doskov",
   pavelKaminsky: "Pavel Kaminsky",
   valeryVulchev: "Valery Vulchev",
+  tsankaTaneva: "Tsanka Taneva",
+  filipoMartini: "Filipo Martini",
 };

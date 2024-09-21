@@ -243,12 +243,19 @@
           hours: "15:20 - 15:30",
           image: "/speakers/Anestis.png",
         },
+        {
+          name: "stoyanLozanov",
+          position: "founderCEOOmnio",
+          topic: "topicMoneyLaundering",
+          hours: "15:50 - 16:00",
+          image: "/speakers/Stoyan Lozanov.jfif",
+        },
       ],
     },
     {
       type: "discussion",
       title: "solutionsAgainstFinancialCrime",
-      hours: "15:50 - 16:00",
+      hours: "16:00 - 16:25",
       speakers: [
         {
           name: "chrystallaKazara",
@@ -262,8 +269,7 @@
         },
         {
           name: "stoyanLozanov",
-          position: "founderCEO",
-          topic: "topicMoneyLaundering",
+          position: "founderCEOOmnio",
           image: "/speakers/Stoyan Lozanov.jfif",
         },
       ],
@@ -356,7 +362,7 @@
                 <span class="text-sm text-primary sm:text-lg">{{ speaker.hours }}</span>
                 <span class="text-sm font-semibold sm:text-lg">{{ $t(speaker.name) }}</span>
                 <span class="text-xs text-muted-foreground sm:text-sm">{{ $t(speaker.position) }}</span>
-                <p v-if="speaker.topic" class="mt-1 text-sm sm:text-lg">{{ $t(speaker.topic) }}</p>
+                <p v-if="speaker.topic" class="text-sm sm:text-lg">{{ $t(speaker.topic) }}</p>
               </div>
             </div>
           </div>
