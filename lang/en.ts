@@ -145,7 +145,7 @@ export default {
   dgFinancialStability:
     "General Direction 'Financial Stability, Financial Services and Capital Markets Union', European Commission",
   governorBNB: "Governor, Bulgarian National Bank, Invited",
-  fintechApplications: "FinTech Applications & Solutions, Sirma Group Holding",
+  fintechApplications: "FinTech Applications & Solutions,  Sirma Group",
   directorNationalCard: "Director National Card and Payment Scheme, BORICA AD",
   seniorManagerDigitalBanking: "Senior Manager Digital Banking, UniCredit Bulbank",
   countryInnovationLeader: "Country Innovation Leader, KBC Bulgaria",
@@ -154,7 +154,7 @@ export default {
   seniorDirectorCardBusiness: `Chief Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
   founderCEO: "Founder and CEO, IBS Bulgaria",
   founderCyberSecurityTalks: "Founder of Cyber Security Talks Bulgaria",
-  chiefVisionaryOfficer: "Chief Visionary Officer",
+  chiefVisionaryOfficer: "Chief Strategy Officer, AMATAS",
   chiefTechnologyOfficer: "Chief Technology Officer & Technical Sales Leader, IBM Central Eastern Europe Territory",
   headAIPractice: "Head of AI practice, Infopulse Bulgaria",
   coFounder: "Co-Founder",
@@ -164,7 +164,7 @@ export default {
   directorHeadRegionalDigital: "Director, Head of Regional Digital and Risk Advisory Services",
   seniorVicePresident: "Senior Vice President",
   founderCEOFram: "Founder and CEO, FRAM CREATIVE SOLUTIONS",
-  seniorVicePresidentSirma: "Senior Vice President, Sirma Financial Industry",
+  seniorVicePresidentSirma: "Senior Vice President, Sirma Group",
   founderCEO7Security: "Founder and CEO, 7Security",
   fintechAssociationChairman: "Chairman of the Bulgarian Fintech Association",
 
@@ -181,7 +181,7 @@ export default {
   topicSecurePayments: "Thesis: Protects secure payments",
   moderator: "Moderator",
   moderators: "Moderators",
-  poweredByBorica: "Powered by Borica",
+  poweredByBorica: "Powered by BORICA",
   poweredByIbs: "Powered by IBS Bulgaria",
   poweredByIbs2: "Powered by IBS Bulgaria",
   poweredByDais: "Powered by DAIS Software",
@@ -214,5 +214,5 @@ export default {
   marinaShideroff: "Marina Shideroff",
   tsvetomirDoskov: "Tsvetomir Doskov",
   pavelKaminsky: "Pavel Kaminsky",
-  valeryVulchev: "Valery Vulchev",
+  valeryVulchev: "Valery Valtchev",
 };
