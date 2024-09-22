@@ -42,6 +42,8 @@
   });
 
   const { locale } = useI18n();
+
+  const reasons = ["reason1", "reason2", "reason3"];
 </script>
 
 <template>
@@ -181,7 +183,11 @@
               </DialogContent>
             </Dialog>
             <!-- </NuxtLink> -->
-            <h4>{{ $t("liveOrOnline") }}</h4>
+            <h4 class="text-sm">{{ $t("liveOrOnline") }}</h4>
+            <h5 class="text-lg font-bold">{{ $t("whatYouGet") }}</h5>
+            <ul>
+              <li class="text-center" v-for="reason in reasons">{{ $t(reason) }}</li>
+            </ul>
           </Motion>
         </div>
         <div class="absolute left-[-26.5%] hidden flex-col gap-4 2xl:flex">

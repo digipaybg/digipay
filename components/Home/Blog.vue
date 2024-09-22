@@ -22,6 +22,7 @@
     const arrCopy = blogContent.data.value;
 
     const sorted = arrCopy
+      .filter((post) => post.published ?? true)
       .sort((a, b) => new Date(b.date as EpochTimeStamp).getTime() - new Date(a.date as EpochTimeStamp).getTime())
       .filter((post) => post._path?.split("/").at(-1) !== props.excludePost)
       .slice(0, 4);

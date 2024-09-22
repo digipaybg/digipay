@@ -48,9 +48,9 @@
       type: "partners",
       partners: [
         {
-          name: "paysera",
-          image: "/partners/paysera.png",
-          link: "https://www.paysera.bg/",
+          name: "evrotrust",
+          image: "/partners/evrotrust.png",
+          link: "https://evrotrust.com/",
         },
         {
           name: "sirma",
@@ -58,14 +58,19 @@
           link: "https://www.sirma.com/",
         },
         {
+          name: "Amatas",
+          image: "/partners/amatas.png",
+          link: "https://amatas.com/",
+        },
+        {
           name: "Omnio",
-          image: "/partners/omnio.svg",
+          image: "/partners/omnio.png",
           link: "https://omniocompliance.com/",
         },
         {
-          name: "Amatas",
-          image: "/partners/amatas.svg",
-          link: "https://amatas.com/",
+          name: "paysera",
+          image: "/partners/paysera.png",
+          link: "https://www.paysera.bg/",
         },
         {
           name: "devin",
@@ -127,6 +132,11 @@
           name: "Lider.bg",
           image: "/partners/lider.png",
           link: "https://lider.bg/",
+        },
+        {
+          name: "zone4tech",
+          image: "/partners/zone4tech.png",
+          link: "https://zone4tech.bg/",
         },
       ],
     },

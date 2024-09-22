@@ -13,6 +13,11 @@ export default {
   light: "Light",
   partners: "Partners",
   heroTitle: "The biggest fintech conference in Bulgaria",
+  whatYouGet: "What you get from the conference?",
+  reason1: "Quality content from the professionals in the field",
+  reason2: "Streaming of the conference with translation",
+  reason3:
+    "Opportunity to exchange experience with delicious catering throughout the day and a cocktail in the evening",
   upcoming: "UPCOMING EVENT 2024",
   buyTicket: "Buy Ticket",
   learnMore: "Learn More",
@@ -165,9 +170,11 @@ export default {
   directorHeadRegionalDigital: "Director, Head of Regional Digital and Risk Advisory Services",
   seniorVicePresident: "Senior Vice President",
   founderCEOFram: "Founder and CEO, FRAM CREATIVE SOLUTIONS",
-  seniorVicePresidentSirma: "Senior Vice President, Sirma Group",
+  seniorVicePresidentSirma: "Senior Vice President, Sirma Financial Industry",
   founderCEO7Security: "Founder and CEO, 7Security",
   fintechAssociationChairman: "Chairman of the Bulgarian Fintech Association",
+  antiFraudManager: "Global Head of Anti-Fraud Finance Solutions, CRIF",
+  headOfCustomerExperience: "Head of Customer Success, Evrotrust",
 
   // Specific topics
   topicImmediatePayments:
@@ -190,6 +197,7 @@ export default {
     "Building a corporate culture - an important criteriа for dealing with financial fraud",
   topicCroatiaEuro: "Navigating the Euro Changeover: Insider Strategies and Outcomes from Croatia",
   topicMoneyLaundering: "How to recognize 'money laundering' in real life: key signals and examples.",
+  topicFraudPrevention: "Structured Global Data for Early Fraud Detection and Prevention and AML",
 
   // Names
   ericDucoulombier: "Eric Ducoulombier",

@@ -18,7 +18,7 @@
     );
 
     console.log(arrCopy, "arrCopy");
-    return arrCopy;
+    return arrCopy.filter((post) => post.published ?? true);
   });
 
   useSeoMeta({

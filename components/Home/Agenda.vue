@@ -244,6 +244,20 @@
           image: "/speakers/Anestis.png",
         },
         {
+          name: "tsankaTaneva",
+          position: "headOfCustomerExperience",
+          // topic: "topicCustomerExperience",
+          hours: "15:30 - 15:40",
+          image: "/speakers/Tsanka Taneva.png",
+        },
+        {
+          name: "filipoMartini",
+          position: "antiFraudManager",
+          topic: "topicFraudPrevention",
+          hours: "15:40 - 15:50",
+          image: "/speakers/Filipo Martini.JPG",
+        },
+        {
           name: "stoyanLozanov",
           position: "founderCEOOmnio",
           topic: "topicMoneyLaundering",
@@ -251,6 +265,11 @@
           image: "/speakers/Stoyan Lozanov.jfif",
         },
       ],
+      moderator: {
+        name: "miglenEvlogiev",
+        position: "seniorVicePresidentPayhawk",
+        image: "/speakers/Miglen Evlogiev.jpg",
+      },
     },
     {
       type: "discussion",
