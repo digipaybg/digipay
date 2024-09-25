@@ -1,6 +1,6 @@
 ---
 name: Chrystalla Kazara
-position: Vice-President and Training Director, ACFE Cyprus
+position: Internal Auditor, HRDA and Vice-President, ACFE Cyprus
 image: "/speakers/Chrystalla Kazara.jpg"
 topic: Building a corporate culture - an important criteriа for dealing with financial fraud
 order: 2

@@ -168,7 +168,7 @@ export default {
   businessIntelligenceConsultant: "Консултант по бизнес интелигентност, KOIOS Хърватия",
   phdFounderDirector:
     "Доктор, Европейски университетски институт, Основател и директор на CEE Център за дигитални финанси",
-  vicePresidentACFE: "Вицепрезидент, Асоциация на сертифицираните експерти по разкриване на измами (ACFE), Кипър",
+  vicePresidentACFE: "Вътрешен одитор, HRDA, вицепрезидент ACFE",
   directorHeadRegionalDigital: "Директор, Ръководител на регионални дигитални и консултантски услуги по риска",
   seniorVicePresident: "Старши вицепрезидент",
   founderCEOFram: "Основател и Главен изпълнителен директор, FRAM CREATIVE SOLUTIONS",
@@ -176,7 +176,7 @@ export default {
   founderCEO7Security: "Основател и Главен изпълнителен директор, 7Security",
   fintechAssociationChairman: "Председател на Българска Финтех Асоциация",
   antiFraudManager: "Глобален ръководител на финансовите решения за борба с измамите, CRIF",
-  headOfCustomerExperience: "Ръководител отдел „Потребителско преживяване“, Евротръст",
+  headOfCustomerExperience: "Мениджър за България, Евротръст",
 
   // Specific topics
   topicImmediatePayments:
