@@ -8,15 +8,16 @@ export default {
 
   themes: "Теми",
   speakers: "Лектори",
+  speaker: "Лектор",
   system: "Системно",
   dark: "Тъмна",
   light: "Светла",
   partners: "Партньори",
   heroTitle: "Най-голямата конференция за финтех в България",
-  whatYouGet: "Какво получавате от билета?",
+  whatYouGet: "Какво получавате?",
   reason1: "Качествено съдържание от специалистите в сферата",
   reason2: "Стрийминг на конференцията с превод",
-  reason3: "Възможност за обмяна на опит с вкусен кетъринг през целия ден и коктейл вечерта",
+  reason3: "Възможност за обмяна на опит с кетъринг през целия ден и коктейл вечерта",
   upcoming: "НОВО СЪБИТИЕ 2024",
   buyTicket: "Купи билет",
   learnMore: "Научи повече",
@@ -150,7 +151,7 @@ export default {
   // Positions and organizations
   dgFinancialStability:
     "Генерална Дирекция „Финансова стабилност, финансови услуги и съюз на капиталови пазари”, Европейска комисия",
-  governorBNB: "Управител, Българска народна банка, Поканен",
+  governorBNB: "Подуправител, Ръководител Управление 'Банково', Българската народна банка",
   fintechApplications: "Финтех приложения и решения, Сирма Груп",
   directorNationalCard: "Директор Национална карта и платежна схема, БОРИКА АД",
   seniorManagerDigitalBanking: "Старши мениджър Дигитално банкиране, УниКредит Булбанк",
@@ -177,6 +178,9 @@ export default {
   fintechAssociationChairman: "Председател на Българска Финтех Асоциация",
   antiFraudManager: "Глобален ръководител на финансовите решения за борба с измамите, CRIF",
   headOfCustomerExperience: "Ръководител отдел „Потребителско преживяване“, Евротръст",
+  seniorVicePresidentPayhawk:
+    "Основател, Българска фондация „Киберсигурност”, Старши вицепрезидент Информационна сигурност, Payhawk",
+  firstLinkedInAgencyCEO: "Основател на първата агенция за LinkedIn маркетинг в България, BookMark",
 
   // Specific topics
   topicImmediatePayments:
@@ -231,4 +235,5 @@ export default {
   valeryVulchev: "Валери Вълчев",
   tsankaTaneva: "Цанка Танева",
   filipoMartini: "Филипо Мартини",
+  petarChobanov: "Петър Чобанов",
 };

@@ -1,7 +1,7 @@
 ---
 name: Филипо Мартини
 position: Глобален ръководител на финансовите решения за борба с измамите, CRIF
-image: "/speakers/Tsanka Taneva.png"
+image: "/speakers/Filipo Martini.JPG"
 topic: Структурирани глобални данни за ранно идентифициране и предотвратяване на измами и AML
 keywords: Tsanka Taneva, Head of Customer Success, Evrotrust, Bulgarian banking sector, leadership roles, project management, Bulgaria, CEE, Process Management, Bank Regulations, Risk Assessment, Branch Manager, Regional Manager, Head of Collections Department, Head of Retail Risk Department, Raiffeisenbank Bulgaria, disruptive technology, digital transformation, key-note speaker, photographer, experienced traveler, DIGI PAY, Customer Success, financial crimes, anti-money laundering
 ---

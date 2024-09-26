@@ -8,16 +8,16 @@ export default {
 
   themes: "Themes",
   speakers: "Speakers",
+  speaker: "Speaker",
   system: "System",
   dark: "Dark",
   light: "Light",
   partners: "Partners",
   heroTitle: "The biggest fintech conference in Bulgaria",
-  whatYouGet: "What you get from the conference?",
+  whatYouGet: "What you get?",
   reason1: "Quality content from the professionals in the field",
   reason2: "Streaming of the conference with translation",
-  reason3:
-    "Opportunity to exchange experience with delicious catering throughout the day and a cocktail in the evening",
+  reason3: "Opportunity to exchange experience with catering throughout the day and a cocktail in the evening",
   upcoming: "UPCOMING EVENT 2024",
   buyTicket: "Buy Ticket",
   learnMore: "Learn More",
@@ -149,7 +149,7 @@ export default {
   // Positions and organizations
   dgFinancialStability:
     "General Direction 'Financial Stability, Financial Services and Capital Markets Union', European Commission",
-  governorBNB: "Governor, Bulgarian National Bank, Invited",
+  governorBNB: "Deputy Governor, Banking Department, Bulgarian National Bank",
   fintechApplications: "FinTech Applications & Solutions,  Sirma Group",
   directorNationalCard: "Director National Card and Payment Scheme, BORICA AD",
   seniorManagerDigitalBanking: "Senior Manager Digital Banking, UniCredit Bulbank",
@@ -175,6 +175,9 @@ export default {
   fintechAssociationChairman: "Chairman of the Bulgarian Fintech Association",
   antiFraudManager: "Global Head of Anti-Fraud Finance Solutions, CRIF",
   headOfCustomerExperience: "Head of Customer Success, Evrotrust",
+  seniorVicePresidentPayhawk:
+    "Founder, Bulgarian Foundation 'Cybersecurity', Senior Vice President of Information Security, Payhawk",
+  firstLinkedInAgencyCEO: "Founder of Bulgaria's first LinkedIn marketing agency, BookMark",
 
   // Specific topics
   topicImmediatePayments:
@@ -226,4 +229,5 @@ export default {
   valeryVulchev: "Valery Valtchev",
   tsankaTaneva: "Tsanka Taneva",
   filipoMartini: "Filipo Martini",
+  petarChobanov: "Petar Chobanov",
 };

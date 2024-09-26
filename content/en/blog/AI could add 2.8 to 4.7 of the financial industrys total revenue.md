@@ -3,7 +3,7 @@ image: /blog/ai.jpg
 title: AI could add 2.8 to 4.7% of the financial industry's total revenue
 author: Raya Lecheva
 date: 2024-09-22
-published: false
+published: true
 source: "PixaBay"
 keywords: AI, artificial intelligence, financial industry, banking sector, revenue increase, productivity, McKinsey Global Institute, Infopulse, risk reduction, machine learning, process automation, fraud prevention, credit risk, insurance risk, customer segmentation, market analysis, real-time transactions, virtual assistants, chatbots, market risk analysis, digital transformation, financial stability, cybersecurity, operational resilience, European regulations, DORA, fintech, cryptocurrency, risk management, threat intelligence, ICT providers, EU, data protection, cybercrime prevention
 ---

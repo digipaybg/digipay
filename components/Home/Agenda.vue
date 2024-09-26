@@ -50,9 +50,9 @@
         },
         {
           hours: "09:25 - 9:40",
-          name: "dimitarRadev",
+          name: "petarChobanov",
           position: "governorBNB",
-          image: "/speakers/Dimitar Radev.png",
+          image: "/speakers/Petar Chobanov.jpg",
           topic: "",
         },
         {
@@ -193,8 +193,8 @@
       ],
       moderator: {
         name: "alexanderKrastev",
-        position: "coFounder",
-        image: "/speakers/Alexander Krastev.jpg",
+        position: "firstLinkedInAgencyCEO",
+        image: "/speakers/Alexander Krastev.jfif",
       },
     },
     {
@@ -291,10 +291,21 @@
           position: "founderCEOOmnio",
           image: "/speakers/Stoyan Lozanov.jfif",
         },
+        {
+          name: "tsankaTaneva",
+          position: "headOfCustomerExperience",
+          // topic: "topicCustomerExperience",
+          image: "/speakers/Tsanka Taneva.png",
+        },
+        {
+          name: "filipoMartini",
+          position: "antiFraudManager",
+          image: "/speakers/Filipo Martini.JPG",
+        },
       ],
       moderator: {
         name: "miglenEvlogiev",
-        position: "seniorVicePresidentSirma",
+        position: "seniorVicePresidentPayhawk",
         image: "/speakers/Miglen Evlogiev.jpg",
       },
     },
@@ -347,6 +358,7 @@
           </div>
           <div class="flex flex-col items-start justify-center">
             <span class="font-mono text-lg font-bold sm:text-2xl">{{ $t(item.title) }}</span>
+
             <span v-if="item.description" class="text-xs text-muted-foreground sm:text-sm">{{
               $t(item.description)
             }}</span>
@@ -366,6 +378,7 @@
           <div class="w-24 flex-shrink-0 sm:w-32">
             <span class="whitespace-nowrap text-sm font-semibold text-primary sm:text-xl">{{ item.hours }}</span>
           </div>
+
           <div class="flex flex-col gap-2 sm:gap-4">
             <h3 class="font-mono text-lg font-bold capitalize sm:text-2xl">{{ $t(item.title) }}</h3>
             <div v-for="speaker in item.speakers" class="flex gap-2 sm:gap-4">
@@ -384,6 +397,23 @@
                 <p v-if="speaker.topic" class="text-sm sm:text-lg">{{ $t(speaker.topic) }}</p>
               </div>
             </div>
+            <div v-if="item.moderator" class="mb-1 sm:mb-2">
+              <span class="text-sm font-semibold text-primary sm:text-lg">{{ $t("moderator") }}:</span>
+              <div class="ml-4 flex gap-2 sm:gap-4">
+                <NuxtImg
+                  format="webp"
+                  v-if="item.moderator.image"
+                  :src="item.moderator.image"
+                  :alt="$t(item.moderator.name)"
+                  class="aspect-square h-12 w-12 flex-shrink-0 rounded-full object-cover object-top sm:h-16 sm:w-16"
+                />
+                <div v-else class="aspect-square h-12 w-12 flex-shrink-0 rounded-full sm:h-16 sm:w-16"></div>
+                <div class="flex flex-col justify-center">
+                  <span class="text-sm font-semibold sm:text-lg">{{ $t(item.moderator.name) }}</span>
+                  <span class="block text-xs text-muted-foreground sm:text-sm">{{ $t(item.moderator.position) }}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </template>
@@ -396,10 +426,15 @@
           <div class="flex flex-col gap-2 sm:gap-4">
             <h1 class="font-mono text-lg font-bold uppercase sm:text-2xl">{{ $t(item.type) }}</h1>
             <h3 class="font-mono text-lg font-bold uppercase sm:text-2xl">{{ $t(item.title) }}</h3>
+            <span class="font-mono text-lg font-bold uppercase sm:text-2xl" v-if="item.title === 'firechatSession'"
+              >DIGI DEBATE</span
+            >
             <p v-if="item.description" class="text-sm sm:text-lg">{{ $t(item.description) }}</p>
             <div class="flex flex-col gap-2">
               <div>
-                <span class="text-sm font-semibold text-primary sm:text-lg">{{ $t("speakers") }}:</span>
+                <span class="text-sm font-semibold text-primary sm:text-lg"
+                  >{{ $t(item.speakers ? (item.speakers?.length <= 1 ? "speaker" : "speakers") : "speakers") }}:</span
+                >
                 <ul class="ml-4 mt-1 space-y-2 sm:space-y-4">
                   <li v-for="speaker in item.speakers" class="flex items-start gap-2 sm:gap-4">
                     <NuxtImg

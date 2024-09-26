@@ -157,7 +157,7 @@
             <!-- <NuxtLink :href="`https://tickets.paysera.com/${locale}/event/digi-pay-0091`"> -->
             <Dialog>
               <DialogTrigger>
-                <Button variant="default" class="w-64 text-lg"> {{ $t("buyTicket") }} </Button>
+                <Button variant="default" size="lg" class="w-64 text-lg"> {{ $t("buyTicket") }} </Button>
               </DialogTrigger>
               <DialogContent class="">
                 <iframe
@@ -184,8 +184,8 @@
             </Dialog>
             <!-- </NuxtLink> -->
             <h4 class="text-sm">{{ $t("liveOrOnline") }}</h4>
-            <h5 class="text-lg font-bold">{{ $t("whatYouGet") }}</h5>
-            <ul>
+            <h5 class="mt-8 font-bold">{{ $t("whatYouGet") }}</h5>
+            <ul class="">
               <li class="text-center" v-for="reason in reasons">{{ $t(reason) }}</li>
             </ul>
           </Motion>
