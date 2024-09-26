@@ -1,13 +1,13 @@
 ---
 name: Tatyana Ivanova
-position: Innovation Leader of KBC Group in Bulgaria
+position: Executive Director Digital Channels, Data and Operations of UBB, Innovation Leader of KBC Group in Bulgaria
 image: "/speakers/Tatyana Ivanova.jpg"
 order: 3
 linkedIn: https://www.linkedin.com/in/tatyana-ivanova-9348a245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
 keywords: Marketing Manager at the Headquarters in Paris, Director of "Marketing and Digital Banking" at Société Générale Expressbank, Bulgaria, Joined UBB at the beginning of November 2018 as Director of the "Retail Banking and Digital Sales" Directorate at UBB, At the beginning of 2020, she was appointed to the position of member of the Management Board and Executive Director of "Marketing and Distribution – Retail Banking" at UBB, In November 2022, she was elected Executive Director of Digitalization, Data, and Operations at UBB, In April 2023, she took on the role of Innovation Leader of KBC Group Bulgaria, She is a member of the Board of Directors of BORICA AD and DCU AD, She holds a Master's degree in Business Administration from HEC-Paris, She is fluent in English, French, and Russian
 ---
 
-Tatyana Ivanova is Member of the Management Board of UBB, Executive Director Digital
+Tatyana Ivanova is Mepmber of the Management Board of UBB, Executive Director Digital
 Channels, Data and Operations of UBB, Innovation Leader of KBC Group in Bulgaria.
 
 ---

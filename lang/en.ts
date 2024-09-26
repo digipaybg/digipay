@@ -153,7 +153,8 @@ export default {
   fintechApplications: "FinTech Applications & Solutions,  Sirma Group",
   directorNationalCard: "Director National Card and Payment Scheme, BORICA AD",
   seniorManagerDigitalBanking: "Senior Manager Digital Banking, UniCredit Bulbank",
-  countryInnovationLeader: "Country Innovation Leader, KBC Bulgaria",
+  countryInnovationLeader:
+    "Executive Director Digital Channels, Data and Operations of UBB, Innovation Leader of KBC Group in Bulgaria",
   headCyberIntelligence:
     "Head of Cyber Intelligence and Digital Forensics Unit at General Directorate Combating Organized Crime (GDCOC)",
   seniorDirectorCardBusiness: `Chief Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
@@ -230,4 +231,10 @@ export default {
   tsankaTaneva: "Tsanka Taneva",
   filipoMartini: "Filipo Martini",
   petarChobanov: "Petar Chobanov",
+
+  // Dates
+  days: "Days",
+  hours: "Hours",
+  minutes: "Minutes",
+  seconds: "Seconds",
 };
