@@ -57,19 +57,17 @@
       quality="70"
       format="webp"
     /> -->
-    <ClientOnly>
-      <video
-        ref="backgroundVideo"
-        muted
-        autoplay
-        playsinline
-        loop
-        preload="metadata"
-        class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-35"
-      >
-        <source src="/hero_video.webm" type="video/webm" />
-      </video>
-    </ClientOnly>
+    <video
+      ref="backgroundVideo"
+      muted
+      autoplay
+      playsinline
+      loop
+      preload="metadata"
+      class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-35"
+    >
+      <source src="/hero_video.webm" type="video/webm" />
+    </video>
 
     <div
       class="relative bottom-0 flex h-screen flex-col bg-gradient-to-t from-background from-10% to-transparent to-70%"
@@ -110,6 +108,8 @@
               </div>
             </div>
           </div>
+          <HomeCounter />
+
           <Motion
             :initial="{
               opacity: 0,
@@ -186,7 +186,7 @@
             <h4 class="text-sm">{{ $t("liveOrOnline") }}</h4>
             <h5 class="mt-8 font-bold">{{ $t("whatYouGet") }}</h5>
             <ul class="">
-              <li class="text-center" v-for="reason in reasons">{{ $t(reason) }}</li>
+              <li v-for="reason in reasons" class="text-center">{{ $t(reason) }}</li>
             </ul>
           </Motion>
         </div>

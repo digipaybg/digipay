@@ -166,7 +166,7 @@ export default {
   coFounder: "Co-Founder",
   businessIntelligenceConsultant: "Business Intelligence Consultant, KOIOS Croatia",
   phdFounderDirector: "PhD, European University Institute, Founder and Director of CEE Centre for Digital Finance",
-  vicePresidentACFE: "Vice-President, Association of Certified Fraud Examiners (ACFE), Cyprus",
+  vicePresidentACFE: "Internal Auditor, HRDA and Vice-President, ACFE Cyprus",
   directorHeadRegionalDigital: "Director, Head of Regional Digital and Risk Advisory Services",
   seniorVicePresident: "Senior Vice President",
   founderCEOFram: "Founder and CEO, FRAM CREATIVE SOLUTIONS",
