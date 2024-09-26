@@ -174,7 +174,7 @@ export default {
   directorHeadRegionalDigital: "Директор, Ръководител на регионални дигитални и консултантски услуги по риска",
   seniorVicePresident: "Старши вицепрезидент",
   founderCEOFram: "Основател и Главен изпълнителен директор, FRAM CREATIVE SOLUTIONS",
-  seniorVicePresidentSirma: "Старши вицепрезидент, Сирма Финансова Индустрия",
+  seniorVicePresidentSirma: "SVP, Head of Financial Vertical Sirma",
   founderCEO7Security: "Основател и Главен изпълнителен директор, 7Security",
   fintechAssociationChairman: "Председател на Българска Финтех Асоциация",
   antiFraudManager: "Глобален ръководител на финансовите решения за борба с измамите, CRIF",

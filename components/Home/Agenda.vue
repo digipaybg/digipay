@@ -282,6 +282,12 @@
           image: "/speakers/Chrystalla Kazara.jpg",
         },
         {
+          name: "tsankaTaneva",
+          position: "headOfCustomerExperience",
+          // topic: "topicCustomerExperience",
+          image: "/speakers/Tsanka Taneva.png",
+        },
+        {
           name: "anestisDimopoulos",
           position: "directorHeadRegionalDigital",
           image: "/speakers/Anestis.png",
@@ -290,12 +296,6 @@
           name: "stoyanLozanov",
           position: "founderCEOOmnio",
           image: "/speakers/Stoyan Lozanov.jfif",
-        },
-        {
-          name: "tsankaTaneva",
-          position: "headOfCustomerExperience",
-          // topic: "topicCustomerExperience",
-          image: "/speakers/Tsanka Taneva.png",
         },
         {
           name: "filipoMartini",

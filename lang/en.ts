@@ -171,7 +171,7 @@ export default {
   directorHeadRegionalDigital: "Director, Head of Regional Digital and Risk Advisory Services",
   seniorVicePresident: "Senior Vice President",
   founderCEOFram: "Founder and CEO, FRAM CREATIVE SOLUTIONS",
-  seniorVicePresidentSirma: "Senior Vice President, Sirma Financial Industry",
+  seniorVicePresidentSirma: "SVP, Head of Financial Vertical Sirma",
   founderCEO7Security: "Founder and CEO, 7Security",
   fintechAssociationChairman: "Chairman of the Bulgarian Fintech Association",
   antiFraudManager: "Global Head of Anti-Fraud Finance Solutions, CRIF",
