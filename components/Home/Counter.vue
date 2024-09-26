@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-  import { formatDate } from "@vueuse/core";
-
   const countToDate = new Date("2024-10-08T09:00:00+03:00");
-
   const currentTime = ref(new Date());
 
   onMounted(() => {
@@ -13,9 +10,45 @@
 </script>
 
 <template>
-  <h1 class="header-text hero-text font-['Bebas Neue'] h-40 text-[70px] text-primary lg:text-[70px] xl:text-[130px]">
-    {{ formatDate(new Date(countToDate.getTime() - currentTime.getTime()), "DD:mm:ss") }}
-  </h1>
-</template>
+  <div class="flex flex-col items-center gap-4 lg:flex-row">
+    <h1
+      class="grid grid-cols-2 gap-4 text-center text-[24px] font-bold capitalize text-primary lg:grid-cols-4 lg:text-[35px] xl:text-[65px]"
+    >
+      <div>
+        <span class="block">
+          {{ Math.floor((countToDate.getTime() - currentTime.getTime()) / (1000 * 60 * 60 * 24)) }}
+        </span>
+        <span class="block text-[18px] lg:text-[24px]">
+          {{ $t("days") }}
+        </span>
+      </div>
 
-<style lang="scss"></style>
+      <div>
+        <span class="block">
+          {{ Math.floor(((countToDate.getTime() - currentTime.getTime()) / (1000 * 60 * 60)) % 24) }}
+        </span>
+        <span class="block text-[18px] lg:text-[24px]">
+          {{ $t("hours") }}
+        </span>
+      </div>
+
+      <div>
+        <span class="block">
+          {{ Math.floor(((countToDate.getTime() - currentTime.getTime()) / (1000 * 60)) % 60) }}
+        </span>
+        <span class="block text-[18px] lg:text-[24px]">
+          {{ $t("minutes") }}
+        </span>
+      </div>
+
+      <div>
+        <span class="block">
+          {{ Math.floor(((countToDate.getTime() - currentTime.getTime()) / 1000) % 60) }}
+        </span>
+        <span class="block text-[18px] lg:text-[24px]">
+          {{ $t("seconds") }}
+        </span>
+      </div>
+    </h1>
+  </div>
+</template>

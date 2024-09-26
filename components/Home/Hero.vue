@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import SplitType from "split-type";
+  import { useI18n } from "vue-i18n";
 
   const leftIcons = ["/planet.svg", "/money.svg", "/phone.svg"];
   const rightIcons = ["/ai.svg", "/security.svg", "/lock.svg"];
@@ -47,16 +48,7 @@
 </script>
 
 <template>
-  <div class="relative h-screen select-none">
-    <!-- <NuxtImg
-      preload
-      priority
-      src="/background.png"
-      alt="Hero"
-      class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-50"
-      quality="70"
-      format="webp"
-    /> -->
+  <div class="relative min-h-screen select-none py-28 sm:py-12 xl:py-0">
     <video
       ref="backgroundVideo"
       muted
@@ -68,13 +60,12 @@
     >
       <source src="/hero_video.webm" type="video/webm" />
     </video>
-
     <div
-      class="relative bottom-0 flex h-screen flex-col bg-gradient-to-t from-background from-10% to-transparent to-70%"
+      class="relative bottom-0 flex min-h-screen flex-col bg-gradient-to-t from-background from-10% to-transparent to-70%"
     >
       <div class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-2">
         <div class="flex flex-col items-center gap-1">
-          <div class="hero-text flex flex-col items-center justify-center lg:h-80 lg:flex-row lg:gap-8">
+          <div class="hero-text mt-24 flex flex-col items-center justify-center lg:h-80 lg:flex-row lg:gap-8">
             <Motion
               :initial="{
                 scale: 0.6,

@@ -1,6 +1,6 @@
 ---
 name: Татяна Иванова
-position: Иновационен лидер на KBC Груп в България
+position: Изпълнителен директор "Дигитализация, данни и операции" на ОББ, Иновационен лидер на KBC Груп в България
 image: "/speakers/Tatyana Ivanova.jpg"
 order: 4
 linkedin: https://www.linkedin.com/in/tatyana-ivanova-9348a245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
