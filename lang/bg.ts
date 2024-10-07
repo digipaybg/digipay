@@ -182,6 +182,7 @@ export default {
   seniorVicePresidentPayhawk:
     "Основател, Българска фондация „Киберсигурност”, Старши вицепрезидент Информационна сигурност, Payhawk",
   firstLinkedInAgencyCEO: "Основател на първата агенция за LinkedIn маркетинг в България, BookMark",
+  coordinatorSafeNet: "Координатор, Център по безопасен интернет",
 
   // Specific topics
   topicImmediatePayments:
@@ -207,6 +208,9 @@ export default {
   topicCroatiaEuro: "Навигиране при смяна на еврото: вътрешни стратегии и резултати от Хърватия",
   topicMoneyLaundering: "Как да разпознаваме 'прането на пари' в реалния живот: ключови сигнали и примери.",
   topicFraudPrevention: "Структурирани глобални данни за ранно идентифициране и предотвратяване на измами и AML",
+  topicFinancialScams:
+    "Какви са финансовите измами за деца днес и какви са предизвикателствата пред нас като професионалисти и родители",
+
   // phd,
 
   // Names
@@ -237,6 +241,7 @@ export default {
   tsankaTaneva: "Цанка Танева",
   filipoMartini: "Филипо Мартини",
   petarChobanov: "Петър Чобанов",
+  antoanetaVasileva: "Антоанета Василева",
 
   days: "дни",
   hours: "часа",

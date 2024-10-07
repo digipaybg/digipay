@@ -179,6 +179,7 @@ export default {
   seniorVicePresidentPayhawk:
     "Founder, Bulgarian Foundation 'Cybersecurity', Senior Vice President of Information Security, Payhawk",
   firstLinkedInAgencyCEO: "Founder of Bulgaria's first LinkedIn marketing agency, BookMark",
+  coordinatorSafeNet: "Coordinator, The Safer Internet Centre (SIC) in Bulgaria - Safenet.bg",
 
   // Specific topics
   topicImmediatePayments:
@@ -202,6 +203,8 @@ export default {
   topicCroatiaEuro: "Navigating the Euro Changeover: Insider Strategies and Outcomes from Croatia",
   topicMoneyLaundering: "How to recognize 'money laundering' in real life: key signals and examples.",
   topicFraudPrevention: "Structured Global Data for Early Fraud Detection and Prevention and AML",
+  topicFinancialScams:
+    "What financial scams are for children today and what the challenges are for us as professionals and parents",
 
   // Names
   ericDucoulombier: "Eric Ducoulombier",
@@ -231,6 +234,7 @@ export default {
   tsankaTaneva: "Tsanka Taneva",
   filipoMartini: "Filipo Martini",
   petarChobanov: "Petar Chobanov",
+  antoanetaVasileva: "Antoaneta Vasileva",
 
   // Dates
   days: "Days",

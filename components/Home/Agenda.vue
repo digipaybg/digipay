@@ -164,17 +164,25 @@
       hours: "12:20 - 12:30",
       speakers: [
         {
+          hours: "12:20 - 12:30",
           name: "ivanVulev",
           position: "chiefTechnologyOfficer",
           topic: "topicQuantumComputing",
           image: "/speakers/Ivan Vulev.jpg",
+        },
+        {
+          hours: "12:30 - 12:35",
+          name: "antoanetaVasileva",
+          position: "coordinatorSafeNet",
+          topic: "topicFinancialScams",
+          image: "/speakers/antoaneta_vasileva.jpg",
         },
       ],
     },
     {
       type: "special",
       title: "lunchTime",
-      hours: "12:30 - 13:30",
+      hours: "12:40 - 13:30",
       icon: "i-tabler-apple",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
