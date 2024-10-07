@@ -13,7 +13,7 @@
       position: "ceo",
       image: "/authors/petya-veleva.png",
       phone: "+359 889 527 212",
-      email: "petya.valeva@digipay.bg",
+      email: "petya.veleva@digipay.bg",
     },
   ];
 
@@ -43,7 +43,7 @@
       <Logo class="h-[60px] w-[60px] justify-self-start text-white sm:h-[80px] sm:w-[80px] md:h-[100px] md:w-[100px]" />
 
       <div class="flex flex-[1] flex-col gap-4 px-4 sm:px-10 lg:flex-row lg:gap-10 lg:px-20">
-        <div class="flex flex-col gap-4 lg:flex-row lg:gap-10" v-for="person in people" :key="person.name">
+        <div v-for="person in people" :key="person.name" class="flex flex-col gap-4 lg:flex-row lg:gap-10">
           <div class="flex flex-col items-start gap-1 sm:gap-2">
             <NuxtImg :src="person.image" format="webp" quality="80" class="aspect-square h-20 w-20 rounded-full" />
             <div class="">

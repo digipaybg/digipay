@@ -169,7 +169,7 @@ export default {
   phdFounderDirector:
     "PhD Assoc. Professor of Fintech and Banking FEBA at Sofia University and EUI Founder of CEE Centre for Digital Finance",
   vicePresidentACFE: "Internal Auditor, HRDA and Vice-President, ACFE Cyprus",
-  directorHeadRegionalDigital: "Director, Head of Regional Digital and Risk Advisory Services",
+  directorHeadRegionalDigital: "Director, Head of Digital and Risk Advisory, Baker Tilly Southeast Europe",
   seniorVicePresident: "Senior Vice President",
   founderCEOFram: "Founder and CEO, FRAM CREATIVE SOLUTIONS",
   seniorVicePresidentSirma: "SVP, Head of Financial Vertical, Sirma",

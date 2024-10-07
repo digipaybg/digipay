@@ -159,7 +159,7 @@ export default {
     "Изпълнителен директор 'Дигитализация, данни и операции' на ОББ, Иновационен лидер на KBC Груп в България",
   headCyberIntelligence:
     "Ръководител на отдел 'Кибер разузнаване и цифрова форензика' в Главна дирекция за борба с организираната престъпност (ГДБОП)",
-  seniorDirectorCardBusiness: `Главен Директор на дирекция „Картов бизнес" в БОРИКА+Гост Общинска банка`,
+  siorDirectorCardBusiness: `Главен Директор на дирекция „Картов бизнес" в БОРИКА+Гост Общинска банка`,
   founderCEO: "Основател и Главен изпълнителен директор, IBS България",
   founderCEOOmnio: "Основател и Главен изпълнителен директор, Omnio",
   founderCyberSecurityTalks: "Основател на Cyber Security Talks Bulgaria",
@@ -170,7 +170,7 @@ export default {
   businessIntelligenceConsultant: "Консултант по бизнес интелигентност, KOIOS Хърватия",
   phdFounderDirector: "Професор по финтех и банково дело FEBA към СУ и Основател на CEE Center for Digital Finance",
   vicePresidentACFE: "Вътрешен одитор, HRDA, вицепрезидент ACFE",
-  directorHeadRegionalDigital: "Директор, Ръководител на регионални дигитални и консултантски услуги по риска",
+  directorHeadRegionalDigital: "Ръководител Дигитални консултации и консултации на риска, Baker Tilly Southeast Europe",
   seniorVicePresident: "Старши вицепрезидент",
   founderCEOFram: "Основател и Главен изпълнителен директор, FRAM CREATIVE SOLUTIONS",
   seniorVicePresidentSirma: "SVP, Head of Financial Vertical, Sirma",
