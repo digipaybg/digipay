@@ -15,7 +15,7 @@ export default {
   partners: "Partners",
   heroTitle: "The biggest fintech conference in Bulgaria",
   whatYouGet: "What you get?",
-  reason1: "Quality content from the professionals in the field",
+  reason1: "7 CPE CREDITS/Quality content from the professionals in the field",
   reason2: "Streaming of the conference with translation",
   reason3: "Opportunity to exchange experience with catering throughout the day and a cocktail in the evening",
   upcoming: "UPCOMING EVENT 2024",
@@ -143,13 +143,13 @@ export default {
     "Croatia's successful strategies in navigating the banking and financial sector in the changeover to the euro",
   solutionsAgainstFinancialCrime: "Solutions against financial crime and anti-money laundering on focus",
   firechatSession: "FIRECHAT SESSION",
-  convenientOrSecurePayments: "Convenient or secure digital payments",
+  convenientOrSecurePayments: "Shaping the future of digital payments Design Vs. Dev",
   closingCocktail: "CLOSING COCKTAIL",
 
   // Positions and organizations
   dgFinancialStability:
     "General Direction 'Financial Stability, Financial Services and Capital Markets Union', European Commission",
-  governorBNB: "Deputy Governor, Banking Department, Bulgarian National Bank",
+  governorBNB: "Advisor of Deputy Governor, Banking Department, Bulgarian National Bank",
   fintechApplications: "FinTech Applications & Solutions,  Sirma Group",
   directorNationalCard: "Director National Card and Payment Scheme, BORICA AD",
   seniorManagerDigitalBanking: "Senior Manager Digital Banking, UniCredit Bulbank",
@@ -166,14 +166,15 @@ export default {
   headAIPractice: "Head of AI practice, Infopulse Bulgaria",
   coFounder: "Co-Founder",
   businessIntelligenceConsultant: "Business Intelligence Consultant, KOIOS Croatia",
-  phdFounderDirector: "PhD, European University Institute, Founder and Director of CEE Centre for Digital Finance",
+  phdFounderDirector:
+    "PhD Assoc. Professor of Fintech and Banking FEBA at Sofia University and EUI Founder of CEE Centre for Digital Finance",
   vicePresidentACFE: "Internal Auditor, HRDA and Vice-President, ACFE Cyprus",
-  directorHeadRegionalDigital: "Director, Head of Regional Digital and Risk Advisory Services",
+  directorHeadRegionalDigital: "Director, Head of Digital and Risk Advisory, Baker Tilly Southeast Europe",
   seniorVicePresident: "Senior Vice President",
   founderCEOFram: "Founder and CEO, FRAM CREATIVE SOLUTIONS",
-  seniorVicePresidentSirma: "SVP, Head of Financial Vertical Sirma",
+  seniorVicePresidentSirma: "SVP, Head of Financial Vertical, Sirma",
   founderCEO7Security: "Founder and CEO, 7Security",
-  fintechAssociationChairman: "Chairman of the Bulgarian Fintech Association",
+  fintechAssociationChairman: "A Chairman of the Bulgarian Fintech Association, Co-Founder, Paynetics",
   antiFraudManager: "Global Head of Anti-Fraud Finance Solutions, CRIF",
   headOfCustomerExperience: "Head of Customer Success, Evrotrust",
   seniorVicePresidentPayhawk:
@@ -203,6 +204,7 @@ export default {
   topicCroatiaEuro: "Navigating the Euro Changeover: Insider Strategies and Outcomes from Croatia",
   topicMoneyLaundering: "How to recognize 'money laundering' in real life: key signals and examples.",
   topicFraudPrevention: "Structured Global Data for Early Fraud Detection and Prevention and AML",
+  topicIdentityFraud: "Preventing Identity and Finance Fraud with Secure Digital Identities.",
   topicFinancialScams:
     "What financial scams are for children today and what the challenges are for us as professionals and parents",
 
@@ -230,10 +232,11 @@ export default {
   marinaShideroff: "Marina Shideroff",
   tsvetomirDoskov: "Tsvetomir Doskov",
   pavelKaminsky: "Pavel Kaminsky",
-  valeryVulchev: "Valery Valtchev",
+  valeryVulchev: "Valeri Valtchev",
   tsankaTaneva: "Tsanka Taneva",
   filipoMartini: "Filipo Martini",
   petarChobanov: "Petar Chobanov",
+  yosifYosifov: "Yosif Yosifov",
   antoanetaVasileva: "Antoaneta Vasileva",
 
   // Dates

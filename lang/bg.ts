@@ -15,7 +15,7 @@ export default {
   partners: "Партньори",
   heroTitle: "Най-голямата конференция за финтех в България",
   whatYouGet: "Какво получавате?",
-  reason1: "Качествено съдържание от специалистите в сферата",
+  reason1: "7 CPE кредита/Качествено съдържание от специалистите в сферата",
   reason2: "Стрийминг на конференцията с превод",
   reason3: "Възможност за обмяна на опит с кетъринг през целия ден и коктейл вечерта",
   upcoming: "НОВО СЪБИТИЕ 2024",
@@ -145,21 +145,21 @@ export default {
     "Успешните стратегии на Хърватия в навигирането на банковия и финансовия сектор при преминаването към еврото",
   solutionsAgainstFinancialCrime: "Решения срещу финансови престъпления и пране на пари на фокус",
   firechatSession: "FIRECHAT",
-  convenientOrSecurePayments: "Удобни или сигурни дигитални плащания",
+  convenientOrSecurePayments: "Бъдещето на дигиталните плащания Design Vs. Dev",
   closingCocktail: "ЗАКРИВАЩ КОКТЕЙЛ",
 
   // Positions and organizations
   dgFinancialStability:
     "Генерална Дирекция „Финансова стабилност, финансови услуги и съюз на капиталови пазари”, Европейска комисия",
-  governorBNB: "Подуправител, Ръководител Управление 'Банково', Българската народна банка",
+  governorBNB: "Съветник на Подуправителя, Ръководител Управление 'Банково', Българската народна банка",
   fintechApplications: "Финтех приложения и решения, Сирма Груп",
-  directorNationalCard: "Директор Национална карта и платежна схема, БОРИКА АД",
+  directorNationalCard: "Директор 'Национална картова и платежна схема', БОРИКА АД",
   seniorManagerDigitalBanking: "Старши мениджър Дигитално банкиране, УниКредит Булбанк",
   countryInnovationLeader:
     "Изпълнителен директор 'Дигитализация, данни и операции' на ОББ, Иновационен лидер на KBC Груп в България",
   headCyberIntelligence:
     "Ръководител на отдел 'Кибер разузнаване и цифрова форензика' в Главна дирекция за борба с организираната престъпност (ГДБОП)",
-  seniorDirectorCardBusiness: `Главен Директор на дирекция „Картов бизнес" в БОРИКА+Гост Общинска банка`,
+  siorDirectorCardBusiness: `Главен Директор на дирекция „Картов бизнес" в БОРИКА+Гост Общинска банка`,
   founderCEO: "Основател и Главен изпълнителен директор, IBS България",
   founderCEOOmnio: "Основател и Главен изпълнителен директор, Omnio",
   founderCyberSecurityTalks: "Основател на Cyber Security Talks Bulgaria",
@@ -168,15 +168,14 @@ export default {
   headAIPractice: "Ръководител на практиката по изкуствен интелект, Infopulse България",
   coFounder: "Съосновател",
   businessIntelligenceConsultant: "Консултант по бизнес интелигентност, KOIOS Хърватия",
-  phdFounderDirector:
-    "Доктор, Европейски университетски институт, Основател и директор на CEE Център за дигитални финанси",
+  phdFounderDirector: "Професор по финтех и банково дело FEBA към СУ и Основател на CEE Center for Digital Finance",
   vicePresidentACFE: "Вътрешен одитор, HRDA, вицепрезидент ACFE",
-  directorHeadRegionalDigital: "Директор, Ръководител на регионални дигитални и консултантски услуги по риска",
+  directorHeadRegionalDigital: "Ръководител Дигитални консултации и консултации на риска, Baker Tilly Southeast Europe",
   seniorVicePresident: "Старши вицепрезидент",
   founderCEOFram: "Основател и Главен изпълнителен директор, FRAM CREATIVE SOLUTIONS",
-  seniorVicePresidentSirma: "SVP, Head of Financial Vertical Sirma",
+  seniorVicePresidentSirma: "SVP, Head of Financial Vertical, Sirma",
   founderCEO7Security: "Основател и Главен изпълнителен директор, 7Security",
-  fintechAssociationChairman: "Председател на Българска Финтех Асоциация",
+  fintechAssociationChairman: "Председател на Българска Финтех Асоциация, съосновател на Paynetics",
   antiFraudManager: "Глобален ръководител на финансовите решения за борба с измамите, CRIF",
   headOfCustomerExperience: "Ръководител отдел „Потребителско преживяване“, Евротръст",
   seniorVicePresidentPayhawk:
@@ -187,12 +186,12 @@ export default {
   // Specific topics
   topicImmediatePayments:
     "Незабавни плащания, сигурност на платежните услуги, иновации и след влизането в сила на PSD3, бъдещи предизвикателства пред отворените финанси.",
-  topicFinancialFraud: "Седем години назад и напред във финансовите измами",
+  topicFinancialFraud: "Седем години назад и напред при финансовите измами",
   topicFinancialCrimePrevention:
     "Превенция на финансови престъпления като услуга - Мониторинг на измами и проверка на санкции",
   topicHolisticSolution: "Кои са елементите, които ни дават цялостно решение за защита",
   topicQuantumComputing:
-    "Квантовите изчисления и тяхното въздействие върху цифровата сигурност във финансовата индустрия",
+    "Квантовите компютри и тяхното въздействие върху цифровата сигурност във финансовата индустрия",
   topicAIBanking: "“Без усилие, няма печалба” - Примери от реалния свят за AI и RPA във финансите",
   topicMachineLearningAML: "Използване на машинно обучение и изкуствен интелект за AML контроли",
   topicConvenientPayments: "Теза: Защитава удобните плащания",
@@ -208,6 +207,7 @@ export default {
   topicCroatiaEuro: "Навигиране при смяна на еврото: вътрешни стратегии и резултати от Хърватия",
   topicMoneyLaundering: "Как да разпознаваме 'прането на пари' в реалния живот: ключови сигнали и примери.",
   topicFraudPrevention: "Структурирани глобални данни за ранно идентифициране и предотвратяване на измами и AML",
+  topicIdentityFraud: "Предотвратяване на измами със самоличност и финанси със защитени цифрови данни за смаоличност",
   topicFinancialScams:
     "Какви са финансовите измами за деца днес и какви са предизвикателствата пред нас като професионалисти и родители",
 
@@ -241,6 +241,7 @@ export default {
   tsankaTaneva: "Цанка Танева",
   filipoMartini: "Филипо Мартини",
   petarChobanov: "Петър Чобанов",
+  yosifYosifov: "Йосиф Йосифов",
   antoanetaVasileva: "Антоанета Василева",
 
   days: "дни",

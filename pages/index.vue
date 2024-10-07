@@ -35,6 +35,8 @@
   <div ref="scrollContainer" class="flex flex-col gap-20 overflow-hidden pb-32">
     <HomeHero />
 
+    <HomeVideoStreaming />
+
     <LazyHomeAgenda />
 
     <LazyHomeThemes />

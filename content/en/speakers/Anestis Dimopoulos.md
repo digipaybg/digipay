@@ -1,6 +1,6 @@
 ---
 name: Anestis Dimopoulos
-position: Director, Head of Digital, Risk Advisory, Baker  Southeast Europe
+position: Director, Head of Digital and Risk Advisory, Baker Tilly Southeast Europe
 image: /speakers/Anestis.png
 topic: Use of Machine Learning and AI for AML controls
 order: 4
@@ -21,7 +21,7 @@ in Greece, Cyprus, South East Europe and Middle East. He holds a B.Sc. from Univ
 Piraeus and M.Sc. from Athens University of Economics Business, with executive education
 from LSE (MBA Essentials) and Said Business School (Blockchain Strategy Programme). He
 holds multiple professional certifications (CISA, CISSP, CGEIT, CRISC, CIA), and he is an active
-member of ISACA and IIA associations. He served in the past as President of ISACA Athens
+member of ISACA and IIA associations. He is a member of the Board of ISACA Athens Chapter"
 Chapter.
 
 ---
