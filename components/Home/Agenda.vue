@@ -49,7 +49,7 @@
           // image: "/speakers/Petar Chobanov.jpg",
         },
         {
-          hours: "09:40 - 09:50",
+          hours: "09:15 - 09:25",
           name: "valeryVulchev",
           position: "fintechAssociationChairman",
           image: "/speakers/Valery Vulchev.jpeg",
@@ -58,7 +58,7 @@
           name: "chrystallaKazara",
           position: "vicePresidentACFE",
           hours: "09:25 - 09:35",
-          topic: "topicBuildingCorporateCulture",
+          topic: "topicOccupationalFraud2024",
           image: "/speakers/Chrystalla Kazara.jpg",
         },
         {
@@ -167,8 +167,8 @@
     },
     {
       type: "keynote",
-      title: "keynoteSpeech",
-      hours: "12:20 - 12:30",
+      title: "keynoteSpeeches",
+      hours: "12:20 - 12:40",
       speakers: [
         {
           hours: "12:20 - 12:30",
@@ -189,7 +189,7 @@
     {
       type: "special",
       title: "lunchTime",
-      hours: "12:40 - 13:30",
+      hours: "12:40 - 13:40",
       icon: "i-tabler-apple",
       class: "bg-green-700/40 hover:bg-green-700/50",
     },
@@ -202,7 +202,6 @@
           name: "anastasiiaZhdanova",
           position: "headAIPractice",
           topic: "topicAIBanking",
-          hours: "13:30 - 14:00",
           image: "/speakers/anastasiia-zhdanova.jpg",
         },
       ],
@@ -240,8 +239,8 @@
     },
     {
       type: "keynote",
-      title: "keynoteSpeech",
-      hours: "15:00 - 16:20",
+      title: "keynoteSpeeches",
+      hours: "15:00 - 16:00",
       description: "solutionsAgainstFinancialCrime",
       speakers: [
         {

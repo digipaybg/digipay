@@ -99,7 +99,6 @@
               </div>
             </div>
           </div>
-          <HomeCounter />
 
           <Motion
             :initial="{

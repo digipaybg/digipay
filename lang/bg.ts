@@ -140,6 +140,7 @@ export default {
   panelDiscussion: "ПАНЕЛНА ДИСКУСИЯ",
   practicalAspectsFinancialFraud: "Практически аспекти на предотвратяването и справянето с финансови измами",
   keynoteSpeech: "ПРЕЗЕНТАЦИЯ",
+  keynoteSpeeches: "ПРЕЗЕНТАЦИИ",
   lunchTime: "ОБЕДНА ПОЧИВКА",
   discussionCroatiaEuro:
     "Успешните стратегии на Хърватия в навигирането на банковия и финансовия сектор при преминаването към еврото",
@@ -182,6 +183,7 @@ export default {
     "Основател, Българска фондация „Киберсигурност”, Старши вицепрезидент Информационна сигурност, Payhawk",
   firstLinkedInAgencyCEO: "Основател на първата агенция за LinkedIn маркетинг в България, BookMark",
   coordinatorSafeNet: "Координатор, Център по безопасен интернет",
+  seniorDirectorCardBusiness: "Главен директор, дирекция „Картов бизнес”, БОРИКА",
 
   // Specific topics
   topicImmediatePayments:
@@ -210,7 +212,7 @@ export default {
   topicIdentityFraud: "Предотвратяване на измами със самоличност и финанси със защитени цифрови данни за смаоличност",
   topicFinancialScams:
     "Какви са финансовите измами за деца днес и какви са предизвикателствата пред нас като професионалисти и родители",
-
+  topicOccupationalFraud2024: "Професионалните измами за 2024",
   // phd,
 
   // Names

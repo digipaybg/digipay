@@ -137,7 +137,8 @@ export default {
   keynoteSession: "KEYNOTE SESSION",
   panelDiscussion: "PANEL DISCUSSION",
   practicalAspectsFinancialFraud: "Practical aspects of preventing and dealing with financial fraud",
-  keynoteSpeech: "KEYNOTE SPEECH",
+  keynoteSpeech: "SPEECH",
+  keynoteSpeeches: "SPEECH",
   lunchTime: "LUNCH TIME",
   discussionCroatiaEuro:
     "Croatia's successful strategies in navigating the banking and financial sector in the changeover to the euro",
@@ -157,7 +158,7 @@ export default {
     "Executive Director Digital Channels, Data and Operations of UBB, Innovation Leader of KBC Group in Bulgaria",
   headCyberIntelligence:
     "Head of Cyber Intelligence and Digital Forensics Unit at General Directorate Combating Organized Crime (GDCOC)",
-  seniorDirectorCardBusiness: `Chief Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
+  // seniorDirectorCardBusiness: `Director of the „Card Business" Directorate at BORICA+Guest Municipal Bank`,
   founderCEO: "Founder and CEO, IBS Bulgaria",
   founderCEOOmnio: "Founder and CEO, Omnio",
   founderCyberSecurityTalks: "Founder of Cyber Security Talks Bulgaria",
@@ -181,6 +182,7 @@ export default {
     "Founder, Bulgarian Foundation 'Cybersecurity', Senior Vice President of Information Security, Payhawk",
   firstLinkedInAgencyCEO: "Founder of Bulgaria's first LinkedIn marketing agency, BookMark",
   coordinatorSafeNet: "Coordinator, The Safer Internet Centre (SIC) in Bulgaria - Safenet.bg",
+  seniorDirectorCardBusiness: "Director of the 'Card Business' Directorate at BORICA",
 
   // Specific topics
   topicImmediatePayments:
@@ -207,6 +209,7 @@ export default {
   topicIdentityFraud: "Preventing Identity and Finance Fraud with Secure Digital Identities.",
   topicFinancialScams:
     "What financial scams are for children today and what the challenges are for us as professionals and parents",
+  topicOccupationalFraud2024: "Occupational Fraud 2024: A Report to the Nations",
 
   // Names
   ericDucoulombier: "Eric Ducoulombier",
