@@ -7,6 +7,7 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+  vite: {},
 
   nitro: {
     preset: "static",

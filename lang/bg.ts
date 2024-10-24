@@ -250,4 +250,6 @@ export default {
   hours: "часа",
   minutes: "минути",
   seconds: "секунди",
+
+  gallery: "Галерия",
 };

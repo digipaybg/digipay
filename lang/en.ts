@@ -247,4 +247,5 @@ export default {
   hours: "Hours",
   minutes: "Minutes",
   seconds: "Seconds",
+  gallery: "Gallery",
 };

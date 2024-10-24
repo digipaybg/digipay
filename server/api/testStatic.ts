@@ -1,3 +1,7 @@
+import { readdir, readdirSync } from "node:fs";
+
 export default defineEventHandler(async (event) => {
-  return "Hello Nitro";
+  const files = readdirSync("./public/gallery/");
+
+  return files;
 });

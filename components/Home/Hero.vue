@@ -145,7 +145,7 @@
             class="mt-20 flex flex-col items-center justify-center gap-2"
           >
             <!-- <NuxtLink :href="`https://tickets.paysera.com/${locale}/event/digi-pay-0091`"> -->
-            <Dialog>
+            <!-- <Dialog>
               <DialogTrigger>
                 <Button variant="default" size="lg" class="w-64 text-lg"> {{ $t("buyTicket") }} </Button>
               </DialogTrigger>
@@ -171,13 +171,13 @@
                 >
                 </iframe>
               </DialogContent>
-            </Dialog>
+            </Dialog> -->
             <!-- </NuxtLink> -->
-            <h4 class="text-sm">{{ $t("liveOrOnline") }}</h4>
-            <h5 class="mt-8 font-bold">{{ $t("whatYouGet") }}</h5>
+            <!-- <h4 class="text-sm">{{ $t("liveOrOnline") }}</h4> -->
+            <!-- <h5 class="mt-8 font-bold">{{ $t("whatYouGet") }}</h5>
             <ul class="">
               <li v-for="reason in reasons" class="text-center">{{ $t(reason) }}</li>
-            </ul>
+            </ul> -->
           </Motion>
         </div>
         <div class="absolute left-[-26.5%] hidden flex-col gap-4 2xl:flex">
