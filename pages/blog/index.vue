@@ -1,119 +1,42 @@
 <script lang="ts" setup>
-  import { formatDate } from "@vueuse/core";
-  import getImagePath from "~/lib/getImagePathByName";
-
-  definePageMeta({
-    layout: "default",
-  });
-
-  const { locale } = useI18n();
-  const { data: posts } = useAsyncData("blogPosts", () => queryContent("/blog").locale(locale.value).find());
-
-  const postsSorted = computed(() => {
-    console.log(posts.value);
-    if (!posts.value) return [];
-
-    const arrCopy = posts.value.sort(
-      (a, b) => new Date(b.date as EpochTimeStamp).getTime() - new Date(a.date as EpochTimeStamp).getTime(),
-    );
-
-    console.log(arrCopy, "arrCopy");
-    return arrCopy.filter((post) => post.published ?? true);
-  });
-
-  useSeoMeta({
-    title: "Blog",
-    description: "Blog posts",
-  });
-
-  const localePath = useLocalePath();
+const fetched = await useFetch("/api/blog", {
+  priority: "high",
+});
 </script>
 
 <template>
-  <div
-    class="relative flex h-fit max-h-full flex-col space-y-8 overflow-x-hidden overflow-y-hidden p-4 pt-32 transition-all duration-300 sm:p-8 md:px-36 md:pt-32"
-  >
-    <!-- <h1 class="font-mono text-2xl sm:text-3xl md:text-5xl">{{ $t("blogTitle") }}</h1> -->
-
-    <div v-if="postsSorted.length >= 1" class="body-text space-y-10 tracking-wide">
-      <NuxtLink :href="localePath(postsSorted[0]._path!)">
-        <div class="flex flex-col gap-4 rounded-xl p-4 transition-all hover:bg-white/25 lg:flex-row">
-          <div class="flex-[1]">
-            <NuxtImg
-              class="h-auto max-h-[300px] w-full rounded-lg object-cover sm:max-h-[400px] md:max-h-[500px]"
-              :src="postsSorted[0].image"
-              :alt="postsSorted[0].title"
-            />
+  <div>
+    {{ fetched.data.value.results[0] }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        v-for="blog in fetched.data.value.results"
+        :key="blog.id"
+        class="bg-white shadow-lg rounded-lg overflow-hidden"
+      >
+        <!-- <NuxtImg
+          :src="
+            blog.cover.file.type === 'file'
+              ? blog.cover.file.url
+              : blog.cover.file.external.url
+          "
+          alt="cover"
+          class="w-full h-64 object-cover object-center"
+        /> -->
+        <div class="p-4">
+          <h1 class="text-2xl font-bold">{{ blog.title }}</h1>
+          <p class="mt-2 text-gray-600">{{ blog.description }}</p>
+          <div class="mt-4">
+            <NuxtLink
+              :to="`/blog/${blog.properties.slug.rich_text[0].plain_text}`"
+              class="px-4 py-2 bg-blue-500 text-white rounded-md"
+            >
+              Read More
+            </NuxtLink>
           </div>
-
-          <div class="flex flex-[1.3] flex-col">
-            <div class="space-y-2">
-              <h2 class="text-lg font-bold sm:text-xl md:text-2xl">{{ postsSorted[0].title }}</h2>
-              <p class="line-clamp-2 text-sm text-gray-400 sm:text-base md:text-lg">
-                {{ postsSorted[0].description }}
-              </p>
-            </div>
-            <div class="space-y-3 pt-4 md:pt-6">
-              <div class="flex gap-2">
-                <p class="text-sm capitalize text-gray-400 sm:text-base md:text-lg">
-                  {{
-                    formatDate(new Date(postsSorted[0].date as EpochTimeStamp), "DD MMMM YYYY", {
-                      locales: locale,
-                    })
-                  }}
-                </p>
-                <p class="text-sm text-gray-400 sm:text-base md:text-lg">•</p>
-                <p class="text-sm text-gray-400 sm:text-base md:text-lg">
-                  {{ $t("readingTime", { minutes: Math.round(postsSorted[0].readingTime.minutes) }) }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </NuxtLink>
-      <div v-if="postsSorted.length > 1" class="">
-        <!-- <h1 class="pb-6 text-xl tracking-wider sm:text-2xl md:pb-10 md:text-3xl">{{ $t("morepostsSorted") }}</h1> -->
-        <div class="grid w-full grid-flow-row grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <BlogCard v-for="post in postsSorted.slice(1)" :key="post._id" :post="post" />
         </div>
       </div>
     </div>
-    <div v-else class="flex h-full items-center justify-center">
-      <p class="font-mono text-2xl">{{ $t("noPosts") }}</p>
-    </div>
-
-    <circle
-      class="absolute left-[-10%] top-[75%] z-[-100] hidden h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px] lg:block"
-    />
-    <circle
-      class="absolute right-[-25%] top-[-60%] z-[-100] hidden h-full w-1/2 rounded-full bg-[#68CBDE]/30 blur-[200px] lg:block"
-    />
   </div>
 </template>
 
-<style lang="scss">
-  .font-mono {
-    font-family: "IBM Plex Mono", Courier, monospace;
-  }
-
-  @media (max-width: 768px) {
-    .font-mono {
-      font-size: 1.5rem;
-    }
-
-    .author-name {
-      font-size: 1rem;
-    }
-
-    .body-text {
-      font-size: 1rem;
-    }
-
-    .line-clamp-2 {
-      -webkit-line-clamp: 2;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-  }
-</style>
+<style lang="scss"></style>

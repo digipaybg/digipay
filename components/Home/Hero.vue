@@ -1,257 +1,116 @@
 <script lang="ts" setup>
-  import SplitType from "split-type";
-  import { useI18n } from "vue-i18n";
-
-  const leftIcons = ["/planet.svg", "/money.svg", "/phone.svg"];
-  const rightIcons = ["/ai.svg", "/security.svg", "/lock.svg"];
-
-  const backgroundVideo = ref<HTMLVideoElement | null>(null);
-
-  onMounted(() => {
-    if (backgroundVideo.value) {
-      backgroundVideo.value.play().catch((error) => {
-        console.error("Error attempting to play the video:", error);
-      });
-    }
-
-    const headerText = document.querySelectorAll(".header-text")!;
-
-    headerText.forEach((text) => {
-      text.classList.remove("opacity-0");
-    });
-
-    const split = new SplitType(".header-text");
-
-    animate(
-      split.chars!,
-      {
-        y: [100, 0],
-        opacity: [0, 1],
-        scale: [0.7, 1],
-      },
-      {
-        delay: stagger(0.1, {
-          start: 0.1,
-        }),
-        easing: spring({
-          stiffness: 100,
-          damping: 15,
-          mass: 1,
-        }),
-      },
-    );
-  });
-
-  const { locale } = useI18n();
-
-  const reasons = ["reason1", "reason2", "reason3"];
+import { defaultTransition } from "#build/imports";
 </script>
 
 <template>
-  <div class="relative min-h-screen select-none py-28 sm:py-12 xl:py-0">
-    <video
-      ref="backgroundVideo"
-      muted
-      autoplay
-      playsinline
-      loop
-      preload="metadata"
-      class="absolute inset-0 left-1/2 top-0 -z-[99] h-screen w-screen -translate-x-1/2 bg-background object-cover opacity-35"
-    >
-      <source src="/hero_video.webm" type="video/webm" />
-    </video>
+  <div ref="containerRef" class="rounded-lg">
+    <div class="absolute top-0 h-1/3 overflow-hidden" />
+
     <div
-      class="relative bottom-0 flex min-h-screen flex-col bg-gradient-to-t from-background from-10% to-transparent to-70%"
+      class="relative w-full lg:w-10/12 mx-auto 2xl:w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] my-3 md:my-2 md:mb-8 lg:rounded-2xl overflow-hidden aspect-video z-10 bg-background"
+      v-motion
+      :initial="{
+        opacity: 0,
+        scale: 0.8,
+        filter: 'blur(10px)',
+      }"
+      :enter="{
+        opacity: 1,
+        scale: 1,
+        filter: 'blur(0px)',
+
+        transition: {
+          type: 'spring',
+          bounce: 0.2,
+        },
+      }"
+      :duration="600"
+      :delay="150"
     >
-      <div class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-2">
-        <div class="flex flex-col items-center gap-1">
-          <div class="hero-text mt-24 flex flex-col items-center justify-center lg:h-80 lg:flex-row lg:gap-8">
-            <Motion
-              :initial="{
-                scale: 0.6,
-                opacity: 0,
-              }"
-              :animate="{
-                scale: 1,
-                opacity: 1,
-              }"
-              :transition="{
-                easing: spring({
-                  stiffness: 100,
-                  damping: 10,
-                  mass: 1,
-                }),
-              }"
-            >
-              <Logo class="h-[200px] lg:h-[250px]" />
-            </Motion>
-            <div ref="header" class="flex items-center">
-              <h1 class="header-text text-[120px] opacity-0 lg:text-[150px] xl:text-[250px]">8</h1>
-              <div class="flex flex-col">
-                <h2 class="header-text h-9 text-[50px] font-bold opacity-0 lg:text-[60px] xl:h-16 xl:text-[75px]">
-                  October
-                </h2>
-                <h3
-                  class="header-text font-['Bebas Neue'] text-[70px] text-primary opacity-0 lg:text-[100px] xl:text-[130px]"
-                >
-                  2024
-                </h3>
-              </div>
-            </div>
-          </div>
+      <video
+        ref="videoRef"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        class="w-full h-full opacity-30 aspect-video object-cover"
+        poster="/18.png"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-          <Motion
-            :initial="{
-              opacity: 0,
-              scale: 0.8,
-              y: 25,
-            }"
-            :animate="{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }"
-            :transition="{
-              delay: 0.5,
-              easing: spring({
-                stiffness: 100,
-                damping: 10,
-                mass: 1,
-              }),
-            }"
-          >
-            <h4 class="slogan text-center text-3xl font-semibold uppercase">Your secure and convenient journey</h4>
-          </Motion>
-
-          <Motion
-            :initial="{
-              opacity: 0,
-              scale: 0.8,
-              y: 25,
-            }"
-            :animate="{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }"
-            :transition="{
-              delay: 0.7,
-              easing: spring({
-                stiffness: 100,
-                damping: 10,
-                mass: 1,
-              }),
-            }"
-            class="mt-20 flex flex-col items-center justify-center gap-2"
-          >
-            <!-- <NuxtLink :href="`https://tickets.paysera.com/${locale}/event/digi-pay-0091`"> -->
-            <!-- <Dialog>
-              <DialogTrigger>
-                <Button variant="default" size="lg" class="w-64 text-lg"> {{ $t("buyTicket") }} </Button>
-              </DialogTrigger>
-              <DialogContent class="">
-                <iframe
-                  class="rounded-2xl p-2"
-                  width="100%"
-                  height="100%"
-                  frameborder="0"
-                  onload="(function () {
-         var s = document.createElement('script');
-         s.type = 'text/javascript';
-         s.onload = function() {
-             iFrameResize({ heightCalculationMethod: 'grow' });
-         };
-         s.src =
-'https://tickets.paysera.com/compiled/2e97c63552e367ceb1b56ab27e4c2f7c.js';
-         document.body.appendChild(s);
-     })()"
-                  src="https://tickets.paysera.com/bg/event-widget/141766a9-f129-11ee-8e30-0050562fceaa?"
-                  allowtransparency="true"
-                  scrolling="no"
-                >
-                </iframe>
-              </DialogContent>
-            </Dialog> -->
-            <!-- </NuxtLink> -->
-            <!-- <h4 class="text-sm">{{ $t("liveOrOnline") }}</h4> -->
-            <!-- <h5 class="mt-8 font-bold">{{ $t("whatYouGet") }}</h5>
-            <ul class="">
-              <li v-for="reason in reasons" class="text-center">{{ $t(reason) }}</li>
-            </ul> -->
-          </Motion>
-        </div>
-        <div class="absolute left-[-26.5%] hidden flex-col gap-4 2xl:flex">
-          <Motion
-            v-for="(icon, index) in leftIcons"
-            :key="index"
-            :initial="{
-              y: -800,
-            }"
-            :animate="{
-              y: 0,
-            }"
-            :transition="{
-              easing: spring({
-                stiffness: 50,
-                damping: 15,
-                mass: 1,
-              }),
-              delay: index * 0.2,
-            }"
-            class="icon-cell relative h-20 w-20 bg-center bg-no-repeat"
-            :class="`left-[-${index * 150}%]`"
-            :style="{
-              backgroundImage: `url(${icon})`,
-            }"
+      <div
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white space-y-4 w-full px-4"
+      >
+        <div>
+          <NuxtImg
+            src="/logo.svg"
+            alt="DIGIPAY LOGO"
+            class="text-center text-white mx-auto w-[150px] sm:w-[200px] md:w-[250px]"
           />
-          <!-- <img src="/planet.svg" class="icon-cell relative left-[-150%]" />
-          <img src="/planet.svg" class="icon-cell relative left-[-300%]" /> -->
         </div>
-
-        <div class="absolute right-[-70%] hidden flex-col gap-4 2xl:flex">
-          <Motion
-            v-for="(icon, index) in rightIcons"
-            :key="index"
-            :initial="{
-              y: -800,
-            }"
-            :animate="{
-              y: 0,
-            }"
-            :transition="{
-              easing: spring({
-                stiffness: 50,
-                damping: 15,
-                mass: 1,
-              }),
-              delay: index * 0.2,
-            }"
-            class="icon-cell-alternate relative h-20 w-20 bg-center bg-no-repeat"
-            :class="`left-[-${(2 - index) * 150}%]`"
-            :style="{
-              backgroundImage: `url(${icon})`,
-            }"
-          />
-          <!-- <img src="/planet.svg" class="icon-cell-alternate relative left-[-300%]" />
-          <img src="/money.svg" class="icon-cell-alternate relative left-[-150%]" />
-          <img src="/planet.svg" class="icon-cell-alternate relative left-[-0%]" /> -->
-        </div>
+        <LetterPullup words="Your secure and convenient journey" />
       </div>
     </div>
+
+    <h1
+      ref="infoRef"
+      class="text-base sm:text-lg md:text-2xl lg:text-3xl font-normal font-mono text-center flex flex-col md:flex-row items-center md:justify-between w-full px-4 gap-2 md:gap-0 -z-10"
+    >
+      <span
+        v-for="(item, index) in [
+          '08 October 2025',
+          'Live & Virtual',
+          'Inter Expo Center',
+        ]"
+        v-motion
+        :initial="{
+          opacity: 0,
+          y: -200,
+          filter: 'blur(10px)',
+        }"
+        :enter="{
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          transition: {
+            type: 'spring',
+            bounce: 0.2,
+            mass: 0.2,
+          },
+        }"
+        :delay="index * 100"
+      >
+        {{ item }}
+      </span>
+    </h1>
+
+    <h1
+      ref="titleRef"
+      class="w-full text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] 2xl:text-[13rem] font-mono font-black text-center tracking-[.0095em] mx-auto"
+      v-motion
+      :initial="{
+        opacity: 0,
+        scale: 0.8,
+        filter: 'blur(10px)',
+      }"
+      :visible-once="{
+        opacity: 1,
+        scale: 1,
+        filter: 'blur(0px)',
+        transition: {
+          type: 'spring',
+          bounce: 0.2,
+          mass: 0.2,
+        },
+      }"
+    >
+      <!-- {{ $t("HomePage.hero.mainTitle") }} -->
+      DIGIPAY 2025
+    </h1>
   </div>
 </template>
 
-<style lang="scss">
-  .hero-text {
-    font-family: "Bebas Neue";
-  }
-
-  .icon-cell,
-  .icon-cell-alternate {
-    border: 1px solid #fff;
-    border-radius: 9999px;
-    background-size: 50px;
-
-    @apply p-3 backdrop-blur-md;
-  }
-</style>
+<style lang="scss"></style>

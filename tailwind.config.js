@@ -15,11 +15,15 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["IBM Plex Sans", "sans-serif"],
-      mono: ["JetBrains Mono", "monospace"],
+      sans: ["Manrope"],
       serif: ["Merriweather", "serif"],
+      mono: ["Roboto Mono"],
     },
     extend: {
+      fontFamily: {
+        custom: ['Manrope'],
+      },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

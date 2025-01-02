@@ -1,0 +1,22 @@
+{
+  "code": "bg",
+  "language": "bg",
+  "AboutPage": {
+    "is_largest_event": "е най-голямото събитие в",
+    "bulgaria": "България",
+    "about_future_of": "за бъдещето на",
+    "payments": "плащанията",
+    "for_preventing": "за превенция на",
+    "fraud": "измами",
+    "money_laundering": "пране на пари",
+    "for": "за",
+    "innovations": "иновации",
+    "transform_ecosystem_with": "които трансформират екосистемата с",
+    "mission": "мисия",
+    "for_secure_payments": "за сигурни плащания",
+    "join_us": "Присъедини се!",
+    "participants": "Участници",
+    "speakers": "Лектори",
+    "partners": "Партньори"
+  }
+}

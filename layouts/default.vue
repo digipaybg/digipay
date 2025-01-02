@@ -1,14 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
-    <Header />
-
-    <main class="min-h-screen pb-24 transition-all duration-300 lg:pb-10">
-      <slot />
-    </main>
-
-    <Footer />
+  <div class="max-w-screen-2xl mx-auto *:font-sans">
+    <div class="h-32"></div>
+    <slot />
   </div>
 </template>
 
