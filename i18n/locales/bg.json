@@ -18,5 +18,18 @@
     "participants": "Участници",
     "speakers": "Лектори",
     "partners": "Партньори"
+  },
+  "HomePage": {
+    "hero": {
+      "mainTitle": "DIGIPAY 2025",
+      "subtitle": "Вашето сигурно и удобно пътуване",
+      "date": "08 Октомври 2025",
+      "format": "На живо & Виртуално",
+      "location": "Интер Експо Център"
+    }
+  },
+  "Video2024": {
+    "title": "Видео от DIGIPAY 2024",
+    "videoTitle": "Видео плейър на YouTube"
   }
 }

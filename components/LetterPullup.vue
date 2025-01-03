@@ -1,46 +1,48 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   words: string;
+  initialDelay?: number;
 }>();
+//  v-motion
+//       :initial="{
+//         y: 100,
+//         opacity: 0,
+//         filter: 'blur(10px)',
+//       }"
+//       :enter="{
+//         y: 0,
+//         opacity: 1,
+//         filter: 'blur(0px)',
+
+//         transition: { type: 'spring', bounce: 0.2 },
+//       }"
+//       :delay="index * 25 + (initialDelay || 0)"
+
+const { $anime } = useNuxtApp();
+
+onMounted(() => {
+  $anime({
+    targets: ".letter",
+    opacity: [0, 1],
+    filter: ["blur(15px)", "blur(0px)"],
+    translateY: [50, 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    delay: $anime.stagger(25, {
+      start: props.initialDelay || 0,
+    }),
+  });
+});
 </script>
 
 <template>
-  <div class="flex gap-[0.5em] flex-wrap justify-center px-4">
+  <div class="flex gap-[0.25em] flex-wrap justify-center px-4 items-center">
     <span
       v-for="(letter, index) in words.split('')"
       :key="index"
-      :style="{ animationDelay: `${index * 0.1}s` }"
-      v-motion
-      :initial="{
-        y: 100,
-        opacity: 0,
-        filter: 'blur(10px)',
-      }"
-      :enter="{
-        y: 0,
-        opacity: 1,
-        filter: 'blur(0px)',
-        transition: { duration: 0.5, ease: 'easeOut', delay: index * 0.1 },
-      }"
+      class="font-display text-center text-4xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-4xl md:leading-[5rem] letter"
     >
       {{ letter === " " ? "\u00A0" : letter }}
     </span>
   </div>
 </template>
-
-<style scoped>
-.animate-pullup {
-  animation: pullup 0.5s ease forwards;
-}
-
-@keyframes pullup {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-</style>

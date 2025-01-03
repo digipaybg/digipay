@@ -15,7 +15,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Manrope"],
+      sans: ["Plus Jakarta Sans"],
       serif: ["Merriweather", "serif"],
       mono: ["Roboto Mono"],
     },

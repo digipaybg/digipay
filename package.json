@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@hypernym/nuxt-anime": "^2.1.1",
     "@notionhq/client": "^2.2.15",
     "@number-flow/vue": "^0.3.4",
     "@nuxt/fonts": "0.10.3",
@@ -22,6 +23,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.469.0",
+    "motion": "^11.15.0",
     "nuxt": "^3.15.0",
     "radix-vue": "^1.9.12",
     "shadcn-nuxt": "0.11.3",

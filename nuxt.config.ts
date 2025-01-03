@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   modules: [
-    "@vueuse/motion/nuxt",
+    // "@vueuse/motion/nuxt",
     "@nuxtjs/tailwindcss",
     ["vue3-notion/nuxt", { css: true }],
     "@nuxt/image",
@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxtjs/i18n",
     "@vueuse/nuxt",
+    "@hypernym/nuxt-anime",
   ],
   notion: {
     token: process.env.NOTION_TOKEN,
@@ -27,6 +28,7 @@ export default defineNuxtConfig({
       { code: "bg", language: "bg", file: "bg.json" },
     ],
 
+    defaultLocaleRouteNameSuffix: "bg",
     defaultLocale: "bg",
     baseUrl: "https://digipay.bg",
     strategy: "prefix_except_default",
