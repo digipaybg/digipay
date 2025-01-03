@@ -2,13 +2,8 @@
 
 <template>
   <div>
-    <Header />
-
-    <main class="min-h-screen pb-24 transition-all duration-300 lg:pb-10">
-      <slot />
-    </main>
-
-    <Footer />
+    <Navigation />
+    <slot />
   </div>
 </template>
 

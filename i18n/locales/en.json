@@ -1,0 +1,74 @@
+{
+  "code": "en",
+  "language": "en",
+  "AboutPage": {
+    "is_largest_event": "is the largest event in",
+    "bulgaria": "Bulgaria",
+    "about_future_of": "about the future of",
+    "payments": "digital payments",
+    "for_preventing": "for preventing",
+    "fraud": "fraud",
+    "money_laundering": "money laundering",
+    "for": "for",
+    "innovations": "innovations",
+    "transform_ecosystem_with": "that transform the ecosystem with a",
+    "mission": "mission",
+    "for_secure_payments": "for secure payments",
+    "join_us": "Join us!",
+    "participants": "Participants",
+    "speakers": "Speakers",
+    "partners": "Partners"
+  },
+  "HomePage": {
+    "hero": {
+      "mainTitle": "DIGIPAY 2025",
+      "subtitle": "Your secure and convenient journey",
+      "date": "08 October 2025",
+      "format": "Live & Virtual",
+      "location": "Inter Expo Center"
+    }
+  },
+  "Video2024": {
+    "title": "Video From DIGIPAY 2024",
+    "videoTitle": "YouTube video player"
+  },
+  "Navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "speakers": "Speakers",
+    "partners": "Partners",
+    "participants": "Participants",
+    "video": "Video",
+    "contact": "Contact",
+    "previousEditions": "Previous Editions"
+  },
+  "WhoIsItAbout": {
+    "title": "Who is this event for?",
+    "items": {
+      "digital_payments": {
+        "title": "Digital Payments",
+        "description": "For all sectors where digital payments are made"
+      },
+      "banking": {
+        "title": "Banking Sector",
+        "description": "Owners and directors of banking institutions, consulting companies, telecoms and fintech companies"
+      },
+      "regulation": {
+        "title": "Regulation and Security",
+        "description": "Regulators, institutions dealing with online fraud and crime, auditors and security experts"
+      },
+      "innovation": {
+        "title": "Innovation and Investment",
+        "description": "Professionals in AI, blockchain and cryptocurrencies, innovators and investors"
+      }
+    }
+  },
+  "OtherYears": {
+    "title": "Previous Events",
+    "coming": "Coming Soon",
+    "participants": " Participants",
+    "speakers": " Speakers",
+    "partners": " Partners"
+  }
+}

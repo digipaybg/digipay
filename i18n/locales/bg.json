@@ -1,0 +1,74 @@
+{
+  "code": "bg",
+  "language": "bg",
+  "AboutPage": {
+    "is_largest_event": "е най-голямото събитие в",
+    "bulgaria": "България",
+    "about_future_of": "за бъдещето на",
+    "payments": "плащанията",
+    "for_preventing": "за превенция на",
+    "fraud": "измами",
+    "money_laundering": "пране на пари",
+    "for": "за",
+    "innovations": "иновации",
+    "transform_ecosystem_with": "които трансформират екосистемата с",
+    "mission": "мисия",
+    "for_secure_payments": "за сигурни плащания",
+    "join_us": "Присъедини се!",
+    "participants": "Участници",
+    "speakers": "Лектори",
+    "partners": "Партньори"
+  },
+  "HomePage": {
+    "hero": {
+      "mainTitle": "DIGIPAY 2025",
+      "subtitle": "Вашето сигурно и удобно пътуване",
+      "date": "08 Октомври 2025",
+      "format": "На живо & Виртуално",
+      "location": "Интер Експо Център"
+    }
+  },
+  "Video2024": {
+    "title": "Видео от DIGIPAY 2024",
+    "videoTitle": "Видео плейър на YouTube"
+  },
+  "Navigation": {
+    "home": "Начало",
+    "blog": "Блог",
+    "about": "За нас",
+    "speakers": "Лектори",
+    "partners": "Партньори",
+    "participants": "Участници",
+    "video": "Видео",
+    "contact": "Контакти",
+    "previousEditions": "Предишни издания"
+  },
+  "WhoIsItAbout": {
+    "title": "За кого е това събитие?",
+    "items": {
+      "digital_payments": {
+        "title": "Дигитални Плащания",
+        "description": "За всички сектори, където се извършват дигитални плащания"
+      },
+      "banking": {
+        "title": "Банков Сектор",
+        "description": "Собственици и директори на банкови институции, консултантски компании, телекоми и финтех компании"
+      },
+      "regulation": {
+        "title": "Регулации и Сигурност",
+        "description": "Регулатори, институции, занимаващи се с онлайн измами и престъпления, одитори и експерти по сигурността"
+      },
+      "innovation": {
+        "title": "Иновации и Инвестиции",
+        "description": "Професионалисти в областта на AI, блокчейн и криптовалути, иноватори и инвеститори"
+      }
+    }
+  },
+  "OtherYears": {
+    "title": "Предишни Събития",
+    "coming": "Очаквайте скоро",
+    "participants": " Участници",
+    "speakers": " Лектори",
+    "partners": " Партньори"
+  }
+}
