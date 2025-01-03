@@ -38,37 +38,30 @@ const images = [
 ];
 
 const { $anime } = useNuxtApp();
-
+const scroll = useWindowScroll();
+let animation: anime.AnimeInstance;
 const descriptionRef = ref<HTMLElement | null>(null);
 const isDescriptionVisible = useElementVisibility(descriptionRef, {
   threshold: 0.75,
 });
 
+watch(scroll.y, () => {
+  if (isDescriptionVisible.value && !animation.began) {
+    animation.play();
+  }
+});
+
 onMounted(() => {
-  const animation = $anime({
+  animation = $anime({
     targets: ".description-text span",
     filter: ["blur(10px)", "blur(0px)"],
     opacity: [0.2, 1],
-    marginLeft: ["-20px", "0px"],
+    marginLeft: ["-30px", "0px"],
     easing: "easeOutExpo",
     duration: 1000,
     autoplay: false,
     delay: $anime.stagger(100),
   });
-
-  window.addEventListener("scroll", () => {
-    if (isDescriptionVisible.value && !animation.began) {
-      animation.play();
-    }
-  });
-
-  return () => {
-    window.removeEventListener("scroll", () => {
-      if (isDescriptionVisible.value && !animation.began) {
-        animation.play();
-      }
-    });
-  };
 });
 </script>
 

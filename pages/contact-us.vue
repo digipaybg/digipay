@@ -1,10 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>
-    <Navigation />
-    <slot />
-  </div>
+  <div></div>
 </template>
 
 <style lang="scss"></style>

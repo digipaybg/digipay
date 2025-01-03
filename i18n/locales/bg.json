@@ -31,5 +31,15 @@
   "Video2024": {
     "title": "Видео от DIGIPAY 2024",
     "videoTitle": "Видео плейър на YouTube"
+  },
+  "Navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "speakers": "Speakers",
+    "partners": "Partners",
+    "participants": "Participants",
+    "video": "Video",
+    "contact": "Contact"
   }
 }

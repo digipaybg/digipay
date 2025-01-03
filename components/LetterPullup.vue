@@ -3,20 +3,6 @@ const props = defineProps<{
   words: string;
   initialDelay?: number;
 }>();
-//  v-motion
-//       :initial="{
-//         y: 100,
-//         opacity: 0,
-//         filter: 'blur(10px)',
-//       }"
-//       :enter="{
-//         y: 0,
-//         opacity: 1,
-//         filter: 'blur(0px)',
-
-//         transition: { type: 'spring', bounce: 0.2 },
-//       }"
-//       :delay="index * 25 + (initialDelay || 0)"
 
 const { $anime } = useNuxtApp();
 

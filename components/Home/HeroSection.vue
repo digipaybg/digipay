@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { defaultTransition } from "#build/imports";
 import { animate, stagger } from "motion";
 
 const { $anime } = useNuxtApp();
@@ -7,6 +6,16 @@ const { $anime } = useNuxtApp();
 const titleRef = ref<HTMLElement | null>(null);
 const isTitleVisible = useElementVisibility(titleRef, {
   threshold: 0.75,
+});
+
+let animation: anime.AnimeInstance;
+
+const scroll = useWindowScroll();
+
+watch(scroll.y, () => {
+  if (isTitleVisible.value && !animation.began) {
+    animation.play();
+  }
 });
 
 onMounted(() => {
@@ -35,7 +44,7 @@ onMounted(() => {
     "-=500",
   );
 
-  const animation = $anime({
+  animation = $anime({
     targets: titleRef.value,
     opacity: [0, 1],
     filter: ["blur(10px)", "blur(0px)"],
@@ -45,12 +54,6 @@ onMounted(() => {
     begin: () => {
       $anime.set(titleRef.value, { opacity: 0 });
     },
-  });
-
-  window.addEventListener("scroll", () => {
-    if (isTitleVisible.value && !animation.began) {
-      animation.play();
-    }
   });
 });
 </script>
@@ -80,9 +83,7 @@ onMounted(() => {
         class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white space-y-4 w-full px-4"
       >
         <div>
-          <NuxtImg
-            src="/logo.svg"
-            alt="DIGIPAY LOGO"
+          <Logo
             class="text-center text-white mx-auto w-[150px] sm:w-[200px] md:w-[250px] hero"
           />
         </div>
