@@ -9,10 +9,12 @@ interface Contact {
 }
 
 export const addContact = async (contact: Contact) => {
-  const databaseId = process.env.NOTION_CONTACTS_DATABASE_ID;
+  const databaseId = process.env.NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID;
 
   if (!databaseId) {
-    throw new Error("NOTION_CONTACTS_DATABASE_ID is not configured");
+    throw new Error(
+      "NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID is not configured",
+    );
   }
 
   try {

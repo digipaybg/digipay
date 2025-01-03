@@ -7,7 +7,7 @@
     <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold">
       {{ $t("Video2024.title") }}
     </h1>
-    <div class="w-full max-w-screen-xl mx-auto">
+    <div class="w-full max-w-screen-2xl mx-auto">
       <iframe
         src="https://www.youtube.com/embed/1F0RMUus_Ek?si=RpqSFEvF9kViHUCX"
         :title="$t('Video2024.videoTitle')"

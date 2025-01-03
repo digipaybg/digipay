@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
+
   modules: [
     // "@vueuse/motion/nuxt",
     "@nuxtjs/tailwindcss",
@@ -13,9 +14,10 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@vueuse/nuxt",
     "@hypernym/nuxt-anime",
+    "@nuxt/icon",
   ],
   notion: {
-    token: process.env.NOTION_TOKEN,
+    token: process.env.NUXT_PUBLIC_NOTION_TOKEN,
   },
   colorMode: {
     preference: "dark",

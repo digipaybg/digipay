@@ -14,7 +14,9 @@ const { data } = await useAsyncData("notion", () =>
   $notion.getPageBlocks(fetchedData.value.id.replaceAll("-", "")),
 );
 
-console.log(JSON.stringify(fetchedData.value));
+definePageMeta({
+  scrollToTop: true,
+});
 </script>
 
 <template>

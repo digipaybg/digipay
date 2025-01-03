@@ -1,15 +1,20 @@
 <script lang="ts" setup>
-const fetched = await useFetch("/api/blog", {
+const { data, pending } = await useFetch<any>("/api/blog", {
   priority: "high",
+});
+definePageMeta({
+  scrollToTop: true,
 });
 </script>
 
 <template>
   <div>
-    {{ fetched.data.value.results[0] }}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div
+      v-if="data"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+    >
       <div
-        v-for="blog in fetched.data.value.results"
+        v-for="blog in data.results"
         :key="blog.id"
         class="bg-white shadow-lg rounded-lg overflow-hidden"
       >

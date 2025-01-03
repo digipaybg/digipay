@@ -79,7 +79,7 @@ onMounted(() => {
 
     <h1
       ref="descriptionRef"
-      class="text-xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/70 description-text"
+      class="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-primary-foreground/70 description-text"
     >
       <span class="text-accent font-bold">DIGIPAY</span>
 

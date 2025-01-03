@@ -1,3 +1,10 @@
+<script setup lang="ts">
+definePageMeta({
+  scrollToTop: true,
+  keepalive: false,
+});
+</script>
+
 <template>
   <div class="max-w-screen-2xl mx-auto *:font-sans">
     <HomeHeroSection />
@@ -6,6 +13,8 @@
     >
       <LazyHomeAboutSection />
       <LazyHomeVideoSection />
+      <LazyHomeWhatHappenedInOtherYearsSection />
+      <LazyHomeWhoIsItAboutSection />
     </div>
   </div>
 </template>

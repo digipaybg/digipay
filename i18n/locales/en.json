@@ -40,6 +40,35 @@
     "partners": "Partners",
     "participants": "Participants",
     "video": "Video",
-    "contact": "Contact"
+    "contact": "Contact",
+    "previousEditions": "Previous Editions"
+  },
+  "WhoIsItAbout": {
+    "title": "Who is this event for?",
+    "items": {
+      "digital_payments": {
+        "title": "Digital Payments",
+        "description": "For all sectors where digital payments are made"
+      },
+      "banking": {
+        "title": "Banking Sector",
+        "description": "Owners and directors of banking institutions, consulting companies, telecoms and fintech companies"
+      },
+      "regulation": {
+        "title": "Regulation and Security",
+        "description": "Regulators, institutions dealing with online fraud and crime, auditors and security experts"
+      },
+      "innovation": {
+        "title": "Innovation and Investment",
+        "description": "Professionals in AI, blockchain and cryptocurrencies, innovators and investors"
+      }
+    }
+  },
+  "OtherYears": {
+    "title": "Previous Events",
+    "coming": "Coming Soon",
+    "participants": " Participants",
+    "speakers": " Speakers",
+    "partners": " Partners"
   }
 }

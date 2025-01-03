@@ -47,8 +47,10 @@ const navigationItems = [
             {{ $t(item.label) }}
           </Button>
         </NuxtLink>
+        <NavigationPreviousEditions />
         <!-- <PreviousEditions />
         <LanguageSelector /> -->
+        <NavigationLanguageSelector />
       </div>
     </div>
   </div>

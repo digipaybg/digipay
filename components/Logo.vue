@@ -1,17 +1,11 @@
 <script lang="ts" setup>
 defineProps<{
-  class: string
+  class: string;
 }>();
 </script>
 
 <template>
-  <NuxtImg
-            src="/logo.svg"
-            alt="DIGIPAY LOGO"
-            :class="class"
-          />
+  <NuxtImg src="/logo.svg" alt="DIGIPAY LOGO" :class="class" />
 </template>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

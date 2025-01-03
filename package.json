@@ -14,6 +14,7 @@
     "@notionhq/client": "^2.2.15",
     "@number-flow/vue": "^0.3.4",
     "@nuxt/fonts": "0.10.3",
+    "@nuxt/icon": "^1.10.3",
     "@nuxt/image": "1.8.1",
     "@nuxtjs/color-mode": "3.5.2",
     "@nuxtjs/i18n": "^9.1.1",

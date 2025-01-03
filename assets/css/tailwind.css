@@ -70,3 +70,28 @@ body {
     @apply bg-background text-foreground;
   }
 }
+@layer base {
+  /* Webkit (Chrome, Safari, newer versions of Opera) */
+  *::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-primary/60 w-8 rounded-full hover:bg-primary/80 transition-colors;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: 2px;
+    scrollbar-color: hsl(var(--primary) / 0.6) hsl(var(--secondary));
+  }
+
+  /* For Internet Explorer and Edge */
+  * {
+    -ms-overflow-style: auto;
+  }
+}

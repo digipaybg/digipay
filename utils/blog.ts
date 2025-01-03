@@ -6,12 +6,14 @@ import type {
 import { notion } from "./notion";
 
 export const fetchPages = async (language: string, status = "Live") => {
-  if (!process.env.NOTION_DATABASE_ID) {
-    throw new Error("The NOTION_DATABASE_ID environment variable is required.");
+  if (!process.env.NUXT_PUBLIC_NOTION_DATABASE_ID) {
+    throw new Error(
+      "The NUXT_PUBLIC_NOTION_DATABASE_ID environment variable is required.",
+    );
   }
 
   const args: QueryDatabaseParameters = {
-    database_id: process.env.NOTION_DATABASE_ID,
+    database_id: process.env.NUXT_PUBLIC_NOTION_DATABASE_ID,
   };
 
   console.log("Fetching pages with status", status);
@@ -29,13 +31,15 @@ export const fetchPages = async (language: string, status = "Live") => {
 
 // Check cache
 export const fetchBySlug = (language: string, slug: string) => {
-  if (!process.env.NOTION_DATABASE_ID) {
-    throw new Error("The NOTION_DATABASE_ID environment variable is required.");
+  if (!process.env.NUXT_PUBLIC_NOTION_DATABASE_ID) {
+    throw new Error(
+      "The NUXT_PUBLIC_NOTION_DATABASE_ID environment variable is required.",
+    );
   }
 
   return notion.databases
     .query({
-      database_id: process.env.NOTION_DATABASE_ID,
+      database_id: process.env.NUXT_PUBLIC_NOTION_DATABASE_ID,
       filter: {
         property: "slug",
         rich_text: { equals: slug },
