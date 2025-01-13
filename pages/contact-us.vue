@@ -18,15 +18,10 @@ const form = reactive({
 async function submit() {
   console.log(form.name, form.email, form.message);
 
-  // await $fetch("/api/contact", {
-  //   method: "POST",
-  //   body: {
-  //     name: form.name,
-  //     email: form.email,
-  //     message: form.message,
-  //   },
-  // });
-  await addContact(form);
+  await $fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(form),
+  });
 
   form.name = "";
   form.email = "";

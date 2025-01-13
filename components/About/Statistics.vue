@@ -34,8 +34,8 @@ watch(visible, () => {
       :suffix="trailing ?? ' +'"
     />
     <h2
-      class="text-4xl text-primary-foreground/50"
-      :class="cn('text-4xl text-primary-foreground/50', { 'text-xl': smaller })"
+      class="text-4xl text-foreground/50"
+      :class="cn('text-4xl text-foreground/50', { 'text-xl': smaller })"
     >
       {{ label }}
     </h2>

@@ -43,7 +43,7 @@ const containerStyles =
   "flex flex-col h-full w-full bg-secondary rounded-2xl p-6 shadow-[0px_0px_0px_0px] shadow-border hover:shadow-[0px_5px_10px_0px] hover:shadow-border hover:-translate-y-[5px] transition-all duration-300 ease-out";
 
 const topicTitleStyle = "text-3xl font-semibold";
-const topicDescriptionStyle = "text-lg text-primary-foreground/70";
+const topicDescriptionStyle = "text-lg text-foreground/70";
 </script>
 
 <template>

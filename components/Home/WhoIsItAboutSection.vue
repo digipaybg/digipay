@@ -48,12 +48,12 @@ const timelineItems = [
             class="mt-2 flex flex-col md:flex-row md:justify-between gap-4 md:gap-0"
           >
             <h3
-              class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground"
+              class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
             >
               {{ $t(`WhoIsItAbout.items.${item.key}.title`) }}
             </h3>
             <p
-              class="text-primary-foreground/60 text-base sm:text-lg md:text-xl w-full md:w-1/3 md:text-right"
+              class="text-foreground/60 text-base sm:text-lg md:text-xl w-full md:w-1/3 md:text-right"
             >
               {{ $t(`WhoIsItAbout.items.${item.key}.description`) }}
             </p>

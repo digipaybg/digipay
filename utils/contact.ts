@@ -25,8 +25,7 @@ export const getClient = () => {
 
 export const addContact = async (contact: Contact) => {
   const config = useRuntimeConfig();
-
-  const databaseId = config.public.contactsDatabaseId;
+  const databaseId = config.public.contactsDatabaseId as string;
 
   if (!databaseId) {
     throw new Error(

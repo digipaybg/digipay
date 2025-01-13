@@ -79,43 +79,43 @@ onMounted(() => {
 
     <h1
       ref="descriptionRef"
-      class="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-primary-foreground/70 description-text"
+      class="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-foreground/70 description-text"
     >
       <span class="text-accent font-bold">DIGIPAY</span>
 
       {{ $t("AboutPage.is_largest_event") }}
 
-      <span class="text-primary-foreground font-bold">
+      <span class="text-foreground font-bold">
         {{ $t("AboutPage.bulgaria") }}
       </span>
 
       {{ $t("AboutPage.about_future_of") }}
 
-      <span class="text-primary-foreground font-bold">
+      <span class="text-foreground font-bold">
         {{ $t("AboutPage.payments") }}
       </span>
 
       , {{ $t("AboutPage.for_preventing") }}
 
-      <span class="text-primary-foreground font-bold">
+      <span class="text-foreground font-bold">
         {{ $t("AboutPage.fraud") }}
       </span>
 
       ,
 
-      <span class="text-primary-foreground font-bold">
+      <span class="text-foreground font-bold">
         {{ $t("AboutPage.money_laundering") }}
       </span>
 
       , {{ $t("AboutPage.for") }}
 
-      <span class="text-primary-foreground font-bold">
+      <span class="text-foreground font-bold">
         {{ $t("AboutPage.innovations") }}
       </span>
 
       {{ $t("AboutPage.transform_ecosystem_with") }}
 
-      <span class="text-primary-foreground font-bold">
+      <span class="text-foreground font-bold">
         {{ $t("AboutPage.mission") }}
       </span>
 
