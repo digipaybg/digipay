@@ -1,19 +1,40 @@
-"use server";
-
 interface Contact {
   name: string;
   email: string;
   message: string;
 }
 
+import { Client, LogLevel } from "@notionhq/client";
+
+export const notion = new Client({
+  auth: process.env.NUXT_PUBLIC_NOTION_TOKEN,
+  logLevel: LogLevel.DEBUG,
+});
+
+export const getClient = () => {
+  const config = useRuntimeConfig();
+  const token = config.public.token;
+
+  if (!token)
+    throw new Error(
+      "The NUXT_PUBLIC_NOTION_TOKEN environment variable is required",
+    );
+
+  return notion;
+};
+
 export const addContact = async (contact: Contact) => {
-  const databaseId = process.env.NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID;
+  const config = useRuntimeConfig();
+
+  const databaseId = config.public.contactsDatabaseId;
 
   if (!databaseId) {
     throw new Error(
       "NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID is not configured",
     );
   }
+
+  const notion = getClient();
 
   try {
     await notion.pages.create({

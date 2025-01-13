@@ -65,6 +65,7 @@ export default defineNuxtConfig({
       },
       token: process.env.NUXT_PUBLIC_NOTION_TOKEN,
       databaseId: process.env.NUXT_PUBLIC_NOTION_DATABASE_ID,
+      contactsDatabaseId: process.env.NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID,
     },
   },
 });

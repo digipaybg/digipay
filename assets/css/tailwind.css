@@ -42,7 +42,7 @@ body {
     --popover: 244 60% 8%;
     --popover-foreground: 0 25% 97%;
     --primary: 220 25% 97%;
-    --primary-foreground: 0 60% 99%;
+    --primary-foreground: 0 60% 0%;
     --secondary: 244 50% 12%;
     --secondary-foreground: 0 25% 97%;
     --muted: 244 50% 12%;
