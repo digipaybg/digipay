@@ -3,8 +3,10 @@
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 space-y-6 sm:space-y-8 md:space-y-10">
-    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold">
+  <div class="space-y-6 sm:space-y-8 md:space-y-10">
+    <h1
+      class="text-4xl mt-32 mb-10 sm:text-5xl md:text-6xl lg:text-7xl font-semibold"
+    >
       {{ $t("Video2024.title") }}
     </h1>
     <div class="w-full max-w-screen-2xl mx-auto">

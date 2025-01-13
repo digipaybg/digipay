@@ -3,35 +3,52 @@ import type {
   PageObjectResponse,
   QueryDatabaseParameters,
 } from "@notionhq/client/build/src/api-endpoints";
-import { notion } from "./notion";
+import { Client, LogLevel } from "@notionhq/client";
 
-export const fetchPages = async (language: string, status = "Live") => {
-  if (!process.env.NUXT_PUBLIC_NOTION_DATABASE_ID) {
+export const notion = new Client({
+  auth: process.env.NUXT_PUBLIC_NOTION_TOKEN,
+  logLevel: LogLevel.DEBUG,
+});
+
+export const getClient = () => {
+  const config = useRuntimeConfig();
+  const token = config.public.token;
+
+  if (!token)
+    throw new Error(
+      "The NUXT_PUBLIC_NOTION_TOKEN environment variable is required",
+    );
+
+  return notion;
+};
+
+export const fetchPages = async (language: string) => {
+  const config = useRuntimeConfig();
+  const databaseId = config.public.databaseId;
+
+  if (!databaseId) {
     throw new Error(
       "The NUXT_PUBLIC_NOTION_DATABASE_ID environment variable is required.",
     );
   }
 
   const args: QueryDatabaseParameters = {
-    database_id: process.env.NUXT_PUBLIC_NOTION_DATABASE_ID,
+    database_id: databaseId,
+    filter: {
+      property: "language",
+      select: { equals: language },
+    },
   };
 
-  console.log("Fetching pages with status", status);
-  if (status !== "All")
-    args.filter = {
-      property: "status",
-      status: {
-        equals: status,
-      },
-      and: [{ property: "language", select: { equals: language } }],
-    };
-
-  return notion.databases.query(args);
+  return await notion.databases.query(args);
 };
 
 // Check cache
 export const fetchBySlug = (language: string, slug: string) => {
-  if (!process.env.NUXT_PUBLIC_NOTION_DATABASE_ID) {
+  const config = useRuntimeConfig();
+  const databaseId = config.public.databaseId;
+
+  if (!databaseId) {
     throw new Error(
       "The NUXT_PUBLIC_NOTION_DATABASE_ID environment variable is required.",
     );
@@ -39,7 +56,7 @@ export const fetchBySlug = (language: string, slug: string) => {
 
   return notion.databases
     .query({
-      database_id: process.env.NUXT_PUBLIC_NOTION_DATABASE_ID,
+      database_id: databaseId,
       filter: {
         property: "slug",
         rich_text: { equals: slug },

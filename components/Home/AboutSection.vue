@@ -128,10 +128,34 @@ onMounted(() => {
       </span>
     </h1>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-      <AboutStatistics :label="$t('AboutPage.participants')" :value="500" />
-      <AboutStatistics :label="$t('AboutPage.speakers')" :value="20" />
-      <AboutStatistics :label="$t('AboutPage.partners')" :value="22" />
+    <div class="space-y-6">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-10">
+        <AboutStatistics :label="$t('AboutPage.participants')" :value="500" />
+        <AboutStatistics :label="$t('AboutPage.speakers')" :value="20" />
+        <AboutStatistics :label="$t('AboutPage.partners')" :value="22" />
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-10">
+        <AboutStatistics
+          :label="$t('AboutPage.statistics.satisfaction')"
+          :value="62.2"
+          :trailing="' %'"
+        />
+        <AboutStatistics
+          :label="$t('AboutPage.statistics.return')"
+          :value="92.3"
+          :trailing="' %'"
+        />
+        <AboutStatistics
+          :label="$t('AboutPage.statistics.previous')"
+          :value="66.7"
+          :trailing="' %'"
+        />
+        <AboutStatistics
+          :label="$t('AboutPage.statistics.recommend')"
+          :value="93.2"
+          :trailing="' %'"
+        />
+      </div>
     </div>
   </div>
 </template>

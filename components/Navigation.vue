@@ -5,7 +5,7 @@ const scrolled = useWindowScroll();
 const isScrolled = computed(() => scrolled.y.value > 0);
 
 const { t } = useI18n();
-
+const localePath = useLocalePath();
 const navigationItems = [
   {
     label: "Navigation.home",
@@ -37,19 +37,18 @@ const navigationItems = [
       <NuxtLink to="/">
         <Logo class="w-12" />
       </NuxtLink>
-      <div className="space-x-6">
+      <div className="space-x-4 flex items-center">
         <NuxtLink
           v-for="item in navigationItems"
           :key="item.href"
-          :to="item.href"
+          :to="localePath(item.href)"
         >
           <Button class="text-lg" variant="link">
             {{ $t(item.label) }}
           </Button>
         </NuxtLink>
+
         <NavigationPreviousEditions />
-        <!-- <PreviousEditions />
-        <LanguageSelector /> -->
         <NavigationLanguageSelector />
       </div>
     </div>

@@ -22,7 +22,7 @@ const timelineItems = [
 <template>
   <div class="flex flex-col justify-evenly space-y-6 sm:space-y-10 mx-auto">
     <h1
-      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 py-10 sm:py-16 md:py-20"
+      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 mt-32 mb-10"
     >
       {{ $t("WhoIsItAbout.title") }}
     </h1>

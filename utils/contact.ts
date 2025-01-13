@@ -1,7 +1,5 @@
 "use server";
 
-import { notion } from "./notion";
-
 interface Contact {
   name: string;
   email: string;

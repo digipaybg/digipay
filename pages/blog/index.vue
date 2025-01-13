@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-const { data, pending } = await useFetch<any>("/api/blog", {
-  priority: "high",
-});
+const { data } = useFetch("/api/en/blog");
+
 definePageMeta({
   scrollToTop: true,
 });
+
+const localePath = useLocalePath();
 </script>
 
 <template>
@@ -32,7 +33,11 @@ definePageMeta({
           <p class="mt-2 text-gray-600">{{ blog.description }}</p>
           <div class="mt-4">
             <NuxtLink
-              :to="`/blog/${blog.properties.slug.rich_text[0].plain_text}`"
+              :to="
+                localePath(
+                  `/blog/${blog.properties.slug.rich_text[0].plain_text}`,
+                )
+              "
               class="px-4 py-2 bg-blue-500 text-white rounded-md"
             >
               Read More

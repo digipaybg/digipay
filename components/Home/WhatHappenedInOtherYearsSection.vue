@@ -48,34 +48,11 @@ const years = [
 <template>
   <div class="space-y-4">
     <h1
-      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 py-10 sm:py-16 md:py-20"
+      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 mt-32 mb-10"
     >
       {{ $t("OtherYears.title") }}
     </h1>
     <div class="grid grid-cols-1 md:grid-rows-3 md:grid-cols-4 gap-4 py-4">
-      <!-- Top Row - 2019 and 2020 -->
-      <!-- <div
-      v-for="year in [years[4], years[3]]"
-      :key="year.year"
-      class="md:col-span-2"
-    >
-      <h3 class="text-2xl font-bold">{{ year.year }}</h3>
-      <p class="text-gray-600 text-sm mt-1">{{ year.subtitle }}</p>
-      <div class="mt-4 space-y-2">
-        <p>
-          <span class="font-semibold">{{ year.participants }}</span>
-          Participants
-        </p>
-        <p>
-          <span class="font-semibold">{{ year.speakers }}</span>
-          Speakers
-        </p>
-        <p>
-          <span class="font-semibold">{{ year.partners }}</span>
-          Partners
-        </p>
-      </div>
-    </div> -->
       <OtherYearsBox
         v-for="year in [years[5], years[4]]"
         :year="year"
@@ -95,7 +72,6 @@ const years = [
         class="md:col-start-2 md:col-span-2 md:row-start-2 bg-accent/20 rounded-xl p-6 text-center flex flex-col justify-center"
       >
         <h2 class="text-4xl font-bold text-primary">2025</h2>
-        <p class="mt-2">{{ $t("OtherYears.coming") }}</p>
       </div>
 
       <!-- Bottom Row - 2023 -->

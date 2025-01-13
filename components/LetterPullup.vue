@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { cn } from "@/lib/utils";
+
 const props = defineProps<{
   words: string;
   initialDelay?: number;
+  containerClass?: string;
+  textClass?: string;
 }>();
 
 const { $anime } = useNuxtApp();
@@ -22,11 +26,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex gap-[0.25em] flex-wrap justify-center px-4 items-center">
+  <div
+    :class="
+      cn('flex gap-[0.25em] flex-wrap px-4 items-center', props.containerClass)
+    "
+  >
     <span
       v-for="(letter, index) in words.split('')"
       :key="index"
-      class="font-display text-center text-4xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-4xl md:leading-[5rem] letter"
+      :class="
+        cn(
+          'font-display text-4xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-4xl md:leading-[5rem] letter',
+          props.textClass,
+        )
+      "
     >
       {{ letter === " " ? "\u00A0" : letter }}
     </span>

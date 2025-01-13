@@ -22,7 +22,7 @@ const switchLanguage = (code: string) => {
   <DropdownMenu>
     <DropdownMenuTrigger :as-child="true">
       <Button variant="ghost" size="icon">
-        <Languages />
+        <Icon name="tabler:language" size="24" />
       </Button>
     </DropdownMenuTrigger>
 

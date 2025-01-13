@@ -90,6 +90,7 @@ onMounted(() => {
         <LetterPullup
           words="Your secure and convenient journey"
           :initialDelay="200"
+          containerClass="flex justify-center"
         />
       </div>
     </div>

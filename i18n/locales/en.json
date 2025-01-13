@@ -17,7 +17,13 @@
     "join_us": "Join us!",
     "participants": "Participants",
     "speakers": "Speakers",
-    "partners": "Partners"
+    "partners": "Partners",
+    "statistics": {
+      "satisfaction": "are satisfied with the conference",
+      "return": "will attend DIGIPAY again",
+      "previous": "have been to DIGIPAY before",
+      "recommend": "would recommend DIGIPAY"
+    }
   },
   "HomePage": {
     "hero": {
@@ -70,5 +76,49 @@
     "participants": " Participants",
     "speakers": " Speakers",
     "partners": " Partners"
+  },
+  "DigipayDifference": {
+    "title": "How do we differ?",
+    "differences": {
+      "1": "WE are a specialized event with a mission: secure and accessible digital payments",
+      "2": "DIGIPAY has two main goals: security and convenience",
+      "3": "DIGIPAY is the platform for transforming the world of digital payments",
+      "4": "DIGIPAY unites businesses, regulators, and users, all sector participants, putting users at the center",
+      "5": "DIGIPAY seeks strong partnerships to promote secure and convenient digital payments in Bulgaria and Central and Eastern Europe",
+      "6": "Our goal is to turn your mission into a competitive advantage by investing in the strategic goal of educating customers about safer and more convenient digital payments"
+    }
+  },
+  "Topics": {
+    "title": "Conference Topics",
+    "items": {
+      "instant_payments": {
+        "topic": "Instant Payments",
+        "description": "New technologies for instant transfers and their impact on the financial sector"
+      },
+      "eurozone": {
+        "topic": "Payments at the Eurozone threshold",
+        "description": "Preparation and adaptation of payment systems for Eurozone integration"
+      },
+      "fraud": {
+        "topic": "Fraud Prevention",
+        "description": "Modern methods and technologies for detecting and preventing financial fraud"
+      },
+      "cloud": {
+        "topic": "Cloud Technologies",
+        "description": "Using cloud solutions to enhance payment security and efficiency"
+      },
+      "identification": {
+        "topic": "Secure Identification",
+        "description": "Biometric technologies and multi-factor authentication in digital payments"
+      },
+      "aml": {
+        "topic": "Anti-money Laundering Practices",
+        "description": "Innovative approaches in combating money laundering and financial crimes"
+      },
+      "ai": {
+        "topic": "User Experience and AI",
+        "description": "Artificial Intelligence and personalization for better customer experience"
+      }
+    }
   }
 }
