@@ -1,31 +1,53 @@
 <script lang="ts" setup>
-import { z } from "zod";
-import Label from "~/components/ui/label/Label.vue";
-import Textarea from "~/components/ui/textarea/Textarea.vue";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "~/lib/firebase";
 
-const contactSchema = z.object({
-  name: z.string().min(2).max(50),
-  email: z.string().email(),
-  message: z.string().min(10).max(500),
-});
+const name = ref("");
+const email = ref("");
+const message = ref("");
 
-const form = reactive({
-  name: "",
-  email: "",
-  message: "",
-});
+const disableInputs = ref(false);
+const sentMail = ref(false);
+const errorSendingMail = ref(false);
 
-async function submit() {
-  console.log(form.name, form.email, form.message);
+async function sendMail() {
+  console.log({ name: name.value, email: email.value, message: message.value });
 
-  await $fetch("/api/contact", {
-    method: "POST",
-    body: JSON.stringify(form),
-  });
+  if (!name.value || !email.value || !message.value) {
+    errorSendingMail.value = true;
+    setTimeout(() => {
+      errorSendingMail.value = false;
+    }, 5000);
+    return;
+  }
 
-  form.name = "";
-  form.email = "";
-  form.message = "";
+  disableInputs.value = true;
+  await addDoc(collection(db, "mail"), {
+    to: ["kaloyangfx@gmail.com"],
+    message: {
+      subject: `New message from DIGIPAY Site: ${name.value}`,
+      text: `Email: ${email.value}\nMessage: ${message.value}`,
+    },
+  })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
+      errorSendingMail.value = true;
+      setTimeout(() => {
+        errorSendingMail.value = false;
+      }, 5000);
+    })
+    .finally(() => {
+      disableInputs.value = false;
+      sentMail.value = true;
+      setTimeout(() => {
+        sentMail.value = false;
+      }, 5000);
+    });
+
+  name.value = "";
+  email.value = "";
+  message.value = "";
+  disableInputs.value = false;
 }
 </script>
 
@@ -43,48 +65,47 @@ async function submit() {
     />
 
     <div class="flex flex-col items-center mt-20">
-      <div class="flex flex-col items-center w-full max-w-xl">
-        <Form :schema="contactSchema" @submit="submit" class="w-full">
-          <div class="flex flex-col gap-8">
-            <div class="flex gap-4 items-center">
-              <div class="flex-1 space-y-2">
-                <Label for="name" class="">Name</Label>
-                <Input
-                  v-model="form.name"
-                  label="Name"
-                  name="name"
-                  placeholder="John Doe"
-                />
-              </div>
-              <div class="flex-1 space-y-2">
-                <Label for="email" class="">Email</Label>
-
-                <Input
-                  v-model="form.email"
-                  label="Email"
-                  name="email"
-                  placeholder="johndoe@mail.com"
-                />
-              </div>
+      <div class="flex flex-col items-center w-full max-w-2xl">
+        <div class="flex flex-col gap-8 w-full">
+          <div class="flex gap-4 items-center">
+            <div class="flex-1 space-y-2">
+              <Label for="name" class="">Name</Label>
+              <Input
+                v-model="name"
+                label="Name"
+                name="name"
+                placeholder="John Doe"
+              />
             </div>
-            <div class="space-y-2">
-              <Label for="message" class="">Message</Label>
-              <Textarea
-                v-model="form.message"
-                label="Message"
-                name="message"
-                placeholder="Your message..."
-                rows="5"
+            <div class="flex-1 space-y-2">
+              <Label for="email" class="">Email</Label>
+
+              <Input
+                v-model="email"
+                label="Email"
+                name="email"
+                placeholder="johndoe@mail.com"
               />
             </div>
           </div>
-          <Button
-            type="submit"
-            class="mt-8 w-full bg-primary text-primary-foreground"
-          >
-            Send
-          </Button>
-        </Form>
+          <div class="space-y-2">
+            <Label for="message" class="">Message</Label>
+            <Textarea
+              v-model="message"
+              label="Message"
+              name="message"
+              placeholder="Your message..."
+              rows="5"
+            />
+          </div>
+        </div>
+        <Button
+          type="submit"
+          class="mt-8 w-full bg-primary text-primary-foreground"
+          @click="sendMail"
+        >
+          Send
+        </Button>
       </div>
     </div>
   </div>
