@@ -34,7 +34,7 @@ const navigationItems = [
     <div
       class="h-6 flex items-center justify-between w-full max-w-screen-xl mx-auto"
     >
-      <NuxtLink to="/">
+      <NuxtLink :to="localePath('/')">
         <Logo class="w-12" />
       </NuxtLink>
       <div className="space-x-4 flex items-center">
