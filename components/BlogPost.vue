@@ -49,11 +49,10 @@ const cover = computed(() => {
         )
       "
     >
-      <NuxtImg
+      <img
         v-if="cover"
         :src="cover"
-        :preload="isRow"
-        :placeholder="true"
+        preload
         alt="cover"
         :class="
           cn('w-full aspect-video object-cover rounded-lg', { 'w-2/5': isRow })

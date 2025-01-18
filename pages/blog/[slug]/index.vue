@@ -36,18 +36,12 @@ definePageMeta({
 <template>
   <div>
     <div v-if="fetchedData && data" class="notion-page">
-      <NuxtImg
+      <img
         v-if="fetchedData.cover && imageUrl"
         :src="imageUrl"
         class="aspect-video object-cover rounded-lg mx-auto"
         alt="Cover image"
-        width="1300"
-        height="600"
-        loading="lazy"
         preload
-        placeholder
-        format="webp"
-        :modifiers="{ rotate: null }"
       />
       <h1 class="text-5xl font-bold my-8">
         {{ fetchedData.properties.title.title[0].text.content }}
