@@ -17,20 +17,47 @@ const timelineItems = [
     icon: "tabler:brain",
   },
 ];
+
+const { $anime } = useNuxtApp();
+let animation: anime.AnimeInstance;
+const containerRef = ref<HTMLElement | null>(null);
+const isDescriptionVisible = useElementVisibility(containerRef, {
+  threshold: 0.75,
+});
+
+watch(isDescriptionVisible, (value) => {
+  if (value && !animation.began) {
+    animation.play();
+  }
+});
+
+onMounted(() => {
+  animation = $anime({
+    targets: ".timeline-item",
+    filter: ["blur(10px)", "blur(0px)"],
+    opacity: [0, 1],
+    left: ["-100px", "0px"],
+    easing: "easeOutExpo",
+    autoplay: false,
+    delay: $anime.stagger(100),
+  });
+});
 </script>
 
 <template>
-  <div class="flex flex-col justify-evenly space-y-6 sm:space-y-10 mx-auto">
-    <h1
-      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 mt-32 mb-10"
-    >
-      {{ $t("WhoIsItAbout.title") }}
-    </h1>
-    <div class="relative">
+  <div
+    class="flex flex-col justify-evenly space-y-6 sm:space-y-10 mx-auto mt-32"
+  >
+    <LetterPullup
+      text-class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 mt-32 mb-10"
+      :words="$t('WhoIsItAbout.title')"
+      :initial-delay="0"
+    />
+    <div class="relative" ref="containerRef">
       <div
         v-for="(item, index) in timelineItems"
         :key="index"
-        class="relative flex items-center min-h-40 sm:min-h-52 pb-20 sm:pb-32 md:pb-44 pl-8 sm:pl-12"
+        class="relative flex items-center min-h-40 sm:min-h-52 pb-20 sm:pb-32 md:pb-44 pl-8 sm:pl-12 timeline-item"
       >
         <div
           v-if="index !== timelineItems.length - 1"

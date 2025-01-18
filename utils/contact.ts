@@ -4,25 +4,6 @@ interface Contact {
   message: string;
 }
 
-import { Client, LogLevel } from "@notionhq/client";
-
-export const notion = new Client({
-  auth: process.env.NUXT_PUBLIC_NOTION_TOKEN,
-  logLevel: LogLevel.DEBUG,
-});
-
-export const getClient = () => {
-  const config = useRuntimeConfig();
-  const token = config.public.token;
-
-  if (!token)
-    throw new Error(
-      "The NUXT_PUBLIC_NOTION_TOKEN environment variable is required",
-    );
-
-  return notion;
-};
-
 export const addContact = async (contact: Contact) => {
   const config = useRuntimeConfig();
   const databaseId = config.public.contactsDatabaseId as string;

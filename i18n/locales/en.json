@@ -120,5 +120,44 @@
         "description": "Artificial Intelligence and personalization for better customer experience"
       }
     }
+  },
+  "Footer": {
+    "petya_veleva": "Petya Veleva",
+    "raya_lecheva": "Raya Lecheva",
+    "ceo": "CEO",
+    "founderAndGeneralManager": "Founder & General Manager",
+    "address": "Inter Expo Center Sofia, 147, Tsarigradsko shose blvd",
+    "rights": "DIGIPAY 2025 © All rights reserved",
+    "creator": "Site made by Kaloyanes"
+  },
+  "Newsletter": {
+    "title": "Stay Updated",
+    "description": "Subscribe to our newsletter to receive updates about upcoming events and payment industry news.",
+    "name": "Name",
+    "email": "Email",
+    "namePlaceholder": "Ivan Ivanov",
+    "subscribe": "Subscribe to Newsletter",
+    "error": {
+      "fillFields": "Please fill in all fields",
+      "subscribeError": "Error subscribing to newsletter"
+    },
+    "success": "Successfully subscribed to newsletter"
+  },
+  "ContactPage": {
+    "title": "Contact Us",
+    "subtitle": "Send us a message",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "namePlaceholder": "Ivan Ivanov",
+      "messagePlaceholder": "Your message...",
+      "send": "Send",
+      "error": {
+        "fillFields": "Please fill in all fields",
+        "sendError": "Error sending message"
+      },
+      "success": "Message sent successfully"
+    }
   }
 }

@@ -1,27 +1,29 @@
 <script lang="ts" setup>
 import { addDoc, collection } from "firebase/firestore";
+import { toast } from "vue-sonner";
 import { db } from "~/lib/firebase";
 
 const name = ref("");
 const email = ref("");
 const message = ref("");
 
-const disableInputs = ref(false);
-const sentMail = ref(false);
-const errorSendingMail = ref(false);
+const disabled = ref(false);
 
+const { t } = useI18n();
 async function sendMail() {
   console.log({ name: name.value, email: email.value, message: message.value });
 
   if (!name.value || !email.value || !message.value) {
-    errorSendingMail.value = true;
-    setTimeout(() => {
-      errorSendingMail.value = false;
-    }, 5000);
+    toast.error(t("ContactPage.form.error.fillFields"), {
+      richColors: true,
+      closeButton: true,
+      invert: true,
+    });
     return;
   }
 
-  disableInputs.value = true;
+  disabled.value = true;
+
   await addDoc(collection(db, "mail"), {
     to: ["kaloyangfx@gmail.com"],
     message: {
@@ -31,35 +33,36 @@ async function sendMail() {
   })
     .catch((error) => {
       console.error("Error adding document: ", error);
-      errorSendingMail.value = true;
-      setTimeout(() => {
-        errorSendingMail.value = false;
-      }, 5000);
+      toast.error(t("ContactPage.form.error.sendError"), {
+        richColors: true,
+        closeButton: true,
+        invert: true,
+      });
+      disabled.value = false;
     })
     .finally(() => {
-      disableInputs.value = false;
-      sentMail.value = true;
-      setTimeout(() => {
-        sentMail.value = false;
-      }, 5000);
+      name.value = "";
+      email.value = "";
+      message.value = "";
+      toast.success(t("ContactPage.form.success"), {
+        richColors: true,
+        closeButton: true,
+        invert: true,
+      });
+      disabled.value = false;
     });
-
-  name.value = "";
-  email.value = "";
-  message.value = "";
-  disableInputs.value = false;
 }
 </script>
 
 <template>
   <div class="max-w-screen-2xl mx-auto *:font-sans">
     <LetterPullup
-      words="Contact Us"
+      :words="$t('ContactPage.title')"
       text-class="!text-6xl"
       :initial-delay="150"
     />
     <LetterPullup
-      words="Send us a message"
+      :words="$t('ContactPage.subtitle')"
       text-class="!text-5xl font-semibold pt-4"
       :initial-delay="250"
     />
@@ -69,33 +72,36 @@ async function sendMail() {
         <div class="flex flex-col gap-8 w-full">
           <div class="flex gap-4 items-center">
             <div class="flex-1 space-y-2">
-              <Label for="name" class="">Name</Label>
+              <Label for="name">{{ $t("ContactPage.form.name") }}</Label>
               <Input
                 v-model="name"
                 label="Name"
                 name="name"
-                placeholder="John Doe"
+                :placeholder="$t('ContactPage.form.namePlaceholder')"
+                :disabled="disabled"
               />
             </div>
             <div class="flex-1 space-y-2">
-              <Label for="email" class="">Email</Label>
+              <Label for="email">{{ $t("ContactPage.form.email") }}</Label>
 
               <Input
                 v-model="email"
                 label="Email"
                 name="email"
-                placeholder="johndoe@mail.com"
+                placeholder="ivan@mail.com"
+                :disabled="disabled"
               />
             </div>
           </div>
           <div class="space-y-2">
-            <Label for="message" class="">Message</Label>
+            <Label for="message">{{ $t("ContactPage.form.message") }}</Label>
             <Textarea
               v-model="message"
               label="Message"
               name="message"
-              placeholder="Your message..."
+              :placeholder="$t('ContactPage.form.messagePlaceholder')"
               rows="5"
+              :disabled="disabled"
             />
           </div>
         </div>
@@ -104,7 +110,7 @@ async function sendMail() {
           class="mt-8 w-full bg-primary text-primary-foreground"
           @click="sendMail"
         >
-          Send
+          {{ $t("ContactPage.form.send") }}
         </Button>
       </div>
     </div>

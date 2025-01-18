@@ -11,10 +11,11 @@ definePageMeta({
     <div className="px-4 sm:px-6 2xl:px-0">
       <LazyHomeAboutSection />
       <LazyHomeTopicsSection />
+      <LazyHomeWhoIsItAboutSection />
       <LazyHomeDigipayDifferenceSection />
       <LazyHomeVideoSection />
       <LazyHomeWhatHappenedInOtherYearsSection />
-      <LazyHomeWhoIsItAboutSection />
+      <LazyHomeNewsletterSection />
     </div>
   </div>
 </template>

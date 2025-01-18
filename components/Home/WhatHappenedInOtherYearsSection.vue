@@ -43,16 +43,50 @@ const years = [
     partners: 10,
   },
 ];
+
+const yearBoxes = ref<HTMLElement | null>(null);
+const visible = useElementVisibility(yearBoxes, {
+  threshold: 0.75,
+});
+let animation: anime.AnimeInstance;
+const { $anime } = useNuxtApp();
+const { y: scrollY } = useWindowScroll();
+
+watch(visible, (value) => {
+  if (value && !animation.began) {
+    animation.play();
+  }
+});
+
+onMounted(() => {
+  animation = $anime({
+    targets: ".year-container",
+    translateY: [75, 0],
+    opacity: [0, 1],
+    scale: [0.8, 1],
+    filter: ["blur(10px)", "blur(0px)"],
+    delay: $anime.stagger(100, {
+      from: "center",
+      start: 800,
+    }),
+    easing: "easeOutExpo",
+    duration: 500,
+    autoplay: false,
+  });
+});
 </script>
 
 <template>
-  <div class="space-y-4">
-    <h1
-      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 mt-32 mb-10"
+  <div class="space-y-4 mt-32">
+    <LetterPullup
+      text-class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 mt-32 mb-10"
+      :words="$t('OtherYears.title')"
+      :initial-delay="0"
+    />
+    <div
+      class="grid grid-cols-1 md:grid-rows-3 md:grid-cols-4 gap-4 py-4"
+      ref="yearBoxes"
     >
-      {{ $t("OtherYears.title") }}
-    </h1>
-    <div class="grid grid-cols-1 md:grid-rows-3 md:grid-cols-4 gap-4 py-4">
       <OtherYearsBox
         v-for="year in [years[5], years[4]]"
         :year="year"
@@ -69,7 +103,7 @@ const years = [
 
       <!-- Middle Row - Center Box -->
       <div
-        class="md:col-start-2 md:col-span-2 md:row-start-2 bg-accent/20 rounded-xl p-6 text-center flex flex-col justify-center"
+        class="md:col-start-2 md:col-span-2 md:row-start-2 bg-accent/20 rounded-xl p-6 text-center flex flex-col justify-center year-container"
       >
         <h2 class="text-4xl font-bold text-primary">2025</h2>
       </div>

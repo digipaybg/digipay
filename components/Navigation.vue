@@ -26,8 +26,8 @@ const navigationItems = [
   <div
     :class="
       cn(
-        'w-full py-8  sticky top-4 z-50 backdrop-blur-md bg-background/50 max-w-screen-xl mx-auto px-4 xl:rounded-2xl my-6 transition-all ease-out duration-200 border border-transparent ',
-        { 'shadow-lg  !border-white/20': isScrolled },
+        'w-full py-8  sticky top-0 xl:top-4 z-50 backdrop-blur-md bg-background/50 max-w-screen-xl mx-auto px-4 xl:rounded-2xl  my-0 xl:my-6 transition-all ease-out duration-200 border border-transparent  ',
+        { 'shadow-lg  xl:!border-white/20': isScrolled },
       )
     "
   >

@@ -38,7 +38,7 @@ watch(visible, () => {
     ref="yearBoxRef"
     :class="
       cn(
-        'rounded-xl p-6 hover:scale-105 transition-all bg-muted shadow-lg shadow-muted/50 flex flex-col justify-between',
+        'rounded-xl p-6  bg-muted flex flex-col justify-between shadow-[0px_0px_0px_0px] shadow-border hover:shadow-[0px_5px_10px_0px] hover:shadow-border hover:-translate-y-[5px] transition-all duration-300 ease-out year-container',
         bentoSpan,
       )
     "

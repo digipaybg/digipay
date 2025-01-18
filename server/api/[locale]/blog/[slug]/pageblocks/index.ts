@@ -1,4 +1,4 @@
-import { fetchBySlug } from "~/utils/blog";
+import { fetchBySlug, fetchPageBlocks } from "~/utils/blog";
 
 export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, "slug");
@@ -17,9 +17,6 @@ export default defineEventHandler(async (event) => {
     };
   }
 
-  console.log(page);
-  return {
-    slug,
-    ...page,
-  };
+  const blocks = await fetchPageBlocks(page?.id);
+  return [...blocks];
 });

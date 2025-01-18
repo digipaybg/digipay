@@ -10,8 +10,15 @@ const {
   error,
 } = await useFetch(`/api/${locale.value}/blog/${route.params.slug as string}`);
 
-const data = await $notion.getPageBlocks(
-  fetchedData.value?.id.replaceAll("-", ""),
+if (error) {
+  console.error(error);
+}
+
+// const data = await $notion.getPageBlocks(
+//   fetchedData.value?.id.replaceAll("-", ""),
+// );
+const { data } = await useAsyncData(`notion-${route.params.slug}`, () =>
+  $notion.getPageBlocks(fetchedData.value?.id.replaceAll("-", "")),
 );
 
 const imageUrl: string =
@@ -30,12 +37,13 @@ definePageMeta({
       <NuxtImg
         v-if="fetchedData.cover"
         :src="imageUrl"
-        class="mx-auto rounded-2xl"
+        class="aspect-video object-cover rounded-lg mx-auto"
         alt="Cover image"
         width="1300"
         height="600"
         loading="lazy"
         preload
+        placeholder
         format="webp"
         :modifiers="{ rotate: null }"
       />
@@ -48,17 +56,6 @@ definePageMeta({
         data-allow-mismatch
         class="*:!text-foreground"
         katex
-        :imageOptions="{
-          component: 'nuxt-img',
-        }"
-        :mapImageUrl="(imageUrl: String, block: any) => {
-        if (block && block.type === 'cover') {
-          console.log('cover', imageUrl);
-          return imageUrl;
-        }
-        
-        return imageUrl;
-      }"
       />
     </div>
 
@@ -85,4 +82,28 @@ definePageMeta({
   margin-inline: auto;
   width: 60%;
 }
+
+// .notion-row {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: center;
+
+//   .notion-asset-wrapper {
+//     width: 25% !important;
+//     height: auto;
+//     display: block;
+//     margin-inline: auto;
+//     margin-top: 20px;
+//     margin-bottom: -100px;
+//     border-radius: 20px;
+
+//     img {
+//       border-radius: 100%;
+//       aspect-ratio: 1;
+//       height: auto;
+//       width: 25%;
+//     }
+//   }
+// }
 </style>

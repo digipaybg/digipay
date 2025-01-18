@@ -1,67 +1,66 @@
 <script lang="ts" setup>
 import { cn } from "@/lib/utils";
-
-const topics = [
-  {
-    topic: "Instant Payments",
-    description:
-      "New technologies for instant transfers and their impact on the financial sector",
-  },
-  {
-    topic: "Payments at the Eurozone threshold",
-    description:
-      "Preparation and adaptation of payment systems for Eurozone integration",
-  },
-  {
-    topic: "Fraud Prevention",
-    description:
-      "Modern methods and technologies for detecting and preventing financial fraud",
-  },
-  {
-    topic: "Cloud Technologies",
-    description:
-      "Using cloud solutions to enhance payment security and efficiency",
-  },
-  {
-    topic: "Secure Identification",
-    description:
-      "Biometric technologies and multi-factor authentication in digital payments",
-  },
-  {
-    topic: "Anti-money Laundering Practices",
-    description:
-      "Innovative approaches in combating money laundering and financial crimes",
-  },
-  {
-    topic: "User Experience and AI",
-    description:
-      "Artificial Intelligence and personalization for better customer experience",
-  },
-];
+import { useNuxt } from "nuxt/kit";
 
 const containerStyles =
-  "flex flex-col h-full w-full bg-secondary rounded-2xl p-6 shadow-[0px_0px_0px_0px] shadow-border hover:shadow-[0px_5px_10px_0px] hover:shadow-border hover:-translate-y-[5px] transition-all duration-300 ease-out";
+  "flex flex-col h-full w-full bg-secondary rounded-2xl p-6 shadow-[0px_0px_0px_0px] shadow-border hover:shadow-[0px_5px_10px_0px] hover:shadow-border hover:-translate-y-[5px] transition-all duration-300 ease-out containerStyle";
 
 const topicTitleStyle = "text-3xl font-semibold";
 const topicDescriptionStyle = "text-lg text-foreground/70";
+
+const { $anime } = useNuxtApp();
+
+let animation: anime.AnimeInstance;
+
+const containerRef = ref<HTMLElement | null>(null);
+const isContainerVisible = useElementVisibility(containerRef, {
+  threshold: 0.75,
+});
+
+watch(isContainerVisible, (isVisible) => {
+  if (isVisible && !animation.began) {
+    animation.play();
+  }
+});
+
+onMounted(() => {
+  animation = $anime({
+    targets: ".containerStyle",
+    translateY: [150, 0],
+    opacity: [0, 1],
+    filter: ["blur(10px)", "blur(0px)"],
+    duration: 600,
+    easing: "easeOutExpo",
+    autoplay: false,
+
+    delay: $anime.stagger(100, {
+      from: "center",
+    }),
+  });
+});
 </script>
 
 <template>
   <div>
-    <h1
-      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mt-32 mb-10"
-    >
-      {{ $t("Topics.title") }}
-    </h1>
+    <LetterPullup
+      text-class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mt-32 mb-10"
+      :words="$t('Topics.title')"
+      :initial-delay="0"
+    />
     <div
+      ref="containerRef"
       class="grid grid-cols-1 grid-rows-1 md:grid-cols-4 md:grid-rows-4 gap-2 min-h-[600px]"
     >
       <!-- Instant Payments -->
       <div :class="cn(containerStyles, 'md:row-span-3')">
         <div class="flex-1"></div>
         <div class="flex-[0.2]">
-          <h1 :class="topicTitleStyle">{{ topics[0].topic }}</h1>
-          <p :class="topicDescriptionStyle">{{ topics[0].description }}</p>
+          <h1 :class="topicTitleStyle">
+            {{ $t("Topics.items.instant_payments.topic") }}
+          </h1>
+          <p :class="topicDescriptionStyle">
+            {{ $t("Topics.items.instant_payments.description") }}
+          </p>
         </div>
       </div>
 
@@ -69,8 +68,12 @@ const topicDescriptionStyle = "text-lg text-foreground/70";
       <div :class="cn(containerStyles, 'md:row-span-1 md:col-span-2')">
         <div class="flex-1"></div>
         <div class="flex-[0.2]">
-          <h1 :class="topicTitleStyle">{{ topics[1].topic }}</h1>
-          <p :class="topicDescriptionStyle">{{ topics[1].description }}</p>
+          <h1 :class="topicTitleStyle">
+            {{ $t("Topics.items.eurozone.topic") }}
+          </h1>
+          <p :class="topicDescriptionStyle">
+            {{ $t("Topics.items.eurozone.description") }}
+          </p>
         </div>
       </div>
 
@@ -78,8 +81,12 @@ const topicDescriptionStyle = "text-lg text-foreground/70";
       <div :class="cn(containerStyles, 'md:row-span-1 md:col-span-1')">
         <div class="flex-1"></div>
         <div class="flex-[0.2]">
-          <h1 :class="topicTitleStyle">{{ topics[4].topic }}</h1>
-          <p :class="topicDescriptionStyle">{{ topics[4].description }}</p>
+          <h1 :class="topicTitleStyle">
+            {{ $t("Topics.items.identification.topic") }}
+          </h1>
+          <p :class="topicDescriptionStyle">
+            {{ $t("Topics.items.identification.description") }}
+          </p>
         </div>
       </div>
 
@@ -87,8 +94,12 @@ const topicDescriptionStyle = "text-lg text-foreground/70";
       <div :class="cn(containerStyles, 'md:row-span-2 md:col-span-1')">
         <div class="flex-1"></div>
         <div class="flex-[0.2]">
-          <h1 :class="topicTitleStyle">{{ topics[2].topic }}</h1>
-          <p :class="topicDescriptionStyle">{{ topics[2].description }}</p>
+          <h1 :class="topicTitleStyle">
+            {{ $t("Topics.items.fraud.topic") }}
+          </h1>
+          <p :class="topicDescriptionStyle">
+            {{ $t("Topics.items.fraud.description") }}
+          </p>
         </div>
       </div>
 
@@ -96,8 +107,12 @@ const topicDescriptionStyle = "text-lg text-foreground/70";
       <div :class="cn(containerStyles, 'md:row-span-2 md:col-span-2')">
         <div class="flex-1"></div>
         <div class="flex-[0.2]">
-          <h1 :class="topicTitleStyle">{{ topics[3].topic }}</h1>
-          <p :class="topicDescriptionStyle">{{ topics[3].description }}</p>
+          <h1 :class="topicTitleStyle">
+            {{ $t("Topics.items.cloud.topic") }}
+          </h1>
+          <p :class="topicDescriptionStyle">
+            {{ $t("Topics.items.cloud.description") }}
+          </p>
         </div>
       </div>
 
@@ -105,8 +120,12 @@ const topicDescriptionStyle = "text-lg text-foreground/70";
       <div :class="cn(containerStyles, 'md:row-span-1 md:col-span-2')">
         <div class="flex-1"></div>
         <div class="flex-[0.2]">
-          <h1 :class="topicTitleStyle">{{ topics[5].topic }}</h1>
-          <p :class="topicDescriptionStyle">{{ topics[5].description }}</p>
+          <h1 :class="topicTitleStyle">
+            {{ $t("Topics.items.aml.topic") }}
+          </h1>
+          <p :class="topicDescriptionStyle">
+            {{ $t("Topics.items.aml.description") }}
+          </p>
         </div>
       </div>
 
@@ -114,8 +133,12 @@ const topicDescriptionStyle = "text-lg text-foreground/70";
       <div :class="cn(containerStyles, 'md:row-span-1 md:col-span-2')">
         <div class="flex-1"></div>
         <div class="flex-[0.2]">
-          <h1 :class="topicTitleStyle">{{ topics[6].topic }}</h1>
-          <p :class="topicDescriptionStyle">{{ topics[6].description }}</p>
+          <h1 :class="topicTitleStyle">
+            {{ $t("Topics.items.ai.topic") }}
+          </h1>
+          <p :class="topicDescriptionStyle">
+            {{ $t("Topics.items.ai.description") }}
+          </p>
         </div>
       </div>
     </div>

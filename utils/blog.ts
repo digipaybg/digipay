@@ -32,15 +32,37 @@ export const fetchPages = async (language: string) => {
     );
   }
 
+  console.log("Fetching pages for language:", language);
+
   const args: QueryDatabaseParameters = {
     database_id: databaseId,
     filter: {
-      property: "language",
-      select: { equals: language },
+      and: [
+        {
+          property: "language",
+          select: {
+            equals: language,
+          },
+        },
+        {
+          property: "date",
+          date: {
+            on_or_before: new Date().toISOString(),
+          },
+        },
+      ],
     },
+    sorts: [
+      {
+        property: "date",
+        direction: "descending",
+      },
+    ],
   };
 
-  return await notion.databases.query(args);
+  const response = await notion.databases.query(args);
+  console.log("Found pages:", response.results.length);
+  return response;
 };
 
 // Check cache
@@ -58,12 +80,21 @@ export const fetchBySlug = (language: string, slug: string) => {
     .query({
       database_id: databaseId,
       filter: {
-        property: "slug",
-        rich_text: { equals: slug },
-        and: [{ property: "language", select: { equals: language } }],
+        and: [
+          {
+            property: "slug",
+            rich_text: { equals: slug },
+          },
+          {
+            property: "language",
+            select: { equals: language },
+          },
+        ],
       },
     })
-    .then((response) => response.results[0] as PageObjectResponse | undefined);
+    .then((response) => {
+      return response.results[0] as PageObjectResponse | undefined;
+    });
 };
 
 async function fetchNestedBlocks(
