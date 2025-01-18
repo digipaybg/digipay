@@ -11,12 +11,6 @@ export default defineEventHandler(async (event) => {
 
   const blogs = await fetchPages(language);
 
-  if (!blogs) {
-    return {
-      status: 404,
-    };
-  }
-
   return {
     locale: language,
     status: 200,

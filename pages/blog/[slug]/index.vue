@@ -21,10 +21,12 @@ const { data } = await useAsyncData(`notion-${route.params.slug}`, () =>
   $notion.getPageBlocks(fetchedData.value?.id.replaceAll("-", "")),
 );
 
-const imageUrl: string =
-  fetchedData.value.cover.type === "file"
+const imageUrl = computed(() => {
+  if (!fetchedData.value?.cover) return null;
+  return fetchedData.value.cover.type === "file"
     ? fetchedData.value.cover.file.url
     : fetchedData.value.cover.external.url;
+});
 
 definePageMeta({
   scrollToTop: true,
@@ -35,7 +37,7 @@ definePageMeta({
   <div>
     <div v-if="fetchedData && data" class="notion-page">
       <NuxtImg
-        v-if="fetchedData.cover"
+        v-if="fetchedData.cover && imageUrl"
         :src="imageUrl"
         class="aspect-video object-cover rounded-lg mx-auto"
         alt="Cover image"
@@ -47,14 +49,14 @@ definePageMeta({
         format="webp"
         :modifiers="{ rotate: null }"
       />
-      <h1 class="text-6xl font-bold my-8">
+      <h1 class="text-5xl font-bold my-8">
         {{ fetchedData.properties.title.title[0].text.content }}
       </h1>
       <NotionRenderer
         :blockMap="data"
         prism
         data-allow-mismatch
-        class="*:!text-foreground"
+        class="*:!text-foreground w-full"
         katex
       />
     </div>
@@ -81,6 +83,23 @@ definePageMeta({
   padding: 5rem;
   margin-inline: auto;
   width: 60%;
+
+  span {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    span {
+      font-size: 2rem !important;
+    }
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    @apply rounded-xl w-full aspect-video object-cover;
+  }
 }
 
 // .notion-row {

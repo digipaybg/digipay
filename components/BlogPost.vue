@@ -8,8 +8,9 @@ import type {
 } from "@notionhq/client/build/src/api-endpoints";
 import { formatDate } from "@vueuse/core";
 import type { PropType } from "vue";
+import { computed } from "vue";
 
-defineProps({
+const props = defineProps({
   isRow: {
     type: Boolean,
     default: false,
@@ -26,6 +27,13 @@ defineProps({
 });
 
 const localePath = useLocalePath();
+
+const cover = computed(() => {
+  if (!props.blog?.cover) return null;
+  return props.blog.cover.type === "file"
+    ? props.blog.cover.file.url
+    : props.blog.cover.external.url;
+});
 </script>
 
 <template>
@@ -36,17 +44,14 @@ const localePath = useLocalePath();
     <div
       :class="
         cn(
-          'flex flex-col gap-4 items-start w-full hover:bg-white/15 p-4 rounded-xl transition-all duration-300 ease-out shadow-none hover:-translate-y-3 hover:shadow-[0px_5px_10px_0px] hover:shadow-border hover:gap-6',
+          'flex flex-col gap-4 items-start w-full h-full hover:bg-white/15 p-4 rounded-xl transition-all duration-300 ease-out shadow-none hover:-translate-y-3 hover:shadow-[0px_5px_10px_0px] hover:shadow-border hover:gap-6',
           { 'flex-row gap-8 hover:gap-10': isRow },
         )
       "
     >
       <NuxtImg
-        :src="
-          blog.cover.type === 'file'
-            ? blog.cover.file.url
-            : blog.cover.external.url
-        "
+        v-if="cover"
+        :src="cover"
         :preload="isRow"
         :placeholder="true"
         alt="cover"
@@ -55,11 +60,11 @@ const localePath = useLocalePath();
         "
         :modifiers="{ rotate: null }"
       />
-      <div class="flex-1">
+      <div class="flex-1 flex flex-col">
         <h1
           :class="
-            cn('text-2xl font-semibold', {
-              'text-5xl': isRow,
+            cn('text-2xl font-semibold flex-1', {
+              'text-4xl': isRow,
             })
           "
         >
@@ -71,7 +76,7 @@ const localePath = useLocalePath();
           }}
         </p>
         <p class="mt-2 text-gray-600">{{ blog.description }}</p>
-        <div class="mt-4">Read More</div>
+        <!-- <div class="mt-4">Read More</div> -->
       </div>
     </div>
   </NuxtLink>
