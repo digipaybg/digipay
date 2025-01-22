@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { breakpointsTailwind } from "@vueuse/core";
+
 const years = [
   {
     year: 2024,
@@ -58,62 +60,62 @@ watch(visible, (value) => {
   }
 });
 
+const isMobile = useBreakpoints(breakpointsTailwind).isSmallerOrEqual("md");
+
 onMounted(() => {
   animation = $anime({
     targets: ".year-container",
-    translateY: [75, 0],
+    translateY: [isMobile ? 45 : 75, 0],
     opacity: [0, 1],
-    scale: [0.8, 1],
-    filter: ["blur(10px)", "blur(0px)"],
-    delay: $anime.stagger(100, {
-      from: "center",
-      start: 800,
+    scale: [0.9, 1],
+    filter: ["blur(8px)", "blur(0px)"], // Reduced blur for better mobile performance
+    delay: $anime.stagger(isMobile ? 50 : 100, {
+      from: isMobile ? "first" : "center",
     }),
     easing: "easeOutExpo",
-    duration: 500,
+    duration: isMobile ? 400 : 500,
     autoplay: false,
   });
 });
 </script>
 
 <template>
-  <div class="space-y-4 mt-32">
+  <div class="space-y-4 mt-16 sm:mt-32 px-4 sm:px-6 md:px-8">
     <LetterPullup
-      text-class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 mt-32 mb-10"
+      text-class="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold z-20 mt-16 sm:mt-32 mb-6 sm:mb-10"
       :words="$t('OtherYears.title')"
       :initial-delay="0"
+      container-class="justify-center"
+      key="other-years"
     />
     <div
-      class="grid grid-cols-1 md:grid-rows-3 md:grid-cols-4 gap-4 py-4"
+      class="flex flex-col md:flex-row overflow-x-auto pb-4 gap-3 sm:gap-4 hide-scrollbar snap-x snap-mandatory"
       ref="yearBoxes"
     >
       <OtherYearsBox
-        v-for="year in [years[5], years[4]]"
+        v-for="year in years"
         :year="year"
-        bentoSpan="md:col-span-2"
-      />
-
-      <!-- Middle Row - Side Boxes (2021 and 2022) -->
-      <OtherYearsBox
-        v-for="year in [years[3], years[0]]"
         :key="year.year"
-        :year="year"
-        bentoSpan="md:col-span-1 md:row-span-2"
-      />
-
-      <!-- Middle Row - Center Box -->
-      <div
-        class="md:col-start-2 md:col-span-2 md:row-start-2 bg-accent/20 rounded-xl p-6 text-center flex flex-col justify-center year-container"
-      >
-        <h2 class="text-4xl font-bold text-primary">2025</h2>
-      </div>
-
-      <!-- Bottom Row - 2023 -->
-      <OtherYearsBox
-        v-for="year in [years[2], years[1]]"
-        :year="year"
-        bentoSpan="md:col-span-1 md:row-span-1"
+        bentoSpan="min-w-[280px] sm:min-w-0 sm:flex-1 snap-center"
       />
     </div>
   </div>
 </template>
+
+<style scoped>
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .year-container {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+</style>

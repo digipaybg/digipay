@@ -1,10 +1,15 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+useHead({
+  titleTemplate: (title) =>
+    title ? `${title} | DIGIPAY 2025` : "DIGIPAY 2025",
+});
+</script>
 
 <template>
   <div>
     <Navigation />
     <slot />
-    <Footer/>
+    <Footer />
   </div>
 </template>
 

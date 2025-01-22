@@ -6,6 +6,7 @@ const props = defineProps<{
   initialDelay?: number;
   containerClass?: string;
   textClass?: string;
+  animateDirectly?: boolean;
 }>();
 
 const { y: scrollY } = useWindowScroll();
@@ -41,6 +42,10 @@ onMounted(() => {
       start: props.initialDelay ?? 0,
     }),
   });
+
+  if (props.animateDirectly) {
+    animation.play();
+  }
 });
 </script>
 

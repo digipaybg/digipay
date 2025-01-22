@@ -44,17 +44,17 @@ onMounted(() => {
     "-=500",
   );
 
-  animation = $anime({
-    targets: titleRef.value,
-    opacity: [0, 1],
-    filter: ["blur(10px)", "blur(0px)"],
-    scale: [0.8, 1],
-    easing: "easeOutExpo",
-    autoplay: false,
-    begin: () => {
-      $anime.set(titleRef.value, { opacity: 0 });
-    },
-  });
+  // animation = $anime({
+  //   targets: titleRef.value,
+  //   opacity: [0, 1],
+  //   filter: ["blur(10px)", "blur(0px)"],
+  //   scale: [0.8, 1],
+  //   easing: "easeOutExpo",
+  //   autoplay: false,
+  //   begin: () => {
+  //     $anime.set(titleRef.value, { opacity: 0 });
+  //   },
+  // });
 });
 </script>
 
@@ -91,6 +91,7 @@ onMounted(() => {
           words="Your secure and convenient journey"
           :initialDelay="200"
           containerClass="flex justify-center"
+          key="hero"
         />
       </div>
     </div>
@@ -111,12 +112,12 @@ onMounted(() => {
       </span>
     </h1>
 
-    <h1
+    <!-- <h1
       ref="titleRef"
       class="w-full text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] 2xl:text-[13rem] font-mono font-black text-center tracking-[.0095em] mx-auto"
     >
       {{ $t("HomePage.hero.mainTitle") }}
-    </h1>
+    </h1> -->
   </div>
 </template>
 

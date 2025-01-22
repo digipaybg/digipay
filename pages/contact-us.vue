@@ -3,13 +3,18 @@ import { addDoc, collection } from "firebase/firestore";
 import { toast } from "vue-sonner";
 import { db } from "~/lib/firebase";
 
+const { t } = useI18n();
+
+useHead({
+  title: t("ContactPage.title"),
+});
+
 const name = ref("");
 const email = ref("");
 const message = ref("");
 
 const disabled = ref(false);
 
-const { t } = useI18n();
 async function sendMail() {
   console.log({ name: name.value, email: email.value, message: message.value });
 
@@ -55,23 +60,29 @@ async function sendMail() {
 </script>
 
 <template>
-  <div class="max-w-screen-2xl mx-auto *:font-sans">
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 *:font-sans">
     <LetterPullup
+      :animate-directly="true"
       :words="$t('ContactPage.title')"
-      text-class="!text-6xl"
-      :initial-delay="150"
+      text-class="!text-4xl md:!text-6xl"
+      :initial-delay="100"
+      key="title-contact"
     />
     <LetterPullup
+      :animate-directly="true"
       :words="$t('ContactPage.subtitle')"
-      text-class="!text-5xl font-semibold pt-4"
-      :initial-delay="250"
+      text-class="!text-3xl md:!text-5xl font-semibold pt-4"
+      :initial-delay="200"
+      key="subtitle-contact"
     />
 
-    <div class="flex flex-col items-center mt-20">
+    <div class="flex flex-col items-center my-16 md:my-32">
       <div class="flex flex-col items-center w-full max-w-2xl">
-        <div class="flex flex-col gap-8 w-full">
-          <div class="flex gap-4 items-center">
-            <div class="flex-1 space-y-2">
+        <div class="flex flex-col gap-6 md:gap-8 w-full">
+          <div
+            class="flex flex-col md:flex-row gap-4 items-start md:items-center"
+          >
+            <div class="flex-1 space-y-2 w-full">
               <Label for="name">{{ $t("ContactPage.form.name") }}</Label>
               <Input
                 v-model="name"
@@ -81,9 +92,8 @@ async function sendMail() {
                 :disabled="disabled"
               />
             </div>
-            <div class="flex-1 space-y-2">
+            <div class="flex-1 space-y-2 w-full">
               <Label for="email">{{ $t("ContactPage.form.email") }}</Label>
-
               <Input
                 v-model="email"
                 label="Email"
@@ -107,13 +117,14 @@ async function sendMail() {
         </div>
         <Button
           type="submit"
-          class="mt-8 w-full bg-primary text-primary-foreground"
+          class="mt-6 md:mt-8 w-full bg-primary text-primary-foreground"
           @click="sendMail"
         >
           {{ $t("ContactPage.form.send") }}
         </Button>
       </div>
     </div>
+    <NewsletterSection />
   </div>
 </template>
 

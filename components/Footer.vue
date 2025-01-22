@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 const people = [
   {
-    name: "petya_veleva",
-    position: "ceo",
-    image: "/authors/petya-veleva.png",
-    phone: "+359 889 527 212",
-    email: "petya.veleva@digipay.bg",
-  },
-  {
     name: "raya_lecheva",
     position: "founderAndGeneralManager",
     image: "/authors/raya-lecheva.png",
     phone: "+359 878 160 610",
     email: "raya.lecheva@digipay.bg",
     linkedIn: "https://www.linkedin.com/in/raya-lecheva-9b155613",
+  },
+  {
+    name: "petya_veleva",
+    position: "ceo",
+    image: "/authors/petya-veleva.png",
+    phone: "+359 889 527 212",
+    email: "petya.veleva@digipay.bg",
   },
 ];
 
@@ -61,7 +61,7 @@ const socials = [
               :src="person.image"
               format="webp"
               quality="80"
-              class="aspect-square h-20 w-20 rounded-full"
+              class="aspect-square h-20 w-20 rounded-full self-center md:self-auto"
             />
             <div class="">
               <h1 class="text-sm font-bold sm:text-base md:text-lg">

@@ -34,53 +34,57 @@ watch(isDescriptionVisible, (value) => {
 onMounted(() => {
   animation = $anime({
     targets: ".timeline-item",
-    filter: ["blur(10px)", "blur(0px)"],
+    filter: ["blur(5px)", "blur(0px)"], // Reduced blur for better mobile performance
     opacity: [0, 1],
-    left: ["-100px", "0px"],
+    left: ["-50px", "0px"], // Reduced movement for mobile
     easing: "easeOutExpo",
     autoplay: false,
-    delay: $anime.stagger(100),
+    delay: $anime.stagger(50), // Faster stagger for mobile
   });
 });
 </script>
 
 <template>
   <div
-    class="flex flex-col justify-evenly space-y-6 sm:space-y-10 mx-auto mt-32"
+    class="flex flex-col justify-evenly space-y-2 sm:space-y-6 mx-auto mt-8 sm:mt-32"
   >
     <LetterPullup
-      text-class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold z-20 mt-32 mb-10"
+      text-class="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold z-20 mt-8 sm:mt-32 mb-4 sm:mb-10"
       :words="$t('WhoIsItAbout.title')"
       :initial-delay="0"
+      container-class="justify-center"
+      key="about"
     />
     <div class="relative" ref="containerRef">
       <div
         v-for="(item, index) in timelineItems"
         :key="index"
-        class="relative flex items-center min-h-40 sm:min-h-52 pb-20 sm:pb-32 md:pb-44 pl-8 sm:pl-12 timeline-item"
+        class="relative flex items-start sm:items-center min-h-[100px] sm:min-h-40 pb-8 sm:pb-20 md:pb-44 pl-4 sm:pl-8 md:pl-12 timeline-item"
       >
         <div
           v-if="index !== timelineItems.length - 1"
-          class="absolute left-6 sm:left-8 top-0 h-full w-px bg-primary/50"
+          class="absolute left-3 sm:left-6 md:left-8 top-0 h-full w-px bg-primary/50"
         />
-        <div class="ml-8 sm:ml-12 w-full">
+        <div class="ml-4 sm:ml-8 md:ml-12 w-full">
           <div
-            class="w-12 h-12 sm:w-16 sm:h-16 bg-secondary border-primary border rounded-full flex items-center justify-center absolute -left-0 top-0"
+            class="w-6 h-6 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-secondary border-primary border rounded-full flex items-center justify-center absolute -left-0 top-0"
           >
-            <div class="text-secondary-foreground w-5 h-5 sm:w-8 sm:h-8">
-              <Icon :name="item.icon" size="32" />
+            <div
+              class="text-secondary-foreground w-3 h-3 sm:w-5 sm:h-5 md:w-8 md:h-8"
+            >
+              <Icon :name="item.icon" class="w-full h-full" />
             </div>
           </div>
           <div
-            class="mt-2 flex flex-col md:flex-row md:justify-between gap-4 md:gap-0"
+            class="mt-1 sm:mt-2 flex flex-col md:flex-row md:justify-between gap-2 sm:gap-4 md:gap-0"
           >
             <h3
-              class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
+              class="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
             >
               {{ $t(`WhoIsItAbout.items.${item.key}.title`) }}
             </h3>
             <p
-              class="text-foreground/60 text-base sm:text-lg md:text-xl w-full md:w-1/3 md:text-right"
+              class="text-xs sm:text-base md:text-xl text-foreground/60 w-full md:w-1/3 md:text-right"
             >
               {{ $t(`WhoIsItAbout.items.${item.key}.description`) }}
             </p>
@@ -90,3 +94,11 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+@media (max-width: 640px) {
+  .timeline-item {
+    overflow-x: hidden;
+  }
+}
+</style>

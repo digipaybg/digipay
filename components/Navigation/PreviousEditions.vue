@@ -28,19 +28,19 @@ const previousEditions = [
 <template>
   <Dialog>
     <DialogTrigger :as-child="true">
-      <Button variant="link" class="text-lg">
-        {{ t("Navigation.previousEditions") }}
+      <Button variant="ghost" class="md:text-lg mx-2 text-xl w-full">
+        {{ $t("Navigation.previousEditions") }}
       </Button>
     </DialogTrigger>
 
     <DialogContent class="p-4">
       <DialogHeader class="p-3">
         <DialogTitle class="font-bold text-xl">
-          {{ t("Navigation.previousEditions") }}
+          {{ $t("Navigation.previousEditions") }}
         </DialogTitle>
       </DialogHeader>
 
-      <div class="flex flex-wrap w-full gap-4">
+      <div class="flex flex-col md:flex-row flex-wrap w-full gap-4">
         <NuxtLink
           v-for="edition in previousEditions"
           :key="edition.year"

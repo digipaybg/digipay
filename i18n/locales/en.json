@@ -29,7 +29,7 @@
     "hero": {
       "mainTitle": "DIGIPAY 2025",
       "subtitle": "Your secure and convenient journey",
-      "date": "08 October 2025",
+      "date": "07 October 2025",
       "format": "Live & Virtual",
       "location": "Inter Expo Center"
     }
@@ -47,7 +47,9 @@
     "participants": "Participants",
     "video": "Video",
     "contact": "Contact",
-    "previousEditions": "Previous Editions"
+    "previousEditions": "Previous Editions",
+    "language": "Language",
+    "menu": "Menu"
   },
   "WhoIsItAbout": {
     "title": "Who is this event for?",
@@ -80,12 +82,12 @@
   "DigipayDifference": {
     "title": "How do we differ?",
     "differences": {
-      "1": "WE are a specialized event with a mission: secure and accessible digital payments",
-      "2": "DIGIPAY has two main goals: security and convenience",
-      "3": "DIGIPAY is the platform for transforming the world of digital payments",
-      "4": "DIGIPAY unites businesses, regulators, and users, all sector participants, putting users at the center",
-      "5": "DIGIPAY seeks strong partnerships to promote secure and convenient digital payments in Bulgaria and Central and Eastern Europe",
-      "6": "Our goal is to turn your mission into a competitive advantage by investing in the strategic goal of educating customers about safer and more convenient digital payments"
+      "1": "WE; are a specialized; event; with a mission; for secure; and accessible; digital; payments;",
+      "2": "DIGIPAY; has two; main goals;: security; and convenience;",
+      "3": "DIGIPAY; is the platform; for transforming; the world; of digital payments;",
+      "4": "DIGIPAY; unites; businesses;, regulators;, and users;, putting users; at the center;",
+      "5": "DIGIPAY; seeks strong; partnerships; to promote secure; digital payments; in Bulgaria; and Central and Eastern Europe;",
+      "6": "Our goal; is to transform; your mission; into a competitive advantage; through customer; education;"
     }
   },
   "Topics": {
@@ -145,7 +147,7 @@
   },
   "ContactPage": {
     "title": "Contact Us",
-    "subtitle": "Send us a message",
+    "subtitle": "Become a Investor or Exhibitor or you just want to write us:",
     "form": {
       "name": "Name",
       "email": "Email",
@@ -158,6 +160,35 @@
         "sendError": "Error sending message"
       },
       "success": "Message sent successfully"
+    }
+  },
+  "Testimonials": {
+    "title": "Testimonials",
+    "people": {
+      "boris": {
+        "name": "Boris Goncharov",
+        "role": "Chief Visionary Officer, AMATAS"
+      },
+      "goran": {
+        "name": "Goran Angelov",
+        "role": "Founder and CEO, IBS Bulgaria"
+      },
+      "ivana": {
+        "name": "Ivana Rosencic",
+        "role": "Business Intelligence Consultant, KOIOS Croatia"
+      },
+      "deyan": {
+        "name": "Deyan Radev",
+        "role": "Professor of Fintech, Sofia University"
+      },
+      "chrystalla": {
+        "name": "Chrystalla Kazara",
+        "role": "Internal Auditor, HRDA, Vice President ACFE"
+      },
+      "tsvetomir": {
+        "name": "Tsvetomir Doskov",
+        "role": "SVP, Head of Financial Vertical, Sirma"
+      }
     }
   }
 }

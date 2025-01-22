@@ -66,20 +66,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="space-y-8 sm:space-y-10">
-    <div
-      class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8"
-    >
-      <AboutImageCard
-        v-for="(image, index) in images"
-        :key="index"
-        v-bind="image"
-      />
-    </div>
-
+  <div class="space-y-4 sm:space-y-8">
     <h1
       ref="descriptionRef"
-      class="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-foreground/70 description-text"
+      class="text-lg sm:text-xl md:text-4xl lg:text-6xl text-foreground/70 description-text my-8 sm:my-20 leading-relaxed sm:leading-normal"
     >
       <span class="text-accent font-bold">DIGIPAY</span>
 
@@ -121,20 +111,30 @@ onMounted(() => {
 
       {{ $t("AboutPage.for_secure_payments") }}.
 
-      <span
+      <!-- <span
         class="font-bold text-blue-300 text-2xl sm:text-4xl md:text-5xl lg:text-6xl"
       >
         {{ $t("AboutPage.join_us") }}
-      </span>
+      </span> -->
     </h1>
 
-    <div class="space-y-6">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-10">
+    <div
+      class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-8"
+    >
+      <AboutImageCard
+        v-for="(image, index) in images"
+        :key="index"
+        v-bind="image"
+      />
+    </div>
+
+    <div class="space-y-4 sm:space-y-6">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-10">
         <AboutStatistics :label="$t('AboutPage.participants')" :value="500" />
         <AboutStatistics :label="$t('AboutPage.speakers')" :value="20" />
         <AboutStatistics :label="$t('AboutPage.partners')" :value="22" />
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-10">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-10">
         <AboutStatistics
           :label="$t('AboutPage.statistics.satisfaction')"
           :value="62.2"
@@ -163,5 +163,12 @@ onMounted(() => {
 <style scoped>
 .description span {
   @apply opacity-0;
+}
+
+@media (max-width: 640px) {
+  .description-text {
+    word-wrap: break-word;
+    hyphens: auto;
+  }
 }
 </style>

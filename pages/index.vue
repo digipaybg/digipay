@@ -3,6 +3,12 @@ definePageMeta({
   scrollToTop: true,
   keepalive: false,
 });
+
+useFavicon("/logo.svg");
+
+useHead({
+  title: null,
+});
 </script>
 
 <template>
@@ -13,6 +19,7 @@ definePageMeta({
       <LazyHomeTopicsSection />
       <LazyHomeWhoIsItAboutSection />
       <LazyHomeDigipayDifferenceSection />
+      <LazyHomeTestimonialsSection />
       <LazyHomeVideoSection />
       <LazyHomeWhatHappenedInOtherYearsSection />
       <LazyHomeNewsletterSection />

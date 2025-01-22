@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 const { locale } = useI18n();
 const { data } = useFetch(`/api/${locale.value}/blog`);
+const { t } = useI18n();
+
+useHead({
+  title: t("Navigation.blog"),
+});
 
 definePageMeta({
   scrollToTop: true,

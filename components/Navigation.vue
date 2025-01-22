@@ -20,6 +20,8 @@ const navigationItems = [
     href: "/contact-us",
   },
 ];
+
+const isMobileMenuOpen = ref(false);
 </script>
 
 <template>
@@ -37,13 +39,15 @@ const navigationItems = [
       <NuxtLink :to="localePath('/')">
         <Logo class="w-12" />
       </NuxtLink>
-      <div className="space-x-4 flex items-center">
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center">
         <NuxtLink
           v-for="item in navigationItems"
           :key="item.href"
           :to="localePath(item.href)"
         >
-          <Button class="text-lg" variant="link">
+          <Button class="text-lg mx-2" variant="ghost">
             {{ $t(item.label) }}
           </Button>
         </NuxtLink>
@@ -51,6 +55,41 @@ const navigationItems = [
         <NavigationPreviousEditions />
         <NavigationLanguageSelector />
       </div>
+
+      <!-- Mobile Menu Button -->
+      <Button
+        variant="ghost"
+        size="icon"
+        class="md:hidden p-2"
+        @click="isMobileMenuOpen = true"
+      >
+        <Icon name="tabler:menu-2" size="32" />
+      </Button>
+
+      <!-- Mobile Navigation Sheet -->
+      <Sheet :open="isMobileMenuOpen" @update:open="isMobileMenuOpen = $event">
+        <SheetContent class="">
+          <SheetHeader>
+            <SheetTitle class="text-3xl text-left">
+              {{ $t("Navigation.menu") }}
+            </SheetTitle>
+          </SheetHeader>
+          <div cl ass="flex flex-col gap-4 mt-4 -m-2">
+            <NuxtLink
+              v-for="item in navigationItems"
+              :key="item.href"
+              :to="localePath(item.href)"
+              @click="isMobileMenuOpen = false"
+            >
+              <Button class="w-full text-left text-xl py-4" variant="ghost">
+                {{ $t(item.label) }}
+              </Button>
+            </NuxtLink>
+            <NavigationPreviousEditions />
+            <NavigationLanguageSelector />
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   </div>
 </template>

@@ -28,6 +28,16 @@ const imageUrl = computed(() => {
     : fetchedData.value.cover.external.url;
 });
 
+useHead({
+  title: fetchedData.value?.properties.title.title[0].text.content,
+});
+
+defineOgImage({
+  url: imageUrl.value,
+  alt: fetchedData.value?.properties.title.title[0].text.content,
+  cacheMaxAgeSeconds: 60 * 60 * 24 * 365,
+});
+
 definePageMeta({
   scrollToTop: true,
 });

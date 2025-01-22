@@ -25,19 +25,33 @@ watch(visible, () => {
 </script>
 
 <template>
-  <div ref="statRef" class="-space-y-2">
+  <div ref="statRef" class="flex flex-col space-y-1 sm:space-y-2">
     <NumberFlow
       :value="count"
       :class="
-        cn('text-5xl font-bold text-accent-foreground', { 'text-4xl': smaller })
+        cn(
+          'text-3xl sm:text-4xl lg:text-5xl font-bold text-accent-foreground',
+          { 'text-2xl sm:text-3xl lg:text-4xl': smaller },
+        )
       "
       :suffix="trailing ?? ' +'"
     />
     <h2
-      class="text-4xl text-foreground/50"
-      :class="cn('text-4xl text-foreground/50', { 'text-xl': smaller })"
+      :class="
+        cn('text-xl sm:text-2xl lg:text-4xl text-foreground/50 leading-tight', {
+          'text-lg sm:text-xl lg:text-2xl': smaller,
+        })
+      "
     >
       {{ label }}
     </h2>
   </div>
 </template>
+
+<style scoped>
+@media (max-width: 640px) {
+  .number-flow {
+    line-height: 1.2;
+  }
+}
+</style>

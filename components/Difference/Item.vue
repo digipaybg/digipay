@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { cn } from "@/lib/utils";
+import { breakpointsTailwind } from "@vueuse/core";
 
 const props = defineProps<{
   index: number;
@@ -23,9 +24,9 @@ watch(isItemVisible, (isVisible) => {
 onMounted(() => {
   animation = $anime.timeline({
     easing: "easeOutExpo",
-    duration: 750,
+    duration: window.innerWidth < 640 ? 500 : 750, // Faster animation on mobile
     autoplay: false,
-    delay: 120,
+    delay: window.innerWidth < 640 ? 80 : 120, // Shorter delay on mobile
   });
 
   const targetSelector = `.diff-${props.index}`;
@@ -33,8 +34,8 @@ onMounted(() => {
   animation.add({
     targets: `${targetSelector} .diff-image`,
     opacity: [0, 1],
-    scale: [0.6, 1],
-    filter: ["blur(15px)", "blur(0px)"],
+    scale: [0.8, 1], // Less dramatic scale on mobile
+    filter: ["blur(10px)", "blur(0px)"], // Reduced blur for better performance
   });
 
   animation.add(
@@ -60,14 +61,20 @@ onMounted(() => {
     "-=600",
   );
 });
+
+const { t } = useI18n();
+
+const isMobile = useBreakpoints(breakpointsTailwind).isSmallerOrEqual("lg");
+const isEven = props.index % 2 === 0 || isMobile;
 </script>
 
 <template>
   <div
     :class="
       cn(
-        'flex diff-' + index,
-        index % 2 === 0 ? 'flex-row' : 'flex-row-reverse',
+        'flex gap-4 max-h-[500px] sm:gap-0 diff-' + index,
+        'flex-col sm:flex-row rounded-[50px] overflow-hidden',
+        props.index % 2 === 0 ? '!flex-row' : '!flex-row-reverse',
       )
     "
     ref="itemRef"
@@ -75,15 +82,15 @@ onMounted(() => {
     <div
       :class="
         cn(
-          'flex-[2] flex items-center justify-center relative rounded-[50px] overflow-hidden diff-image',
-          index % 2 === 0 ? 'rounded-r-none' : 'rounded-l-none',
+          'flex-[2] flex items-center justify-center relative overflow-hidden diff-image',
+          'min-h-[200px] sm:min-h-0',
         )
       "
     >
       <NuxtImg
         :src="`/differences/difference-${index + 1}.jpg`"
         :alt="$t(diff)"
-        class="w-full aspect-video object-cover"
+        class="w-full h-full object-cover"
         format="webp"
         preload
         placeholder
@@ -95,21 +102,42 @@ onMounted(() => {
     <div
       :class="
         cn(
-          'flex-[1] rounded-[50px] aspect-video flex flex-col justify-between p-16 overflow-hidden diff-text',
-          index % 2 === 0
-            ? 'bg-secondary rounded-l-none'
-            : 'bg-muted rounded-r-none',
+          'flex-[2] md:flex-[1] flex flex-col justify-end p-4 sm:p-8 md:p-16 overflow-hidden diff-text',
+          'min-h-[150px] sm:min-h-0',
+
+          'rounded-l-none',
+          isEven
+            ? 'bg-secondary sm:rounded-l-none'
+            : 'bg-muted sm:rounded-r-none',
         )
       "
     >
-      <h3 class="text-5xl font-bold diff-text-content">
-        {{ index + 1 }}
-      </h3>
-      <p
-        class="text-md sm:text-lg md:text-xl lg:text-2xl font-semibold diff-text-content"
-      >
-        {{ $t(diff) }}
+      <p class="diff-text-content">
+        <span
+          v-for="(word, wordIndex) in t(diff).split(' ')"
+          :key="`${word}-${wordIndex}`"
+          :class="[
+            'inline-block text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed sm:leading-normal',
+            word.endsWith(';')
+              ? 'text-primary font-bold'
+              : 'text-primary/70 font-semibold',
+          ]"
+        >
+          {{ word.replace(";", "") }}&nbsp;
+        </span>
       </p>
     </div>
   </div>
 </template>
+
+<style scoped>
+.diff-text {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 640px) {
+  .diff-text {
+    box-shadow: none;
+  }
+}
+</style>
