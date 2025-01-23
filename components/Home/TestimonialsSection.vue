@@ -38,9 +38,7 @@ const people = [
       :initial-delay="0"
       key="topics"
     />
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <div
         class="flex-1 overflow-hidden p-3 sm:p-4 rounded-xl bg-secondary flex flex-col gap-2 sm:gap-4 justify-between"
         v-for="(person, index) in people"
@@ -65,6 +63,11 @@ const people = [
               {{ $t(`Testimonials.people.${person.key}.role`) }}
             </h3>
           </div>
+        </div>
+        <div class="flex-1 flex flex-col justify-end">
+          <h1 class="text-sm sm:text-base text-foreground flex-1">
+            "{{ $t(`Testimonials.people.${person.key}.quote`) }}"
+          </h1>
         </div>
       </div>
     </div>

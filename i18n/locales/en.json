@@ -167,27 +167,33 @@
     "people": {
       "boris": {
         "name": "Boris Goncharov",
-        "role": "Chief Visionary Officer, AMATAS"
+        "role": "Chief Visionary Officer, AMATAS",
+        "quote": "It was interesting from this perspective, people shared practical experience, specific cases of financial fraud, which I believe were extremely interesting to me and the audience"
       },
       "goran": {
         "name": "Goran Angelov",
-        "role": "Founder and CEO, IBS Bulgaria"
+        "role": "Founder and CEO, IBS Bulgaria",
+        "quote": "It won't be easy, dealing with financial fraud requires a systematic approach, which is why it's important to talk about it now"
       },
       "ivana": {
         "name": "Ivana Rosencic",
-        "role": "Business Intelligence Consultant, KOIOS Croatia"
+        "role": "Business Intelligence Consultant, KOIOS Croatia",
+        "quote": "The most important lessons from joining the eurozone are to work together, collaborate with the central bank, and learn from each other. At DIGI PAY, we can share this knowledge"
       },
       "deyan": {
         "name": "Deyan Radev",
-        "role": "Professor of Fintech, Sofia University"
+        "role": "Professor of Fintech, Sofia University",
+        "quote": "At DIGI PAY, we managed to discuss that inflation won't be a major problem and will have a short-term effect when joining the eurozone. These conversations in society are rare"
       },
       "chrystalla": {
         "name": "Chrystalla Kazara",
-        "role": "Internal Auditor, HRDA, Vice President ACFE"
+        "role": "Internal Auditor, HRDA, Vice President ACFE",
+        "quote": "The main message is about the importance of fraud prevention. As we discussed during the conference, prevention will cost companies less than dealing with the consequences later"
       },
       "tsvetomir": {
         "name": "Tsvetomir Doskov",
-        "role": "SVP, Head of Financial Vertical, Sirma"
+        "role": "SVP, Head of Financial Vertical, Sirma",
+        "quote": "It's important to focus simultaneously on secure and accessible digital payments, which is the theme of the conference"
       }
     }
   }
