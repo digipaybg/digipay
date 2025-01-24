@@ -9,7 +9,7 @@ const diffs = [1, 2, 3, 4, 5, 6].map(
 <template>
   <div class="mt-32">
     <LetterPullup
-      text-class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold "
+      text-class="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold z-20 mt-8 sm:mt-32 mb-4 sm:mb-10 "
       container-class="mb-10 justify-center"
       :words="$t('DigipayDifference.title')"
       :initial-delay="0"

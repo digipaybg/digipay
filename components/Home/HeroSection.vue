@@ -89,8 +89,9 @@ onMounted(() => {
         </div>
         <LetterPullup
           words="Your secure and convenient journey"
-          :initialDelay="200"
-          containerClass="flex justify-center"
+          :initialDelay="0"
+          containerClass="flex justify-center w-full"
+          textClass="text-2xl md:text-3xl md:text-4xl lg:text-5xl hero"
           key="hero"
         />
       </div>
@@ -98,14 +99,15 @@ onMounted(() => {
 
     <h1
       ref="infoRef"
-      class="text-base sm:text-lg md:text-2xl lg:text-3xl font-normal font-mono text-center flex flex-col md:flex-row items-center md:justify-between w-full px-4 gap-2 md:gap-0 -z-10"
+      class="text-2xl lg:text-3xl font-normal font-mono text-center flex flex-col md:flex-row items-center md:justify-between w-full px-4 gap-4 md:gap-0 -z-10"
     >
       <span
-        v-for="(item, index) in [
+        v-for="item in [
           $t('HomePage.hero.date'),
           $t('HomePage.hero.format'),
           $t('HomePage.hero.location'),
         ]"
+        :key="item"
         class="details"
       >
         {{ item }}

@@ -75,7 +75,7 @@ onMounted(() => {
       ref="descriptionRef"
       class="text-2xl md:text-4xl lg:text-6xl text-foreground/70 description-text my-8 sm:my-20 leading-relaxed sm:leading-normal"
     >
-      <span class="text-accent font-bold">DIGIPAY</span>
+      <span class="text-[#eeb65b] font-bold">DIGIPAY</span>
 
       {{ $t("AboutPage.is_largest_event") }}
 

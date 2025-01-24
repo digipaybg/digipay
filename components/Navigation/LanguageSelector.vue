@@ -26,10 +26,10 @@ const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");
       <Button
         variant="ghost"
         :size="isMobile ? 'default' : 'icon'"
-        class="flex items-center gap-2 md:gap-0 w-full md:w-auto justify-start md:justify-center"
+        class="flex items-center gap-4 w-full justify-center"
       >
         <Icon name="tabler:language" :size="24" />
-        <span class="md:hidden text-base font-medium">
+        <span class="md:hidden text-xl font-medium">
           {{ $t("Navigation.language") }}
         </span>
       </Button>
