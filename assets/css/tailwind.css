@@ -16,7 +16,7 @@ body {
     --popover-foreground: 244 68% 6%;
     --primary: 244 60% 20%;
     --primary-foreground: 220 25% 97%;
-    --secondary: 220 20% 92%;
+    --secondary: 220 25% 95%;
     --secondary-foreground: 244 60% 20%;
     --muted: 220 20% 92%;
     --muted-foreground: 244 40% 30%;
@@ -43,7 +43,7 @@ body {
     --popover-foreground: 0 25% 97%;
     --primary: 220 25% 97%;
     --primary-foreground: 0 60% 0%;
-    --secondary: 244 50% 12%;
+    --secondary: 244 50% 15%;
     --secondary-foreground: 0 25% 97%;
     --muted: 244 50% 12%;
     --muted-foreground: 0 20% 80%;

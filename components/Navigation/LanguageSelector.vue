@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { Languages } from "lucide-vue-next";
 import DropdownMenu from "../ui/dropdown-menu/DropdownMenu.vue";
 import DropdownMenuTrigger from "../ui/dropdown-menu/DropdownMenuTrigger.vue";
 import DropdownMenuContent from "../ui/dropdown-menu/DropdownMenuContent.vue";
@@ -7,8 +6,8 @@ import DropdownMenuItem from "../ui/dropdown-menu/DropdownMenuItem.vue";
 import { breakpointsTailwind } from "@vueuse/core";
 
 const languages = [
+  { code: "bg", label: "Български" },
   { code: "en", label: "English" },
-  { code: "bg", label: "Bulgarian" },
 ];
 
 const router = useRouter();
@@ -27,12 +26,12 @@ const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");
       <Button
         variant="ghost"
         :size="isMobile ? 'default' : 'icon'"
-        class="flex items-center gap-4 w-full"
+        class="flex items-center gap-2 md:gap-0 w-full md:w-auto justify-start md:justify-center"
       >
         <Icon name="tabler:language" :size="24" />
-        <div class="md:hidden text-xl">
-          <h1>{{ $t("Navigation.language") }}</h1>
-        </div>
+        <span class="md:hidden text-base font-medium">
+          {{ $t("Navigation.language") }}
+        </span>
       </Button>
     </DropdownMenuTrigger>
 
@@ -41,7 +40,7 @@ const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");
         <DropdownMenuItem
           v-for="language in languages"
           :key="language.code"
-          class="hover:text-accent-foreground md:text-lg text-xl"
+          class="hover:text-accent-foreground text-base md:text-sm font-medium"
           @click="switchLanguage(language.code)"
         >
           {{ language.label }}

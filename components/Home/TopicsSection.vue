@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { cn } from "@/lib/utils";
-import { useNuxt } from "nuxt/kit";
+import { breakpointsTailwind } from "@vueuse/core";
 
 const containerStyles =
   "flex flex-col h-full w-full bg-secondary rounded-2xl p-4 sm:p-6 shadow-[0px_0px_0px_0px] shadow-border hover:shadow-[0px_5px_10px_0px] hover:shadow-border hover:-translate-y-[5px] transition-all duration-300 ease-out containerStyle";
@@ -11,10 +11,11 @@ const topicDescriptionStyle = "text-base sm:text-lg text-foreground/70";
 const { $anime } = useNuxtApp();
 
 let animation: anime.AnimeInstance;
+const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");
 
 const containerRef = ref<HTMLElement | null>(null);
 const isContainerVisible = useElementVisibility(containerRef, {
-  threshold: 0.75,
+  threshold: isMobile ? 0.2 : 0.75,
 });
 
 watch(isContainerVisible, (isVisible) => {
@@ -34,7 +35,7 @@ onMounted(() => {
     autoplay: false,
 
     delay: $anime.stagger(50, {
-      from: "center",
+      from: isMobile ? "first" : "center",
     }),
   });
 });

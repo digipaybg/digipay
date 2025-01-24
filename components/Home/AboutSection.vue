@@ -56,7 +56,6 @@ onMounted(() => {
     targets: ".description-text span",
     filter: ["blur(10px)", "blur(0px)"],
     opacity: [0.2, 1],
-    marginLeft: ["-30px", "0px"],
     easing: "easeOutExpo",
     duration: 1000,
     autoplay: false,
@@ -67,9 +66,14 @@ onMounted(() => {
 
 <template>
   <div class="space-y-4 sm:space-y-8">
+    <div class="flex justify-between items-center my-10">
+      <AboutStatistics :label="$t('AboutPage.participants')" :value="500" />
+      <AboutStatistics :label="$t('AboutPage.speakers')" :value="20" />
+      <AboutStatistics :label="$t('AboutPage.partners')" :value="22" />
+    </div>
     <h1
       ref="descriptionRef"
-      class="text-lg sm:text-xl md:text-4xl lg:text-6xl text-foreground/70 description-text my-8 sm:my-20 leading-relaxed sm:leading-normal"
+      class="text-2xl md:text-4xl lg:text-6xl text-foreground/70 description-text my-8 sm:my-20 leading-relaxed sm:leading-normal"
     >
       <span class="text-accent font-bold">DIGIPAY</span>
 
@@ -129,11 +133,6 @@ onMounted(() => {
     </div>
 
     <div class="space-y-4 sm:space-y-6">
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-10">
-        <AboutStatistics :label="$t('AboutPage.participants')" :value="500" />
-        <AboutStatistics :label="$t('AboutPage.speakers')" :value="20" />
-        <AboutStatistics :label="$t('AboutPage.partners')" :value="22" />
-      </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-10">
         <AboutStatistics
           :label="$t('AboutPage.statistics.satisfaction')"

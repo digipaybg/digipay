@@ -52,7 +52,7 @@
     "menu": "Menu"
   },
   "WhoIsItAbout": {
-    "title": "Who is this event for?",
+    "title": "Who is the event for?",
     "items": {
       "digital_payments": {
         "title": "Digital Payments",
@@ -147,7 +147,7 @@
   },
   "ContactPage": {
     "title": "Contact Us",
-    "subtitle": "Become a Investor or Exhibitor or you just want to write us:",
+    "subtitle": "Become an investor, exhibitor, or simply write to us!",
     "form": {
       "name": "Name",
       "email": "Email",
