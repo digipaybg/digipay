@@ -3,6 +3,10 @@ const { t } = useI18n();
 
 const people = [
   {
+    key: "chrystalla",
+    image: "/people/chrystalla-kazara.jpg",
+  },
+  {
     key: "boris",
     image: "/people/boris-goncharov.jpg",
   },
@@ -19,10 +23,6 @@ const people = [
     image: "/people/deyan-radev.jpg",
   },
   {
-    key: "chrystalla",
-    image: "/people/chrystalla-kazara.jpg",
-  },
-  {
     key: "tsvetomir",
     image: "/people/tsvetomir-doskov.jpg",
   },
@@ -32,7 +32,7 @@ const people = [
 <template>
   <div class="px-2 sm:px-4 md:px-6">
     <LetterPullup
-      text-class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 sm:mt-16 mb-2 sm:mb-8 text-center"
+      text-class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-10 sm:mt-16 mb-2 sm:mb-8 text-center"
       container-class="mx-auto text-center justify-center"
       :words="$t('Testimonials.title')"
       :initial-delay="0"

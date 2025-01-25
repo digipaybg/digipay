@@ -41,92 +41,122 @@ defineOgImage({
 definePageMeta({
   scrollToTop: true,
 });
+
+const isLoading = computed(
+  () => pending.value || !fetchedData.value || !data.value,
+);
 </script>
 
 <template>
-  <div>
-    <div v-if="fetchedData && data" class="notion-page">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div v-if="!isLoading" class="notion-page">
       <img
         v-if="fetchedData.cover && imageUrl"
         :src="imageUrl"
-        class="aspect-video object-cover rounded-lg mx-auto"
+        class="w-full aspect-video object-cover rounded-lg mx-auto"
         alt="Cover image"
-        preload
+        loading="eager"
+        decoding="async"
       />
-      <h1 class="text-5xl font-bold my-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 sm:my-8">
         {{ fetchedData.properties.title.title[0].text.content }}
       </h1>
       <NotionRenderer
         :blockMap="data"
         prism
         data-allow-mismatch
-        class="*:!text-foreground w-full"
+        class="*:!text-foreground w-full notion-content"
         katex
       />
     </div>
 
-    <div v-else>Loading...</div>
+    <div v-else class="animate-pulse space-y-4 notion-page">
+      <div class="w-full aspect-video bg-muted rounded-lg"></div>
+      <div class="h-8 bg-muted rounded w-3/4"></div>
+      <div class="space-y-3">
+        <div class="h-4 bg-muted rounded w-full"></div>
+        <div class="h-4 bg-muted rounded w-5/6"></div>
+        <div class="h-4 bg-muted rounded w-4/6"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-.notion-page-cover {
-  max-width: 90%;
-  height: auto;
-  display: block;
-  margin-inline: auto;
-  margin-top: 20px;
-  margin-bottom: -100px;
-  border-radius: 20px;
-}
-
 .notion-page {
-  border-radius: 20px;
+  border-radius: 12px;
   backdrop-filter: blur(10px);
   background-color: var(--background) / 50;
-  padding: 5rem;
+  padding: 0.75rem;
   margin-inline: auto;
-  width: 60%;
+  width: 100%;
+
+  @media (min-width: 640px) {
+    padding: 2rem;
+    width: 90%;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 5rem;
+    width: 80%;
+  }
+
+  @media (min-width: 1280px) {
+    width: 60%;
+  }
 
   span {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    @media (min-width: 640px) {
+      font-size: 1.2rem;
+    }
   }
 
   h2 {
     span {
-      font-size: 2rem !important;
+      font-size: 1.25rem !important;
+      @media (min-width: 640px) {
+        font-size: 2rem !important;
+      }
     }
     font-weight: 600;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
   img {
-    @apply rounded-xl w-full aspect-video object-cover;
+    @apply rounded-lg sm:rounded-xl w-full aspect-video object-cover;
+    height: auto;
   }
 }
 
-// .notion-row {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   align-items: center;
+.notion-content {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 
-//   .notion-asset-wrapper {
-//     width: 25% !important;
-//     height: auto;
-//     display: block;
-//     margin-inline: auto;
-//     margin-top: 20px;
-//     margin-bottom: -100px;
-//     border-radius: 20px;
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    @apply sm:text-base;
+  }
 
-//     img {
-//       border-radius: 100%;
-//       aspect-ratio: 1;
-//       height: auto;
-//       width: 25%;
-//     }
-//   }
-// }
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 100%;
+    font-size: 0.875rem;
+    @apply sm:text-base;
+  }
+
+  blockquote {
+    padding: 0.5rem 1rem;
+    @apply sm:p-4;
+  }
+}
 </style>

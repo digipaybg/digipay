@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import { cn } from "@/lib/utils";
 
-const diffs = [1, 2, 3, 4, 5, 6].map(
-  (i) => `DigipayDifference.differences.${i}`,
-);
+const diffs = [1, 2, 3, 4, 5].map((i) => `DigipayDifference.differences.${i}`);
 </script>
 
 <template>

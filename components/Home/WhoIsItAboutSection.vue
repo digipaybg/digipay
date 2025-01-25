@@ -69,9 +69,7 @@ onMounted(() => {
           <div
             class="w-6 h-6 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-secondary border-primary border rounded-full flex items-center justify-center absolute -left-0 top-0"
           >
-            <div
-              class="text-secondary-foreground w-3 h-3 sm:w-5 sm:h-5 md:w-8 md:h-8"
-            >
+            <div class="text-secondary-foreground size-6">
               <Icon :name="item.icon" class="w-full h-full" />
             </div>
           </div>

@@ -72,7 +72,7 @@ const isEven = props.index % 2 === 0 || isMobile;
   <div
     :class="
       cn(
-        'flex gap-4 max-h-[500px] sm:gap-0 diff-' + index,
+        'flex max-h-[500px] sm:gap-0 diff-' + index,
         'flex-col sm:flex-row rounded-[50px] overflow-hidden',
         props.index % 2 === 0 ? '!flex-row' : '!flex-row-reverse',
       )
