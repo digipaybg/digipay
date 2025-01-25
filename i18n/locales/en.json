@@ -59,7 +59,7 @@
         "description": "For all sectors where digital payments are made"
       },
       "banking": {
-        "title": "Banking Sector",
+        "title": "Banking Sector and Fintech Sector",
         "description": "Owners and directors of banking institutions, consulting companies, telecoms and fintech companies"
       },
       "regulation": {
@@ -69,6 +69,14 @@
       "innovation": {
         "title": "Innovation and Investment",
         "description": "Professionals in AI, blockchain and cryptocurrencies, innovators and investors"
+      },
+      "fraud_prevention": {
+        "title": "Fraud Prevention",
+        "description": "Companies with a focus on fraud prevention, tecnology vendord, risk management and online fraud management managers, auditors"
+      },
+      "aml": {
+        "title": "Anti-money Laundering",
+        "description": "AML officers, compliance officers, risk managers, auditors, financial crime investigators"
       }
     }
   },
@@ -83,11 +91,10 @@
     "title": "How do we differ?",
     "differences": {
       "1": "WE; are a specialized; event; with a mission; for secure; and accessible; digital; payments;",
-      "2": "DIGIPAY; has two; main goals;: security; and convenience;",
-      "3": "DIGIPAY; is the platform; for transforming; the world; of digital payments;",
-      "4": "DIGIPAY; unites; businesses;, regulators;, and users;, putting users; at the center;",
-      "5": "DIGIPAY; seeks strong; partnerships; to promote secure; digital payments; in Bulgaria; and Central and Eastern Europe;",
-      "6": "Our goal; is to transform; your mission; into a competitive advantage; through customer; education;"
+      "2": "DIGIPAY; is the platform; for transforming; the world; of digital payments;",
+      "3": "DIGIPAY; unites; businesses;, regulators;, and users;, putting users; at the center;",
+      "4": "DIGIPAY; seeks strong; partnerships; to promote secure; digital payments; in Bulgaria; and Central and Eastern Europe;",
+      "5": "Our goal; is to transform; your mission; into a competitive advantage; through customer; education;"
     }
   },
   "Topics": {
@@ -138,6 +145,7 @@
     "name": "Name",
     "email": "Email",
     "namePlaceholder": "Ivan Ivanov",
+    "emailPlaceholder": "Enter your email",
     "subscribe": "Subscribe to Newsletter",
     "error": {
       "fillFields": "Please fill in all fields",

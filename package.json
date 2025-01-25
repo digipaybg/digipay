@@ -42,6 +42,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@iconify-json/tabler": "^1.2.15",
     "sass-embedded": "^1.83.0"
   }
 }

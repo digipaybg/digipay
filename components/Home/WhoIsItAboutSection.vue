@@ -16,6 +16,14 @@ const timelineItems = [
     key: "innovation",
     icon: "tabler:brain",
   },
+  {
+    key: "fraud_prevention",
+    icon: "tabler:shield-lock",
+  },
+  {
+    key: "aml",
+    icon: "tabler:creative-commons-nc",
+  },
 ];
 
 const { $anime } = useNuxtApp();
