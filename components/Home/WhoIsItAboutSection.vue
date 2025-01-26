@@ -2,27 +2,33 @@
 const timelineItems = [
   {
     key: "digital_payments",
-    icon: "tabler:device-mobile",
+    // icon: "tabler:device-mobile",
+    icon: "/icons/phone-connection.svg",
   },
   {
     key: "banking",
-    icon: "tabler:building-bank",
+    // icon: "tabler:building-bank",
+    icon: "/icons/bank.svg",
   },
   {
     key: "regulation",
-    icon: "tabler:key-filled",
+    // icon: "tabler:key-filled",
+    icon: "/icons/key.svg",
   },
   {
     key: "innovation",
-    icon: "tabler:brain",
+    // icon: "tabler:brain",
+    icon: "/icons/connection.svg",
   },
   {
     key: "fraud_prevention",
-    icon: "tabler:shield-lock",
+    // icon: "tabler:shield-lock",
+    icon: "/icons/qr-with-people.svg",
   },
   {
     key: "aml",
-    icon: "tabler:creative-commons-nc",
+    // icon: "tabler:creative-commons-nc",
+    icon: "/icons/data.svg",
   },
 ];
 
@@ -30,7 +36,7 @@ const { $anime } = useNuxtApp();
 let animation: anime.AnimeInstance;
 const containerRef = ref<HTMLElement | null>(null);
 const isDescriptionVisible = useElementVisibility(containerRef, {
-  threshold: 0.75,
+  threshold: 0.5,
 });
 
 watch(isDescriptionVisible, (value) => {
@@ -77,8 +83,8 @@ onMounted(() => {
           <div
             class="w-6 h-6 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-secondary border-primary border rounded-full flex items-center justify-center absolute -left-0 top-0"
           >
-            <div class="text-secondary-foreground size-6">
-              <Icon :name="item.icon" class="w-full h-full" />
+            <div class="text-secondary-foreground size-16">
+              <NuxtImg :src="item.icon" class="w-full h-full" preload />
             </div>
           </div>
           <div

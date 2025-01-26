@@ -71,8 +71,18 @@ const socials = [
                 {{ $t(`Footer.${person.position}`) }}
               </h2>
             </div>
-            <h3 class="text-xs sm:text-sm md:text-base">{{ person.phone }}</h3>
-            <h3 class="text-xs sm:text-sm md:text-base">{{ person.email }}</h3>
+            <a
+              :href="`tel:${person.phone}`"
+              class="text-xs sm:text-sm md:text-base hover:text-blue-400 transition-colors"
+            >
+              {{ person.phone }}
+            </a>
+            <a
+              :href="`mailto:${person.email}`"
+              class="text-xs sm:text-sm md:text-base hover:text-blue-400 transition-colors"
+            >
+              {{ person.email }}
+            </a>
             <div v-if="person.linkedIn">
               <NuxtLink
                 :href="person.linkedIn"
