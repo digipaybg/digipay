@@ -21,7 +21,7 @@ async function subscribe() {
   disabled.value = true;
 
   await addDoc(collection(db, "mail"), {
-    to: ["kaloyangfx@gmail.com"],
+    to: ["raya.lecheva@digipay.bg"],
     message: {
       subject: "New Newsletter Subscription",
       text: `Name: ${name.value}\nEmail: ${email.value}`,
