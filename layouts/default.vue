@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+useFavicon("/logo.svg");
+
 useHead({
   titleTemplate: (title) =>
     title ? `${title} | DIGIPAY 2025` : "DIGIPAY 2025",
