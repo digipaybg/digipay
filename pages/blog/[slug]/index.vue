@@ -22,7 +22,7 @@ const { data } = await useAsyncData(`notion-${route.params.slug}`, () =>
 );
 
 const imageUrl = computed(() => {
-  if (!fetchedData.value?.cover) return null;
+  if (!fetchedData.value?.cover) return "/18.png";
   return fetchedData.value.cover.type === "file"
     ? fetchedData.value.cover.file.url
     : fetchedData.value.cover.external.url;
@@ -30,11 +30,13 @@ const imageUrl = computed(() => {
 
 useHead({
   title: fetchedData.value?.properties.title.title[0].text.content,
-});
-
-defineOgImage({
-  url: imageUrl.value,
-  alt: fetchedData.value?.properties.title.title[0].text.content,
+  meta: [
+    { property: "og:image", content: imageUrl.value },
+    {
+      property: "og:image:alt",
+      content: fetchedData.value?.properties.title.title[0].text.content,
+    },
+  ],
 });
 
 definePageMeta({
