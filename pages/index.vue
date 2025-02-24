@@ -4,10 +4,13 @@ definePageMeta({
   keepalive: false,
 });
 
-useFavicon("/logo.svg");
-
 useHead({
   title: null,
+});
+
+defineOgImage({
+  url: "/18.png",
+  alt: "DIGIPAY 2025",
 });
 </script>
 
