@@ -20,18 +20,17 @@ if (error) {
 const { data } = await useAsyncData(`notion-${route.params.slug}`, () =>
   $notion.getPageBlocks(fetchedData.value?.id.replaceAll("-", "")),
 );
+const cover = computed(() => {
+  if (!fetchedData.value?.properties.image.rich_text[0].plain_text)
+    return "/18.png";
 
-const imageUrl = computed(() => {
-  if (!fetchedData.value?.cover) return "/18.png";
-  return fetchedData.value.cover.type === "file"
-    ? fetchedData.value.cover.file.url
-    : fetchedData.value.cover.external.url;
+  return fetchedData.value?.properties.image.rich_text[0].plain_text;
 });
 
 useHead({
   title: fetchedData.value?.properties.title.title[0].text.content,
   meta: [
-    { property: "og:image", content: imageUrl.value },
+    { property: "og:image", content: cover.value },
     {
       property: "og:image:alt",
       content: fetchedData.value?.properties.title.title[0].text.content,
@@ -51,9 +50,9 @@ const isLoading = computed(
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
     <div v-if="!isLoading" class="notion-page">
-      <img
-        v-if="fetchedData.cover && imageUrl"
-        :src="imageUrl"
+      <NuxtImg
+        :src="`/blog/${cover}`"
+        preload
         class="w-full aspect-video object-cover rounded-lg mx-auto"
         alt="Cover image"
         loading="eager"

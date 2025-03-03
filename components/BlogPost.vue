@@ -29,10 +29,9 @@ const props = defineProps({
 const localePath = useLocalePath();
 
 const cover = computed(() => {
-  if (!props.blog?.cover) return null;
-  return props.blog.cover.type === "file"
-    ? props.blog.cover.file.url
-    : props.blog.cover.external.url;
+  if (!props.blog.properties.image.rich_text[0].plain_text) return "/18.png";
+
+  return props.blog.properties.image.rich_text[0].plain_text;
 });
 </script>
 
@@ -49,9 +48,8 @@ const cover = computed(() => {
         )
       "
     >
-      <img
-        v-if="cover"
-        :src="cover"
+      <NuxtImg
+        :src="`/blog/${cover}`"
         preload
         alt="cover"
         :class="

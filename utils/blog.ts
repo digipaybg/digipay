@@ -44,12 +44,6 @@ export const fetchPages = async (language: string) => {
             equals: language,
           },
         },
-        {
-          property: "date",
-          date: {
-            on_or_before: new Date().toISOString(),
-          },
-        },
       ],
     },
     sorts: [

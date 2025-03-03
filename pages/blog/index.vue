@@ -15,6 +15,19 @@ definePageMeta({
 
 const localePath = useLocalePath();
 const isMobile = useBreakpoints(breakpointsTailwind).isSmallerOrEqual("md");
+const filteredData = computed(() => {
+  if (!data.value?.results) return [];
+
+  const currentDate = new Date();
+  return data.value.results.filter((blog: any) => {
+    if (blog.date) {
+      const blogDate = new Date(blog.date);
+      return blogDate <= currentDate;
+    }
+
+    return true;
+  });
+});
 </script>
 
 <template>
@@ -24,17 +37,25 @@ const isMobile = useBreakpoints(breakpointsTailwind).isSmallerOrEqual("md");
       class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6 mx-auto max-w-screen-2xl w-full"
     >
       <BlogPost
-        :blog="data.results[0]"
+        v-if="filteredData.length > 0"
+        :blog="filteredData[0]"
         :is-row="!isMobile"
         class="col-span-2 lg:col-span-3 sm:is-row mb-2 sm:mb-0"
       />
 
       <BlogPost
-        v-for="blog in (data.results as any[]).slice(1)"
+        v-for="blog in filteredData.slice(1)"
         :key="blog.id"
         :blog="blog"
         class="col-span-2 lg:col-span-1"
       />
+
+      <div
+        v-if="filteredData.length === 0"
+        class="col-span-full text-center py-10"
+      >
+        {{ t("Blog.noPublishedPosts") || "No published posts yet" }}
+      </div>
     </div>
     <div
       v-else
