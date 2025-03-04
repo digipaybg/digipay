@@ -1,13 +1,15 @@
 <script lang="ts" setup>
 useFavicon("/logo.svg");
 
-useHead({
-  titleTemplate: (title) =>
-    title ? `${title} | DIGIPAY 2025` : "DIGIPAY 2025",
-});
-
 useSeoMeta({
   ogImage: "/1600x624.svg",
+  ogImageAlt: "DIGIPAY 2025",
+  ogTitle: "DIGIPAY 2025",
+  ogDescription: "DIGIPAY 2025",
+  twitterTitle: "DIGIPAY 2025",
+  title: "DIGIPAY 2025",
+  titleTemplate: (title) =>
+    title ? `${title} | DIGIPAY 2025` : "DIGIPAY 2025",
 });
 </script>
 
