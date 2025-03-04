@@ -21,22 +21,39 @@ const { data } = await useAsyncData(`notion-${route.params.slug}`, () =>
   $notion.getPageBlocks(fetchedData.value?.id.replaceAll("-", "")),
 );
 const cover = computed(() => {
-  if (!fetchedData.value?.properties.image.rich_text[0].plain_text)
+  if (!fetchedData.value?.properties?.image?.rich_text?.[0]?.plain_text) {
     return "/18.png";
-
-  return fetchedData.value?.properties.image.rich_text[0].plain_text;
+  }
+  return fetchedData.value.properties.image.rich_text[0].plain_text;
 });
 
-useHead({
-  title: fetchedData.value?.properties.title.title[0].text.content,
-  meta: [
-    { property: "og:image", content: cover.value },
-    {
-      property: "og:image:alt",
-      content: fetchedData.value?.properties.title.title[0].text.content,
-    },
-  ],
+const title = computed(() => {
+  return (
+    fetchedData.value?.properties?.title?.title?.[0]?.text?.content ||
+    "Untitled"
+  );
 });
+
+const description = computed(() => {
+  return (
+    fetchedData.value?.properties?.description?.rich_text?.[0]?.plain_text || ""
+  );
+});
+
+useSeoMeta({
+  ogImage: `/blog/${cover.value}`,
+  ogImageAlt: title.value,
+  ogTitle: title.value,
+  ogDescription: description.value,
+  twitterTitle: title.value,
+  title: title.value,
+});
+
+// defineOgImage({
+//   url: `/blog/${cover.value}`,
+//   width: 1200,
+//   alt: title.value,
+// });
 
 definePageMeta({
   scrollToTop: true,
@@ -59,9 +76,10 @@ const isLoading = computed(
         decoding="async"
       />
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 sm:my-8">
-        {{ fetchedData.properties.title.title[0].text.content }}
+        {{ title }}
       </h1>
       <NotionRenderer
+        v-if="data"
         :blockMap="data"
         prism
         data-allow-mismatch

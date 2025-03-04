@@ -5,6 +5,10 @@ useHead({
   titleTemplate: (title) =>
     title ? `${title} | DIGIPAY 2025` : "DIGIPAY 2025",
 });
+
+useSeoMeta({
+  ogImage: "/1600x624.svg",
+});
 </script>
 
 <template>

@@ -29,15 +29,27 @@ const props = defineProps({
 const localePath = useLocalePath();
 
 const cover = computed(() => {
-  if (!props.blog.properties.image.rich_text[0].plain_text) return "/18.png";
-
+  if (!props.blog.properties.image?.rich_text?.[0]?.plain_text)
+    return "/18.png";
   return props.blog.properties.image.rich_text[0].plain_text;
+});
+
+const title = computed(() => {
+  return props.blog.properties.title?.title?.[0]?.text?.content || "Untitled";
+});
+
+const slug = computed(() => {
+  return props.blog.properties.slug?.rich_text?.[0]?.plain_text || "";
+});
+
+const date = computed(() => {
+  return props.blog.properties.date?.date?.start || new Date();
 });
 </script>
 
 <template>
   <NuxtLink
-    :to="localePath(`/blog/${blog.properties.slug.rich_text[0].plain_text}`)"
+    :to="localePath(`/blog/${slug}`)"
     :class="cn({ 'col-span-3': isRow })"
   >
     <div
@@ -65,15 +77,12 @@ const cover = computed(() => {
             })
           "
         >
-          {{ blog.properties.title.title[0].text.content }}
+          {{ title }}
         </h1>
         <p class="text-gray-400 mt-2">
-          {{
-            formatDate(new Date(blog.properties.date.date.start), "DD/MM/YYYY")
-          }}
+          {{ formatDate(new Date(date), "DD/MM/YYYY") }}
         </p>
         <p class="mt-2 text-gray-600">{{ blog.description }}</p>
-        <!-- <div class="mt-4">Read More</div> -->
       </div>
     </div>
   </NuxtLink>
