@@ -20,8 +20,10 @@ const filteredData = computed(() => {
 
   const currentDate = new Date();
   return data.value.results.filter((blog: any) => {
-    if (blog.date) {
-      const blogDate = new Date(blog.date);
+    const date = blog.properties?.date?.date?.start;
+    console.log(date);
+    if (date) {
+      const blogDate = new Date(date);
       return blogDate <= currentDate;
     }
 

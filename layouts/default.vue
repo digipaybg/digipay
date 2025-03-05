@@ -8,6 +8,7 @@ useSeoMeta({
   ogDescription: "DIGIPAY 2025",
   twitterTitle: "DIGIPAY 2025",
   title: "DIGIPAY 2025",
+
   titleTemplate: (title) =>
     title ? `${title} | DIGIPAY 2025` : "DIGIPAY 2025",
 });
