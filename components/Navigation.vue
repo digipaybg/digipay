@@ -12,6 +12,10 @@ const navigationItems = [
     href: "/",
   },
   {
+    label: "Navigation.advisory-board",
+    href: "/advisory-board",
+  },
+  {
     label: "Navigation.blog",
     href: "/blog",
   },

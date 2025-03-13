@@ -204,5 +204,17 @@
         "quote": "It's important to focus simultaneously on secure and accessible digital payments, which is the theme of the conference"
       }
     }
+  },
+  "AdvisoryBoard": {
+    "title": "Advisory Board",
+    "members": "Our Board Members",
+    "AlbenaPetkova": "Albena Petkova",
+    "AlbenaRole": "Financial Expert",
+    "AlbenaBio": "With over 15 years of experience in financial compliance and digital payments, Albena brings extensive knowledge to our advisory board.",
+    "AlbenaWhyJoin": "I joined DIGIPAY advisory board to help shape the future of secure digital payments in Bulgaria and Eastern Europe.",
+    "DafinkaLazarova": "Dafinka Lazarova",
+    "DafinkaRole": "Fintech Innovation Director",
+    "DafinkaBio": "Dafinka has pioneered several fintech solutions and has been a key player in the digital transformation of payment systems.",
+    "DafinkaWhyJoin": "DIGIPAY represents the intersection of innovation and security that's crucial for the next generation of payment solutions."
   }
 }
