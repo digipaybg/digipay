@@ -11,10 +11,10 @@ const navigationItems = [
     label: "Navigation.home",
     href: "/",
   },
-  {
-    label: "Navigation.advisory-board",
-    href: "/advisory-board",
-  },
+  // {
+  //   label: "Navigation.advisory-board",
+  //   href: "/advisory-board",
+  // },
   {
     label: "Navigation.blog",
     href: "/blog",
