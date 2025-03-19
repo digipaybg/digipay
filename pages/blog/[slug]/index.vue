@@ -41,12 +41,12 @@ const description = computed(() => {
 });
 
 useSeoMeta({
-  ogImage: `/blog/${cover.value}`,
-  ogImageAlt: title.value,
+  ogImage: { url: `/blog/${cover.value}`, width: 1200, alt: title.value },
   ogTitle: title.value,
   ogDescription: description.value,
   twitterTitle: title.value,
   title: title.value,
+  description: description.value,
 });
 
 // defineOgImage({

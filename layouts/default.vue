@@ -1,13 +1,32 @@
 <script lang="ts" setup>
-useFavicon("/logo.svg");
+useHead({
+  link: [{ rel: "icon", href: "/favicon.svg" }],
+});
 
 useSeoMeta({
-  ogImage: "/1600x624.svg",
-  ogImageAlt: "DIGIPAY 2025",
   ogTitle: "DIGIPAY 2025",
   ogDescription: "DIGIPAY 2025",
   twitterTitle: "DIGIPAY 2025",
   title: "DIGIPAY 2025",
+  ogImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterDescription: "DIGIPAY 2025",
+  twitterCard: "summary_large_image",
+  twitterSite: "@digipay2025",
+  twitterCreator: "@digipay2025",
+  ogSiteName: "DIGIPAY 2025",
+  ogType: "website",
+  ogUrl: "https://digipay.bg",
 
   titleTemplate: (title) =>
     title ? `${title} | DIGIPAY 2025` : "DIGIPAY 2025",

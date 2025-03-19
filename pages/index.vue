@@ -6,6 +6,13 @@ definePageMeta({
 
 useHead({
   title: null,
+  meta: [
+    {
+      name: "description",
+      content:
+        "Digipay is a payment gateway that allows you to accept payments online, in-store, or on the go.",
+    },
+  ],
 });
 </script>
 
