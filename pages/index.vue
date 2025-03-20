@@ -5,8 +5,6 @@ definePageMeta({
 });
 
 useHead({
-  title: "DIGIPAY 2025",
-
   meta: [
     {
       name: "description",

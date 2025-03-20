@@ -7,9 +7,6 @@ export default defineNuxtConfig({
   nitro: {
     experimental: {},
   },
-  experimental: {
-    payloadExtraction: true,
-  },
   modules: [
     "@nuxtjs/tailwindcss",
     [
@@ -122,7 +119,7 @@ export default defineNuxtConfig({
       ogUrl: "https://digipay.bg",
       ogTitle: "DIGIPAY",
 
-      ogImage: "https://2025.digipay.bg/og-image.jpeg",
+      ogImage: "https://digipay.bg/1600x624.png",
 
       robots: "index, follow",
     },
