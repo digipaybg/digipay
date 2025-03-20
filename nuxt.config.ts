@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     "@hypernym/nuxt-anime",
     "@nuxt/icon",
     "@nuxtjs/seo",
+    "@nuxtjs/robots",
   ],
   notion: {},
   colorMode: {
@@ -37,12 +38,15 @@ export default defineNuxtConfig({
       { code: "en", language: "en", file: "en.json" },
       { code: "bg", language: "bg", file: "bg.json" },
     ],
-    defaultLocaleRouteNameSuffix: "bg",
+    defaultLocaleRouteNameSuffix: "/bg",
     defaultLocale: "bg",
     baseUrl: "https://digipay.bg",
     strategy: "prefix_except_default",
+
     detectBrowserLanguage: {
       fallbackLocale: "en",
+      alwaysRedirect: false,
+      redirectOn: "root",
     },
   },
   image: {
@@ -72,13 +76,8 @@ export default defineNuxtConfig({
     },
   },
   robots: {
-    groups: [
-      {
-        userAgent: ["AdsBot-Google-Mobile", "AdsBot-Google-Mobile-Apps"],
-        disallow: ["/admin"],
-        allow: ["/admin/login"],
-      },
-    ],
+    blockNonSeoBots: true,
+    allow: ["/"],
     sitemap: [
       "/sitemap_index.xml",
       "/__sitemap__/en.xml",
