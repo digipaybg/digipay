@@ -73,7 +73,6 @@ export default defineNuxtConfig({
     },
   },
   robots: {
-    blockNonSeoBots: true,
     allow: ["/"],
     sitemap: [
       "/sitemap_index.xml",
