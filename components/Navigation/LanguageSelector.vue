@@ -15,6 +15,7 @@ const { locale, setLocale } = useI18n();
 
 const switchLanguage = (code: string) => {
   setLocale(code as any);
+  window.location.reload();
 };
 
 const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");
