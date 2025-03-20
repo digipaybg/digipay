@@ -5,12 +5,18 @@ definePageMeta({
 });
 
 useHead({
-  title: null,
+  title: "DIGIPAY 2025",
+
   meta: [
     {
       name: "description",
       content:
-        "Digipay is a payment gateway that allows you to accept payments online, in-store, or on the go.",
+        "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+    },
+    {
+      name: "image",
+      property: "og:image",
+      content: "/1600x624.png",
     },
   ],
 });

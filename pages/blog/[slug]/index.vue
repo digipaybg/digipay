@@ -49,11 +49,20 @@ useSeoMeta({
   description: description.value,
 });
 
-// defineOgImage({
-//   url: `/blog/${cover.value}`,
-//   width: 1200,
-//   alt: title.value,
-// });
+useHead({
+  meta: [
+    {
+      name: "description",
+      content:
+        "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+    },
+    {
+      name: "image",
+      property: "og:image",
+      content: `/blog/${cover.value}`,
+    },
+  ],
+});
 
 definePageMeta({
   scrollToTop: true,
