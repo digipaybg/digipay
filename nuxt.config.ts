@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxtjs/seo",
     "@nuxtjs/robots",
+    "@nuxt/scripts",
   ],
   notion: {},
   colorMode: {
@@ -30,21 +31,29 @@ export default defineNuxtConfig({
     storage: "localStorage",
     classSuffix: "",
   },
+  // i18n: {
+  //   locales: [
+  //     { code: "en", language: "en", file: "en.json" },
+  //     { code: "bg", language: "bg", file: "bg.json" },
+  //   ],
+  //   defaultLocaleRouteNameSuffix: "/bg",
+  //   defaultLocale: "bg",
+  //   baseUrl: "https://digipay.bg",
+  //   strategy: "prefix_except_default",
+
+  //   detectBrowserLanguage: {
+  //     fallbackLocale: "en",
+  //     alwaysRedirect: false,
+  //     redirectOn: "root",
+  //   },
+  // },
   i18n: {
     locales: [
-      { code: "en", language: "en", file: "en.json" },
-      { code: "bg", language: "bg", file: "bg.json" },
+      { code: "bg", file: "en.json", name: "English" },
+      { code: "en", file: "bg.json", name: "Български" },
     ],
-    defaultLocaleRouteNameSuffix: "/bg",
     defaultLocale: "bg",
-    baseUrl: "https://digipay.bg",
     strategy: "prefix_except_default",
-
-    detectBrowserLanguage: {
-      fallbackLocale: "en",
-      alwaysRedirect: false,
-      redirectOn: "root",
-    },
   },
   image: {
     domains: ["prod-files-secure.s3.us-west-2.amazonaws.com"],
@@ -103,6 +112,8 @@ export default defineNuxtConfig({
     }),
   },
   seo: {
+    redirectToCanonicalSiteUrl: true,
+    fallbackTitle: true,
     meta: {
       description: "DIGIPAY is the best fintech conference in Bulgaria",
 
@@ -121,6 +132,66 @@ export default defineNuxtConfig({
       ogImage: "https://digipay.bg/1600x624.png",
 
       robots: "index, follow",
+    },
+  },
+  app: {
+    pageTransition: {
+      name: "page",
+      mode: "out-in",
+    },
+
+    head: {
+      meta: [
+        {
+          name: "description",
+          content:
+            "DIGIPAY е конференцията за сигурни и достъпни дигитални плащания в    България.Всяка година B2B конференцията привлича все повече партньори ипосетители като на последното шесто издание достигнаха над 330 душипрофесионалисти на живо и 150 онлайн.Конференцията се фокусира върху темите за отворено банкиране, незабавниплaщания, нови решения в сферата на плащанията, защита на данните,мониторинг и предотвратяване на измами, мерки срещу пране на пари ивсички теми, свързани със сигурните и достъпни дигитални плащания вБългария. Акцент на конференцията са новите цифрови решения исигурността на плащанията във всички сфери на икономиката, в коитоцентър е клиента.",
+        },
+      ],
+    },
+  },
+
+  routeRules: {
+    "/": {
+      prerender: true,
+      ssr: true,
+      static: false,
+      sitemap: { priority: 1 },
+    },
+    "/blog/**": { static: true, sitemap: { priority: 0.9 } },
+    "/speakers/**": {
+      static: true,
+      prerender: true,
+      sitemap: { priority: 0.7 },
+    },
+  },
+  sitemap: {
+    strictNuxtContentPaths: true,
+    discoverImages: true,
+    discoverVideos: true,
+  },
+  site: {
+    url: "https://digipay.bg",
+    name: "DIGIPAY",
+    description:
+      "DIGIPAY е конференцията за сигурни и достъпни дигитални плащания в    България.Всяка година B2B конференцията привлича все повече партньори ипосетители като на последното шесто издание достигнаха над 330 душипрофесионалисти на живо и 150 онлайн.Конференцията се фокусира върху темите за отворено банкиране, незабавниплaщания, нови решения в сферата на плащанията, защита на данните,мониторинг и предотвратяване на измами, мерки срещу пране на пари ивсички теми, свързани със сигурните и достъпни дигитални плащания вБългария. Акцент на конференцията са новите цифрови решения исигурността на плащанията във всички сфери на икономиката, в коитоцентър е клиента.",
+    indexable: true,
+    _priority: 0.8,
+  },
+  scripts: {
+    registry: {
+      // googleTagManager: {
+      //   id: "UA-174673900-1",
+      // },
+      googleTagManager: {
+        id: "GTM-P4HL4QC2",
+      },
+      googleAnalytics: {
+        id: "UA-174673900-1",
+      },
+      metaPixel: {
+        id: "1394237280749251",
+      },
     },
   },
 });
