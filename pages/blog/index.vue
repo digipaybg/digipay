@@ -35,6 +35,41 @@ const filteredData = computed(() => {
     }
   });
 });
+
+const defaultOgImage = computed(() => {
+  if (!filteredData.value?.[0]?.properties?.image?.rich_text?.[0]?.plain_text) {
+    return "/18.png";
+  }
+  return `/blog/${filteredData.value[0].properties.image.rich_text[0].plain_text}`;
+});
+
+useSeoMeta({
+  ogImage: {
+    url: defaultOgImage.value,
+    width: 1200,
+    alt: t("Navigation.blog"),
+  },
+  ogTitle: t("Navigation.blog"),
+  ogDescription: t("Blog.description") || "Latest blog posts from DIGIPAY",
+  twitterTitle: t("Navigation.blog"),
+  title: t("Navigation.blog"),
+  description: t("Blog.description") || "Latest blog posts from DIGIPAY",
+});
+
+useHead({
+  title: t("Navigation.blog"),
+  meta: [
+    {
+      name: "description",
+      content: t("Blog.description") || "Latest blog posts from DIGIPAY",
+    },
+    {
+      name: "image",
+      property: "og:image",
+      content: defaultOgImage.value,
+    },
+  ],
+});
 </script>
 
 <template>
