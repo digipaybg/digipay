@@ -40,7 +40,7 @@ const isMobileMenuOpen = ref(false);
     <div
       class="h-6 flex items-center justify-between w-full max-w-screen-xl mx-auto"
     >
-      <NuxtLink :to="localePath('/')">
+      <NuxtLink :to="localePath('/')" aria-label="Home">
         <Logo class="w-12" />
       </NuxtLink>
 
@@ -50,6 +50,8 @@ const isMobileMenuOpen = ref(false);
           v-for="item in navigationItems"
           :key="item.href"
           :to="localePath(item.href)"
+          :aria-label="$t(item.label)"
+          :title="$t(item.label)"
         >
           <Button class="text-lg mx-2" variant="ghost">
             {{ $t(item.label) }}
@@ -66,6 +68,7 @@ const isMobileMenuOpen = ref(false);
         size="icon"
         class="md:hidden p-2"
         @click="isMobileMenuOpen = true"
+        aria-label="Open menu"
       >
         <Icon name="tabler:menu-2" size="32" />
       </Button>
@@ -78,12 +81,14 @@ const isMobileMenuOpen = ref(false);
               {{ $t("Navigation.menu") }}
             </SheetTitle>
           </SheetHeader>
-          <div cl ass="flex flex-col gap-4 mt-4 -m-2">
+          <div class="flex flex-col gap-4 mt-4 -m-2">
             <NuxtLink
               v-for="item in navigationItems"
               :key="item.href"
               :to="localePath(item.href)"
               @click="isMobileMenuOpen = false"
+              :aria-label="$t(item.label)"
+              :title="$t(item.label)"
             >
               <Button class="w-full text-left text-xl py-4" variant="ghost">
                 {{ $t(item.label) }}

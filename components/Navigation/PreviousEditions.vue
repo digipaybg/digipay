@@ -45,6 +45,8 @@ const previousEditions = [
           v-for="edition in previousEditions"
           :key="edition.year"
           :to="edition.href"
+          :aria-label="$t('Navigation.previousEditions') + ' ' + edition.year"
+          :title="$t('Navigation.previousEditions') + ' ' + edition.year"
         >
           <Button variant="link" class="text-lg">
             DIGIPAY {{ edition.year }}

@@ -13,8 +13,8 @@ const languages = [
 const router = useRouter();
 const { locale, setLocale } = useI18n();
 
-const switchLanguage = (code: string) => {
-  setLocale(code as any);
+const switchLanguage = (code: "bg" | "en") => {
+  setLocale(code);
   window.location.reload();
 };
 
@@ -28,6 +28,8 @@ const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");
         variant="ghost"
         :size="isMobile ? 'default' : 'icon'"
         class="flex items-center gap-4 w-full justify-center"
+        :aria-label="$t('Navigation.language')"
+        :title="$t('Navigation.language')"
       >
         <Icon name="tabler:language" :size="24" />
         <span class="md:hidden text-xl font-medium">
@@ -43,6 +45,8 @@ const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");
           :key="language.code"
           class="hover:text-accent-foreground text-base md:text-sm font-medium"
           @click="switchLanguage(language.code)"
+          :aria-label="language.label"
+          :title="language.label"
         >
           {{ language.label }}
         </DropdownMenuItem>

@@ -5,7 +5,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   nitro: {
-    experimental: {},
+    preset: "static",
+    prerender: {
+      crawlLinks: true,
+      routes: ["/", "/blog", "/en", "/en/blog"],
+    },
   },
   modules: [
     "@nuxtjs/tailwindcss",
@@ -47,10 +51,14 @@ export default defineNuxtConfig({
   //     redirectOn: "root",
   //   },
   // },
+
   i18n: {
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     locales: [
-      { code: "bg", file: "en.json", name: "English" },
-      { code: "en", file: "bg.json", name: "Български" },
+      { code: "en", language: "en", file: "en.json" },
+      { code: "bg", language: "bg", file: "bg.json" },
     ],
     defaultLocale: "bg",
     strategy: "prefix_except_default",
@@ -112,25 +120,25 @@ export default defineNuxtConfig({
     }),
   },
   seo: {
-    redirectToCanonicalSiteUrl: true,
+    redirectToCanonicalSiteUrl: false,
     fallbackTitle: true,
     meta: {
       description: "DIGIPAY is the best fintech conference in Bulgaria",
-
       twitterCreator: "@kaloyanes",
       twitterSite: "@mysite",
       colorScheme: "dark",
       applicationName: "DIGIPAY",
-
-      // Nuxt SEO Utils already sets the below tags for you
       ogSiteName: "DIGIPAY",
       ogLocale: "en_US",
       ogType: "website",
       ogUrl: "https://digipay.bg",
       ogTitle: "DIGIPAY",
-
-      ogImage: "https://digipay.bg/1600x624.png",
-
+      ogImage: {
+        url: "https://digipay.bg/1600x624.png",
+        width: 1600,
+        height: 624,
+        type: "image/png",
+      },
       robots: "index, follow",
     },
   },
@@ -154,11 +162,14 @@ export default defineNuxtConfig({
   routeRules: {
     "/": {
       prerender: true,
-      ssr: true,
-      static: false,
+      static: true,
       sitemap: { priority: 1 },
     },
-    "/blog/**": { static: true, sitemap: { priority: 0.9 } },
+    "/blog/**": {
+      static: true,
+      prerender: true,
+      sitemap: { priority: 0.9 },
+    },
     "/speakers/**": {
       static: true,
       prerender: true,
@@ -166,7 +177,6 @@ export default defineNuxtConfig({
     },
   },
   sitemap: {
-    strictNuxtContentPaths: true,
     discoverImages: true,
     discoverVideos: true,
   },
