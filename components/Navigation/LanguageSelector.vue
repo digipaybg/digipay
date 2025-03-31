@@ -15,7 +15,9 @@ const { locale, setLocale } = useI18n();
 
 const switchLanguage = (code: "bg" | "en") => {
   setLocale(code);
-  window.location.reload();
+  setTimeout(() => {
+    window.location.reload();
+  }, 100);
 };
 
 const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");

@@ -35,34 +35,34 @@ export default defineNuxtConfig({
     storage: "localStorage",
     classSuffix: "",
   },
-  // i18n: {
-  //   locales: [
-  //     { code: "en", language: "en", file: "en.json" },
-  //     { code: "bg", language: "bg", file: "bg.json" },
-  //   ],
-  //   defaultLocaleRouteNameSuffix: "/bg",
-  //   defaultLocale: "bg",
-  //   baseUrl: "https://digipay.bg",
-  //   strategy: "prefix_except_default",
-
-  //   detectBrowserLanguage: {
-  //     fallbackLocale: "en",
-  //     alwaysRedirect: false,
-  //     redirectOn: "root",
-  //   },
-  // },
-
   i18n: {
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     locales: [
       { code: "en", language: "en", file: "en.json" },
       { code: "bg", language: "bg", file: "bg.json" },
     ],
+    defaultLocaleRouteNameSuffix: "/bg",
     defaultLocale: "bg",
     strategy: "prefix_except_default",
   },
+
+  // i18n: {
+  //   bundle: {
+  //     optimizeTranslationDirective: false,
+  //   },
+  //   locales: [
+  //     { code: "en", language: "en", file: "en.json" },
+  //     { code: "bg", language: "bg", file: "bg.json" },
+  //   ],
+  //   defaultLocale: "bg",
+  //   strategy: "prefix_except_default",
+  //   detectBrowserLanguage: {
+  //     useCookie: true,
+  //     cookieKey: "i18n_redirected",
+  //     redirectOn: "root",
+  //     alwaysRedirect: true,
+  //     fallbackLocale: "bg",
+  //   },
+  // },
   image: {
     domains: ["prod-files-secure.s3.us-west-2.amazonaws.com"],
   },
@@ -149,6 +149,11 @@ export default defineNuxtConfig({
     },
 
     head: {
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/logo.svg" },
+        { rel: "icon", type: "image/png", href: "/logo.svg" },
+        { rel: "apple-touch-icon", href: "/logo.svg" },
+      ],
       meta: [
         {
           name: "description",

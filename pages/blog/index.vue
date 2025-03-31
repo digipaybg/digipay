@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import { breakpointsTailwind } from "@vueuse/core";
+import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 const { locale } = useI18n();
-const { data } = useFetch(`/api/${locale.value}/blog`);
+const { data } = useFetch<{ results: PageObjectResponse[] }>(
+  `/api/${locale.value}/blog`,
+);
 const { t } = useI18n();
 
 useHead({
@@ -19,15 +22,17 @@ const filteredData = computed(() => {
   if (!data.value?.results) return [];
 
   const currentDate = new Date();
-  return data.value.results.filter((blog: any) => {
+  return data.value.results.filter((blog) => {
     const date = blog.properties?.date?.date?.start;
-    console.log(date);
-    if (date) {
+    if (!date) return false;
+
+    try {
       const blogDate = new Date(date);
       return blogDate <= currentDate;
+    } catch (error) {
+      console.error("Error parsing date:", date, error);
+      return false;
     }
-
-    return true;
   });
 });
 </script>
