@@ -29,6 +29,13 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "@nuxt/scripts",
   ],
+  fonts: {
+    defaults: {
+      weights: [300, 400, 500, 600, 700],
+      styles: ["normal", "italic"],
+      subsets: ["cyrillic-ext", "cyrillic"],
+    },
+  },
   notion: {},
   colorMode: {
     preference: "dark",
@@ -40,7 +47,6 @@ export default defineNuxtConfig({
       { code: "en", language: "en", file: "en.json" },
       { code: "bg", language: "bg", file: "bg.json" },
     ],
-    defaultLocaleRouteNameSuffix: "/bg",
     defaultLocale: "bg",
     strategy: "prefix_except_default",
   },

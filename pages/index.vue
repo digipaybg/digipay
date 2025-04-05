@@ -17,6 +17,12 @@ useHead({
       content: "/1600x624.png",
     },
   ],
+  link: [
+    {
+      rel: "preconnect",
+      href: "https://fonts.googleapis.com",
+    },
+  ],
 });
 </script>
 
@@ -35,3 +41,9 @@ useHead({
     </div>
   </div>
 </template>
+
+<style lang="scss">
+body {
+  font-family: "Manrope", sans-serif;
+}
+</style>

@@ -2,17 +2,52 @@
 const members = [
   {
     image: "/advisory/albena-petkova.png",
-    name: "AdvisoryBoard.AlbenaPetkova",
-    role: "AdvisoryBoard.AlbenaRole",
-    bio: "AdvisoryBoard.AlbenaBio",
-    whyJoin: "AdvisoryBoard.AlbenaWhyJoin",
+    name: "AlbenaPetkova",
+    role: "AlbenaRole",
+    bio: "AlbenaBio",
+    whyJoin: "AlbenaWhyJoin",
+  },
+  {
+    image: "/advisory/goran-angelov.jpg",
+    name: "GoranAngelov",
+    role: "GoranRole",
+    bio: "GoranBio",
+    whyJoin: "GoranWhyJoin",
   },
   {
     image: "/advisory/dafinka-lazarova.png",
-    name: "AdvisoryBoard.DafinkaLazarova",
-    role: "AdvisoryBoard.DafinkaRole",
-    bio: "AdvisoryBoard.DafinkaBio",
-    whyJoin: "AdvisoryBoard.DafinkaWhyJoin",
+    name: "DafinkaLazarova",
+    role: "DafinkaRole",
+    bio: "DafinkaBio",
+    whyJoin: "DafinkaWhyJoin",
+  },
+  {
+    image: "/advisory/hristian-prashkov.jpeg",
+    name: "HristianPrashkov",
+    role: "HristianRole",
+    bio: "HristianBio",
+    whyJoin: "HristianWhyJoin",
+  },
+  {
+    image: "/advisory/svetlin-lazarov.jpg",
+    name: "SvetlinLazarov",
+    role: "SvetlinRole",
+    bio: "SvetlinBio",
+    whyJoin: "SvetlinWhyJoin",
+  },
+  {
+    image: "/advisory/filip-mutafis.JPG",
+    name: "FilipMutafis",
+    role: "FilipRole",
+    bio: "FilipBio",
+    whyJoin: "FilipWhyJoin",
+  },
+  {
+    image: "/advisory/pavel-kaminsky.jpeg",
+    name: "PavelKaminsky",
+    role: "PavelRole",
+    bio: "PavelBio",
+    whyJoin: "PavelWhyJoin",
   },
 ];
 </script>
@@ -40,26 +75,29 @@ const members = [
             <div class="flex-shrink-0">
               <NuxtImg
                 :src="member.image"
-                class="size-24 sm:size-30 object-cover object-top rounded-full"
-                :alt="$t(member.name)"
+                :class="[
+                  'size-24 sm:size-30 object-top object-cover rounded-full',
+                  member.name === 'HristianPrashkov' ? 'rotate-90' : '',
+                ]"
+                :alt="$t(`AdvisoryBoard.${member.name}`)"
               />
             </div>
             <div class="flex-grow space-y-4 tracking-wide">
               <h3
                 class="text-lg font-semibold transition-all ease-in-out group-hover:tracking-widest"
               >
-                {{ $t(member.name) }}
+                {{ $t(`AdvisoryBoard.${member.name}`) }}
               </h3>
               <p
                 class="text-sm text-gray-500 transition-all ease-in-out group-hover:tracking-wider"
               >
-                {{ $t(member.role) }}
+                {{ $t(`AdvisoryBoard.${member.role}`) }}
               </p>
               <p class="text-sm text-gray-200">
-                {{ $t(member.bio) }}
+                {{ $t(`AdvisoryBoard.${member.bio}`) }}
               </p>
               <p class="text-sm italic text-gray-300">
-                "{{ $t(member.whyJoin) }}"
+                "{{ $t(`AdvisoryBoard.${member.whyJoin}`) }}"
               </p>
             </div>
           </div>
@@ -69,4 +107,8 @@ const members = [
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.rotate-90 {
+  transform: rotate(90deg);
+}
+</style>
