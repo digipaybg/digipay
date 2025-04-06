@@ -93,7 +93,8 @@ const members = [
               <p class="text-sm text-gray-200">
                 {{ $t(`AdvisoryBoard.${member.bio}`) }}
               </p>
-              <p class="text-sm italic text-gray-300">
+
+              <p v-if="member.whyJoin" class="text-sm italic text-gray-300">
                 "{{ $t(`AdvisoryBoard.${member.whyJoin}`) }}"
               </p>
             </div>
