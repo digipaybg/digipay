@@ -8,7 +8,7 @@ const members = [
     whyJoin: "AlbenaWhyJoin",
   },
   {
-    image: "/advisory/goran-angelov.jpg",
+    image: "/advisory/goran-angelov.png",
     name: "GoranAngelov",
     role: "GoranRole",
     bio: "GoranBio",
@@ -29,7 +29,7 @@ const members = [
     whyJoin: "HristianWhyJoin",
   },
   {
-    image: "/advisory/svetlin-lazarov.jpg",
+    image: "/advisory/svetlin-lazarov.png",
     name: "SvetlinLazarov",
     role: "SvetlinRole",
     bio: "SvetlinBio",
@@ -53,18 +53,15 @@ const members = [
 </script>
 
 <template>
-  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 *:font-sans">
+  <div class="max-w-screen-2xl space-y-8 mx-auto px-4 sm:px-6 *:font-sans">
     <LetterPullup
       :animate-directly="true"
       :words="$t('AdvisoryBoard.title')"
-      text-class="!text-4xl md:!text-6xl"
+      text-class="!text-4xl md:!text-4xl"
       :initial-delay="100"
       key="title-contact"
     />
     <div class="flex flex-col gap-6 mt-4 px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">
-        {{ $t("AdvisoryBoard.members") }}
-      </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div
           v-for="member in members"
