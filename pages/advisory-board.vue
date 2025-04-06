@@ -33,14 +33,14 @@ const members = [
     name: "SvetlinLazarov",
     role: "SvetlinRole",
     bio: "SvetlinBio",
-    whyJoin: "SvetlinWhyJoin",
+    // whyJoin: "SvetlinWhyJoin",
   },
   {
     image: "/advisory/filip-mutafis.JPG",
     name: "FilipMutafis",
     role: "FilipRole",
     bio: "FilipBio",
-    whyJoin: "FilipWhyJoin",
+    // whyJoin: "FilipWhyJoin",
   },
   {
     image: "/advisory/pavel-kaminsky.jpeg",
