@@ -8,18 +8,18 @@ const members = [
     // whyJoin: "SvetlinWhyJoin",
   },
   {
-    image: "/advisory/albena-petkova.png",
-    name: "AlbenaPetkova",
-    role: "AlbenaRole",
-    bio: "AlbenaBio",
-    whyJoin: "AlbenaWhyJoin",
-  },
-  {
     image: "/advisory/goran-angelov.png",
     name: "GoranAngelov",
     role: "GoranRole",
     bio: "GoranBio",
     whyJoin: "GoranWhyJoin",
+  },
+  {
+    image: "/advisory/albena-petkova.png",
+    name: "AlbenaPetkova",
+    role: "AlbenaRole",
+    bio: "AlbenaBio",
+    whyJoin: "AlbenaWhyJoin",
   },
   {
     image: "/advisory/dafinka-lazarova.png",
