@@ -1,6 +1,13 @@
 <script lang="ts" setup>
 const members = [
   {
+    image: "/advisory/svetlin-lazarov.png",
+    name: "SvetlinLazarov",
+    role: "SvetlinRole",
+    bio: "SvetlinBio",
+    // whyJoin: "SvetlinWhyJoin",
+  },
+  {
     image: "/advisory/albena-petkova.png",
     name: "AlbenaPetkova",
     role: "AlbenaRole",
@@ -28,13 +35,7 @@ const members = [
     bio: "HristianBio",
     whyJoin: "HristianWhyJoin",
   },
-  {
-    image: "/advisory/svetlin-lazarov.png",
-    name: "SvetlinLazarov",
-    role: "SvetlinRole",
-    bio: "SvetlinBio",
-    // whyJoin: "SvetlinWhyJoin",
-  },
+
   {
     image: "/advisory/filip-mutafis.JPG",
     name: "FilipMutafis",
