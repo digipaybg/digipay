@@ -2,6 +2,11 @@
 import { animate, stagger } from "motion";
 
 const { $anime } = useNuxtApp();
+const { locale } = useI18n();
+const link =
+  locale.value === "en"
+    ? "https://tickets.paysera.com/en/event/digi-pay-10c0"
+    : "https://tickets.paysera.com/bg-BG/event/digi-pay-10c0";
 
 const titleRef = ref<HTMLElement | null>(null);
 const isTitleVisible = useElementVisibility(titleRef, {
@@ -80,20 +85,29 @@ onMounted(() => {
       </video>
 
       <div
-        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white space-y-4 w-full px-4"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white w-full px-4 flex flex-col items-center gap-4"
       >
         <div>
           <Logo
             class="text-center text-white mx-auto w-[150px] sm:w-[200px] md:w-[250px] hero"
           />
         </div>
+
         <LetterPullup
           words="Your secure and convenient journey"
           :initialDelay="0"
-          containerClass="flex justify-center w-full"
-          textClass="text-2xl md:text-3xl md:text-4xl lg:text-5xl hero"
+          containerClass="flex justify-center w-full "
+          textClass="text-2xl md:text-3xl md:text-4xl lg:text-5xl h-full hero"
           key="hero"
         />
+
+        <div class="flex justify-center w-full mt-12 hero">
+          <NuxtLink :to="link" asChild>
+            <Button class="">
+              {{ $t("HomePage.hero.button") }}
+            </Button>
+          </NuxtLink>
+        </div>
       </div>
     </div>
 
