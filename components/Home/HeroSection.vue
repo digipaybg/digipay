@@ -76,7 +76,7 @@ onMounted(() => {
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
         class="w-full h-full opacity-30 aspect-video object-cover"
         poster="/18.png"
       >

@@ -5,7 +5,7 @@ const members = [
     name: "SvetlinLazarov",
     role: "SvetlinRole",
     bio: "SvetlinBio",
-    // whyJoin: "SvetlinWhyJoin",
+    whyJoin: "SvetlinWhyJoin",
   },
   {
     image: "/advisory/goran-angelov.png",
@@ -28,20 +28,20 @@ const members = [
     bio: "DafinkaBio",
     whyJoin: "DafinkaWhyJoin",
   },
-  {
-    image: "/advisory/hristian-prashkov.jpeg",
-    name: "HristianPrashkov",
-    role: "HristianRole",
-    bio: "HristianBio",
-    whyJoin: "HristianWhyJoin",
-  },
 
   {
     image: "/advisory/filip-mutafis.JPG",
     name: "FilipMutafis",
     role: "FilipRole",
     bio: "FilipBio",
-    // whyJoin: "FilipWhyJoin",
+    whyJoin: "FilipWhyJoin",
+  },
+  {
+    image: "/advisory/hristian-prashkov.jpeg",
+    name: "HristianPrashkov",
+    role: "HristianRole",
+    bio: "HristianBio",
+    whyJoin: "HristianWhyJoin",
   },
   {
     image: "/advisory/pavel-kaminsky.jpeg",
