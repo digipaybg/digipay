@@ -11,24 +11,10 @@ export default defineNuxtConfig({
       routes: ["/", "/blog", "/en", "/en/blog"],
     },
   },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    [
-      "vue3-notion/nuxt",
-      { css: true, token: process.env.NUXT_PUBLIC_NOTION_TOKEN },
-    ],
-    "@nuxt/image",
-    "shadcn-nuxt",
-    "@nuxtjs/color-mode",
-    "@nuxt/fonts",
-    "@nuxtjs/i18n",
-    "@vueuse/nuxt",
-    "@hypernym/nuxt-anime",
-    "@nuxt/icon",
-    "@nuxtjs/seo",
-    "@nuxtjs/robots",
-    "@nuxt/scripts",
-  ],
+  modules: ["@nuxtjs/tailwindcss", [
+    "vue3-notion/nuxt",
+    { css: true, token: process.env.NUXT_PUBLIC_NOTION_TOKEN },
+  ], "@nuxt/image", "shadcn-nuxt", "@nuxtjs/color-mode", "@nuxt/fonts", "@nuxtjs/i18n", "@vueuse/nuxt", "@hypernym/nuxt-anime", "@nuxt/icon", "@nuxtjs/seo", "@nuxtjs/robots", "@nuxt/scripts", "nuxt-marquee"],
   fonts: {
     defaults: {
       weights: [300, 400, 500, 600, 700],

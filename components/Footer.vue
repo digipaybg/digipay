@@ -121,7 +121,7 @@ const socials = [
           {{ $t("Footer.rights") }}
         </h1>
         <NuxtLink
-          href="https://kaloyanes.com"
+          href="https://portfolio-denoic.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-xs sm:text-sm md:text-base hover:text-blue-400 transition-colors"

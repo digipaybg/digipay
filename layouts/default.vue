@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  link: [{ rel: "icon", href: "/favicon.svg" }],
+  link: [{ rel: "icon", href: "/logo.svg" }],
 });
 
 const { locale } = useI18n();

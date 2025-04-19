@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 
 const scrolled = useWindowScroll();
-const isScrolled = computed(() => scrolled.y.value > 0);
+const isScrolled = computed(() => scrolled.y.value > 25);
 
 const { t } = useI18n();
 const localePath = useLocalePath();
@@ -14,6 +14,10 @@ const navigationItems = [
   {
     label: "Navigation.advisory-board",
     href: "/advisory-board",
+  },
+  {
+    label: "Navigation.partners",
+    href: "/partners",
   },
   {
     label: "Navigation.blog",
@@ -32,8 +36,8 @@ const isMobileMenuOpen = ref(false);
   <div
     :class="
       cn(
-        'w-full py-8  sticky top-0 xl:top-4 z-50 backdrop-blur-md bg-background/50 max-w-screen-xl mx-auto px-4 xl:rounded-2xl  my-0 xl:my-6 transition-all ease-out duration-200 border border-transparent  ',
-        { 'shadow-lg  xl:!border-white/20': isScrolled },
+        'w-[80%] py-8 sticky top-0 xl:top-4 z-50 backdrop-blur-md bg-background/50 max-w-screen-2xl  mx-auto px-4 xl:rounded-2xl  my-0 xl:my-6 transition-all ease-out duration-500 border border-transparent  ',
+        { 'shadow-lg  xl:!border-white/20 w-full': isScrolled },
       )
     "
   >
@@ -45,7 +49,7 @@ const isMobileMenuOpen = ref(false);
       </NuxtLink>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center">
+      <div class="hidden lg:flex items-center w-full justify-center">
         <NuxtLink
           v-for="item in navigationItems"
           :key="item.href"
@@ -57,8 +61,10 @@ const isMobileMenuOpen = ref(false);
             {{ $t(item.label) }}
           </Button>
         </NuxtLink>
-
         <NavigationPreviousEditions />
+      </div>
+
+      <div class="flex items-center">
         <NavigationLanguageSelector />
       </div>
 
@@ -66,7 +72,7 @@ const isMobileMenuOpen = ref(false);
       <Button
         variant="ghost"
         size="icon"
-        class="md:hidden p-2"
+        class="lg:hidden p-2"
         @click="isMobileMenuOpen = true"
         aria-label="Open menu"
       >

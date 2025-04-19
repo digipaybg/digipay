@@ -28,7 +28,7 @@ const previousEditions = [
 <template>
   <Dialog>
     <DialogTrigger :as-child="true">
-      <Button variant="ghost" class="md:text-lg mx-2 text-xl w-full">
+      <Button variant="ghost" class="text-lg mx-2">
         {{ $t("Navigation.previousEditions") }}
       </Button>
     </DialogTrigger>
