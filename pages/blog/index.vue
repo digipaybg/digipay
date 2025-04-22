@@ -23,7 +23,10 @@ const filteredData = computed(() => {
 
   const currentDate = new Date();
   return data.value.results.filter((blog) => {
-    const date = blog.properties?.date?.date?.start;
+    const dateProp = blog.properties.date as
+      | Extract<PageObjectResponse["properties"][string], { type: "date" }>
+      | undefined;
+    const date = dateProp?.date?.start;
     if (!date) return false;
 
     try {
@@ -37,10 +40,18 @@ const filteredData = computed(() => {
 });
 
 const defaultOgImage = computed(() => {
-  if (!filteredData.value?.[0]?.properties?.image?.rich_text?.[0]?.plain_text) {
+  const firstBlog = filteredData.value?.[0];
+  if (!firstBlog) return "/18.png";
+
+  const imageProp = firstBlog.properties.image as
+    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
+    | undefined;
+  const imageUrl = imageProp?.rich_text?.[0]?.plain_text;
+
+  if (!imageUrl) {
     return "/18.png";
   }
-  return `/blog/${filteredData.value[0].properties.image.rich_text[0].plain_text}`;
+  return `/blog/${imageUrl}`;
 });
 
 useSeoMeta({

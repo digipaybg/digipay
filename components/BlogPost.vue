@@ -5,6 +5,10 @@ import type {
   PartialPageObjectResponse,
   PartialDatabaseObjectResponse,
   DatabaseObjectResponse,
+  RichTextItemResponse,
+  DatePropertyItemObjectResponse,
+  TitlePropertyItemObjectResponse,
+  TextRichTextItemResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import { formatDate } from "@vueuse/core";
 import type { PropType } from "vue";
@@ -16,12 +20,7 @@ const props = defineProps({
     default: false,
   },
   blog: {
-    type: Object as PropType<
-      | PageObjectResponse
-      | PartialPageObjectResponse
-      | PartialDatabaseObjectResponse
-      | DatabaseObjectResponse
-    >,
+    type: Object as PropType<PageObjectResponse>,
     required: true,
   },
 });
@@ -29,21 +28,42 @@ const props = defineProps({
 const localePath = useLocalePath();
 
 const cover = computed(() => {
-  if (!props.blog.properties.image?.rich_text?.[0]?.plain_text)
-    return "/18.png";
-  return props.blog.properties.image.rich_text[0].plain_text;
+  const imageProp = props.blog.properties.image as
+    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
+    | undefined;
+  return imageProp?.rich_text?.[0]?.plain_text ?? "/18.png";
 });
 
 const title = computed(() => {
-  return props.blog.properties.title?.title?.[0]?.text?.content || "Untitled";
+  const titleProp = props.blog.properties.title as
+    | Extract<PageObjectResponse["properties"][string], { type: "title" }>
+    | undefined;
+  const firstTitleItem = titleProp?.title?.[0];
+  if (firstTitleItem?.plain_text) {
+    return firstTitleItem.plain_text;
+  }
+  return "Untitled";
 });
 
 const slug = computed(() => {
-  return props.blog.properties.slug?.rich_text?.[0]?.plain_text || "";
+  const slugProp = props.blog.properties.slug as
+    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
+    | undefined;
+  return slugProp?.rich_text?.[0]?.plain_text || "";
 });
 
 const date = computed(() => {
-  return props.blog.properties.date?.date?.start || new Date();
+  const dateProp = props.blog.properties.date as
+    | Extract<PageObjectResponse["properties"][string], { type: "date" }>
+    | undefined;
+  return dateProp?.date?.start || new Date();
+});
+
+const description = computed(() => {
+  const descriptionProp = props.blog.properties.description as
+    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
+    | undefined;
+  return descriptionProp?.rich_text?.[0]?.plain_text || "";
 });
 </script>
 
@@ -82,7 +102,7 @@ const date = computed(() => {
         <p class="text-gray-400 mt-2">
           {{ formatDate(new Date(date), "DD/MM/YYYY") }}
         </p>
-        <p class="mt-2 text-gray-600">{{ blog.description }}</p>
+        <p class="mt-2 text-gray-600">{{ description }}</p>
       </div>
     </div>
   </NuxtLink>
