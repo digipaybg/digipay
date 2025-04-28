@@ -45,6 +45,26 @@ const partnerTypes = [
     type: "partners",
     partners: [
       {
+        name: "Association of Certified Fraud Examiners",
+        image: "/partners/acfe.png",
+        link: "https://www.acfe.bg/",
+      },
+      {
+        name: "fintech bulgaria",
+        image: "/partners/fintech.png",
+        link: "https://fintechbulgaria.org/bg/",
+      },
+      {
+        name: "basscom",
+        image: "/partners/basscom.png",
+        link: "https://www.basscom.org/",
+      },
+      {
+        name: "Bulgarian E-commerce Association",
+        image: "/partners/bea.png",
+        link: "https://beabg.com/",
+      },
+      {
         name: "isaca",
         image: "/partners/isaca.png",
         link: "https://engage.isaca.org/sofiachapter/home",
@@ -58,26 +78,6 @@ const partnerTypes = [
         name: "acss",
         image: "/partners/acss.png",
         link: "https://sanctionsassociation.org/",
-      },
-      {
-        name: "Association of Certified Fraud Examiners",
-        image: "/partners/acfe.png",
-        link: "https://www.acfe.bg/",
-      },
-      {
-        name: "Bulgarian E-commerce Association",
-        image: "/partners/bea.png",
-        link: "https://beabg.com/",
-      },
-      {
-        name: "fintech bulgaria",
-        image: "/partners/fintech.png",
-        link: "https://fintechbulgaria.org/bg/",
-      },
-      {
-        name: "basscom",
-        image: "/partners/basscom.png",
-        link: "https://www.basscom.org/",
       },
       {
         name: "fram creative solutions",
