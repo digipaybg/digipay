@@ -3,41 +3,142 @@ const route = useRoute();
 const { $notion } = useNuxtApp();
 const { locale } = useI18n();
 
+// Define a more specific type for the expected page structure from the API
+interface NotionProperty {
+  type: string;
+  rich_text?: Array<{ plain_text?: string; text?: { content?: string } }>;
+  title?: Array<{ text?: { content?: string } }>;
+  files?: Array<{ type: 'external' | 'file'; external?: { url?: string }; file?: { url?: string } }>;
+  url?: string;
+  
+  [key: string]: any; // Allow other properties
+}
+
+interface FetchedPageData {
+  id: string;
+  properties: Record<string, NotionProperty | undefined>;
+}
+
 const {
   data: fetchedData,
   pending,
-  status,
+  // status, // status is not used in the provided snippet
   error,
-} = await useFetch(`/api/${locale.value}/blog/${route.params.slug as string}`);
+} = await useFetch<FetchedPageData>(`/api/${locale.value}/blog/${route.params.slug as string}`);
 
-if (error) {
-  console.error(error);
+if (error.value && process.client) { // Access .value for refs
+  console.error('Fetch error:', error.value);
 }
 
 // const data = await $notion.getPageBlocks(
 //   fetchedData.value?.id.replaceAll("-", ""),
 // );
-const { data } = await useAsyncData(`notion-${route.params.slug}`, () =>
-  $notion.getPageBlocks(fetchedData.value?.id.replaceAll("-", "")),
-);
-const cover = computed(() => {
-  if (!fetchedData.value?.properties?.image?.rich_text?.[0]?.plain_text) {
-    return "/18.png";
+const { data } = await useAsyncData(`notion-${route.params.slug}`, async () => {
+  const page = fetchedData.value;
+
+  if (error.value || !page || typeof page.id !== 'string') {
+    if (process.client) {
+      console.warn('Skipping Notion blocks fetch: Initial page data is missing, malformed, or fetch failed.', {
+        error: error.value,
+        pageId: page?.id,
+        pageType: typeof page?.id,
+        fetchedData: page,
+      });
+    }
+    return {}; // Return empty object instead of null
   }
-  return fetchedData.value.properties.image.rich_text[0].plain_text;
+  
+  if (process.client) {
+    console.log('Attempting to fetch Notion blocks for page ID:', page.id.replaceAll("-", ""));
+  }
+  const blocks = await $notion.getPageBlocks(page.id.replaceAll("-", ""));
+  
+  if (process.client) {
+    console.log('Raw blocks from $notion.getPageBlocks:', JSON.parse(JSON.stringify(blocks))); // Log a clone
+  }
+
+  if (!blocks || (typeof blocks === 'object' && Object.keys(blocks).length === 0)) {
+      if (process.client) {
+        
+        console.warn('No blocks returned from $notion.getPageBlocks or blocks object is empty.');
+      }
+      return {}; // Return empty object
+  }
+
+  try {
+    // Ensure the data is a POJO to prevent stringify errors
+    const parsedBlocks = JSON.parse(JSON.stringify(blocks));
+    if (process.client) {
+      console.log('Parsed blocks for NotionRenderer:', JSON.parse(JSON.stringify(parsedBlocks))); // Log a clone
+      if (Object.keys(parsedBlocks).length === 0 && Object.keys(blocks).length > 0) {
+          console.warn('Parsed blocks became an empty object, but raw blocks were not. Check stringify/parse process.');
+      }
+    }
+    return parsedBlocks;
+  } catch (e) {
+    if (process.client) {
+      console.error("Failed to stringify/parse Notion blocks:", e);
+    }
+    return {}; // Return empty object on error
+  }
+});
+
+const cover = computed(() => {
+  const page = fetchedData.value;
+  if (error.value || !page || !page.properties) {
+    return "/18.png"; // Default image
+  }
+
+  const imageProp = page.properties.image;
+
+  if (!imageProp) return "/18.png";
+
+  // Check for 'files' type (common for cover images in Notion)
+  if (imageProp.type === 'files' && Array.isArray(imageProp.files) && imageProp.files.length > 0) {
+    const firstFile = imageProp.files[0];
+    if (firstFile.type === 'external' && firstFile.external?.url) {
+      return firstFile.external.url;
+    }
+    if (firstFile.type === 'file' && firstFile.file?.url) {
+      return firstFile.file.url;
+    }
+  }
+
+  // Check for 'rich_text' type (e.g., URL stored in rich text)
+  if (imageProp.type === 'rich_text' && Array.isArray(imageProp.rich_text) && imageProp.rich_text.length > 0) {
+    return imageProp.rich_text[0]?.plain_text || "/18.png";
+  }
+  
+  // Check for 'url' type
+  if (imageProp.type === 'url' && typeof imageProp.url === 'string') {
+    return imageProp.url || "/18.png";
+  }
+
+  return "/18.png"; // Default fallback
 });
 
 const title = computed(() => {
-  return (
-    fetchedData.value?.properties?.title?.title?.[0]?.text?.content ||
-    "Untitled"
-  );
+  const page = fetchedData.value;
+  if (error.value || !page || !page.properties) {
+    return "Untitled";
+  }
+  const titleProp = page.properties.title;
+  if (titleProp && titleProp.type === 'title' && Array.isArray(titleProp.title) && titleProp.title.length > 0) {
+    return titleProp.title[0]?.text?.content || "Untitled";
+  }
+  return "Untitled";
 });
 
 const description = computed(() => {
-  return (
-    fetchedData.value?.properties?.description?.rich_text?.[0]?.plain_text || ""
-  );
+  const page = fetchedData.value;
+  if (error.value || !page || !page.properties) {
+    return "";
+  }
+  const descriptionProp = page.properties.description;
+  if (descriptionProp && descriptionProp.type === 'rich_text' && Array.isArray(descriptionProp.rich_text) && descriptionProp.rich_text.length > 0) {
+    return descriptionProp.rich_text[0]?.plain_text || "";
+  }
+  return "";
 });
 
 useSeoMeta({
@@ -71,6 +172,19 @@ definePageMeta({
 const isLoading = computed(
   () => pending.value || !fetchedData.value || !data.value,
 );
+
+if (process.client) {
+  watchEffect(() => {
+    console.log('Final data for NotionRenderer (data.value):', data.value ? JSON.parse(JSON.stringify(data.value)) : data.value);
+    console.log('isLoading state:', isLoading.value);
+    console.log('pending.value:', pending.value);
+    console.log('fetchedData.value exists:', !!fetchedData.value);
+    console.log('data.value exists:', !!data.value);
+    if (data.value && typeof data.value === 'object') {
+      console.log('data.value keys:', Object.keys(data.value).length);
+    }
+  });
+}
 </script>
 
 <template>
