@@ -42,14 +42,14 @@ const isMobileMenuOpen = ref(false);
     "
   >
     <div
-      class="h-6 flex items-center justify-between w-full max-w-screen-xl mx-auto"
+      class="h-6 flex items-center justify-around w-full max-w-screen-xl mx-auto"
     >
       <NuxtLink :to="localePath('/')" aria-label="Home">
         <Logo class="w-12" />
       </NuxtLink>
 
       <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center w-full justify-center">
+      <div class="hidden lg:flex items-center w-full flex-1 justify-center">
         <NuxtLink
           v-for="item in navigationItems"
           :key="item.href"

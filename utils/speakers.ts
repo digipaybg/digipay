@@ -1,20 +1,39 @@
-// import type { QueryDatabaseParameters } from "@notionhq/client/build/src/api-endpoints";
-// import { notion } from "./notion";
+import type { QueryDatabaseParameters } from "@notionhq/client/build/src/api-endpoints";
+import { notion } from "./blog";
 
-// export const fetchSpeakers = async (language: string) => {
-//   if (!process.env.NOTION_SPEAKERS_DATABASE_ID) {
-//     throw new Error(
-//       "The NOTION_SPEAKERS_DATABASE_ID environment variable is required.",
-//     );
-//   }
+export const fetchSpeakers = async (language: string) => {
+  const config = useRuntimeConfig();
+  const speakersDbId = config.public.notionSpeakersDbId;
 
-//   const args: QueryDatabaseParameters = {
-//     database_id: process.env.NOTION_SPEAKERS_DATABASE_ID,
-//     filter: {
-//       property: "language",
-//       select: { equals: language },
-//     },
-//   };
+  if (!speakersDbId) {
+    throw new Error(
+      "The NUXT_PUBLIC_NOTION_SPEAKERS_DB_ID environment variable is required.",
+    );
+  }
 
-//   return notion.databases.query(args);
-// };
+  console.log("Fetching speakers for language:", language);
+
+  const args: QueryDatabaseParameters = {
+    database_id: speakersDbId,
+    filter: {
+      and: [
+        {
+          property: "language",
+          select: {
+            equals: language,
+          },
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: "name",
+        direction: "ascending",
+      },
+    ],
+  };
+
+  const response = await notion.databases.query(args);
+  console.log("Found speakers:", response.results.length);
+  return response;
+};

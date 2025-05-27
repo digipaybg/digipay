@@ -110,12 +110,7 @@ useHead({
         {{ t("Blog.noPublishedPosts") || "No published posts yet" }}
       </div>
     </div>
-    <div
-      v-else
-      class="max-w-screen-2xl text-lg sm:text-4xl font-bold mx-auto flex items-center justify-center min-h-[120px] sm:min-h-[200px]"
-    >
-      Loading...
-    </div>
+    <LoadingSpinner v-else />
   </div>
 </template>
 

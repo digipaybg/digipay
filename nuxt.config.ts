@@ -5,16 +5,30 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   nitro: {
-    preset: "static",
     prerender: {
       crawlLinks: true,
       routes: ["/", "/blog", "/en", "/en/blog"],
     },
   },
-  modules: ["@nuxtjs/tailwindcss", [
-    "vue3-notion/nuxt",
-    { css: true, token: process.env.NUXT_PUBLIC_NOTION_TOKEN },
-  ], "@nuxt/image", "shadcn-nuxt", "@nuxtjs/color-mode", "@nuxt/fonts", "@nuxtjs/i18n", "@vueuse/nuxt", "@hypernym/nuxt-anime", "@nuxt/icon", "@nuxtjs/seo", "@nuxtjs/robots", "@nuxt/scripts", "nuxt-marquee"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    [
+      "vue3-notion/nuxt",
+      { css: true, token: process.env.NUXT_PUBLIC_NOTION_TOKEN },
+    ],
+    "@nuxt/image",
+    "shadcn-nuxt",
+    "@nuxtjs/color-mode",
+    "@nuxt/fonts",
+    "@nuxtjs/i18n",
+    "@vueuse/nuxt",
+    "@hypernym/nuxt-anime",
+    "@nuxt/icon",
+    "@nuxtjs/seo",
+    "@nuxtjs/robots",
+    "@nuxt/scripts",
+    "nuxt-marquee",
+  ],
   fonts: {
     defaults: {
       weights: [300, 400, 500, 600, 700],
@@ -29,6 +43,9 @@ export default defineNuxtConfig({
     classSuffix: "",
   },
   i18n: {
+    bundle: {
+      optimizeTranslationDirective: true,
+    },
     locales: [
       { code: "en", language: "en", file: "en.json" },
       { code: "bg", language: "bg", file: "bg.json" },
@@ -76,9 +93,12 @@ export default defineNuxtConfig({
           },
         },
       },
-      token: process.env.NUXT_PUBLIC_NOTION_TOKEN,
+      notionToken: process.env.NUXT_PUBLIC_NOTION_TOKEN,
       databaseId: process.env.NUXT_PUBLIC_NOTION_DATABASE_ID,
+      notionSpeakersDbId: process.env.NUXT_PUBLIC_NOTION_SPEAKERS_DB_ID,
       contactsDatabaseId: process.env.NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID,
+      newsletterDatabaseId:
+        process.env.NUXT_PUBLIC_NOTION_NEWSLETTER_DATABASE_ID,
     },
   },
   robots: {

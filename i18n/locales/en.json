@@ -25,6 +25,9 @@
       "recommend": "would recommend DIGIPAY"
     }
   },
+  "Common": {
+    "loading": "Loading..."
+  },
   "HomePage": {
     "hero": {
       "mainTitle": "DIGIPAY 2025",

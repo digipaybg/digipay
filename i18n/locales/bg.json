@@ -25,6 +25,9 @@
       "recommend": "ще препоръчат DIGIPAY"
     }
   },
+  "Common": {
+    "loading": "Зареждане..."
+  },
   "HomePage": {
     "hero": {
       "mainTitle": "DIGIPAY 2025",
