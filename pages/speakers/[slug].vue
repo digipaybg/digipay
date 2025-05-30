@@ -14,9 +14,6 @@ const { data: speaker } = await useFetch<PageObjectResponse>(
 const { data: blocks } = await useFetch<BlockObjectResponse[]>(
   `/api/${locale.value}/speakers/${route.params.slug}/blocks`,
 );
-const { data: relatedBlogs } = await useFetch<PageObjectResponse[]>(
-  `/api/${locale.value}/speakers/${route.params.slug}/blogs`,
-);
 
 const name = computed(() => {
   const nameProp = speaker.value?.properties?.name as
@@ -87,7 +84,7 @@ useHead({
           :src="picture"
           :alt="name"
           preload
-          class="w-full rounded-lg object-cover aspect-[3/4] md:sticky md:top-32"
+          class="w-full aspect-[1] object-cover object-right-top rounded-lg md:sticky md:top-32"
           :modifiers="{ rotate: null }"
         />
       </div>
@@ -119,19 +116,6 @@ useHead({
           v-if="blocks"
           :blocks="blocks"
           class="notion-content"
-        />
-      </div>
-    </div>
-
-    <!-- Related Blogs Section -->
-    <div v-if="relatedBlogs && relatedBlogs.length > 0" class="mt-16">
-      <h2 class="text-3xl font-bold mb-8">Related Articles</h2>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <BlogPost
-          v-for="blog in relatedBlogs"
-          :key="blog.id"
-          :blog="blog"
-          class="w-full"
         />
       </div>
     </div>

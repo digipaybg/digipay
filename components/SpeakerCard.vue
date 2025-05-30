@@ -51,7 +51,6 @@ const slug = computed(() => {
 </script>
 
 <template>
-  й
   <NuxtLink :to="localePath(`/speakers/${slug}`)" class="block">
     <div
       :class="
