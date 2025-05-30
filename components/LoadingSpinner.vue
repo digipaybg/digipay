@@ -21,6 +21,14 @@
 </template>
 
 <style scoped>
+.loading-spinner-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  width: 100%;
+}
+
 .spinner {
   animation: rotator 1.4s linear infinite;
 }

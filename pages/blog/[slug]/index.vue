@@ -1,153 +1,116 @@
 <script lang="ts" setup>
-const route = useRoute();
-const { $notion } = useNuxtApp();
-const { locale } = useI18n();
+import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
-// Define a more specific type for the expected page structure from the API
-interface NotionProperty {
-  type: string;
-  rich_text?: Array<{ plain_text?: string; text?: { content?: string } }>;
-  title?: Array<{ text?: { content?: string } }>;
-  files?: Array<{ type: 'external' | 'file'; external?: { url?: string }; file?: { url?: string } }>;
-  url?: string;
-  
-  [key: string]: any; // Allow other properties
-}
-
-interface FetchedPageData {
+// Define interfaces for API responses
+interface NotionPageResponse {
   id: string;
-  properties: Record<string, NotionProperty | undefined>;
+  properties: {
+    title: {
+      title: Array<{ plain_text: string }>;
+    };
+    image: {
+      rich_text: Array<{ plain_text: string }>;
+    };
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
 }
+
+interface BlogBlocksResponse {
+  blocks: BlockObjectResponse[];
+}
+
+const route = useRoute();
+const { locale } = useI18n();
 
 const {
   data: fetchedData,
   pending,
   // status, // status is not used in the provided snippet
-  error,
-} = await useFetch<FetchedPageData>(`/api/${locale.value}/blog/${route.params.slug as string}`);
+  error: pageError, // Renamed for clarity
+} = await useFetch<NotionPageResponse>(
+  `/api/${locale.value}/blog/${route.params.slug as string}`,
+);
 
-if (error.value && process.client) { // Access .value for refs
-  console.error('Fetch error:', error.value);
+if (pageError.value && process.client) {
+  // Access .value for refs // Use renamed pageError
+  console.error("Fetch error:", pageError.value); // Use renamed pageError
 }
 
-// const data = await $notion.getPageBlocks(
-//   fetchedData.value?.id.replaceAll("-", ""),
-// );
-const { data } = await useAsyncData(`notion-${route.params.slug}`, async () => {
-  const page = fetchedData.value;
+const {
+  data: blocksData,
+  error: blocksError, // Renamed for clarity
+} = await useFetch<BlogBlocksResponse>(
+  `/api/${locale.value}/blog/${route.params.slug as string}/pageblocks`,
+);
 
-  if (error.value || !page || typeof page.id !== 'string') {
-    if (process.client) {
-      console.warn('Skipping Notion blocks fetch: Initial page data is missing, malformed, or fetch failed.', {
-        error: error.value,
-        pageId: page?.id,
-        pageType: typeof page?.id,
-        fetchedData: page,
-      });
+const { data } = await useAsyncData(
+  `notion-${route.params.slug as string}`,
+  async () => {
+    const page = fetchedData.value;
+
+    if (pageError.value || !page || typeof page.id !== "string") {
+      console.warn(
+        "Skipping Notion blocks fetch: Initial page data is missing, malformed, or fetch failed.",
+        {
+          error: pageError.value,
+          pageId: page?.id,
+          pageType: typeof page?.id,
+          fetchedData: page,
+        },
+      );
+
+      return []; // Return empty array instead of null
     }
-    return {}; // Return empty object instead of null
-  }
-  
-  if (process.client) {
-    console.log('Attempting to fetch Notion blocks for page ID:', page.id.replaceAll("-", ""));
-  }
-  const blocks = await $notion.getPageBlocks(page.id.replaceAll("-", ""));
-  
-  if (process.client) {
-    console.log('Raw blocks from $notion.getPageBlocks:', JSON.parse(JSON.stringify(blocks))); // Log a clone
+
+    if (blocksError.value) {
+      console.error("Blocks fetch error:", blocksError.value);
+    }
+
+    return blocksData.value || []; // Return blocks data or empty array
+  },
+);
+
+// Create a computed property for the blocks
+const blocks = computed(() => {
+  if (!data.value || !Array.isArray(data.value)) {
+    return [];
   }
 
-  if (!blocks || (typeof blocks === 'object' && Object.keys(blocks).length === 0)) {
-      if (process.client) {
-        
-        console.warn('No blocks returned from $notion.getPageBlocks or blocks object is empty.');
-      }
-      return {}; // Return empty object
-  }
-
-  try {
-    // Ensure the data is a POJO to prevent stringify errors
-    const parsedBlocks = JSON.parse(JSON.stringify(blocks));
-    if (process.client) {
-      console.log('Parsed blocks for NotionRenderer:', JSON.parse(JSON.stringify(parsedBlocks))); // Log a clone
-      if (Object.keys(parsedBlocks).length === 0 && Object.keys(blocks).length > 0) {
-          console.warn('Parsed blocks became an empty object, but raw blocks were not. Check stringify/parse process.');
-      }
-    }
-    return parsedBlocks;
-  } catch (e) {
-    if (process.client) {
-      console.error("Failed to stringify/parse Notion blocks:", e);
-    }
-    return {}; // Return empty object on error
-  }
+  return data.value;
 });
 
 const cover = computed(() => {
   const page = fetchedData.value;
-  if (error.value || !page || !page.properties) {
-    return "/18.png"; // Default image
+
+  if (pageError.value || !page || !page.properties) {
+    // Changed error.value to pageError.value
+    return "/18.png"; // Default fallback image
   }
 
-  const imageProp = page.properties.image;
+  const coverProp = page.properties.image.rich_text[0]?.plain_text;
 
-  if (!imageProp) return "/18.png";
-
-  // Check for 'files' type (common for cover images in Notion)
-  if (imageProp.type === 'files' && Array.isArray(imageProp.files) && imageProp.files.length > 0) {
-    const firstFile = imageProp.files[0];
-    if (firstFile.type === 'external' && firstFile.external?.url) {
-      return firstFile.external.url;
-    }
-    if (firstFile.type === 'file' && firstFile.file?.url) {
-      return firstFile.file.url;
-    }
-  }
-
-  // Check for 'rich_text' type (e.g., URL stored in rich text)
-  if (imageProp.type === 'rich_text' && Array.isArray(imageProp.rich_text) && imageProp.rich_text.length > 0) {
-    return imageProp.rich_text[0]?.plain_text || "/18.png";
-  }
-  
-  // Check for 'url' type
-  if (imageProp.type === 'url' && typeof imageProp.url === 'string') {
-    return imageProp.url || "/18.png";
-  }
-
-  return "/18.png"; // Default fallback
+  return coverProp || "/18.png"; // Default fallback
 });
 
 const title = computed(() => {
   const page = fetchedData.value;
-  if (error.value || !page || !page.properties) {
+  if (pageError.value || !page || !page.properties) {
+    // Changed error.value to pageError.value
     return "Untitled";
   }
-  const titleProp = page.properties.title;
-  if (titleProp && titleProp.type === 'title' && Array.isArray(titleProp.title) && titleProp.title.length > 0) {
-    return titleProp.title[0]?.text?.content || "Untitled";
-  }
-  return "Untitled";
-});
+  const titleProp = page.properties.title.title[0]?.plain_text;
 
-const description = computed(() => {
-  const page = fetchedData.value;
-  if (error.value || !page || !page.properties) {
-    return "";
-  }
-  const descriptionProp = page.properties.description;
-  if (descriptionProp && descriptionProp.type === 'rich_text' && Array.isArray(descriptionProp.rich_text) && descriptionProp.rich_text.length > 0) {
-    return descriptionProp.rich_text[0]?.plain_text || "";
-  }
-  return "";
+  return titleProp || "Untitled";
 });
 
 useSeoMeta({
   ogImage: { url: `/blog/${cover.value}`, width: 1200, alt: title.value },
   ogTitle: title.value,
-  ogDescription: description.value,
+  ogDescription: title.value,
   twitterTitle: title.value,
   title: title.value,
-  description: description.value,
+  description: title.value,
 });
 
 useHead({
@@ -170,21 +133,14 @@ definePageMeta({
 });
 
 const isLoading = computed(
-  () => pending.value || !fetchedData.value || !data.value,
+  () =>
+    pending.value || !cover.value || !title.value || blocks.value.length === 0,
 );
 
-if (process.client) {
-  watchEffect(() => {
-    console.log('Final data for NotionRenderer (data.value):', data.value ? JSON.parse(JSON.stringify(data.value)) : data.value);
-    console.log('isLoading state:', isLoading.value);
-    console.log('pending.value:', pending.value);
-    console.log('fetchedData.value exists:', !!fetchedData.value);
-    console.log('data.value exists:', !!data.value);
-    if (data.value && typeof data.value === 'object') {
-      console.log('data.value keys:', Object.keys(data.value).length);
-    }
-  });
-}
+// Additional safety check for valid blocks
+const hasValidBlocks = computed(() => {
+  return blocks.value && blocks.value.length > 0;
+});
 </script>
 
 <template>
@@ -201,18 +157,15 @@ if (process.client) {
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 sm:my-8">
         {{ title }}
       </h1>
-      <NotionRenderer
-        v-if="data"
-        :blockMap="data"
-        prism
-        data-allow-mismatch
-        class="*:!text-foreground w-full notion-content"
-        katex
+      <CustomNotionRenderer
+        v-if="hasValidBlocks"
+        :blocks="blocks"
+        class="w-full notion-content"
       />
     </div>
 
     <div v-else class="animate-pulse space-y-4 notion-page">
-      <div class="w-full aspect-video bg-muted rounded-lg"></div>
+      <div class="w-full aspect-video bg-muted rounded-lg mx-auto"></div>
       <div class="h-8 bg-muted rounded w-3/4"></div>
       <div class="space-y-3">
         <div class="h-4 bg-muted rounded w-full"></div>
@@ -267,8 +220,17 @@ if (process.client) {
   }
 
   img {
-    @apply rounded-lg sm:rounded-xl w-full aspect-video object-cover;
+    border-radius: 0.5rem;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     height: auto;
+  }
+
+  @media (min-width: 640px) {
+    img {
+      border-radius: 0.75rem;
+    }
   }
 }
 
@@ -283,7 +245,12 @@ if (process.client) {
     font-size: 0.875rem;
     border-radius: 0.5rem;
     -webkit-overflow-scrolling: touch;
-    @apply sm:text-base;
+  }
+
+  @media (min-width: 640px) {
+    pre {
+      font-size: 1rem;
+    }
   }
 
   table {
@@ -292,12 +259,22 @@ if (process.client) {
     white-space: nowrap;
     max-width: 100%;
     font-size: 0.875rem;
-    @apply sm:text-base;
+  }
+
+  @media (min-width: 640px) {
+    table {
+      font-size: 1rem;
+    }
   }
 
   blockquote {
     padding: 0.5rem 1rem;
-    @apply sm:p-4;
+  }
+
+  @media (min-width: 640px) {
+    blockquote {
+      padding: 1rem;
+    }
   }
 }
 </style>

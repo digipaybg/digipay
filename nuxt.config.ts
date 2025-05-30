@@ -131,6 +131,9 @@ export default defineNuxtConfig({
       ],
     }),
   },
+  build: {
+    transpile: ["vue3-notion"],
+  },
   seo: {
     redirectToCanonicalSiteUrl: false,
     fallbackTitle: true,

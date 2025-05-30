@@ -17,6 +17,11 @@ export default defineEventHandler(async (event) => {
     };
   }
 
-  const blocks = await fetchPageBlocks(page?.id);
-  return [...blocks];
+  try {
+    const blocks = await fetchPageBlocks(page?.id);
+    return blocks; // Return the blocks array directly
+  } catch (error) {
+    console.error("Error fetching page blocks:", error);
+    return [];
+  }
 });

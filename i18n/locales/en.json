@@ -241,5 +241,11 @@
     "PavelRole": "Founder and CEO, 7Security",
     "PavelBio": "Pavel Kaminsky - PCI QSA, 3DS, QPA, SSF, CISSP, CISA, CEH, is the guy FinTech founders call when they need to implement secure payment environments and cost-efficient PCI DSS. He is a mentor at the VISA Innovation Program, Level39, Startupbootcamp and others, an Advisory Board Member, Innovation Hub Judge, & MPE Awards Judge at MPE Berlin.",
     "PavelWhyJoin": "As a longstanding member of the DIGI PAY Advisory Board, I am honored to contribute to the continuous growth and impact of the conference, which expands in scale and value each year. DIGI PAY not only unites Bulgaria's fintech ecosystem—fostering valuable connections and partnerships—but also serves as a key platform for discussions on innovation, regulations, and payment security."
+  },
+  "PartnersPage": {
+    "title": "Our Partners",
+    "gold": "Gold Partners",
+    "silver": "Silver Partners",
+    "partners": "Partners"
   }
 }

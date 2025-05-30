@@ -93,7 +93,7 @@ export const fetchBySlug = (language: string, slug: string) => {
 
 async function fetchNestedBlocks(
   blockId: string,
-): Promise<BlockObjectResponse[]> {
+): Promise<(BlockObjectResponse & { children?: BlockObjectResponse[] })[]> {
   const blocks = await notion.blocks.children
     .list({
       block_id: blockId,
@@ -116,6 +116,8 @@ async function fetchNestedBlocks(
   return childBlocks;
 }
 
-export const fetchPageBlocks = (pageId: string) => {
-  return fetchNestedBlocks(pageId);
+export const fetchPageBlocks = async (
+  pageId: string,
+): Promise<(BlockObjectResponse & { children?: BlockObjectResponse[] })[]> => {
+  return await fetchNestedBlocks(pageId);
 };

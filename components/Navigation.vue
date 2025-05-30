@@ -16,6 +16,10 @@ const navigationItems = [
     href: "/advisory-board",
   },
   {
+    label: "Navigation.speakers",
+    href: "/speakers",
+  },
+  {
     label: "Navigation.partners",
     href: "/partners",
   },
@@ -36,14 +40,15 @@ const isMobileMenuOpen = ref(false);
   <div
     :class="
       cn(
-        'w-[80%] py-8 sticky top-0 xl:top-4 z-50 backdrop-blur-md bg-background/50 max-w-screen-2xl  mx-auto px-4 xl:rounded-2xl  my-0 xl:my-6 transition-all ease-out duration-500 border border-transparent  ',
-        { 'shadow-lg  xl:!border-white/20 w-full': isScrolled },
+        'w-[100%] py-8 sticky top-0 xl:top-4 z-50 backdrop-blur-md bg-background/50   mx-auto px-4 xl:rounded-2xl  my-0 xl:my-6 transition-all ease-in-out duration-300 border border-transparent  ',
+        {
+          'shadow-lg  xl:!border-white/20 w-full max-w-screen-xl': isScrolled,
+        },
+        { 'shadow-none xl:!border-transparent max-w-screen-2xl': !isScrolled },
       )
     "
   >
-    <div
-      class="h-6 flex items-center justify-around w-full max-w-screen-xl mx-auto"
-    >
+    <div class="h-6 flex items-center justify-between w-[99%] mx-auto">
       <NuxtLink :to="localePath('/')" aria-label="Home">
         <Logo class="w-12" />
       </NuxtLink>
@@ -64,7 +69,7 @@ const isMobileMenuOpen = ref(false);
         <NavigationPreviousEditions />
       </div>
 
-      <div class="flex items-center">
+      <div class="items-center lg:flex hidden">
         <NavigationLanguageSelector />
       </div>
 

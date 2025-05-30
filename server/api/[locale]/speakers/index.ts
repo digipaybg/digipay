@@ -1,4 +1,3 @@
-import { fetchPages } from "~/utils/blog";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { fetchSpeakers } from "~/utils/speakers";
 
@@ -19,16 +18,17 @@ export default defineEventHandler(async (event) => {
       speakers.results?.filter((result): result is PageObjectResponse => {
         if (!result || !("properties" in result)) return false;
 
-        const titleProperty = result.properties.title;
-        if (!titleProperty || !("title" in titleProperty)) return false;
+        // Check for name property (lowercase)
+        const nameProperty = result.properties.name;
+        if (!nameProperty || !("title" in nameProperty)) return false;
 
-        const titleArray = titleProperty.title;
-        if (!Array.isArray(titleArray) || titleArray.length === 0) return false;
+        const nameArray = nameProperty.title;
+        if (!Array.isArray(nameArray) || nameArray.length === 0) return false;
 
-        const firstTitle = titleArray[0];
-        if (!firstTitle || !("text" in firstTitle)) return false;
+        const firstName = nameArray[0];
+        if (!firstName || !("plain_text" in firstName)) return false;
 
-        return !!firstTitle.text?.content;
+        return !!firstName.plain_text;
       }) || [];
 
     return {
@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
       results: validResults,
     };
   } catch (error) {
-    console.error("Error fetching blog pages:", error);
+    console.error("Error fetching speakers:", error);
     return {
       locale: language,
       status: 500,

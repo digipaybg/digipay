@@ -17,29 +17,41 @@ const props = defineProps({
 const localePath = useLocalePath();
 
 const name = computed(() => {
-  const nameProp = props.speaker.properties.Name as
+  const nameProp = props.speaker.properties.name as
     | Extract<PageObjectResponse["properties"][string], { type: "title" }>
     | undefined;
   return nameProp?.title?.[0]?.plain_text || "Unknown Speaker";
 });
 
 const role = computed(() => {
-  const roleProp = props.speaker.properties.Role as
+  const roleProp = props.speaker.properties.position as
     | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
     | undefined;
   return roleProp?.rich_text?.[0]?.plain_text || "";
 });
 
 const picture = computed(() => {
-  const pictureProp = props.speaker.properties.Picture as
-    | Extract<PageObjectResponse["properties"][string], { type: "url" }>
+  const imageProp = props.speaker.properties.image as
+    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
     | undefined;
-  return pictureProp?.url || "/18.png";
+  const imageFileName = imageProp?.rich_text?.[0]?.plain_text;
+
+  if (!imageFileName) {
+    return "/18.png";
+  }
+  return `/speakers/${imageFileName}`;
+});
+
+const slug = computed(() => {
+  const slugProp = props.speaker.properties.slug as
+    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
+    | undefined;
+  return slugProp?.rich_text?.[0]?.plain_text || props.speaker.id;
 });
 </script>
 
 <template>
-  <NuxtLink :to="localePath(`/speakers/${speaker.id}`)" class="block">
+  <NuxtLink :to="localePath(`/speakers/${slug}`)" class="block">
     <div
       :class="
         cn(
@@ -48,14 +60,16 @@ const picture = computed(() => {
         )
       "
     >
-      <img
+      <NuxtImg
         :src="picture"
         :alt="name"
+        preload
         :class="
-          cn('w-full aspect-video object-cover rounded-lg', {
+          cn('w-full aspect-[1] object-cover object-right-top rounded-lg', {
             'md:w-2/5 md:aspect-[3/4]': isRow,
           })
         "
+        :modifiers="{ rotate: null }"
       />
       <div class="flex-1 flex flex-col">
         <h2
