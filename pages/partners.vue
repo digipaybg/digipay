@@ -70,6 +70,11 @@ const partnerTypes = [
         link: "https://engage.isaca.org/sofiachapter/home",
       },
       {
+        name: "European Digital Finance Association",
+        image: "/partners/edfa.png",
+        link: "https://europeandigitalfinance.eu/",
+      },
+      {
         name: "bbcc",
         image: "/partners/bbcc.png",
         link: "https://bbcc.bg/",
