@@ -44,6 +44,12 @@ export const fetchPages = async (language: string) => {
             equals: language,
           },
         },
+        {
+          property: "image",
+          rich_text: {
+            is_not_empty: true,
+          },
+        },
       ],
     },
     sorts: [
