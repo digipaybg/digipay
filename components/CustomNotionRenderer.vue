@@ -210,7 +210,7 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 .notion-paragraph {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #1f2937;
+  color: #e5e7eb;
   margin-bottom: 1rem;
 }
 
@@ -223,7 +223,7 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 .notion-h1 {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #111827;
+  color: #ffffff;
   margin-top: 2rem;
   margin-bottom: 1.5rem;
   line-height: 1.25;
@@ -232,7 +232,7 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 .notion-h2 {
   font-size: 2rem;
   font-weight: 600;
-  color: #111827;
+  color: #ffffff;
   margin-top: 1.25rem;
   margin-bottom: 0.75rem;
   line-height: 1.25;
@@ -247,7 +247,7 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 .notion-h3 {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #111827;
+  color: #ffffff;
   margin-top: 1rem;
   margin-bottom: 0.75rem;
   line-height: 1.25;
@@ -269,7 +269,7 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 
 .notion-image-caption {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #9ca3af;
   text-align: center;
   margin-top: 0.75rem;
   font-style: italic;
@@ -299,7 +299,7 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 }
 
 .notion-list-item {
-  color: #1f2937;
+  color: #e5e7eb;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -317,11 +317,11 @@ const getIcon = (icon: NotionIcon | undefined): string => {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin: 1.5rem 0;
-  background-color: #f9fafb;
+  background-color: #1f2937;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   font-style: italic;
-  color: #374151;
+  color: #d1d5db;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -334,23 +334,23 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 
 /* Code */
 .notion-code {
-  background-color: #f3f4f6;
+  background-color: #1f2937;
   padding: 1rem;
   border-radius: 0.5rem;
   overflow-x: auto;
   font-size: 0.875rem;
   font-family: monospace;
   margin: 1rem 0;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #374151;
 }
 
 .notion-code code {
-  color: #1f2937;
+  color: #e5e7eb;
 }
 
 /* Divider */
 .notion-divider {
-  border-color: #d1d5db;
+  border-color: #4b5563;
   margin: 2rem 0;
 }
 
@@ -360,8 +360,8 @@ const getIcon = (icon: NotionIcon | undefined): string => {
   gap: 1rem;
   padding: 1rem;
   margin: 1rem 0;
-  background-color: #eff6ff;
-  border: 1px solid #dbeafe;
+  background-color: #1e3a8a;
+  border: 1px solid #1d4ed8;
   border-radius: 0.5rem;
 }
 
@@ -373,7 +373,7 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 
 .notion-callout-content {
   flex: 1;
-  color: #1f2937;
+  color: #e5e7eb;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -397,13 +397,13 @@ const getIcon = (icon: NotionIcon | undefined): string => {
   width: 1rem;
   height: 1rem;
   color: #2563eb;
-  border-color: #d1d5db;
+  border-color: #4b5563;
   border-radius: 0.25rem;
 }
 
 .notion-todo-text {
   flex: 1;
-  color: #1f2937;
+  color: #e5e7eb;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -418,7 +418,7 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 .notion-children {
   margin-left: 1.5rem;
   margin-top: 1rem;
-  border-left: 2px solid #e5e7eb;
+  border-left: 2px solid #374151;
   padding-left: 1.5rem;
 }
 
@@ -426,61 +426,9 @@ const getIcon = (icon: NotionIcon | undefined): string => {
 .notion-unsupported {
   padding: 0.75rem;
   margin: 0.5rem 0;
-  background-color: #fefce8;
-  border: 1px solid #fde047;
+  background-color: #451a03;
+  border: 1px solid #a16207;
   border-radius: 0.5rem;
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  .notion-paragraph,
-  .notion-list-item,
-  .notion-todo-text,
-  .notion-callout-content {
-    color: #e5e7eb;
-  }
-
-  .notion-h1,
-  .notion-h2,
-  .notion-h3 {
-    color: #ffffff;
-  }
-
-  .notion-image-caption {
-    color: #9ca3af;
-  }
-
-  .notion-quote {
-    background-color: #1f2937;
-    color: #d1d5db;
-  }
-
-  .notion-code {
-    background-color: #1f2937;
-    border-color: #374151;
-  }
-
-  .notion-code code {
-    color: #e5e7eb;
-  }
-
-  .notion-divider {
-    border-color: #4b5563;
-  }
-
-  .notion-callout {
-    background-color: #1e3a8a;
-    border-color: #1d4ed8;
-  }
-
-  .notion-children {
-    border-color: #374151;
-  }
-
-  .notion-unsupported {
-    background-color: #451a03;
-    border-color: #a16207;
-  }
 }
 
 /* Responsive adjustments */
