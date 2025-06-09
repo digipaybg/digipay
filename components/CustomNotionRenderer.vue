@@ -23,11 +23,16 @@
 
       <!-- Image -->
       <figure v-else-if="block.type === 'image'" class="notion-image-wrapper">
+        <!-- Debug: Log the image block -->
+        {{ console.log("Image block:", block) }}
         <img
           :src="getImageUrl(block.image)"
           :alt="getImageCaption(block.image) || 'Blog image'"
           class="notion-image"
           loading="lazy"
+          @error="
+            console.log('Image failed to load:', getImageUrl(block.image))
+          "
         />
         <figcaption
           v-if="getImageCaption(block.image)"
@@ -133,13 +138,9 @@ const getPlainText = (richText: RichTextItemResponse[]): string => {
   return richText.map((text) => text.plain_text || "").join("");
 };
 
-// Define interfaces for image and icon types
-interface NotionImage {
-  type: "external" | "file";
-  external?: { url: string };
-  file?: { url: string };
-  caption?: RichTextItemResponse[];
-}
+// Extract image type from BlockObjectResponse
+type ImageBlock = Extract<BlockObjectResponse, { type: "image" }>;
+type NotionImage = ImageBlock["image"];
 
 interface NotionIcon {
   type: "emoji" | "external" | "file" | "custom_emoji";
@@ -151,7 +152,12 @@ interface NotionIcon {
 
 // Helper function to get image URL
 const getImageUrl = (image: NotionImage | undefined): string => {
-  if (!image) return "";
+  if (!image) {
+    console.log("No image provided");
+    return "";
+  }
+
+  console.log("Image object:", image);
 
   if (image.type === "external") {
     return image.external?.url || "";
