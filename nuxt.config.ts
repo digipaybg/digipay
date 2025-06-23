@@ -4,12 +4,7 @@ import { defineOrganization } from "nuxt-schema-org/schema";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ["/", "/blog", "/en", "/en/blog"],
-    },
-  },
+
   modules: [
     "@nuxtjs/tailwindcss",
     [
@@ -184,16 +179,7 @@ export default defineNuxtConfig({
       prerender: true,
       static: true,
       sitemap: { priority: 1 },
-    },
-    "/blog/**": {
-      static: true,
-      prerender: true,
-      sitemap: { priority: 0.9 },
-    },
-    "/speakers/**": {
-      static: true,
-      prerender: true,
-      sitemap: { priority: 0.7 },
+      isr: 60 * 60 * 24,
     },
   },
   sitemap: {
