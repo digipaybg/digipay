@@ -1,30 +1,38 @@
 <script lang="ts" setup>
 const { t } = useI18n();
 
+const start = 3;
+
 const people = [
   {
     key: "chrystalla",
     image: "/people/chrystalla-kazara.jpg",
+    youtubeUrl: `https://www.youtube.com/embed/GWoE9JkRZxQ?si=34yQn3wKRfFcKb_T&amp;start=${start}`,
   },
   {
     key: "boris",
     image: "/people/boris-goncharov.jpg",
+    youtubeUrl: `https://www.youtube.com/embed/KUpK4p77X6c?si=sRKO62zVNinXSdfH&amp;start=${start}`,
   },
   {
     key: "goran",
     image: "/people/goran-angelov.jpg",
+    youtubeUrl: `https://www.youtube.com/embed/B85jsQHO6XM?si=vKruv-Ry9asMQUb5&amp;start=${start}`,
   },
   {
     key: "ivana",
     image: "/people/ivana-rosencic.jpg",
+    youtubeUrl: `https://www.youtube.com/embed/1iQoH1l3-nQ?si=-9dxm3aLuvJu7gUr&amp;start=${start}`,
   },
   {
     key: "deyan",
     image: "/people/deyan-radev.jpg",
+    youtubeUrl: `https://www.youtube.com/embed/GpOjCa_BSFE?si=Ub4WgrOHwqQEjZmK&amp;start=${start}`,
   },
   {
     key: "tsvetomir",
     image: "/people/tsvetomir-doskov.jpg",
+    youtubeUrl: `https://www.youtube.com/embed/VOl8hADK4L8?si=I53CQ9Bwj9zG1SIc&amp;start=${start}`,
   },
 ];
 </script>
@@ -44,11 +52,16 @@ const people = [
         v-for="(person, index) in people"
         :key="index"
       >
-        <video
-          class="object-cover w-full aspect-[16/9] sm:aspect-[9/16] rounded-lg"
-          :src="`/interviews/interview-${index + 1}.mp4`"
-          controls
-        />
+        <iframe
+          class="w-full aspect-[9/16] rounded-lg"
+          :src="person.youtubeUrl"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+
         <div class="mx-1 sm:mx-2 flex items-center gap-2 sm:gap-3 md:gap-4">
           <NuxtImg
             :src="person.image"
