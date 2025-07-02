@@ -43,15 +43,15 @@ const defaultOgImage = computed(() => {
   const firstBlog = filteredData.value?.[0];
   if (!firstBlog) return "/18.png";
 
-  const imageProp = firstBlog.properties.image as
-    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
-    | undefined;
-  const imageUrl = imageProp?.rich_text?.[0]?.plain_text;
-
-  if (!imageUrl) {
-    return "/18.png";
+  if (firstBlog.cover?.type === "file") {
+    return firstBlog.cover?.file?.url ?? "/18.png";
   }
-  return `/blog/${imageUrl}`;
+
+  if (firstBlog.cover?.type === "external") {
+    return firstBlog.cover?.external?.url ?? "/18.png";
+  }
+
+  return "/18.png";
 });
 
 useSeoMeta({

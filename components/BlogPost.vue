@@ -28,10 +28,19 @@ const props = defineProps({
 const localePath = useLocalePath();
 
 const cover = computed(() => {
-  const imageProp = props.blog.properties.image as
-    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
-    | undefined;
-  return imageProp?.rich_text?.[0]?.plain_text ?? "/18.png";
+  if (props.blog.cover?.type === "file") {
+    return props.blog.cover?.file?.url ?? "/18.png";
+  }
+
+  if (props.blog.cover?.type === "external") {
+    return props.blog.cover?.external?.url ?? "/18.png";
+  }
+
+  return "/18.png";
+});
+
+watch(cover, (newCover) => {
+  console.log(newCover);
 });
 
 const title = computed(() => {
@@ -80,8 +89,9 @@ const description = computed(() => {
         )
       "
     >
-      <NuxtImg
-        :src="`/blog/${cover}`"
+      <img
+        :src="cover"
+        loading="eager"
         preload
         alt="cover"
         :class="

@@ -82,15 +82,25 @@ const blocks = computed(() => {
 
 const cover = computed(() => {
   const page = fetchedData.value;
-
-  if (pageError.value || !page || !page.properties) {
-    // Changed error.value to pageError.value
-    return "/18.png"; // Default fallback image
+  if (
+    page?.cover &&
+    typeof page.cover === "object" &&
+    "type" in page.cover &&
+    page.cover.type === "file"
+  ) {
+    return (page.cover as any).file?.url ?? "/18.png";
   }
 
-  const coverProp = page.properties.image.rich_text[0]?.plain_text;
+  if (
+    page?.cover &&
+    typeof page.cover === "object" &&
+    "type" in page.cover &&
+    page.cover.type === "external"
+  ) {
+    return (page?.cover as any).external?.url ?? "/18.png";
+  }
 
-  return coverProp || "/18.png"; // Default fallback
+  return "/18.png";
 });
 
 const title = computed(() => {
@@ -146,8 +156,8 @@ const hasValidBlocks = computed(() => {
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
     <div v-if="!isLoading" class="notion-page">
-      <NuxtImg
-        :src="`/blog/${cover}`"
+      <img
+        :src="cover"
         preload
         class="w-full aspect-video object-cover rounded-lg mx-auto"
         alt="Cover image"
