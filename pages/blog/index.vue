@@ -93,13 +93,15 @@ useHead({
         v-if="filteredData.length > 0"
         :blog="filteredData[0]"
         :is-row="!isMobile"
+        :index="0"
         class="col-span-2 lg:col-span-3 sm:is-row mb-2 sm:mb-0"
       />
 
       <BlogPost
-        v-for="blog in filteredData.slice(1)"
+        v-for="(blog, index) in filteredData.slice(1)"
         :key="blog.id"
         :blog="blog"
+        :index="index"
         class="col-span-2 lg:col-span-1"
       />
 

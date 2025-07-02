@@ -23,6 +23,10 @@ const props = defineProps({
     type: Object as PropType<PageObjectResponse>,
     required: true,
   },
+  index: {
+    type: Number,
+    required: true,
+  },
 });
 
 const localePath = useLocalePath();
@@ -37,10 +41,6 @@ const cover = computed(() => {
   }
 
   return "/18.png";
-});
-
-watch(cover, (newCover) => {
-  console.log(newCover);
 });
 
 const title = computed(() => {
@@ -91,7 +91,7 @@ const description = computed(() => {
     >
       <img
         :src="cover"
-        loading="eager"
+        :loading="index <= 6 ? 'eager' : 'lazy'"
         preload
         alt="cover"
         :class="
