@@ -4,7 +4,6 @@ import type {
   QueryDatabaseParameters,
 } from "@notionhq/client/build/src/api-endpoints";
 import { Client, LogLevel } from "@notionhq/client";
-import { downloadAndCacheImage } from "./image-cache";
 
 export const notion = new Client({
   auth: process.env.NUXT_PUBLIC_NOTION_TOKEN,
@@ -57,59 +56,11 @@ export const fetchPages = async (language: string) => {
 
   const response = await notion.databases.query(args);
   console.log("Found pages:", response.results.length);
-
-  // Cache cover images for all pages
-  const pagesWithCachedImages = await Promise.all(
-    (response.results as PageObjectResponse[]).map(async (page) => {
-      const notionCoverUrl = extractCoverImageUrl(page);
-      let cachedCoverUrl = "/18.png";
-
-      if (notionCoverUrl) {
-        try {
-          cachedCoverUrl = await downloadAndCacheImage(notionCoverUrl);
-        } catch (error) {
-          console.error("Failed to cache cover image:", error);
-        }
-      }
-
-      return {
-        ...page,
-        cached_cover_url: cachedCoverUrl,
-      };
-    }),
-  );
-
-  return {
-    ...response,
-    results: pagesWithCachedImages,
-  };
+  return response;
 };
 
-// Helper function to extract cover image URL
-function extractCoverImageUrl(page: PageObjectResponse): string | null {
-  if (
-    page?.cover &&
-    typeof page.cover === "object" &&
-    "type" in page.cover &&
-    page.cover.type === "file"
-  ) {
-    return (page.cover as any).file?.url ?? null;
-  }
-
-  if (
-    page?.cover &&
-    typeof page.cover === "object" &&
-    "type" in page.cover &&
-    page.cover.type === "external"
-  ) {
-    return (page.cover as any).external?.url ?? null;
-  }
-
-  return null;
-}
-
 // Check cache
-export const fetchBySlug = async (language: string, slug: string) => {
+export const fetchBySlug = (language: string, slug: string) => {
   const config = useRuntimeConfig();
   const databaseId = config.public.databaseId;
 
@@ -119,45 +70,25 @@ export const fetchBySlug = async (language: string, slug: string) => {
     );
   }
 
-  const response = await notion.databases.query({
-    database_id: databaseId,
-    filter: {
-      and: [
-        {
-          property: "slug",
-          rich_text: { equals: slug },
-        },
-        {
-          property: "language",
-          select: { equals: language },
-        },
-      ],
-    },
-  });
-
-  const page = response.results[0] as PageObjectResponse | undefined;
-
-  if (!page) {
-    return undefined;
-  }
-
-  // Extract and cache the cover image
-  const notionCoverUrl = extractCoverImageUrl(page);
-  let cachedCoverUrl = "/18.png"; // default fallback
-
-  if (notionCoverUrl) {
-    try {
-      cachedCoverUrl = await downloadAndCacheImage(notionCoverUrl);
-    } catch (error) {
-      console.error("Failed to cache cover image:", error);
-    }
-  }
-
-  // Return the page with a cached cover URL
-  return {
-    ...page,
-    cached_cover_url: cachedCoverUrl,
-  };
+  return notion.databases
+    .query({
+      database_id: databaseId,
+      filter: {
+        and: [
+          {
+            property: "slug",
+            rich_text: { equals: slug },
+          },
+          {
+            property: "language",
+            select: { equals: language },
+          },
+        ],
+      },
+    })
+    .then((response) => {
+      return response.results[0] as PageObjectResponse | undefined;
+    });
 };
 
 async function fetchNestedBlocks(

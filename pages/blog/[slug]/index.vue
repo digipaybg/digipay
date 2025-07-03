@@ -82,13 +82,6 @@ const blocks = computed(() => {
 
 const cover = computed(() => {
   const page = fetchedData.value;
-
-  // Use cached cover URL if available
-  if ((page as any)?.cached_cover_url) {
-    return (page as any).cached_cover_url;
-  }
-
-  // Fallback to original logic
   if (
     page?.cover &&
     typeof page.cover === "object" &&
