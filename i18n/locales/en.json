@@ -247,5 +247,8 @@
     "gold": "Gold Partners",
     "silver": "Silver Partners",
     "partners": "Partners"
+  },
+  "Blog": {
+    "description": "Latest blog posts from DIGIPAY"
   }
 }

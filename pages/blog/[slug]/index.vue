@@ -114,29 +114,39 @@ const title = computed(() => {
   return titleProp || "Untitled";
 });
 
+const date = computed(() => {
+  const page = fetchedData.value;
+  if (pageError.value || !page || !page.properties) {
+    return "Untitled";
+  }
+  const dateProp = (page.properties as any).date.date?.start;
+  return dateProp || "Untitled";
+});
 useSeoMeta({
-  ogImage: { url: `/blog/${cover.value}`, width: 1200, alt: title.value },
+  ogImage: { url: cover.value, width: 1200, alt: title.value },
   ogTitle: title.value,
   ogDescription: title.value,
   twitterTitle: title.value,
   title: title.value,
   description: title.value,
+  author: "DIGIPAY",
+  articlePublishedTime: date.value,
 });
 
-useHead({
-  meta: [
-    {
-      name: "description",
-      content:
-        "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
-    },
-    {
-      name: "image",
-      property: "og:image",
-      content: `/blog/${cover.value}`,
-    },
-  ],
-});
+// useHead({
+//   meta: [
+//     {
+//       name: "description",
+//       content:
+//         "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+//     },
+//     {
+//       name: "image",
+//       property: "og:image",
+//       content: cover.value,
+//     },
+//   ],
+// });
 
 definePageMeta({
   scrollToTop: true,

@@ -67,20 +67,20 @@ useSeoMeta({
   description: t("Blog.description") || "Latest blog posts from DIGIPAY",
 });
 
-useHead({
-  title: t("Navigation.blog"),
-  meta: [
-    {
-      name: "description",
-      content: t("Blog.description") || "Latest blog posts from DIGIPAY",
-    },
-    {
-      name: "image",
-      property: "og:image",
-      content: defaultOgImage.value,
-    },
-  ],
-});
+// useHead({
+//   title: t("Navigation.blog"),
+//   meta: [
+//     {
+//       name: "description",
+//       content: t("Blog.description") || "Latest blog posts from DIGIPAY",
+//     },
+//     {
+//       name: "image",
+//       property: "og:image",
+//       content: defaultOgImage.value,
+//     },
+//   ],
+// });
 </script>
 
 <template>
