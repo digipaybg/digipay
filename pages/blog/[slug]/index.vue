@@ -122,16 +122,34 @@ const date = computed(() => {
   const dateProp = (page.properties as any).date.date?.start;
   return dateProp || "Untitled";
 });
-useSeoMeta({
-  ogImage: { url: cover.value, width: 1200, alt: title.value },
-  ogTitle: title.value,
-  ogDescription: title.value,
-  twitterTitle: title.value,
-  title: title.value,
-  description: title.value,
-  author: "DIGIPAY",
-  articlePublishedTime: date.value,
-});
+
+// defineOgImageComponent(
+//   "NuxtSeoEject",
+//   {
+//     title: title.value,
+//     right: cover.value,
+//     image: "DIGIPAY",
+//     siteLogo: "/logo.svg",
+//   },
+//   {
+//     alt: title.value,
+//     // cacheMaxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+//     extension: "png",
+//     width: 1200,
+//     height: 630,
+//   },
+// );
+
+// useSeoMeta({
+//   // ogImage: { url: cover.value, width: 1200, alt: title.value },
+//   ogTitle: title.value,
+//   ogDescription: title.value,
+//   twitterTitle: title.value,
+//   title: title.value,
+//   description: title.value,
+//   author: "DIGIPAY",
+//   articlePublishedTime: date.value,
+// });
 
 // useHead({
 //   meta: [
@@ -166,6 +184,16 @@ const hasValidBlocks = computed(() => {
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
     <div v-if="!isLoading" class="notion-page">
+      <Head>
+        <Title>{{ title }}</Title>
+        <Meta name="description" :content="title" />
+        <Meta name="image" :content="cover" />
+        <Meta name="og:image" :content="cover" />
+        <Meta name="og:title" :content="title" />
+        <Meta name="og:description" :content="title" />
+        <Meta name="twitter:title" :content="title" />
+        <Meta name="twitter:description" :content="title" />
+      </Head>
       <img
         :src="cover"
         preload
