@@ -122,8 +122,26 @@ const date = computed(() => {
   const dateProp = (page.properties as any).date.date?.start;
   return dateProp || "Untitled";
 });
+
+defineOgImageComponent(
+  "NuxtSeoEject",
+  {
+    title: title.value,
+    right: cover.value,
+    image: "DIGIPAY",
+    siteLogo: "/logo.svg",
+  },
+  {
+    alt: title.value,
+    // cacheMaxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+    extension: "png",
+    width: 1200,
+    height: 630,
+  },
+);
+
 useSeoMeta({
-  ogImage: { url: cover.value, width: 1200, alt: title.value },
+  // ogImage: { url: cover.value, width: 1200, alt: title.value },
   ogTitle: title.value,
   ogDescription: title.value,
   twitterTitle: title.value,

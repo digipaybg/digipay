@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "@nuxt/scripts",
     "nuxt-marquee",
+    "nuxt-og-image",
   ],
   fonts: {
     defaults: {

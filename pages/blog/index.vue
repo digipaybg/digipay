@@ -55,11 +55,11 @@ const defaultOgImage = computed(() => {
 });
 
 useSeoMeta({
-  ogImage: {
-    url: defaultOgImage.value,
-    width: 1200,
-    alt: t("Navigation.blog"),
-  },
+  // ogImage: {
+  //   url: defaultOgImage.value,
+  //   width: 1200,
+  //   alt: t("Navigation.blog"),
+  // },
   ogTitle: t("Navigation.blog"),
   ogDescription: t("Blog.description") || "Latest blog posts from DIGIPAY",
   twitterTitle: t("Navigation.blog"),
