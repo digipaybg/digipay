@@ -185,14 +185,14 @@ const hasValidBlocks = computed(() => {
   <div class="px-4 sm:px-6 lg:px-8">
     <div v-if="!isLoading" class="notion-page">
       <Head>
-        <Title>{{ title }}</Title>
-        <Meta name="description" :content="title" />
-        <Meta name="image" :content="cover" />
-        <Meta name="og:image" :content="cover" />
-        <Meta name="og:title" :content="title" />
-        <Meta name="og:description" :content="title" />
-        <Meta name="twitter:title" :content="title" />
-        <Meta name="twitter:description" :content="title" />
+        <title>{{ title }}</title>
+        <meta name="description" :content="title" />
+        <meta name="image" :content="cover" />
+        <meta name="og:image" :content="cover" />
+        <meta name="og:title" :content="title" />
+        <meta name="og:description" :content="title" />
+        <meta name="twitter:title" :content="title" />
+        <meta name="twitter:description" :content="title" />
       </Head>
       <img
         :src="cover"
