@@ -179,21 +179,29 @@ const isLoading = computed(
 const hasValidBlocks = computed(() => {
   return blocks.value && blocks.value.length > 0;
 });
+
+watch(isLoading, (newVal) => {
+  if (!newVal) {
+    console.log("isLoading", newVal);
+    useSeoMeta({
+      ogImage: { url: cover.value, width: 1200, alt: title.value },
+      ogTitle: title.value,
+      ogDescription: title.value,
+      twitterTitle: title.value,
+      twitterDescription: title.value,
+      twitterImage: cover.value,
+      twitterCard: "summary_large_image",
+      twitterSite: "@kaloyanes",
+      twitterCreator: "@kaloyanes",
+      ogUrl: "https://digipay.bg",
+    });
+  }
+});
 </script>
 
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
     <div v-if="!isLoading" class="notion-page">
-      <Head>
-        <title>{{ title }}</title>
-        <meta name="description" :content="title" />
-        <meta name="image" :content="cover" />
-        <meta name="og:image" :content="cover" />
-        <meta name="og:title" :content="title" />
-        <meta name="og:description" :content="title" />
-        <meta name="twitter:title" :content="title" />
-        <meta name="twitter:description" :content="title" />
-      </Head>
       <img
         :src="cover"
         preload
