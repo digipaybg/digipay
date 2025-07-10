@@ -144,12 +144,12 @@ export default defineNuxtConfig({
       ogType: "website",
       ogUrl: "https://digipay.bg",
       ogTitle: "DIGIPAY",
-      ogImage: {
-        url: "https://digipay.bg/1600x624.png",
-        width: 1600,
-        height: 624,
-        type: "image/png",
-      },
+      // ogImage: {
+      //   url: "https://digipay.bg/1600x624.png",
+      //   width: 1600,
+      //   height: 624,
+      //   type: "image/png",
+      // },
       robots: "index, follow",
     },
   },
