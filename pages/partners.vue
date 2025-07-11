@@ -29,6 +29,11 @@ const partnerTypes = [
         image: "/partners/ibs.png",
         link: "https://ibs.bg/wps/portal/ibs/home",
       },
+      {
+        name: "Bakertilly",
+        image: "/partners/bakertilly.png",
+        link: "https://www.bakertilly.com",
+      },
     ],
   },
   {
@@ -38,6 +43,21 @@ const partnerTypes = [
         name: "dais",
         image: "/partners/dais.png",
         link: "https://dais-software.com/",
+      },
+      {
+        name: "Sirma",
+        image: "/partners/sirma.png",
+        link: "https://www.sirma.bg/",
+      },
+    ],
+  },
+  {
+    type: "bronze",
+    partners: [
+      {
+        name: "Paysera",
+        image: "/partners/paysera.png",
+        link: "https://paysera.bg/",
       },
     ],
   },
@@ -98,9 +118,7 @@ const partnerTypes = [
   <div
     class="partners-container max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 font-sans min-h-screen"
   >
-    <h1
-      class="text-center text-4xl md:text-5xl font-bold mb-12 lg:mb-16 text-muted-foreground"
-    >
+    <h1 class="text-4xl md:text-5xl font-bold mb-12 lg:mb-16">
       {{ $t("PartnersPage.title", "Our Partners") }}
     </h1>
     <div class="divide-y divide-accent">
@@ -109,9 +127,7 @@ const partnerTypes = [
         :key="index"
         class="py-10 lg:py-16"
       >
-        <h2
-          class="text-2xl lg:text-3xl font-semibold capitalize text-muted-foreground mb-8"
-        >
+        <h2 class="text-2xl lg:text-3xl font-semibold capitalize mb-8">
           {{ $t(`PartnersPage.${category.type}`, category.type) }}
         </h2>
         <div

@@ -132,12 +132,12 @@ export default defineNuxtConfig({
   },
   seo: {
     redirectToCanonicalSiteUrl: false,
-    fallbackTitle: true,
+    fallbackTitle: false,
 
     meta: {
       description: "DIGIPAY is the best fintech conference in Bulgaria",
-      twitterCreator: "@kaloyanes",
-      twitterSite: "@mysite",
+      twitterCreator: "@digipaybg",
+      twitterSite: "@digipaybg",
       colorScheme: "dark",
       applicationName: "DIGIPAY",
       // ogSiteName: "DIGIPAY",
