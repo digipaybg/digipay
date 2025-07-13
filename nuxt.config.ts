@@ -4,7 +4,7 @@ import { defineOrganization } from "nuxt-schema-org/schema";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-
+  ssr: true,
   modules: [
     "@nuxtjs/tailwindcss",
     [
@@ -70,6 +70,9 @@ export default defineNuxtConfig({
   // },
   image: {
     domains: ["prod-files-secure.s3.us-west-2.amazonaws.com"],
+  },
+  nitro: {
+    preset: "cloudflare-pages",
   },
   runtimeConfig: {
     public: {

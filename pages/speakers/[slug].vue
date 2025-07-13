@@ -30,15 +30,26 @@ const role = computed(() => {
 });
 
 const picture = computed(() => {
-  const imageProp = speaker.value?.properties?.image as
-    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
-    | undefined;
-  const imageFileName = imageProp?.rich_text?.[0]?.plain_text;
-
-  if (!imageFileName) {
-    return "/18.png";
+  const page = speaker.value;
+  if (
+    page?.cover &&
+    typeof page.cover === "object" &&
+    "type" in page.cover &&
+    page.cover.type === "file"
+  ) {
+    return (page.cover as any).file?.url ?? "/18.png";
   }
-  return `/speakers/${imageFileName}`;
+
+  if (
+    page?.cover &&
+    typeof page.cover === "object" &&
+    "type" in page.cover &&
+    page.cover.type === "external"
+  ) {
+    return (page?.cover as any).external?.url ?? "/18.png";
+  }
+
+  return "/18.png";
 });
 
 const slug = computed(() => {
@@ -80,12 +91,10 @@ useHead({
   <div v-if="speaker" class="container mx-auto px-4 py-8 max-w-5xl">
     <div class="flex flex-col md:flex-row gap-8 mb-12">
       <div class="md:w-1/3">
-        <NuxtImg
+        <img
           :src="picture"
           :alt="name"
-          preload
           class="w-full aspect-[1] object-cover object-right-top rounded-lg md:sticky md:top-32"
-          :modifiers="{ rotate: null }"
         />
       </div>
       <div class="flex-1">

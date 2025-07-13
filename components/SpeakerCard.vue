@@ -30,16 +30,16 @@ const role = computed(() => {
   return roleProp?.rich_text?.[0]?.plain_text || "";
 });
 
-const picture = computed(() => {
-  const imageProp = props.speaker.properties.image as
-    | Extract<PageObjectResponse["properties"][string], { type: "rich_text" }>
-    | undefined;
-  const imageFileName = imageProp?.rich_text?.[0]?.plain_text;
-
-  if (!imageFileName) {
-    return "/18.png";
+const cover = computed(() => {
+  if (props.speaker.cover?.type === "file") {
+    return props.speaker.cover?.file?.url ?? "/18.png";
   }
-  return `/speakers/${imageFileName}`;
+
+  if (props.speaker.cover?.type === "external") {
+    return props.speaker.cover?.external?.url ?? "/18.png";
+  }
+
+  return "/18.png";
 });
 
 const slug = computed(() => {
@@ -60,16 +60,14 @@ const slug = computed(() => {
         )
       "
     >
-      <NuxtImg
-        :src="picture"
+      <img
+        :src="cover"
         :alt="name"
-        preload
         :class="
           cn('w-full aspect-[1] object-cover object-right-top rounded-lg', {
             'md:w-2/5 md:aspect-[3/4]': isRow,
           })
         "
-        :modifiers="{ rotate: null }"
       />
       <div class="flex-1 flex flex-col">
         <h2
