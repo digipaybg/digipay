@@ -57,6 +57,32 @@ async function sendMail() {
       disabled.value = false;
     });
 }
+
+useSeoMeta({
+  title: t("ContactPage.title", "Contact Us"),
+  ogDescription:
+    "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+  twitterDescription:
+    "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+  twitterTitle: "DIGIPAY 2025",
+  ogImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterCard: "summary_large_image",
+  twitterSite: "@digipay2025",
+  ogSiteName: "DIGIPAY 2025",
+  ogType: "website",
+  ogUrl: "https://digipay.bg",
+});
 </script>
 
 <template>

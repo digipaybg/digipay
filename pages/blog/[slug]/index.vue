@@ -180,22 +180,18 @@ const hasValidBlocks = computed(() => {
   return blocks.value && blocks.value.length > 0;
 });
 
-watch(isLoading, (newVal) => {
-  if (!newVal) {
-    console.log("isLoading", newVal);
-    useSeoMeta({
-      ogImage: { url: cover.value, width: 1200, alt: title.value },
-      ogTitle: title.value,
-      ogDescription: title.value,
-      twitterTitle: title.value,
-      twitterDescription: title.value,
-      twitterImage: cover.value,
-      twitterCard: "summary_large_image",
-      twitterSite: "@kaloyanes",
-      twitterCreator: "@kaloyanes",
-      ogUrl: "https://digipay.bg",
-    });
-  }
+useSeoMeta({
+  ogImage: cover.value,
+  title: title.value,
+  ogTitle: title.value,
+  // ogDescription: title.value,
+  twitterTitle: title.value,
+  // twitterDescription: title.value,
+  twitterImage: cover.value,
+  twitterCard: "summary_large_image",
+  twitterSite: "@kaloyanes",
+  twitterCreator: "@kaloyanes",
+  ogUrl: "https://digipay.bg",
 });
 </script>
 

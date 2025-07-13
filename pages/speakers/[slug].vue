@@ -66,24 +66,30 @@ const linkedinUrl = computed(() => {
   return linkedinProp?.url || null;
 });
 
-useHead({
+useSeoMeta({
   title: name.value,
-  meta: [
-    {
-      name: "description",
-      content: `${name.value} - ${role.value}`,
-    },
-    {
-      property: "og:image",
-      content: picture.value,
-    },
-    {
-      property: "og:url",
-      content: `${useRuntimeConfig().public.siteUrl || ""}/speakers/${
-        slug.value
-      }`,
-    },
-  ],
+  ogDescription:
+    "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+  twitterDescription:
+    "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+  twitterTitle: "DIGIPAY 2025",
+  ogImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterCard: "summary_large_image",
+  twitterSite: "@digipay2025",
+  ogSiteName: "DIGIPAY 2025",
+  ogType: "website",
+  ogUrl: "https://digipay.bg",
 });
 </script>
 

@@ -31,16 +31,6 @@ useSeoMeta({
   title: t("Navigation.speakers"),
   description: t("Speakers.description") || "Latest Speakers from DIGIPAY",
 });
-
-useHead({
-  title: t("Navigation.blog"),
-  meta: [
-    {
-      name: "description",
-      content: t("Speaker.description") || "Latest Speakers from DIGIPAY",
-    },
-  ],
-});
 </script>
 
 <template>

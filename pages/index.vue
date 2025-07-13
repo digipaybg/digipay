@@ -4,25 +4,31 @@ definePageMeta({
   keepalive: false,
 });
 
-useHead({
-  meta: [
-    {
-      name: "description",
-      content:
-        "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
-    },
-    {
-      name: "image",
-      property: "og:image",
-      content: "/1600x624.png",
-    },
-  ],
-  link: [
-    {
-      rel: "preconnect",
-      href: "https://fonts.googleapis.com",
-    },
-  ],
+const locale = useI18n().locale;
+useSeoMeta({
+  ogDescription:
+    "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+  twitterDescription:
+    "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+  twitterTitle: "DIGIPAY 2025",
+  ogImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterCard: "summary_large_image",
+  twitterSite: "@digipay2025",
+  ogSiteName: "DIGIPAY 2025",
+  ogType: "website",
+  ogUrl: "https://digipay.bg",
+  ogLocale: locale.value,
 });
 </script>
 

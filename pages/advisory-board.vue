@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+const { t } = useI18n();
+
 const members = [
   {
     image: "/advisory/svetlin-lazarov.png",
@@ -51,6 +53,32 @@ const members = [
     whyJoin: "PavelWhyJoin",
   },
 ];
+
+useSeoMeta({
+  title: t("AdvisoryBoard.title", "Advisory Board"),
+  ogDescription:
+    "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+  twitterDescription:
+    "DIGIPAY 2025 is a conference in Bulgaria that brings together the best experts in the field of digital payments.",
+  twitterTitle: "DIGIPAY 2025",
+  ogImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterImage: {
+    url: "/1600x624.png",
+    alt: "DIGIPAY 2025",
+    height: 624,
+    width: 1600,
+  },
+  twitterCard: "summary_large_image",
+  twitterSite: "@digipay2025",
+  ogSiteName: "DIGIPAY 2025",
+  ogType: "website",
+  ogUrl: "https://digipay.bg",
+});
 </script>
 
 <template>
