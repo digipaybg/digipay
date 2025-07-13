@@ -1,0 +1,37 @@
+name = "digipay"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "bun run build"
+
+[build.upload]
+format = "modules"
+
+[vars]
+NODE_ENV = "production"
+
+# Use Bun instead of npm
+[build.upload.rules]
+type = "ESModule"
+globs = ["**/*.js", "**/*.mjs", "**/*.ts"]
+
+# Environment configuration
+[env.production]
+name = "digipay-production"
+
+[env.staging]
+name = "digipay-staging"
+
+[env.development]
+name = "digipay-development"
+
+# Specify Bun as the package manager
+[[env.production.build]]
+command = "bun install && bun run build"
+
+[[env.staging.build]]
+command = "bun install && bun run build"
+
+[[env.development.build]]
+command = "bun install && bun run build" 
