@@ -1,37 +1,37 @@
 name = "digipay"
-main = "src/index.js"
 compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
 
-[build]
-command = "bun run build"
+# Environment configuration for Pages (only preview and production are supported)
+[env.production]
+name = "digipay"
 
-[build.upload]
-format = "modules"
+[env.production.vars]
+NODE_ENV = "production"
+NUXT_PUBLIC_NOTION_TOKEN = "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"
+NUXT_PUBLIC_NOTION_DATABASE_ID = "15795c325fa780f2939add8bb30d4b36"
+NUXT_PUBLIC_NOTION_SPEAKERS_DB_ID = "16395c325fa780e4bf5ff50481f0662e"
+NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID = "16895c325fa780029522cf19408637b3"
+NUXT_PUBLIC_NOTION_NEWSLETTER_DATABASE_ID = "1f995c325fa7805ba4d9e0d6415a34bd"
 
+
+[env.preview]
+name = "digipay-preview"
+
+[env.preview.vars]
+NODE_ENV = "preview"
+NUXT_PUBLIC_NOTION_TOKEN = "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"
+NUXT_PUBLIC_NOTION_DATABASE_ID = "15795c325fa780f2939add8bb30d4b36"
+NUXT_PUBLIC_NOTION_SPEAKERS_DB_ID = "16395c325fa780e4bf5ff50481f0662e"
+NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID = "16895c325fa780029522cf19408637b3"
+NUXT_PUBLIC_NOTION_NEWSLETTER_DATABASE_ID = "1f995c325fa7805ba4d9e0d6415a34bd"
+
+
+# Variables
 [vars]
 NODE_ENV = "production"
-
-# Use Bun instead of npm
-[build.upload.rules]
-type = "ESModule"
-globs = ["**/*.js", "**/*.mjs", "**/*.ts"]
-
-# Environment configuration
-[env.production]
-name = "digipay-production"
-
-[env.staging]
-name = "digipay-staging"
-
-[env.development]
-name = "digipay-development"
-
-# Specify Bun as the package manager
-[[env.production.build]]
-command = "bun install && bun run build"
-
-[[env.staging.build]]
-command = "bun install && bun run build"
-
-[[env.development.build]]
-command = "bun install && bun run build" 
+NUXT_PUBLIC_NOTION_TOKEN = "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"
+NUXT_PUBLIC_NOTION_DATABASE_ID = "15795c325fa780f2939add8bb30d4b36"
+NUXT_PUBLIC_NOTION_SPEAKERS_DB_ID = "16395c325fa780e4bf5ff50481f0662e"
+NUXT_PUBLIC_NOTION_CONTACTS_DATABASE_ID = "16895c325fa780029522cf19408637b3"
+NUXT_PUBLIC_NOTION_NEWSLETTER_DATABASE_ID = "1f995c325fa7805ba4d9e0d6415a34bd"

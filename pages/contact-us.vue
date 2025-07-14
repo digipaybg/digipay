@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { addDoc, collection } from "firebase/firestore";
 import { toast } from "vue-sonner";
-import { db } from "~/lib/firebase";
 
 const { t } = useI18n();
 
@@ -14,6 +12,7 @@ const email = ref("");
 const message = ref("");
 
 const disabled = ref(false);
+const mail = useMail();
 
 async function sendMail() {
   console.log({ name: name.value, email: email.value, message: message.value });
@@ -29,21 +28,54 @@ async function sendMail() {
 
   disabled.value = true;
 
-  await addDoc(collection(db, "mail"), {
-    to: ["kaloyangfx@gmail.com"],
-    message: {
-      subject: `New message from DIGIPAY Site: ${name.value}`,
-      text: `Email: ${email.value}\nMessage: ${message.value}`,
-    },
-  })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
+  // await addDoc(collection(db, "mail"), {
+  //   to: ["kaloyangfx@gmail.com"],
+  //   message: {
+  //     subject: `New message from DIGIPAY Site: ${name.value}`,
+  //     text: `Email: ${email.value}\nMessage: ${message.value}`,
+  //   },
+  // })
+  //   .catch((error) => {
+  //     console.error("Error adding document: ", error);
+  //     toast.error(t("ContactPage.form.error.sendError"), {
+  //       richColors: true,
+  //       closeButton: true,
+  //       invert: true,
+  //     });
+  //     disabled.value = false;
+  //   })
+  //   .finally(() => {
+  //     name.value = "";
+  //     email.value = "";
+  //     message.value = "";
+  //     toast.success(t("ContactPage.form.success"), {
+  //       richColors: true,
+  //       closeButton: true,
+  //       invert: true,
+  //     });
+  //     disabled.value = false;
+  //   });
+
+  mail
+    .send({
+      from: "Kaloyan Stoyanov <kaloyangfx@gmail.com>",
+      to: "raya.lecheva@digipay.bg",
+      subject: "Нова заявка от сайта",
+      text: `
+      Име: ${name.value}
+      Имейл: ${email.value}
+
+      Съобщение:
+      ${message.value}
+      `,
+    })
+    .catch((error: any) => {
+      console.error(error);
       toast.error(t("ContactPage.form.error.sendError"), {
         richColors: true,
         closeButton: true,
         invert: true,
       });
-      disabled.value = false;
     })
     .finally(() => {
       name.value = "";

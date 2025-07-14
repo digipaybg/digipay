@@ -43,7 +43,7 @@ useSeoMeta({
       <LazyHomeTestimonialsSection />
       <LazyHomeVideoSection />
       <LazyHomeWhatHappenedInOtherYearsSection />
-      <LazyHomeNewsletterSection />
+      <LazyNewsletterSection />
     </div>
   </div>
 </template>

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { addDoc, collection } from "firebase/firestore";
 import { toast } from "vue-sonner";
-import { db } from "~/lib/firebase";
 
 const name = ref("");
 const email = ref("");
 const disabled = ref(false);
 const { t } = useI18n();
+
+const mail = useMail();
 
 async function subscribe() {
   if (!name.value || !email.value) {
@@ -20,21 +20,24 @@ async function subscribe() {
 
   disabled.value = true;
 
-  await addDoc(collection(db, "mail"), {
-    to: ["raya.lecheva@digipay.bg"],
-    message: {
-      subject: "New Newsletter Subscription",
-      text: `Name: ${name.value}\nEmail: ${email.value}`,
-    },
-  })
-    .catch((error) => {
-      console.error("Error subscribing: ", error);
-      toast.error(t("Newsletter.error.subscribeError"), {
+  mail
+    .send({
+      from: "Kaloyan Stoyanov <kaloyangfx@gmail.com>",
+      to: "raya.lecheva@digipay.bg",
+      subject: "Нова регистрация в бюлетин",
+      text: `
+      Име: ${name.value}
+
+      Имейл: ${email.value}
+      `,
+    })
+    .catch((error: any) => {
+      console.error(error);
+      toast.error(t("Newsletter.error.sendError"), {
         richColors: true,
         closeButton: true,
         invert: true,
       });
-      disabled.value = false;
     })
     .finally(() => {
       name.value = "";

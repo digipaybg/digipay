@@ -24,7 +24,22 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "nuxt-marquee",
     "nuxt-og-image",
+    "nuxt-mail",
   ],
+  // afme dzza triv qzly
+  mail: {
+    message: {
+      to: "raya.lecheva@digipay.bg",
+    },
+    smtp: {
+      service: "gmail",
+      auth: {
+        user: "kaloyangfx@gmail.com",
+        pass: "afme dzza triv qzly",
+      },
+    },
+  },
+
   fonts: {
     defaults: {
       weights: [300, 400, 500, 600, 700],
