@@ -7,10 +7,7 @@ export default defineNuxtConfig({
   ssr: true,
   modules: [
     "@nuxtjs/tailwindcss",
-    [
-      "vue3-notion/nuxt",
-      { css: true, token: process.env.NUXT_PUBLIC_NOTION_TOKEN },
-    ],
+
     "@nuxt/image",
     "shadcn-nuxt",
     "@nuxtjs/color-mode",
@@ -26,19 +23,6 @@ export default defineNuxtConfig({
     "nuxt-og-image",
     "nuxt-mail",
   ],
-  // afme dzza triv qzly
-  mail: {
-    message: {
-      to: "raya.lecheva@digipay.bg",
-    },
-    smtp: {
-      service: "gmail",
-      auth: {
-        user: "kaloyangfx@gmail.com",
-        pass: "afme dzza triv qzly",
-      },
-    },
-  },
 
   fonts: {
     defaults: {
@@ -47,7 +31,6 @@ export default defineNuxtConfig({
       subsets: ["cyrillic-ext", "cyrillic"],
     },
   },
-  notion: {},
   colorMode: {
     preference: "dark",
     storage: "localStorage",
@@ -90,6 +73,18 @@ export default defineNuxtConfig({
     preset: "cloudflare-pages",
   },
   runtimeConfig: {
+    mail: {
+      message: {
+        to: "raya.lecheva@digipay.bg",
+      },
+      smtp: {
+        service: "gmail",
+        auth: {
+          user: "kaloyangfx@gmail.com",
+          pass: "afme dzza triv qzly",
+        },
+      },
+    },
     public: {
       motion: {
         directives: {
@@ -147,6 +142,15 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ["vue3-notion"],
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: ["vue3-notion"],
+    },
+    ssr: {
+      noExternal: ["vue3-notion"],
+    },
   },
   seo: {
     redirectToCanonicalSiteUrl: false,
