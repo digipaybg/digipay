@@ -260,15 +260,16 @@ useSeoMeta({
   }
 
   h2 {
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+
     span {
       font-size: 1.25rem !important;
       @media (min-width: 640px) {
         font-size: 2rem !important;
       }
     }
-    font-weight: 600;
-    margin-top: 1.25rem;
-    margin-bottom: 0.75rem;
   }
 
   img {

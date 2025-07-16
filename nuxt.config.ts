@@ -220,7 +220,7 @@ export default defineNuxtConfig({
     "/": {
       prerender: true,
       static: true,
-      sitemap: { priority: 1 },
+      // sitemap: { priority: 1 },
       isr: 60 * 60 * 24,
     },
   },

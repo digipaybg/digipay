@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const { sendMail } = useNodeMailer();
 
   return sendMail({
-    to: "kaloyangfx@gmail.com",
+    to: "raya.lecheva@digipay.bg",
     subject: "Нова регистрация в бюлетин",
 
     text: `
