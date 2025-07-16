@@ -8,7 +8,7 @@ const containerStyles =
 const topicTitleStyle = "text-xl sm:text-2xl lg:text-3xl font-semibold";
 const topicDescriptionStyle = "text-base sm:text-lg text-foreground/70";
 
-const { $anime } = useNuxtApp();
+const { $anime } = useNuxtApp() as any;
 
 let animation: anime.AnimeInstance;
 const isMobile = useBreakpoints(breakpointsTailwind).smallerOrEqual("md");

@@ -6,7 +6,7 @@ const email = ref("");
 const disabled = ref(false);
 const { t } = useI18n();
 
-const mail = useMail();
+// const mail = useMail();
 
 async function subscribe() {
   if (!name.value || !email.value) {
@@ -19,36 +19,32 @@ async function subscribe() {
   }
 
   disabled.value = true;
-
-  mail
-    .send({
-      from: "Kaloyan Stoyanov <kaloyangfx@gmail.com>",
-      to: "raya.lecheva@digipay.bg",
-      subject: "Нова регистрация в бюлетин",
-      text: `
-      Име: ${name.value}
-
-      Имейл: ${email.value}
-      `,
-    })
-    .catch((error: any) => {
-      console.error(error);
-      toast.error(t("Newsletter.error.sendError"), {
-        richColors: true,
-        closeButton: true,
-        invert: true,
-      });
-    })
-    .finally(() => {
-      name.value = "";
-      email.value = "";
-      toast.success(t("Newsletter.success"), {
-        richColors: true,
-        closeButton: true,
-        invert: true,
-      });
-      disabled.value = false;
+  try {
+    await $fetch("/api/newsletter", {
+      method: "POST",
+      body: {
+        name: name.value,
+        email: email.value,
+      },
     });
+
+    name.value = "";
+    email.value = "";
+    toast.success(t("Newsletter.success"), {
+      richColors: true,
+      closeButton: true,
+      invert: true,
+    });
+    disabled.value = false;
+  } catch (e) {
+    toast.error(t("Newsletter.error.sendError"), {
+      richColors: true,
+      closeButton: true,
+      invert: true,
+    });
+    disabled.value = false;
+    console.error(e);
+  }
 }
 </script>
 

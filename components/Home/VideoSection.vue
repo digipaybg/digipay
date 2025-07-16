@@ -6,7 +6,7 @@ const isVideoVisible = useElementVisibility(containerRef, {
 });
 
 let animation: anime.AnimeInstance;
-const { $anime } = useNuxtApp();
+const { $anime } = useNuxtApp() as any;
 
 watch(isVideoVisible, (value) => {
   if (value && !animation.began) {

@@ -12,7 +12,6 @@ const email = ref("");
 const message = ref("");
 
 const disabled = ref(false);
-const mail = useMail();
 
 async function sendMail() {
   console.log({ name: name.value, email: email.value, message: message.value });
@@ -56,38 +55,69 @@ async function sendMail() {
   //     disabled.value = false;
   //   });
 
-  mail
-    .send({
-      from: "Kaloyan Stoyanov <kaloyangfx@gmail.com>",
-      to: "raya.lecheva@digipay.bg",
-      subject: "Нова заявка от сайта",
-      text: `
-      Име: ${name.value}
-      Имейл: ${email.value}
+  // mail
+  //   .send({
+  //     from: "Kaloyan Stoyanov <kaloyangfx@gmail.com>",
+  //     to: "raya.lecheva@digipay.bg",
+  //     subject: "Нова заявка от сайта",
+  //     text: `
+  //     Име: ${name.value}
+  //     Имейл: ${email.value}
 
-      Съобщение:
-      ${message.value}
-      `,
-    })
-    .catch((error: any) => {
-      console.error(error);
-      toast.error(t("ContactPage.form.error.sendError"), {
-        richColors: true,
-        closeButton: true,
-        invert: true,
-      });
-    })
-    .finally(() => {
-      name.value = "";
-      email.value = "";
-      message.value = "";
-      toast.success(t("ContactPage.form.success"), {
-        richColors: true,
-        closeButton: true,
-        invert: true,
-      });
-      disabled.value = false;
+  //     Съобщение:
+  //     ${message.value}
+  //     `,
+  //   })
+  //   .catch((error: any) => {
+  //     console.error(error);
+  //     toast.error(t("ContactPage.form.error.sendError"), {
+  //       richColors: true,
+  //       closeButton: true,
+  //       invert: true,
+  //     });
+  //   })
+  //   .finally(() => {
+  //     name.value = "";
+  //     email.value = "";
+  //     message.value = "";
+  //     toast.success(t("ContactPage.form.success"), {
+  //       richColors: true,
+  //       closeButton: true,
+  //       invert: true,
+  //     });
+  //     disabled.value = false;
+  //   });
+
+  const { data, error } = await $fetch("/api/contact", {
+    method: "POST",
+    body: {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    },
+  });
+
+  if (error) {
+    toast.error(t("ContactPage.form.error.sendError"), {
+      richColors: true,
+      closeButton: true,
+      invert: true,
     });
+
+    disabled.value = false;
+    console.error(error.value);
+    return;
+  }
+
+  name.value = "";
+  email.value = "";
+  message.value = "";
+  toast.success(t("ContactPage.form.success"), {
+    richColors: true,
+    closeButton: true,
+    invert: true,
+  });
+  disabled.value = false;
 }
 
 useSeoMeta({

@@ -10,7 +10,7 @@ const props = defineProps<{
 }>();
 
 const { y: scrollY } = useWindowScroll();
-const { $anime } = useNuxtApp();
+const { $anime } = useNuxtApp() as any;
 const letterPullup = ref<HTMLElement | null>(null);
 const isLetterPullupVisible = useElementVisibility(letterPullup);
 

@@ -51,7 +51,7 @@ const visible = useElementVisibility(yearBoxes, {
   threshold: 0.75,
 });
 let animation: anime.AnimeInstance;
-const { $anime } = useNuxtApp();
+const { $anime } = useNuxtApp() as any;
 const { y: scrollY } = useWindowScroll();
 
 watch(visible, (value) => {

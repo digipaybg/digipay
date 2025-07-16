@@ -5,9 +5,18 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   ssr: true,
+  // Add experimental features for better Cloudflare compatibility
+  experimental: {
+    payloadExtraction: false,
+    watcher: "parcel",
+    renderJsonPayloads: false,
+  },
+  // Optimize build for Cloudflare
+  build: {
+    transpile: ["@notionhq/client"],
+  },
   modules: [
     "@nuxtjs/tailwindcss",
-
     "@nuxt/image",
     "shadcn-nuxt",
     "@nuxtjs/color-mode",
@@ -21,7 +30,7 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "nuxt-marquee",
     "nuxt-og-image",
-    "nuxt-mail",
+    "nuxt-nodemailer",
   ],
 
   fonts: {
@@ -71,20 +80,40 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: "cloudflare-pages",
+    experimental: {
+      wasm: true,
+    },
+    rollupConfig: {
+      external: ["node:async_hooks"],
+    },
+    // Add compatibility for Cloudflare
+    compatibilityDate: "2024-11-01",
+    minify: true,
   },
-  runtimeConfig: {
-    mail: {
-      message: {
-        to: "raya.lecheva@digipay.bg",
-      },
-      smtp: {
-        service: "gmail",
-        auth: {
-          user: "kaloyangfx@gmail.com",
-          pass: "afme dzza triv qzly",
-        },
+  // Add Vite configuration for better module resolution
+  vite: {
+    optimizeDeps: {
+      include: ["@notionhq/client", "vue-sonner"],
+      exclude: ["@hypernym/nuxt-anime"],
+    },
+    build: {
+      rollupOptions: {
+        external: ["node:async_hooks"],
       },
     },
+    ssr: {
+      noExternal: ["vue-sonner", "@notionhq/client"],
+    },
+  },
+  nodemailer: {
+    from: '"Kaloyan Stoyanov" <kaloyangfx@gmail.com>',
+    service: "gmail",
+    auth: {
+      user: "kaloyangfx@gmail.com",
+      pass: process.env.GOOGLE_APP_PASSWORD,
+    },
+  },
+  runtimeConfig: {
     public: {
       motion: {
         directives: {
@@ -140,18 +169,7 @@ export default defineNuxtConfig({
       ],
     }),
   },
-  build: {
-    transpile: ["vue3-notion"],
-  },
 
-  vite: {
-    optimizeDeps: {
-      include: ["vue3-notion"],
-    },
-    ssr: {
-      noExternal: ["vue3-notion"],
-    },
-  },
   seo: {
     redirectToCanonicalSiteUrl: false,
     fallbackTitle: false,

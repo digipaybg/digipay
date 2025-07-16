@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { animate, stagger } from "motion";
-
-const { $anime } = useNuxtApp();
+const { $anime } = useNuxtApp() as any;
 const { locale } = useI18n();
 const link =
   locale.value === "en"
@@ -13,12 +11,12 @@ const isTitleVisible = useElementVisibility(titleRef, {
   threshold: 0.75,
 });
 
-let animation: anime.AnimeInstance;
+let animation: any = null;
 
 const scroll = useWindowScroll();
 
 watch(scroll.y, () => {
-  if (isTitleVisible.value && !animation.began) {
+  if (isTitleVisible.value && animation && !animation.began) {
     animation.play();
   }
 });
